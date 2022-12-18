@@ -1,6 +1,7 @@
 # JavaScript
 
- Curso de JavaScript:four_leaf_clover:...
+ Curso de JavaScript:four_leaf_clover:. . .
+
  Sempre Buscando a melhor peformance :books::ledger::computer: :iphone::pushpin:
 
  Executar <a href="https://ezequiellsantos.github.io/JavaScript/exercicios/moduloA/ex001/ex001.html" target="_blank">Ex001</a>
