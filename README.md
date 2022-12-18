@@ -1,4 +1,9 @@
 # JavaScript
+    <style>
+    body{
+        background-color: gray;
+    }
+    </style>
  Curso de JavaScript &#x1F4D3&#x1F4CC
  Executar <a href="https://ezequiellsantos.github.io/JavaScript/" target="_blank">Ex001</a>
 
