@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu primeiro programa....</title>
+    <title>Variáveis em js</title>
     <style>
         body{
             background-color: rgb(0, 235, 252);
@@ -18,12 +18,9 @@
     <h1>Olá Mundo</h1>
     <p>Já me livrei da maldição ;)</p>
     <script>
-        window.alert('Minha primeira mensagem')
-        //serve para dar um alerta ou uma breve mensagem 
-        window.confirm('Está Gostando de js?')
-        //serve para confirmar algo com um "ok"
-        window.prompt('Qual é o seu nome?')
+        var nome = window.prompt('Qual é o seu nome?')
         //serve como uma caixa de texto
+        window.alert('É um prazer em conhecer você ' + nome + '!') // o + no código ao lado tem a função de concatenação
     </script>
 </body>
 </html>
