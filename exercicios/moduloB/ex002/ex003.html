@@ -22,9 +22,11 @@
         var n1 = Number(window.prompt('Digite um número: ')) //o window.prompt trás  valor em forma de string
         var n2 = Number(window.prompt('Digite outro número: '))
         var s = n1 + n2 //aqui ele está concatenado
-        window.alert('A soma dos valores é ' + s)
-        
-        /* no mundo ideal é pra ser 6, mas aqui vai ser 42 pois o + está com a funçaõ de concatenação */ 
+        window.alert(`A soma dos números entre ${n1} e ${n2} é = ${s}`)
+
+
+
+       /*  window.alert('A soma dos valores é ' + String(s)/*s.toString())*/  
 
         // (number)+(number) pode ser adição
         // (string)+(string) pode ser concatenação    
