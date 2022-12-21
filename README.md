@@ -1,6 +1,6 @@
 # JavaScript
 
- <p>Curso de JavaScript:four_leaf_clover:. . .</p>
+ <p>Curso de JavaScript	:yellow_circle::black_circle:</p>
 
  Sempre Buscando a melhor peformance :ledger::computer: :iphone:
 
