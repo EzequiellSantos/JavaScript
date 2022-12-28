@@ -1,0 +1,43 @@
+                    //Eventos DOM//
+
+Evento é tudo aquilo que pode acontecer com algum objeto, por exemplo uma div
+
+ex:
+evento de o mouse passar por cima da div --- > mouseenter 
+
+evento de mover o mouse dentro da div ---> mousemove
+
+evento do mouse clicar e segurar o botao do mouse ---> mousedown
+
+evento de soltar o botao do botão --> mouseup
+
+evento de apenas da o clique com o mouse -->click
+
+evento de mover o mouse para fora da div --> mouseout
+
+
+
+                    // Funções //
+
+
+para fazer com que um function {bloco} de linhas seja executado somente quando o evento acontecer a gente utiliza a função
+
+...
+function ação(param) {
+
+    var.style.background = 'cor_que_voce_quer'
+}
+...
+no html precisa aderir o "on" antes do nome dos eventos para adicionar as funções
+
+
+
+                    // em JavaSCript
+
+para não deixar o seu html sujo, você fora da função coloca 
+
+...
+nome_da_variavel.add.Event.Listener('nome_do_evento', nome_da_funçao )
+...
+
+e dps é so fazer a configuração da função
