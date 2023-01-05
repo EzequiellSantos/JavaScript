@@ -1,4 +1,4 @@
-window.document.write('Olá,  mundo <br>')
+        window.document.write('Olá,  mundo <br>')
         //escrever um texto
 
         window.document.write(window.document.charset + '<br>')
