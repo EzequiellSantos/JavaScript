@@ -2,37 +2,54 @@ var link = document.getElementById('lnk')
 link.addEventListener('mouseup', clicou)
 
 var p = document.getElementsByTagName('p')[1]
-p.addEventListener('click', clicar)
+//p.addEventListener('click', clicar)
 
+var p1 = document.getElementById('km')
+var p2 = document.getElementById('hm')
+var p3 = document.getElementById('dm')
+var p4 = document.getElementById('dam')
+var p5 = document.getElementById('cm')
+var p6 = document.getElementById('mm')
 
 
 function clicou(){
     var num = Number(window.prompt(`Digite uma distancia em metros (m)`))
 
-    p.innerText = `agora ${num}`
+    p.style.fontWeight = 'bold'
+    p.style.fontSize = '1.2em'
+    p.innerText = `A distância de ${num} metros corresponde a...`
 
     var km = num / 1000
     var hm = num / 100 
-    var dm = num * 10
-    var dam = num * 100
-    var cm = num * 10000
-    var mm = num * 100000 
+    var dam = num / 10
+    var dm = num * 10 
+    var cm = num * 100
+    var mm = num * 1000
+
+    km.toFixed(2).replace('.',',')
+    hm.toFixed(1).replace('.',',')
+    dam.toFixed(0).replace('.',',')
+    dm.toFixed(1).replace('.',',')
+    cm.toFixed(2)
+    mm.toFixed(3)
+
+    p1.innerText = `${km} quilômetros (km)`
+    p2.innerText = `${hm} hectômetros (hm)`
+    p3.innerText = `${dam} decâmetros (dam)`
+    p4.innerText = `${dm} decímetros (dm)`
+    p5.innerText = `${cm} centímetros (cm)`    
+    p6.innerText = `${mm} milímetros (mm)`
 
 
+    /* document.writeln(`${km} quilômetros (km)`)
+    document.writeln(`<p>${hm} hectômetros (hm)</p>`)
+    document.writeln(`${dm} decímetros (dm)`)
+    document.writeln(`${dam} decâmetros (dam)`)
+    document.writeln(`${cm} centímetros (cm)`)
+    document.writeln(`${mn} milímetros (mm)`) */
+}
     
-    //document.writeln(`${km} quilômetros (km)`)
-    //document.writeln(`<p>${hm} hectômetros (hm)</p>`)
-    //document.writeln(`${dm} decímetros (dm)`)
-    //document.writeln(`${dam} decâmetros (dam)`)
-    //document.writeln(`${cm} centímetros (cm)`)
-    //document.writeln(`${mn} milímetros (mm)`)
-}
 
 
-/* function clicar(){
- 
-}
-
- */
 
     
