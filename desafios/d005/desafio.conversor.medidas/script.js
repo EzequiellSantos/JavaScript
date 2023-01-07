@@ -33,12 +33,12 @@ function clicou(){
     cm.toFixed(2)
     mm.toFixed(3)
 
-    p1.innerText = `${km} quilômetros (km)`
-    p2.innerText = `${hm} hectômetros (hm)`
-    p3.innerText = `${dam} decâmetros (dam)`
-    p4.innerText = `${dm} decímetros (dm)`
-    p5.innerText = `${cm} centímetros (cm)`    
-    p6.innerText = `${mm} milímetros (mm)`
+    p1.innerHTML = `<strong>${km}</strong> quilômetros (km)`
+    p2.innerHTML = `<strong>${hm}</strong> hectômetros (hm)`
+    p3.innerHTML = `<strong>${dam}</strong> decâmetros (dam)`
+    p4.innerHTML = `<strong>${dm}</strong> decímetros (dm)`
+    p5.innerHTML = `<strong>${cm}</strong> centímetros (cm)`    
+    p6.innerHTML = `<strong>${mm}</strong> milímetros (mm)`
 
 
     /* document.writeln(`${km} quilômetros (km)`)
