@@ -23,6 +23,13 @@ p.botao{
     transition: all 0.8s;
 }
 
+p.botao:hover{
+    background-color: rgb(163, 162, 162);
+    transform: scale(0.9);
+    border-radius: 20px;
+    transition: transform 0.7s, border-radius 0.4s ;
+}
+
 a{  
     text-align: center;
     line-height: 70px;
