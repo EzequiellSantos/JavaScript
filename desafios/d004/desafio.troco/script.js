@@ -17,11 +17,13 @@ function clicou(){
 
     var troco = gasto - valor
     Number(troco)
-    //valor.toFixed(2).replace('.',',')
-    //gasto.toFixed(2).replace('.',',')
-    //troco.toFixed(2).replace('.',',')
-    //valor.toLocaleString('pt:BR', {style: 'currency', currency:'BRL'})
-    //gasto.toLocaleString('pt:BR', {style: 'currency', currency:'BRL'})
+    
+    var ttvalor = String(valor.toFixed(2).replace('.',','))
+    var ttgasto = String(gasto.toFixed(2).replace('.',','))
+    var tttroco = String(troco.toFixed(2).replace('.',','))
 
-    window.confirm(`você comprou ${produto} que custou R$ ${valor}. \n Deu R$ ${gasto} em dinheiro e vai receber R$ ${troco} de troco. \n Volte Sempre`)
+    
+    //var ttgasto .toLocaleString('pt:BR', {style: 'currency', currency:'BRL'})
+
+    window.confirm(`você comprou ${produto} que custou R$ ${ttvalor}. \n Deu R$ ${ttgasto} em dinheiro e vai receber R$ ${tttroco} de troco. \n Volte Sempre`)
 }
