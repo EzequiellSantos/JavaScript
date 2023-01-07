@@ -13,11 +13,14 @@ var p6 = document.getElementById('mm')
 
 
 function clicou(){
-    var num = Number(window.prompt(`Digite uma distancia em metros (m)`))
+    var num = window.prompt(`Digite uma distancia em metros (m)`)
 
     p.style.fontWeight = 'bold'
     p.style.fontSize = '1.2em'
-    p.innerText = `A distância de ${num} metros corresponde a...`
+
+    var wndwnum = new Intl.NumberFormat('pt-BR', { maximumSignificantDigits: 3 }).format(num)
+
+    p.innerText = `A distância de ${wndwnum} metros corresponde a...`
 
     var km = num / 1000
     var hm = num / 100 
@@ -26,19 +29,20 @@ function clicou(){
     var cm = num * 100
     var mm = num * 1000
 
-    km.toFixed(2).replace('.',',')
-    hm.toFixed(1).replace('.',',')
-    dam.toFixed(0).replace('.',',')
-    dm.toFixed(1).replace('.',',')
-    cm.toFixed(2)
-    mm.toFixed(3)
+    var ttkm = String(km.toFixed(3).replace('.',','))
+    var tthm = String(hm.toFixed(3).replace('.',','))
+    var ttdam = String(dam.toFixed(3).replace('.',','))
+    var ttdm = String(dm.toFixed(1).replace('.',','))
+    
+    var ttcm = new Intl.NumberFormat('pt-BR', { maximumSignificantDigits: 3 }).format(cm)
+    var ttmm = new Intl.NumberFormat('pt-BR', { maximumSignificantDigits: 3 }).format(mm)
 
-    p1.innerHTML = `<strong>${km}</strong> quilômetros (km)`
-    p2.innerHTML = `<strong>${hm}</strong> hectômetros (hm)`
-    p3.innerHTML = `<strong>${dam}</strong> decâmetros (dam)`
-    p4.innerHTML = `<strong>${dm}</strong> decímetros (dm)`
-    p5.innerHTML = `<strong>${cm}</strong> centímetros (cm)`    
-    p6.innerHTML = `<strong>${mm}</strong> milímetros (mm)`
+    p1.innerHTML = `<strong>${ttkm}</strong> quilômetros (km)`
+    p2.innerHTML = `<strong>${tthm}</strong> hectômetros (hm)`
+    p3.innerHTML = `<strong>${ttdam}</strong> decâmetros (dam)`
+    p4.innerHTML = `<strong>${ttdm}</strong> decímetros (dm)`
+    p5.innerHTML = `<strong>${ttcm}</strong> centímetros (cm)`    
+    p6.innerHTML = `<strong>${ttmm}</strong> milímetros (mm)`
 
 
     /* document.writeln(`${km} quilômetros (km)`)
