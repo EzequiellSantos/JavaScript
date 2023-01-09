@@ -54,3 +54,9 @@ a:hover{
     border-radius: 20px;
     transition: transform 0.7s, border-radius 0.4s ;
 }
+
+hr{
+    display: block;
+    max-width: 900px;
+    text-align: left;
+}
