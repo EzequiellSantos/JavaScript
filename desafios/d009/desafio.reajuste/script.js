@@ -39,7 +39,13 @@ function clicou(){
         res.innerHTML += `<p>Com a diminuição de ${pct}%, o salário vai diminuir R$ ${tt} no próximo mês</p>`
         res.innerHTML += `<p>A partir daí, ${nome} vai passar a ganhar R$ ${ttmenos}</p><br><hr>`
     }  
-    if (pct == 'null'){   
+    if (sal == ' '){   
+        res.innerHTML = '<p>Não ouve reajuste :)</p><br><hr>'
+    }
+    if (esco == ' '){   
+        res.innerHTML = '<p>Não ouve reajuste :)</p><br><hr>'
+    }
+    if (pct == ' '){   
         res.innerHTML = '<p>Não ouve reajuste :)</p><br><hr>'
     }
 
