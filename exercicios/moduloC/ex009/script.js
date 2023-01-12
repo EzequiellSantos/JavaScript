@@ -3,7 +3,7 @@ function carregar(){
     var msg = document.getElementById('msg')
 
     var data = new Date()
-    var hr = 3//data.getHours()
+    var hr = data.getHours()
     var mn = data.getMinutes()
 
     msg.innerHTML = `Agora são ${hr} horas e ${mn} minutos.`
