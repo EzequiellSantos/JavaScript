@@ -21,7 +21,7 @@ section{
     margin: auto;
     margin-top: 30px;
     width: 500px;
-    height: 445px;
+    height: 505px;
     border-radius: 14px;
     box-shadow: 4px 5px 6px rgba(5, 5, 41, 0.555);
 }
@@ -31,8 +31,8 @@ div{
 }
 
 img{
-    max-width: 250px;
-    max-height: 280px;
+    max-width: 270px;
+    max-height: 290px;
     margin: auto;
     display: block;
     margin-top: 30px;
@@ -55,7 +55,7 @@ img{
     transform: scale(0.9);
     background-color: rgb(87, 159, 241);
     color: white;
-    transition: background-color 0.8s, color 0.2s;
+    transition: background-color 0.8s, color 0.2s, trasnform 0.8s;
 }
 
 #ver:active{
@@ -70,4 +70,15 @@ footer{
     text-align: center;
     margin-top: 30px;
     color: white;
+}
+
+footer > a{
+    text-decoration: none;
+    color: white;
+}
+
+footer > a:hover{
+    text-decoration: underline;
+    color: rgb(127, 251, 255);
+    transition: all 0.8s;
 }

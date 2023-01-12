@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/EzequiellSantos/html-css/main/desafios/modulo%2001/Favicon.EZ/Martin-Berube-Flat-Animal-Mouse.ico" type="image/x-icon">
-    <title>Exercício</title>
+    <title>Verificador de Idade</title>
 </head>
-<body>
+<body onload="carregou ()">
     <header>
         <h1>Verificador de Idade</h1>
     </header>
@@ -16,28 +16,32 @@
     <section>
         <div id="nas-div">
             <p>Ano de Nascimento:</p> <p><input type="number" name="dataNas" id="nas"></p>
+
+            <p>
+                Sexo: 
+                <input type="radio" name="sex" id="fem" checked>
+                <label for="fem">Feminino</label>
+                <!-- NÃO PODE DEIXAR OS NOMES DO INPUT IGUAIS, SENÃO, NÃO DA PRA DESMARCAR -->
+                <input type="radio" name="sex" id="mas">
+                <label for="mas">Masculino</label>
+            </p>
+            <p>
+                <input type="button" value="Verificar" id="ver" onclick="verificar ()">
+            </p>     
         </div>
-
-        <div id="sex" >
-
-            Sexo: <input type="checkbox" name="fem" id="fem">Feminino
-
-            <input type="checkbox" name="mas" id="mas">Masculino</div> 
-       
-
-        <div>
-            <input type="button" value="Verificar" id="ver">
+        <div id="res">
+            preencha os dados acima para ver o resultado!
         </div>
-
         <div id="imgs">
-            <img src="no.profile.jpg" alt="" id="ima">
+            <img src="" alt="" id="ima">
         </div>
-
     </section>
 
     <footer>
-        <p>&copy; Ezequiell Santos</p>
+        <a href="https://github.com/EzequiellSantos/">
+            <p>&copy; Ezequiell Santos</p>
+        </a>
     </footer>
-    <script src="escript.js"></script>
+    <script src="escriptex.js"></script>
 </body>
 </html>
