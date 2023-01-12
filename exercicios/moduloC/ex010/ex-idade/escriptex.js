@@ -30,23 +30,23 @@ function verificar(){
 
             if(idade >= 0 && idade < 14){
 
-                //criança
+                //criança mulher
                 img.setAttribute('src', 'imagens/girl.perfil.jpg')
                 img.style.maxHeight = '270px'
 
             }else if(idade < 23){
 
-                //jovem
+                //jovem mulher
                 img.setAttribute('src', 'imagens/mulher.perfil.jpg')
 
             }else if(idade < 40){
 
-                //adulto
+                //adulto mulher
                 img.setAttribute('src', 'imagens/woman.jpg')
 
             }else {
 
-                //idoso
+                //idoso mulher
                 img.setAttribute('src', 'imagens/idosa.perfil.jpg' )
 
             }
@@ -57,22 +57,22 @@ function verificar(){
 
             if(idade >= 0 && idade < 14){
 
-                //criança
+                //criança Homen
                 img.setAttribute('src', 'imagens/boy.perfil.jpg')
 
             }else if(idade < 23){
 
-                //jovem
+                //jovem Homem
                 img.setAttribute('src', 'imagens/young.jpg')
 
             }else if(idade < 40){
 
-                //adulto
+                //adulto Homem
                 img.setAttribute('src', 'imagens/man.jpg')
                 
             }else {
 
-                //idoso
+                //idoso Homem
                 img.setAttribute('src', 'imagens/idoso.perfil.jpg')
 
             }
