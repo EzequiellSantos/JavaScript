@@ -3,8 +3,9 @@
     var img = document.createElement('img')
     img.setAttribute('id', 'foto')
     var imgnicio = document.getElementById('ima')
-    ima.src = 'https://github.com/EzequiellSantos/JavaScript/blob/main/exercicios/moduloC/ex010/ex-idade/no.profile.jpg?raw=true'
-    res.appendChild(ima)
+    ima.src = 'https://github.com/EzequiellSantos/JavaScript/blob/main/exercicios/moduloC/ex010/ex-idade/imagens/no.profile.jpg?raw=true'
+    res.style.textAlign = 'center'
+    res.appendChild(ima)//imagem sem perfil
 
 
 function verificar(){
@@ -15,8 +16,11 @@ function verificar(){
 
 
     if(fano.value.length == '0'  || fano.value > ano){
+
         window.alert('[ERROR] Verifique os dados e tente novamente')
+
     }else{
+
         var sexo = document.getElementsByName('sex')
         var idade = ano - Number(fano.value)
         var gen = ''
@@ -74,6 +78,6 @@ function verificar(){
             }
         }
         res.innerText = `Detectamos ${gen} com ${idade} Anos`
-        res.appendChild(img)
+        res.appendChild(img)//imagem da idade
     }
 }
