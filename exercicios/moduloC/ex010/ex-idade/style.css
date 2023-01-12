@@ -19,12 +19,14 @@ section{
     background-color: rgb(119, 119, 119);
     color: black;
     padding: 10px;
+    display: block;
     margin: auto;
     margin-top: 30px;
-    width: 500px;
+    max-width: 500px;
     height: 505px;
     border-radius: 14px;
     box-shadow: 4px 8px 10px rgba(5, 5, 41, 0.281);
+    /* margin: 0px 10px 0px 10px;  */
 }
 
 div{
@@ -43,6 +45,9 @@ img{
     box-shadow: 3px 1px  3px rgba(0, 0, 0, 0.123);
 }
 
+p{
+    font-size: 1.2em;
+}
 
 input#nas{
     border-top: 0;
