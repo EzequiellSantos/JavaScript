@@ -1,4 +1,4 @@
-
+/* 
 var nas = document.getElementById('nas-div')
 var sex = document.getElementById('sex')
 var ver = document.getElementById('ver')
@@ -13,7 +13,7 @@ ver.addEventListener('click', clicou)
 
     if (nas <= 1972 &&  sex == 'fem' ) {
 
-    /* const image = new Image()*/
+    /* const image = new Image()
     ima.src += 'https://github.com/EzequiellSantos/JavaScript/blob/main/exercicios/moduloC/ex009/ex.idade/idosa.perfil.jpg?raw=true';
 
     imaidosa.appendChild(ima);
@@ -27,4 +27,4 @@ ver.addEventListener('click', clicou)
 
         imaidosa.appendChild(ima)
     }
-} 
+}  */
