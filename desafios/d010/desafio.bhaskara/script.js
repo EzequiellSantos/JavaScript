@@ -1,9 +1,8 @@
-var ver = document.getElementById('ver')
+/* var ver = document.getElementById('ver')
 ver.addEventListener('click', clicou)
 
 
-
-function clicou(){
+ function clicou(){
     var res = document.getElementById('res')
     var a = window.prompt('Digite o valor de a')
     var b = window.prompt('Digite o valor de b')
@@ -14,7 +13,7 @@ function clicou(){
     res.innerHTML += `<p>A equação atual é  ${a}x<sup>2</sup> + ${b}x + ${c} = 0</p> `
     res. innerHTML += `O cálculo realizado será &#x0394 = ${b}x<sup>2</sup> - 4 . ${a} . ${c}`
     res.innerHTML += `<p>Delta é igual a <mark>  &#x0394 = ${delta} </mark></p> <br><hr><br>`
-}
+} */
 
 
 
@@ -35,4 +34,4 @@ var bubls = document.getElementsByClassName("bubl");
 
 for (var i = 0; i < bubls.length; i++) {
     bubls[i].addEventListener("click", animateButton, false);
-}
+} 
