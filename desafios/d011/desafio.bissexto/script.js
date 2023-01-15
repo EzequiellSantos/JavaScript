@@ -10,7 +10,7 @@ function clicou(){
     var anodays = Number.parseInt(ano % 4 )
 
     if(anodays == 0){
-        res.innerHTML += `<br><p>O ano ${ano} é <mark class="bix">BISSEXTO</mark></p><br><hr>`
+        res.innerHTML += `<br><p>O ano ${ano} <mark class="bix">é BISSEXTO</mark></p><br><hr>`
     }else{
         res.innerHTML += `<br><p>O ano ${ano} <mark class="nobix">Não é BISSEXTO</mark></p><br><hr>`
     }
