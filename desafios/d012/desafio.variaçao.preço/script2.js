@@ -1,14 +1,16 @@
+//levy
+
 var botao = document.getElementById('calc')
-botao.addEventListener('click', clicou)
+botao.addEventListener('click', clicou) // função
 
 var bodao = window.document.body
-bodao.style.textAlign = 'left'
+bodao.style.textAlign = 'left' // style do body
 
 function clicou(){
     var res = document.getElementById('res')
     var pa = window.prompt('Digite o preço antigo')
     var pn = window.prompt('Digite o preço atual')
-    res.innerText = ''
+    res.innerText = '' // limpa
 
 
     if (pa - pn < 0) {
@@ -16,17 +18,17 @@ function clicou(){
         var aoud = 'aumentou'
         var coub = 'cima'
         var dif = pn - pa
-        var porc = (dif *100) / pa
+        var porc = (dif *100) / pa // procentagem
     } else { 
         var aoub = 'mais barato'
         var aoud = 'caiu'
         var coub = 'baixo'
         var dif = pa - pn
-        var porc = (dif * 100) / pa
+        var porc = (dif * 100) / pa // porcentagem
     }
 
     var patt = String(pa.toFixed(2).replace('.',','))
-    var pntt = String(pn.toFixed(2).replace('.',','))
+    var pntt = String(pn.toFixed(2).replace('.',','))          //formatações de . para ,
     var diftt = String(dif.toFixed(2).replace('.',','))
     var porctt = String(porc.toFixed(2).replace('.',','))
 

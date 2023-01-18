@@ -1,3 +1,4 @@
+//kiel
 var ver = document.getElementById('ver')
 var res = document.getElementById('res')
 
@@ -7,7 +8,7 @@ function clicou(){
     var ano = window.prompt('Qual é o ano que você quer verificar?')
     
 
-    var anodays = Number.parseInt(ano % 4 )
+    var anodays = Number.parseInt(ano % 4 )//resto da divisao
 
     if(anodays == 0){
         res.innerHTML += `<br><p>O ano ${ano} <mark class="bix">é BISSEXTO</mark></p><br><hr>`

@@ -1,3 +1,4 @@
+//levy
 function verificar (){
     var anop = window.prompt('Bota o ânus')
     var cal  = anop % 4

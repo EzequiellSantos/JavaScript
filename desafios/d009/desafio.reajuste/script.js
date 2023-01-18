@@ -11,6 +11,7 @@ function clicou(){
     var pctma = sal * pct / 100  
     var mais = pctma + sal
     var menos = sal - pctma
+    
 
     // formatação de (sal) para decimal
     var salfmt = String(sal.toFixed(2).replace('.',','))
@@ -21,31 +22,33 @@ function clicou(){
     // formatação de (menos) para decimal
     var ttmenos = String(menos.toFixed(2).replace('.',','))
 
-   
-
     //formatação de (pctma) para decimal
     var tt = String(pctma.toFixed(2).replace('.',','))
 
-    if (esco == 'a') {
+
+    if (esco == 'a') { // aumento
         res.innerHTML += `<h3>O ${nome} Recebeu um aumento salarial!</h3>`
-        res.innerHTML += `<p>O salário atual era R$ ${salfmt}.</p>`
+        res.innerHTML += `<p>O salário atual era R$ ${salfmt}.</p>`//salario atual
         res.innerHTML += `<p>Com o aumento de ${pct}%, o salário vai aumentar R$ ${tt} no próximo mês</p>`
         res.innerHTML += `<p>A partir daí, ${nome} vai passar a ganhar R$ ${ttmais}</p><br><hr>`
     } 
     
-    if (esco == 'd'){
+    if (esco == 'd'){//diminuiçao
         res.innerHTML += `<h3>O ${nome} Recebeu uma diminuição salarial!</h3>`
-        res.innerHTML += `<p>O salário atual era R$ ${salfmt}.</p>`
+        res.innerHTML += `<p>O salário atual era R$ ${salfmt}.</p>`//salario atual
         res.innerHTML += `<p>Com a diminuição de ${pct}%, o salário vai diminuir R$ ${tt} no próximo mês</p>`
         res.innerHTML += `<p>A partir daí, ${nome} vai passar a ganhar R$ ${ttmenos}</p><br><hr>`
     }  
     if (sal == ' '){   
+            //erro de dados
         res.innerHTML = '<p>Não ouve reajuste :)</p><br><hr>'
     }
-    if (esco == ' '){   
+    if (esco == ' '){ 
+        //erro de dados
         res.innerHTML = '<p>Não ouve reajuste :)</p><br><hr>'
     }
-    if (pct == ' '){   
+    if (pct == ' '){ 
+        //erro de dados
         res.innerHTML = '<p>Não ouve reajuste :)</p><br><hr>'
     }
 
