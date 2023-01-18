@@ -179,7 +179,15 @@ a:hover{
 hr{
     display: block;
     max-width: 900px;
-    text-align: left;
+    text-align: center;
+    /* margin-right: 20px;
+    margin-left: 20px; */
+}
+
+hr.mnr{
+    display: block;
+    max-width: 400px;
+    text-align: center;
 }
 
 mark.bix{
@@ -198,6 +206,19 @@ mark.nobix{
     padding: 5px;
     border-radius: 7px;
     text-align: center;
+}
+
+mark.intr{
+    background-color: rgba(240, 200, 86, 0.8477);
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 7px;
+    text-align: center;
+}
+
+span.nome-aluno{
+    color: rgb(135, 207, 255);
 }
 
 
