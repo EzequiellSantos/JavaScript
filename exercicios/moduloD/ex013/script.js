@@ -1,29 +1,62 @@
-var ver = document.getElementById('ver')
-ver.addEventListener('click', clicou)
+function  calculou (){
 
-function clicou(){
+    var inicio = document.getElementById('inpt1')
+    var fim = document.getElementById('inpt2')
+    var passo = document.getElementById('inpt3')
     var res = document.getElementById('res')
-    var inpt1 = document.getElementsById('inpt1')
-    var inpt2 = document.getElementsById('inpt2')
-    var inpt3 = document.getElementsById('inpt3')
 
-    
-    if (inpt1.value.length == 0 || inpt2.value.length == 0 || inpt3.value.length == 0) {
+    var i = Number(inicio.value)
+    var f = Number(fim.value)
+    var p = Number(passo.value)
 
-        alert('[ERROR_1] verifique as caixas de textos')
 
-    } else {
-        res.innerText = 'contando:'
-        var i = Number(inpt1.value)
-        var f = Number(inpt2.value)
-        var p = Number(inpt3.value)
-
-        for(var c = i ; i<= f ; c += p){
-
-        res.innerText += `${c}`
+////////////////// validção do passo ///////////////////
+    if(p == 0){
+        alert('O passo deve ser maior que zero!')
+        alert('atualize a página e corrija o passo')
+    }
+    else if(p < 0){
+        alert('O passo deve ser maior que zero!')
+        alert('atualize a página e corrija o passo')
+    }else{
+        res.innerHTML += '<br>'
+        if(i < f){//output da invalidação
+            for(var ini = i ; ini <= f ; ini += Math.abs(p)){
+                res.innerHTML += `${ini}`
+                res.innerHTML += (ini != f) ? ' -> ' : '.'
+            }
+        }
+        else{//output da invalidação
+            for(var ini = i ; ini >= f ; ini -= Math.abs(p)){
+                res.innerHTML += `${ini}`
+                res.innerHTML += (ini != f) ? ' -> ' : '.'
+            }
         }
     }
-    
+/////////////////// validação do passo ////////////////////
 
+
+
+    if ( inicio.value.length == 0 || fim.value.length == 0 || passo.value.length == 0 ) {
+        alert('[ERROR_4] Preencha os campos')// validação dos inputs
+    }else if(i < f ) {
+        //crescente
+        res.innerText = 'contando: '
+
+        for( var c = i ; c < f ; c += p){
+        res.innerHTML += ` ${c} 👉`
+        }  
+        res.innerHTML += ' 🏁'
+    }else if(i > f ) {
+        //decrescente
+        res.innerText = 'contando: '
+        for(var d = i ; d > f ; d -= p){
+
+        res.innerHTML += ` ${d} 👉`
+                
+        }
+        res.innerHTML += ' 🏁' 
+    }else{             
+    res.innerHTML += '[ERROR_5] Dados Inválidos'       
+    }
 }
-
