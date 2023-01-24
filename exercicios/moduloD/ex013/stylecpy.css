@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(99, 165, 252);
+    color: white;
+}
+
+header{
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+
+}
+
+section{
+    background-color: rgb(119, 119, 119);
+    color: black;
+    padding: 10px;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    max-width: 500px;
+    height: 545px;
+    border-radius: 14px;
+    box-shadow: 4px 8px 10px rgba(5, 5, 41, 0.281);
+    /* margin: 0px 10px 0px 10px;  */
+}
+
+div{
+    margin: 20px;
+    color: white;
+}
+
+img{
+    max-width: 270px;
+    max-height: 290px;
+    margin: auto;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 49%;
+    box-shadow: 3px 1px  3px rgba(0, 0, 0, 0.123);
+}
+
+p{
+    font-size: 1.2em;
+    color: white;
+}
+
+input#nas{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom-color: rgb(192, 192, 192);
+    border-bottom-width: 1px;
+    transition: all 0.7s ;
+    border-bottom-style:  ridge;
+    background-color: rgb(119, 119, 119);
+    text-decoration-color: aliceblue;
+    color: rgba(184, 184, 184, 0.938);
+    text-align: center;
+    font-size:17px;
+}
+
+input#nas:hover{
+    color: white;
+}
+
+input::placeholder{
+    color: rgba(167, 167, 167, 0.664);
+}
+
+textarea:focus, #nas:focus{
+    box-shadow: 0;
+    outline: 0;
+    border: 0;
+    transition: all 0.5s;
+    border-bottom: 1px solid rgb(179, 169, 169); 
+    padding: 0px 0px 5px 4px;
+    text-align: center;
+    font-size: 1.0em; 
+    -shadow: 1px 3px  outset black; 
+    color: white;
+
+}
+
+
+/* #nas::-webkit-outer-spin-button,
+#nas::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+} 
+ 
+Remover setas para cima e para baixo */
+
+#ver{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: rgba(51, 219, 248, 0.685);
+    transition: all 0.6s;
+    letter-spacing: 1px;
+}
+
+#ver:hover{
+    transform: scale(0.9);
+    background-color: rgb(87, 159, 241);
+    color: white;
+    transition: background-color 0.8s, color 0.2s, trasnform 0.8s;
+}
+
+#ver:active{
+    background-color:  rgb(8, 34, 148);
+}
+
+/* input{
+    display: inline-block;
+} */
+
+footer{
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+}
+
+footer > a{
+    text-decoration: none;
+    color: white;
+}
+
+footer > a:hover{
+    text-decoration: underline;
+    color: rgb(127, 251, 255);
+    transition: all 0.8s;
+}
