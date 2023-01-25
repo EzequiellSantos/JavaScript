@@ -2,7 +2,7 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(99, 165, 252);
+    background-color: rgb(92, 201, 141);
     color: white;
 }
 
@@ -102,20 +102,20 @@ Remover setas para cima e para baixo */
     padding: 7px;
     margin-top: 10px;
     border-radius: 5px;
-    background-color: rgba(51, 219, 248, 0.685);
+    background-color: rgba(89, 253, 157, 0.74);
     transition: all 0.6s;
     letter-spacing: 1px;
 }
 
 #ver:hover{
     transform: scale(0.9);
-    background-color: rgb(87, 159, 241);
+    background-color: rgb(26, 187, 93);
     color: white;
     transition: background-color 0.8s, color 0.2s, trasnform 0.8s;
 }
 
 #ver:active{
-    background-color:  rgb(8, 34, 148);
+    background-color:  rgb(8, 148, 66);
 }
 
 /* input{
