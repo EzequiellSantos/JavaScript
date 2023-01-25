@@ -42,15 +42,15 @@ function clicou(){
 
         if(somafrm >= 0 && somafrm < 3){
             //resposta reprovado
-        res.innerHTML += `<p>Aluno(a) <span class="nome-aluno">${nome}</span> Situação: <mark class="nobix">Reprovado</mark></p><hr class="mnr">`
+            res.innerHTML += `<p>Aluno(a) <span class="nome-aluno">${nome}</span><br><br> Situação: <mark class="nobix">Reprovado</mark></p><hr class="mnr">`
 
         }else if( somafrm > 6 && somafrm <= 10){
             //resposta aprovado
-            res.innerHTML +=  `<p>Aluno(a) <span class="nome-aluno">${nome}</span> Situação: <mark class="bix">Aprovado</mark></p><hr class="mnr">`
+            res.innerHTML +=  `<p>Aluno(a) <span class="nome-aluno">${nome}</span><br><br> Situação: <mark class="bix">Aprovado</mark></p><hr class="mnr">`
 
         }else if( somafrm >= 3 && somafrm <= 6){
             //resposta recuperação
-            res.innerHTML += `<p>Aluno(a) <span class="nome-aluno">${nome}</span> Situação: <mark class="intr">Recuperação</mark></p><hr class="mnr">`
+            res.innerHTML += `<p>Aluno(a) <span class="nome-aluno">${nome}</span><br><br> Situação: <mark class="intr">Recuperação</mark></p><hr class="mnr">`
 
         }
         else{

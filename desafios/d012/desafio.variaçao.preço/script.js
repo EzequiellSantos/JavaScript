@@ -18,8 +18,8 @@ function clicou(){
     if (pa - pn < 0) {
         
         var dif = pn - pa //diferença
-        var patt = String(pa.toFixed(2).replace('.',','))
-        var pntt = String(pn.toFixed(2).replace('.',',')) // formatação
+        //var patt = String(pa.toFixed(2).replace('.',','))
+        //var pntt = String(pn.toFixed(2).replace('.',',')) // formatação
 
         res.innerHTML += `<p>O produto custava R$ ${patt} agora custa R$ ${pntt}</p> `
 
@@ -34,8 +34,8 @@ function clicou(){
 
     } else {     
         var dif = pa - pn //diferença
-        var patt = String(pa.toFixed(2).replace('.',','))
-        var pntt = String(pn.toFixed(2).replace('.',','))// formatação
+        //var patt = String(pa.toFixed(2).replace('.',','))
+        //var pntt = String(pn.toFixed(2).replace('.',','))// formatação
 
         res.innerHTML += `<p>O produto custava R$ ${patt} agora custa R$ ${pntt}</p> `
         

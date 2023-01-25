@@ -19,5 +19,5 @@ function clicou(){
 
     res.innerHTML += `<p>O valor inicial do seu produto é <strong>${valor} R$</strong></p>`
     res.innerHTML += `E <strong>${pct}%</strong> de <strong>${valor} R$</strong> é igual <strong>${ttpor} R$</strong>`
-    res.innerHTML += `<p>O seu produto com o Desconto de <strong>10%</strong> fica <strong>${ttfin} R$</strong></p><hr>`
+    res.innerHTML += `<p>O seu produto com o Desconto de <strong>${pct}</strong> fica <strong>${ttfin} R$</strong></p><hr>`
 }
