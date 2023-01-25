@@ -125,7 +125,12 @@ Remover setas para cima e para baixo */
 } */
 
 #slct{
-    padding: 30px;
+    padding: 12px 3px 4px 6px;
+    border-radius: 14px;
+}
+
+#slct::-webkit-scrollbar{
+    border-radius: 10px;
 }
 
 footer{
@@ -137,11 +142,9 @@ footer{
 a.link-footer{
     text-decoration: none;
     color: white;
-    transition: all .7s;
 }
 
-a.link-footer:hover{
+a.link-footer:active{
     text-decoration: underline;
     color: rgb(155, 74, 247);
-    transition: all 0.8s;
 }

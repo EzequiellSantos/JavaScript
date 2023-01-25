@@ -128,13 +128,11 @@ footer{
     color: white;
 }
 
-footer > a{
+a{
     text-decoration: none;
     color: white;
 }
-
-footer > a:hover{
+a:active{
     text-decoration: underline;
-    color: rgb(127, 251, 255);
-    transition: all 0.8s;
+    color: rgb(38, 255, 103);
 }
