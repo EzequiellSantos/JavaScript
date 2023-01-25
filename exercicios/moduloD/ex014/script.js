@@ -1,3 +1,5 @@
+/// Sozinho
+
 function calculou(){
     var res = document.getElementById('res')
     var num = document.getElementById('num')
