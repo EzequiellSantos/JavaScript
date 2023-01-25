@@ -4,6 +4,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(222, 151, 255);
     color: white;
+    transition: all .8s;
 }
 
 header{
@@ -26,7 +27,7 @@ section{
     min-height: 400px;
     border-radius: 14px;
     box-shadow: 4px 8px 10px rgba(5, 5, 41, 0.281);
-    /* margin: 0px 10px 0px 10px;  */
+    /*margin: 0px 10px 0px 10px;  */
 }
 
 div{
@@ -100,8 +101,8 @@ Remover setas para cima e para baixo */
     text-align: right;
     border: none;
     padding: 7px;
-    margin-top: 10px;
-    margin-left: 0px;
+    margin-top: 20px;
+    margin-left:45px;
     border-radius: 5px;
     background-color: rgba(253, 89, 245, 0.74);
     transition: all 0.6s;
@@ -133,13 +134,14 @@ footer{
     color: white;
 }
 
-footer > a{
+a.link-footer{
     text-decoration: none;
     color: white;
+    transition: all .7s;
 }
 
-footer > a:hover{
+a.link-footer:hover{
     text-decoration: underline;
-    color: rgb(127, 251, 255);
+    color: rgb(155, 74, 247);
     transition: all 0.8s;
 }
