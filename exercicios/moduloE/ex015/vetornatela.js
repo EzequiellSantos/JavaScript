@@ -18,5 +18,6 @@ console.log(valores[7]) */
 } */
 
 for(let pos in valores ){
+    
     console.log(`A posição ${pos} tem como valor ${valores[pos]}`)
 }
