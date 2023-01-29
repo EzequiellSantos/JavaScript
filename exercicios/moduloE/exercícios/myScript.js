@@ -8,6 +8,7 @@ function adicionou (){
 
     if(Number(num.value) >= 1 && Number(num.value) <=100){
     arry.push(Number(num.value))
+    res_2.innerHTML = ''
     res.innerHTML += `Valor ${num.value} adicionado <br>`
     } else{
         alert('DIgite um Número acima de 0')
@@ -19,11 +20,19 @@ function adicionou (){
 
 
 function finalizou (){
-    var num = Number(document.getElementById('num').value)
-    if(num === 0 ){
+    if(arry.length == 0 ){
        alert('Adicione Números')
     }else{
-    
+        let soma = 0
+        let media = 0
+        
+        for(let pos in arry){
+            soma += arry[pos]
+            media += arry[pos] / arry.length
+        }
+
+        let mediatt = Number(media.toFixed(2))
+
         res_2.innerHTML = ''
         res_2.innerHTML += `<p>Ao todo temos ${arry.length} Número Cadastrados </p>`
 
@@ -31,6 +40,10 @@ function finalizou (){
 
         res_2.innerHTML += `<p>O Menor Número é o ${arry.at(0)}</p>`
         res_2.innerHTML += `<p>O Maior Número é o ${arry.at(-1)}</p>`
+        
+
+        res_2.innerHTML += `<p>A Soma dos Valores é ${soma} </p>`
+        res_2.innerHTML += `<p>A Média dos Valores é ${mediatt}</p>`
 
     }
 } 

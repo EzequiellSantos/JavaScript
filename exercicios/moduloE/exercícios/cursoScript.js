@@ -27,7 +27,7 @@ function inlista(n, l){/* numero e uma lista */
 
 function adicionou (){
     if(isNumero(num.value) && !inlista(num.value, vetor)){
-        alert('tudo ok')
+        vetor.push(Number(num.value))
     } else{
         alert('Valor inválido ou ja contido na lista')
     }
