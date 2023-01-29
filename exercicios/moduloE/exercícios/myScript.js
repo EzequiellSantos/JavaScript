@@ -6,7 +6,7 @@ var arry = []
 function adicionou (){
     var num = document.getElementById('num')
 
-    if(Number(num.value) >= 1 && Number(num.value) <=100){
+    if(Number(num.value) >= 0 && Number(num.value) <=10){
     arry.push(Number(num.value))
     res_2.innerHTML = ''
     res.innerHTML += `Valor ${num.value} adicionado <br>`
