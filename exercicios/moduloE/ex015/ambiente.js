@@ -12,3 +12,11 @@ if(slc === -1){
 }else{
     console.log(`\nO valor 2 tem a posição ${slc} no vetor\n`)
 }
+
+let del = num.shift()
+
+if(del > -1){
+    num.splice(del, 1)
+}
+
+console.log(` >> ${num}`)
