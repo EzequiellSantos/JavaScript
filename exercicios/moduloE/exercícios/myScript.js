@@ -24,8 +24,8 @@ function finalizou (){
        alert('Adicione Números')
     }else{
         let tot = arry.length
-        let maior = arry[0]
-        let menor = arry[0]
+        let maior = arry[0] //equivale a 1
+        let menor = arry[0]//equivale a 1
         let soma = 0
         let media = 0
         
