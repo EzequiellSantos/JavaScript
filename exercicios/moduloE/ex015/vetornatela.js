@@ -1,6 +1,6 @@
 let valores = [0, 4, 3, 6, 7, 9, 8, 5]
 
-valores.sort()
+let org = valores.sort()
 
 /* console.log(`\n ${valores}\n`) */
 
@@ -21,3 +21,5 @@ for(let pos in valores ){
     
     console.log(`A posição ${pos} tem como valor ${valores[pos]}`)
 }
+
+console.log(org)

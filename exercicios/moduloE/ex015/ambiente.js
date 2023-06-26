@@ -1,7 +1,7 @@
 let num = [5, 4, 1, 3, 2, 0]
 
 
-let slc = num.indexOf(2)
+let slc = num.indexOf(1)
 
 
 console.log(`\n O nosso vetor é o ${num} organizado e com um numero a mais \n`)
