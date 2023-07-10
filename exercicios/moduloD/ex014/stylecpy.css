@@ -120,6 +120,14 @@ Remover setas para cima e para baixo */
     background-color:  rgb(148, 8, 113);
 }
 
+#res{
+    max-width: 100px;
+    color: rgb(77, 9, 41);
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
 /* input{
     display: inline-block;
 } */
