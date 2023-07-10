@@ -20,7 +20,7 @@ function  calculou (){
         res.innerHTML = ' '
         p += 1 //validção do passo
 
-    }else if(i < f ) {
+    }else if(i < f && f < 1001 ) {
 
         //crescente
         res.innerText = 'contando: '
@@ -30,7 +30,7 @@ function  calculou (){
         }  
         res.innerHTML += ' 🏁' // ou \u{1F600} 
 
-    }else if(i > f ) {
+    }else if(i > f && f < 1001 ) {
         //decrescente
         res.innerText = 'contando: '
         for(var d = i ; d >= f ; d -= p){
@@ -40,7 +40,7 @@ function  calculou (){
         res.innerHTML += ' 🏁'
     }else{        
     res.innerHTML = ''     
-    res.innerHTML += '[ERROR_5] Dados Inválidos'       
+    res.innerHTML += '[ERROR_5] Dados Inválidos __ Precisa ser menor que 1000'       
     }
     
 }
