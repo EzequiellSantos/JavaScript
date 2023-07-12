@@ -56,6 +56,15 @@ function finalizou (){
         res_2.innerHTML += `<p>A Soma dos Valores é ${soma} </p>`
         res_2.innerHTML += `<p>A Média dos Valores é ${mediatt}</p>`
 
+        var finl  = document.getElementById('finl')
+        finl.innerHTML = '<div id="reset">Calcular Novamente</div>'
+    }
+
+    var reset = document.getElementById('reset')
+    reset.addEventListener('click', reload)
+
+    function reload(){
+        window.location.reload(true)
     }
     
 } 
