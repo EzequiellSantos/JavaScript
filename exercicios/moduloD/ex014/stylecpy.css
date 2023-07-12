@@ -16,6 +16,10 @@ header{
 
 }
 
+#menu{
+    background-color: rgb(243, 71, 243);
+}
+
 section{
     background-color: rgb(119, 119, 119);
     color: black;
@@ -35,16 +39,6 @@ div{
     color: white;
 }
 
-img{
-    max-width: 270px;
-    max-height: 290px;
-    margin: auto;
-    display: block;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-radius: 49%;
-    box-shadow: 3px 1px  3px rgba(0, 0, 0, 0.123);
-}
 
 p{
     font-size: 1.2em;

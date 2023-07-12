@@ -15,6 +15,10 @@ header{
 
 }
 
+#menu{
+    background-color: rgb(1, 224, 113);
+}
+
 section{
     background-color: rgb(119, 119, 119);
     color: black;

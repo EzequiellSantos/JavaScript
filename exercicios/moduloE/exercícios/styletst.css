@@ -13,6 +13,10 @@ body{
     padding-right: 10px;
 }
 
+#menu{
+    backdrop-filter: blur(15px);
+}
+
 header{
     max-width: 400px;
     margin: auto;

@@ -66,4 +66,4 @@ document.addEventListener('click', function(evento) {
       menu.style.transition = 'all 0.6s ease-in-out'
       menu.classList.remove('actived')
     }
-  })
+})
