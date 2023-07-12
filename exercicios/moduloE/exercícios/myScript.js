@@ -6,11 +6,13 @@ var arry = []
 function adicionou (){
     var num = document.getElementById('num')
 
-    if(Number(num.value) >= 0 && Number(num.value) <=10){
-    arry.push(Number(num.value))
-    res_2.innerHTML = ''
-    res.innerHTML += `Valor ${num.value} adicionado <br>`
-    } else{
+    if(Number(num.value) >= 0 && Number(num.value) <=100 && Number(num.value.length) > 0){
+        arry.push(Number(num.value))
+        res_2.innerHTML = ''
+        res.innerHTML += `Valor ${num.value} adicionado <br>`
+    }else if(num.value.length === 0){
+        res.innerHTML += `Valor 0 adicionado <br>`
+    }else{
         alert('DIgite um Número acima de 0')
     }
     num.value = ''

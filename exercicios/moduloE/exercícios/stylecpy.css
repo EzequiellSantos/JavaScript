@@ -9,6 +9,10 @@ body{
     padding-right: 10px;
 }
 
+#menu{
+    backdrop-filter: blur(15px);
+}   
+
 header{
     max-width: 400px;
     margin: auto;
@@ -49,16 +53,6 @@ div{
     color: white;
 }
 
-img{
-    max-width: 270px;
-    max-height: 290px;
-    margin: auto;
-    display: block;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-radius: 49%;
-    box-shadow: 3px 1px  3px rgba(0, 0, 0, 0.123);
-}
 
 p{
     font-size: 1.2em;
