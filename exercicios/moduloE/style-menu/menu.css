@@ -7,11 +7,12 @@
     justify-content: left;
     cursor: pointer;
     position: fixed;
-    top: 5vh;
-    right: 10px;
+    top: 10vh;
+    right: 20px;
     width: 40px;
-    height: 10px;
+    height: 50px;
     border-radius: 10px;
+    z-index: 1;
 }
 
 #menu.actived{
@@ -19,8 +20,9 @@
     height: 87px;
 }
 
-#menu.actived > #img-home{
-    padding-right: 45px;
+#img-home.mostrar{
+    margin-right: 50px;
+    opacity: 1;
 }
 
 #img-menu{
@@ -29,11 +31,12 @@
 
 #img-home{
     display: none;
-    top: 0px;
     right: 12px;
 
-    width: 45px;
-    padding: 6px;
+    width: 20px;
+    margin: 10px 0px 0px 0px;
+    transition: opacity 0.7s;
+    opacity: 0;
 }
 
 img#img-home, img#img-menu, img#img-off{
@@ -47,4 +50,114 @@ img#img-home, img#img-menu, img#img-off{
 
     width: 45px;
     padding: 7px;
+}
+
+
+/* ////////////// */
+
+div#menu01{
+    position: absolute;
+    top: 31px;
+    right: 10px;
+    width: 18px;
+    height: 4px;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    background-color: aliceblue;
+    z-index: 1;
+    transition: all 0.7s;
+}
+
+div#menu02{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    width: 18px;
+    height: 4px;
+    border-radius: 2px;
+    transform: rotate(-45deg);
+    background-color: aliceblue;
+    z-index: 1;
+    transition: all 0.7s;
+}
+
+#setas{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: left;
+    cursor: pointer;
+    position: fixed;
+    top: 14vh;
+    right: 28px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    padding-bottom: 8px;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    animation: remobig 0.6s both;
+}
+
+#setas.actived_02{
+    animation: big 0.5s both;
+}
+
+@keyframes big {
+    0%{
+        width: 40px;
+        height: 45px;
+    }
+    100%{
+        width: 90px;
+        height: 50px;
+    }
+}
+
+@keyframes remobig {
+    100%{
+        width: 40px;
+        height: 45px;
+    }
+    0%{
+        width: 90px;
+        height: 50px;
+    }
+}
+
+div#menu01.actived{
+    top: 24px;
+    width: 25px;
+    animation: rotateTw ease-in-out;
+    transition: all 0.7s;
+    z-index: 1;
+}
+
+div#menu02.actived{
+    top: 24px;
+    width: 25px;
+    animation: rotateOn ease-in-out;
+    transition: all 0.7s;
+}
+
+
+
+@keyframes rotateOn {
+    0%{
+        transform: rotate(-45deg);
+    }
+    
+    100%{
+        transform: rotate(-50deg);
+    }
+}
+
+@keyframes rotateTw {
+    0%{
+        transform: rotate(45deg);
+    }
+    
+    100%{
+        transform: rotate(49deg);
+    }
 }
