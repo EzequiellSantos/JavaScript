@@ -20,27 +20,27 @@ function  calculou (){
         res.innerHTML = ' '
         p += 1 //validção do passo
 
-    }else if(i < f && f < 1001 ) {
+    }else if(i < f && f < 10001 && i < 10001) {
 
         //crescente
         res.innerText = 'contando: '
-
         for( var c = i ; c <= f ; c += p){
-        res.innerHTML += ` ${c} 👉`
+            res.innerHTML += ` ${c} 👉`
         }  
         res.innerHTML += ' 🏁' // ou \u{1F600} 
 
     }else if(i > f && f < 1001 ) {
+
         //decrescente
         res.innerText = 'contando: '
         for(var d = i ; d >= f ; d -= p){
-
-        res.innerHTML += ` ${d} 👉`         
+            res.innerHTML += ` ${d} 👉`         
         }
         res.innerHTML += ' 🏁'
+
     }else{        
-    res.innerHTML = ''     
-    res.innerHTML += '[ERROR_5] Dados Inválidos __ Precisa ser menor que 1000'       
+      res.innerHTML = ''     
+      res.innerHTML += '[ERROR_5] Dados Inválidos __ Precisa ser menor que 1000'       
     }
     
 }
