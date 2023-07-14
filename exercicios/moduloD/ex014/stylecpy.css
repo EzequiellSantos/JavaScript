@@ -2,7 +2,7 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(226, 168, 253);
+    background-color: rgb(190, 124, 221);
     color: white;
     transition: all .8s;
 }
@@ -17,7 +17,7 @@ header{
 }
 
 #menu{
-    background-color: rgb(255, 127, 255);
+    background-color: rgb(158, 84, 158);
 }
 
 section{
@@ -99,6 +99,7 @@ Remover setas para cima e para baixo */
     margin-left:45px;
     border-radius: 5px;
     background-color: rgba(253, 89, 245, 0.74);
+    color: white;
     transition: all 0.6s;
     letter-spacing: 1px;
 }
