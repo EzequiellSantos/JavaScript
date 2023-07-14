@@ -69,19 +69,94 @@ function finalizou (){
     
 } 
 
-var menu = document.getElementById('menu');
-var menuImg = document.getElementById('img-menu')
+/* var menu = document.getElementById('menu');
+var menuImg = document.getElementById('img-menu') */
 var homeImg = document.getElementById('img-home');
 
 
+var div01 = document.getElementById('menu01')
+var div02 = document.getElementById('menu02');
 
-menuImg.addEventListener('click', function() {
+
+
+/* menuImg.addEventListener('click', function() {
     menu.classList.add('actived')
     homeImg.style.display = 'block'
     menu.style.transition = 'none'
-})
+})//menu hambuger */
 
-document.addEventListener('click', function(evento) {
+function toggleKeyframe() {
+
+    var menuSt = document.getElementById('setas');
+
+    if (setas.classList.contains("actived_02")){
+        homeImg.style.display = 'none'
+        homeImg.classList.remove('mostrar')
+/*         menuSt.style.transition = 'all 0.6s ease-in-out' */
+        menuSt.classList.remove('actived_02')
+    
+        div01.classList.remove('actived')
+        div02.classList.remove('actived')
+    }else{
+        menuSt.classList.add('actived_02')
+        menuSt.style.transition = 'none'
+        homeImg.classList.add('actived_02')
+
+        homeImg.style.display = 'block'
+        setTimeout(function(){
+            homeImg.classList.add('mostrar')
+        }, 600)
+        homeImg.style.display = 'block'
+
+        div01.classList.add('actived')
+        div02.classList.add('actived')
+    }
+    
+}//para menu seta
+
+
+
+
+
+
+/* var divActiv = document.getElementById('restart')
+
+divActiv.addEventListener('click', function() {
+    homeImg.style.display = 'none'
+    menuSt.style.transition = 'all 0.6s ease-in-out'
+    menuSt.classList.remove('actived_02')
+
+    div01.classList.remove('actived')
+    div02.classList.remove('actived')
+})
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+/* document.addEventListener('click', function(evento) {
+    const clicadoDentroDoElemento = menuSt.contains(evento.target)
+  
+    if(!clicadoDentroDoElemento){
+      homeImg.style.display = 'none'
+      menuSt.style.transition = 'all 0.6s ease-in-out'
+      menuSt.classList.remove('actived_02')
+
+      div01.classList.remove('actived')
+      div02.classList.remove('actived')
+    }
+}) */
+
+
+/* document.addEventListener('click', function(evento) {
     const clicadoDentroDoElemento = menu.contains(evento.target)
   
     if(!clicadoDentroDoElemento){
@@ -89,6 +164,6 @@ document.addEventListener('click', function(evento) {
       menu.style.transition = 'all 0.6s ease-in-out'
       menu.classList.remove('actived')
     }
-})
+}) */
 
 // https://pt.stackoverflow.com/questions/549721/como-somar-medidas-de-um-array

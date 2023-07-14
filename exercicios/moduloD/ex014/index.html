@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylecpy.css">
-    <link rel="stylesheet" href="../style-menu/menu.css">
+    <link rel="stylesheet" href="../style-menu/menuSeta.css">
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/EzequiellSantos/html-css/main/desafios/modulo%2001/Favicon.EZ/Icons8-Ios7-Animals-Duck.ico" type="image/x-icon">
     <title>Tabuada</title>
 </head>
@@ -14,12 +14,11 @@
 
     </header>
         
-    <div id="menu">
-        <img src="https://raw.githubusercontent.com/EzequiellSantos/Projetos/main/projeto-portfolio/imagens/Icons-Math/menu-branco.png" alt="" id="img-menu">
+    <div id="setas" onclick="toggleKeyframe()">
+        <div id="menu01"></div>
+        <div id="menu02"></div>
 
-        <a href="https://ezequiellsantos.github.io/Projetos/projeto-portfolio/math.html">
-            <img src="https://raw.githubusercontent.com/EzequiellSantos/Projetos/main/projeto-portfolio/imagens/Icons-Math/icons8-casa-48.png" alt="" id="img-home">
-        </a> 
+        <img src="https://raw.githubusercontent.com/EzequiellSantos/Projetos/main/projeto-portfolio/imagens/Icons-Math/icons8-casa-48.png" alt="imagem home" id="img-home">
     </div>
 
     <section>
@@ -29,7 +28,7 @@
                 <input type="button" value="Gerar Tabuada" id="ver" onclick="calculou ()">
             </p>
         </div>
-        <div >
+        <div class="res">
             <!-- <select name="pika" id="slct" sc></select> -->
             <article id="res">
                 <span>Tabuada</span>

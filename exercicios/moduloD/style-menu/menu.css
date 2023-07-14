@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+#menu{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: left;
+    cursor: pointer;
+    position: absolute;
+    top: 5vh;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+
 #menu.actived{
     width: 40px;
     height: 87px;

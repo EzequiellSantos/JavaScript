@@ -2,7 +2,7 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(222, 151, 255);
+    background-color: rgb(226, 168, 253);
     color: white;
     transition: all .8s;
 }
@@ -17,7 +17,7 @@ header{
 }
 
 #menu{
-    background-color: rgb(243, 71, 243);
+    background-color: rgb(255, 127, 255);
 }
 
 section{
@@ -34,7 +34,7 @@ section{
     /*margin: 0px 10px 0px 10px;  */
 }
 
-div{
+div.res{
     margin: 20px;
     color: white;
 }

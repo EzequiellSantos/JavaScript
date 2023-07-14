@@ -16,7 +16,8 @@ header{
 }
 
 img{
-    background-color: rgb(124, 223, 253);
+    opacity: 0.9;
+    background-color: rgba(103, 216, 250, 0.863);
 }
 
 section{

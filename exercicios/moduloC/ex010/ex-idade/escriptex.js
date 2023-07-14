@@ -91,6 +91,7 @@ var homeImg = document.getElementById('img-home');
 menuImg.addEventListener('click', function() {
     menu.classList.add('actived')
     homeImg.style.display = 'block'
+    homeImg.style.marginRight = '-2.5px'
     menu.style.transition = 'none'
 })
 
