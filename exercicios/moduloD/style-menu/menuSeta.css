@@ -108,12 +108,16 @@ div#menu02.actived{
     }
 }
 
+#linkHome{
+    position: absolute;
+    width: 30px;
+    right: 50px;
+    margin: 10px 0px 0px 0px;
+}
+
+
 #img-home{/*  imagem home */
     display: none;
-    right: 12px;
-
-    width: 20px;
-    margin: 10px 0px 0px 0px;
     transition: opacity 0.7s;
     opacity: 0;
 }
