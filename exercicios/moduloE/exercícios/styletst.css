@@ -13,6 +13,12 @@ body{
     padding-right: 10px;
 }
 
+body #link-menu{
+    position: absolute;
+    width: 30px;
+    right: 50px;
+}
+
 #menu{
     backdrop-filter: blur(15px);
 }

@@ -126,3 +126,16 @@ div#menu02.actived{
 img#img-home, img#img-menu, img#img-off{
     width: 30px;
 }
+
+#link-menu{
+    position: absolute;
+    width: 30px;
+}
+
+#link{
+    margin-right: -50px;
+}
+
+#div00{
+    margin: 10px;
+}
