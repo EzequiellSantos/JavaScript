@@ -1,0 +1,28 @@
+@charset    "UTF-8";
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+main{
+
+}
+
+article{
+
+}
+
+h2{
+
+}
+
+p#p-porcentagem::after{
+    content: "%";
+}
+
+
+
+@media screen and (orientation: landscape){
+    
+}

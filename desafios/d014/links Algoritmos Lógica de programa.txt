@@ -1,0 +1,13 @@
+links Algoritmos Lógica de programação
+
+Calculando Média
+- https://ezequiellsantos.github.io/JavaScript/desafios/d013/index.html
+
+Variação de Preço
+- https://ezequiellsantos.github.io/JavaScript/desafios/d012/index.html
+
+Ano Bissexto 
+- https://ezequiellsantos.github.io/JavaScript/desafios/d011/index.html
+
+Resolvendo Bhaskara
+- https://ezequiellsantos.github.io/JavaScript/desafios/d010/index.html
