@@ -1,15 +1,36 @@
 @charset    "UTF-8";
 
+:root{
+    --color-background00: #0B1629;
+    --color-background01: #122543;
+
+    --color-light00: #8CC4DF;
+    --color-light01: #E2FF65;
+}
+
 body{
     padding: 0;
     margin: 0;
 }
 
 main{
-
+    width: 100vw;
+    margin: auto;
 }
 
 article{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 50px 10px 0px 10px;
+}
+
+section{
+    background-color: var(--color-light00);
+    width: 200px;
+    padding: 5px;
+    border-radius: 10px;
 
 }
 
@@ -19,6 +40,18 @@ h2{
 
 p#p-porcentagem::after{
     content: "%";
+}
+
+p#p-botao{
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #E2FF65;
+    width: 60%;
+}
+
+.inputs{
+    margin: 15px 0px;
 }
 
 
