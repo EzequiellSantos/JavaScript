@@ -35,5 +35,7 @@ function executCalc(){
     }
 
     res.innerHTML = `<span>${calcPercent(ipornumb, iporcent).toFixed(2)}</span>`
+    refresh.innerHTML = '<span class="material-symbols-outlined">refresh</span>'
+    
 }
 
