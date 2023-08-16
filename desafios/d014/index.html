@@ -15,7 +15,7 @@
             <section>
                 <h2>Descobrindo Pocentagens</h2>
 
-                <form autocomplete="on" method="post">
+                <form action="action.php" autocomplete="on" method="post">
 
                     <p id="p-numero" class="inputs">
                         <label for="inum">Digite o Número:</label><br>
@@ -27,8 +27,8 @@
                         <input type="number" name="por" id="ipor" required maxlength="3" max="100" minlength="0" min="0">
                     </p>
 
-                    <p>
-                        <input id="p-botao" onclick=" executCalc()" type="submit" value="Calcular">
+                    <p id="p-botao" onclick=" executCalc()">
+                        Calcular
                     </p>
 
                     <p id="resposta">
