@@ -11,11 +11,11 @@ ipor.addEventListener('keydown', function(event){
         let iporcent =  Number(document.querySelector("#ipor").value);
         let ipornumb =  Number(document.querySelector("#inum").value);
     
-        if(ipor.value.length == '' || inum.value.length == ''){
+        if(ipor.value.length == '' || inum.value.length == ''){ //validação
 
             alert('Preencha os Campos corretamente:)')
 
-        }else if(iporcent >= 0 && iporcent <=200 ){      
+        }else if(iporcent >= 0 && iporcent <=200 ){ //calculo (valor >> porcentagem)
             
             function calcPercent(numero, percent){
     
@@ -26,7 +26,7 @@ ipor.addEventListener('keydown', function(event){
     
             res.innerHTML = `<span>${calcPercent(ipornumb, iporcent).toFixed(2)}</span>`
 
-        }else{ 
+        }else{ //validação
 
             alert("Use Números acima de Zero e pequenos Na Porcentagem")
 
@@ -40,9 +40,9 @@ function executCalc(){
     let iporcent =  Number(document.querySelector("#ipor").value);
     let ipornumb =  Number(document.querySelector("#inum").value);
 
-    if(ipor.value.length == '' || inum.value.length == ''){
+    if(ipor.value.length == '' || inum.value.length == ''){//validação
 
-        alert('Preencha os Campos corretamente:)')
+        alert('Preencha os Campos corretamente :)')
 
     }else if(iporcent >= 0 && iporcent <=200 ){      
         
@@ -63,3 +63,5 @@ function executCalc(){
     
 }
 
+
+//menu
