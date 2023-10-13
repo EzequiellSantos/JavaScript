@@ -1,9 +1,7 @@
 var res = document.querySelector("#resultado");
 let ipor =  document.querySelector("#ipor");
 
-
-
-
+//valores de porcentagens
 ipor.addEventListener('keydown', function(event){
 
     if(event.keyCode === 13){//validação da tecla enter(código 13)
@@ -15,7 +13,7 @@ ipor.addEventListener('keydown', function(event){
 
             alert('Preencha os Campos corretamente:)')
 
-        }else if(iporcent >= 0 && iporcent <=200 ){ //calculo (valor >> porcentagem)
+        }else if(iporcent >= 0 && iporcent <=200 ){ //calculo (Valores de Porcentagens)
             
             function calcPercent(numero, percent){
     
@@ -34,9 +32,14 @@ ipor.addEventListener('keydown', function(event){
     }    
 })
 
+//calculo porcentagens de valores
+
+
+
+// calculo por botão
 
 function executCalc(){
-
+    
     let iporcent =  Number(document.querySelector("#ipor").value);
     let ipornumb =  Number(document.querySelector("#inum").value);
 
@@ -55,7 +58,7 @@ function executCalc(){
 
         res.innerHTML = `<span>${calcPercent(ipornumb, iporcent).toFixed(2)}</span>`
 
-    }else{ 
+    }else{ //validação
 
         alert("Use Números acima de Zero e pequenos Na Porcentagem")
 
@@ -63,5 +66,30 @@ function executCalc(){
     
 }
 
+//reload
+let reload = document.getElementById('reload')
+
+reload.addEventListener('click', function(){
+    window.location.reload(true)
+})
+
 
 //menu
+const menuItems = document.querySelectorAll('.menu li');
+const highlightBar = document.querySelector('.highlight-bar');
+
+menuItems.forEach((item) => {
+    item.addEventListener('mouseover', () => {
+        highlightBar.style.display = 'block'
+        const itemPosition = item.getBoundingClientRect();
+        highlightBar.style.left = itemPosition.left  + 'px';
+        highlightBar.style.width = itemPosition.width + 'px';
+    });
+
+    item.addEventListener('mouseout', () => {
+        const selectedItem = document.querySelector('.menu li:hover');
+        if (!selectedItem) {
+            highlightBar.style.width = '0';
+        }
+    });
+});
