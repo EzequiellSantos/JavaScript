@@ -22,7 +22,7 @@ ipor.addEventListener('keydown', function(event){
                 
             }
     
-            res.innerHTML = `<span>${calcPercent(ipornumb, iporcent).toFixed(2)}</span>`
+            res.innerHTML = `<span>${calcPercent(ipornumb, iporcent)}</span>`
 
         }else{ //validação
 
@@ -56,7 +56,7 @@ function executCalc(){
             
         }
 
-        res.innerHTML = `<span>${calcPercent(ipornumb, iporcent).toFixed(2)}</span>`
+        res.innerHTML = `<span>${calcPercent(ipornumb, iporcent)}</span>`
 
     }else{ //validação
 
