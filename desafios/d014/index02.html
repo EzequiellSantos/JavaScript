@@ -26,12 +26,12 @@
                         <input type="number" name="num" id="iall-val" required >
                     </p>
 
-                    <p id="p-porcentagem" class="inputs">
+                    <p class="inputs">
                         <label for="ival">Digite o valor a descobrir o (%):</label><br>
                         <input type="number" name="por" id="ival" required maxlength="3" max="100" minlength="0" min="0">
                     </p>
 
-                    <p id="p-botao" onclick=" executCont()">
+                    <p id="p-botao" onclick="executCont ()">
                         Calcular
                     </p>
 
@@ -56,6 +56,34 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        function executCont (){
+
+            let ivalue = Number(document.querySelector('#ival').value);
+            let iallValue = Number(document.querySelector('#iall-val').value);
+
+            if(ivalue.length == '' || iallValue.length == ''){//validação
+
+                alert('Preencha os campos corretamentes :)')
+
+            }else if(ivalue <= iallValue || ivalue >= 0 || iallValue >=0){
+
+                function calcPercent(todo, valor){
+                    let resultado = 100 / todo * valor
+                    return resultado
+                }
+
+                res.innerHTML = `<span>${calcPercent(iallValue, ivalue)}%</span>` 
+                console.log('olá')
+
+            }else{//
+                
+                alert('Use Números Acima de Zero | O valor sempre tem que ser menor que o total')
+
+            }
+            
+        }
+    </script>
 
 </body>
 </html>
