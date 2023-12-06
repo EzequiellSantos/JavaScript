@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,14 @@
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/menu.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,1,200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,1,200" />
     <title>Porcentagem</title>
 
 </head>
+
 <body>
 
     <main>
@@ -21,17 +25,18 @@
 
                 <form action="action.php" autocomplete="on" method="post">
 
-                    <p  id="p-numero" class="inputs">
+                    <p id="p-numero" class="inputs">
                         <label for="iall-val">Digite o Valor Completo (100%):</label><br>
-                        <input type="number" name="num" id="iall-val" required >
+                        <input type="number" name="num" id="iallVal" required>
                     </p>
 
                     <p class="inputs">
                         <label for="ival">Digite o valor a descobrir o (%):</label><br>
-                        <input type="number" name="por" id="ival" required maxlength="3" max="100" minlength="0" min="0">
+                        <input type="number" name="por" id="ival" required maxlength="3" max="100" minlength="0"
+                            min="0">
                     </p>
 
-                    <p id="p-botao" onclick="executCont ()">
+                    <p id="p-botao" onclick="executCont()">
                         Calcular
                     </p>
 
@@ -43,47 +48,34 @@
             </section>
         </article>
 
-        
+
     </main>
 
     <div class="menu">
         <ul>
-            <li><a href="https://ezequiellsantos.github.io/Projetos/projeto-math/math.html" rel="next" target="_self"><span class="material-symbols-rounded">home</span></a></li>
-            <li><a href="index.html"><span class="material-symbols-rounded">sync_alt</span></a></li>
-            <li><a id="reload" href="#"><span class="material-symbols-rounded">restart_alt<span></a></li>
+            <li>
+                <a href="https://ezequiellsantos.github.io/Projetos/projeto-math/math.html" rel="next"
+                    target="_self"><span class="material-symbols-rounded">home</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="index.html">
+                    <span class="material-symbols-rounded">sync_alt</span>
+                </a>
+            </li>
+
+            <li>
+                <a id="reload" href="#">
+                    <span class="material-symbols-rounded">restart_alt<span>
+                </a>
+            </li>
+
         </ul>
         <div class="highlight-bar"></div>
     </div>
 
-    <script src="script.js"></script>
-    <script>
-        function executCont (){
-
-            let ivalue = Number(document.querySelector('#ival').value);
-            let iallValue = Number(document.querySelector('#iall-val').value);
-
-            if(ivalue.length == '' || iallValue.length == ''){//validação
-
-                alert('Preencha os campos corretamentes :)')
-
-            }else if(ivalue <= iallValue || ivalue >= 0 || iallValue >=0){
-
-                function calcPercent(todo, valor){
-                    let resultado = 100 / todo * valor
-                    return resultado
-                }
-
-                res.innerHTML = `<span>${calcPercent(iallValue, ivalue)}%</span>` 
-                console.log('olá')
-
-            }else{//
-                
-                alert('Use Números Acima de Zero | O valor sempre tem que ser menor que o total')
-
-            }
-            
-        }
-    </script>
+    <script src="scripts/script-2.js"></script>
 
 </body>
 </html>
