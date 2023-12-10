@@ -18,7 +18,7 @@ ivalue.addEventListener('keydown', function (event) {
 
             function calcPercent(todo, valor) {
                 let resultado = 100 / todo * valor
-                return resultado    
+                return resultado
             }
 
             res.innerHTML = `<span>${calcPercent(iallValue, ivaluenum).toFixed(2)} %</span>`
