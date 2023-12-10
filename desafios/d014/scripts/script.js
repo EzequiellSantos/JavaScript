@@ -6,31 +6,31 @@ ipor.addEventListener('keydown', function (event) {
 
     if (event.keyCode === 13) {//validação da tecla enter(código 13)
 
-        let inum = Number(document.querySelector("inum").value)
         let iporcent = Number(document.querySelector("#ipor").value);
         let ipornumb = Number(document.querySelector("#inum").value);
-
-        if (ipor.value.length == '' || inum.length == '') { //validação
-
-            alert('Preencha os Campos corretamente:)')
-
+    
+        if (ipor.value.length == '' || inum.value.length == '') {//validação
+    
+            alert('Preencha os Campos corretamente :)')
+    
         } else if (iporcent >= 0 && iporcent <= 200) { //calculo (Valores de Porcentagens)
-
+    
             function calcPercent(numero, percent) {
-
+    
                 let result = numero * percent / 100
                 return result
-
+    
             }
-
+    
             res.innerHTML = `<span>${calcPercent(ipornumb, iporcent)}</span>`
-
+    
         } else { //validação
-
+    
             alert("Use Números acima de Zero e pequenos Na Porcentagem")
-
+    
         }
     }
+    console.log("pika")
 })
 
 // calculo por botão (Valores de Porcentagens)
