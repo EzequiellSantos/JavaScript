@@ -1,14 +1,14 @@
-@charset    "UTF-8";
+@charset "UTF-8";
 
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;600&display=swap');
 
 
 :root{
-    --color-background00: #0B1629;
-    --color-background01: #122543;
+    --color-background00: #0b2915;
+    --color-background01: #1d1243;
 
-    --color-light00: #8CC4DF;
-    --color-light01: #E2FF65;
+    --color-light00: #8c8edf;
+    --color-light01: #fcff65;
 }
 
 body{
