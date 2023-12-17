@@ -18,59 +18,132 @@ body, html, h1, p{
 header{
     text-align: center;
     width: calc(100% - 10px);
-    height: 145px;
+    height: 150px;
     background-color: #999;
     margin: auto;
     margin-top: 5px;
     max-width: 600px;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-between;
     align-items: center;
-    justify-content: space-between;
 }
 
 section#section-header{
+    float: left;
     text-align: center;
-    margin: 10px;
+    margin: 20px 10px;
     max-width: 600px;
 }
 
-section > h1{
-    font-size: 17px;
+section#section-header > h1{
     font-weight: normal;
 }
 
-article#article-subcontainer{
-    width: 100%;
-    background-color: #ace;
-    border-radius:10px 10px 0px 0px;
-    height: 70%;
+section#section-header > p{
+    text-align: left;
+    font-size: 1.3em;
+}
+
+nav#nav-links-main{
+    float: left;
+    top: 115px;
+    left: 20px;
+}
+
+div#div-icon-share{
+    background-color: white;
+    padding: 7px 10px;
+    border-radius: 15px;
+    margin: 10px 5px;
+}
+
+nav#toggle-theme{
+    float: right;
+    top: 15px;
+    right: 15px;
+    background-color: #1A2535;
+    border-radius: 30px;
+    width: 70px;
+    height: 30px;
+    margin: 0px 0px;
+}
+
+div#toggle-icon{
+    margin: 5px;
+    border-radius: 10px;
+    border: 1px solid white;
+    padding: 9px;
+}
+
+#light{
+
+}
+
+#dark{
+
 }
 
 div#div-container-hora{
+    float: right;
     width: 180px;
-    height: 90px;
-    margin: 40px 10px 5px 0px;
+    height: 70px;
+    margin: 0px 10px 15px 0px;
     border-radius: 10px;
     background-color: #555;
 }
 
+article#article-subcontainer{
+    width: 100%;
+    height: 100%;
+    background-color: #ace;
+    padding: 3px 0;
+    border-radius:10px 10px 10px 10px;
+}
+
 section#time{
     height: 30px;
-    width: 50%;
+    width: 90%;
+    height: 70%;
     margin: auto;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 7px;
+
+    border-radius: 10px 10px 0px 0px;
     background-color: #adadad;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+span#hora{
+    border: 1px solid white;
+    border-radius: 7px;
+    max-width: 97%;
+    margin: auto;
+    padding: 13px;
+
+    font-size: 1.5em;
 }
 
 section#date{
     background-color: #fff;
-    height: 30%;
+    height: 40%;
     width: 100%;
+    height: 30%;
+    padding: 2px 0px;
     border-radius:0px 0px 10px 10px;
-    display: block;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 0.85em;
 }
 
 main{
@@ -80,12 +153,11 @@ main{
     margin: auto;
     margin-top: 15px;
     margin-bottom: 30px;
-    padding: 20px 0px;
+    padding: 30px 0px;
     max-width: 600px;
 }
 
 section#section-main{
-
 }
 
 aside#aside-title{
@@ -94,6 +166,7 @@ aside#aside-title{
     height: 40px;
     background-color: #fff;
     margin: auto;
+    margin-bottom: 20px;
     border-radius: 30px;
 
     display: flex;
