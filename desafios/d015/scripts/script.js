@@ -1,12 +1,23 @@
-var teste = document.getElementById("hora");
+function calcTime(){
+    var date = new Date()
+    let hour = date.getHours()
+    let minute = date.getMinutes()
+    let seconds = date.getSeconds()
+    let day = date.getDay()
+    let dayMonth = date.getDate()
+    let month = date.getMonth()
+    let year = date.getFullYear()
 
-function executando(){
-    teste.innerHTML += "<br> Hello <br>"
+    let hourForm = hour < 10 ? `0${hour}` : hour
+    let minuteForm = minute < 10 ? `0${minute}` : minute
+    let secondsForm = seconds < 10 ? `0${seconds}` : seconds
+
+    document.getElementById("hora").innerHTML = `${hourForm} : ${minuteForm} : ${secondsForm}`
+
+    setInterval(calcTime, 1000)
+
 }
 
-var intervaloFunction = setInterval(executando, 500)
+calcTime()
 
- setTimeout(function (){ // cancelamento da função após 3 segundos atraves da função clearInterval
-    clearInterval(intervaloFunction);
-    teste.innerText = "repetição cancelada com 3 segundos"
-}, 3000) 
+console.log(`cuida dormir kkkkjjk`)
