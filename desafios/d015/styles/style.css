@@ -16,13 +16,15 @@ body, html, h1, p{
 }
 
 header{
-    text-align: center;
     width: calc(100% - 10px);
-    height: 150px;
+    max-width: 600px;
+    max-height: 150px;
+
     background-color: #999;
     margin: auto;
     margin-top: 5px;
-    max-width: 600px;
+    padding-bottom: 15px;
+    border-radius: 10px;
 
     display: flex;
     flex-direction: column;
@@ -30,12 +32,13 @@ header{
     justify-content: space-evenly;
     align-content: space-between;
     align-items: center;
+    text-align: center;
 }
 
 section#section-header{
     float: left;
     text-align: center;
-    margin: 20px 10px;
+    margin: 20px 10px 20px 15px;
     max-width: 600px;
 }
 
@@ -63,12 +66,13 @@ div#div-icon-share{
 
 nav#toggle-theme{
     float: right;
-    top: 15px;
-    right: 15px;
-    background-color: #1A2535;
-    border-radius: 30px;
     width: 70px;
     height: 30px;
+    top: 15px;
+    right: 15px;
+
+    background-color: #1A2535;
+    border-radius: 30px;
     margin: 0px 0px;
 }
 
@@ -155,9 +159,12 @@ main{
     margin-bottom: 30px;
     padding: 30px 0px;
     max-width: 600px;
+
+    border-radius: 10px;
 }
 
 section#section-main{
+    
 }
 
 aside#aside-title{
@@ -176,21 +183,58 @@ aside#aside-title{
 
 article#article-content{
     display: grid;
-    gap: 10px;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-columns: 1fr 1fr;
+    justify-content: normal;
+    align-items: center;
+    gap: 20px; 
+    justify-items: center;
+
     margin: 12px 0px;
+    padding: 5px;
 }
 
 div.cards-content{
-    width: 40%;
-    height: 60px;
+    max-width: 200px;
+    width: 100%;
+    height: 80px;
     background-color: #555;
     border-radius: 15px;
 }
 
+#item-1{
+    grid-row: 1 / 2; 
+    grid-column: 1 / 2;
+}
+
+#item-2{
+    grid-row: 2 / 2;
+    grid-column: 1 / 2; 
+}
+
+#item-3{
+    grid-row: 3 / 3;
+    grid-column: 1 / 2; 
+}
+
+#item-4{
+    grid-row: 1 / 2;
+    grid-column: 2 / 2; 
+}
+
 aside#aside-weather{
-    width: 40%;
-    height: 150px;
+    grid-row: 2 / 3;
+    grid-column: 2 / 2; 
+    
+    max-width: 200px;
+    width: 100%;
+    height: 200px;
+
+    margin: 53px 0px -63px 0px;
+    border-radius: 15px;
     background-color: #555;
+
+
 }
 
 footer{
