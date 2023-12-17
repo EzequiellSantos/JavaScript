@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Josefin+Slab:wght@100&family=Philosopher:wght@400;700&family=Quicksand:wght@500&family=Ysabeau+Infant:ital,wght@0,100;0,300;0,700;1,1;1,100;1,200&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;1,300&display=swap');
+
+
 :root{
     --color-background00:#1A2535;
     --color-background01:#36332E;
@@ -8,6 +13,14 @@
     --color-simple00:#82B4FF;
     --color-simple01: #E8B86B;
     --color-simple02: #E9A60E;
+
+    
+    --font-tall-sans: 'Dosis', sans-serif;
+    --font-couri-light: 'Josefin Slab', serif;
+    --font-fil-itali: 'Philosopher', sans-serif;
+    --font-normal-sans: 'Quicksand', sans-serif;
+    --font-sans-light: 'Ysabeau Infant', sans-serif;
+    --font-number: 'Exo', sans-serif;
 }
 
 body, html, h1, p{
@@ -18,7 +31,7 @@ body, html, h1, p{
 header{
     width: calc(100% - 10px);
     max-width: 600px;
-    max-height: 150px;
+    height: 160px;
 
     background-color: #999;
     margin: auto;
@@ -38,23 +51,26 @@ header{
 section#section-header{
     float: left;
     text-align: center;
-    margin: 20px 10px 20px 15px;
+    margin: 20px 10px 10px 15px;
     max-width: 600px;
 }
 
 section#section-header > h1{
     font-weight: normal;
+    font-size: 1.9em;
+    font-family: var(--font-sans-light); 
+
 }
 
 section#section-header > p{
     text-align: left;
-    font-size: 1.3em;
+    font-size: 1.6em;
+    font-family: var(--font-fil-itali);
 }
 
 nav#nav-links-main{
     float: left;
-    top: 115px;
-    left: 20px;
+    font-family: var(--font-fil-itali);
 }
 
 div#div-icon-share{
@@ -127,11 +143,17 @@ section#time{
 span#hora{
     border: 1px solid white;
     border-radius: 7px;
-    max-width: 97%;
+    width: 77%;
     margin: auto;
-    padding: 13px;
+    padding: 11px;
 
-    font-size: 1.5em;
+    font-size: 1.6em;
+    font-weight: normal;
+    font-family: var(--font-number);
+}
+
+span#hora > p{
+    display: inline-block;
 }
 
 section#date{
@@ -148,6 +170,7 @@ section#date{
     align-items: center;
 
     font-size: 0.85em;
+    font-family: var(--font-fil-itali);
 }
 
 main{
@@ -168,7 +191,7 @@ section#section-main{
 }
 
 aside#aside-title{
-    width: calc(100% - 10px);
+    width: calc(80% - 10px);
     text-align: center;
     height: 40px;
     background-color: #fff;
@@ -179,6 +202,7 @@ aside#aside-title{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: var(--font-fil-itali);
 }
 
 article#article-content{
