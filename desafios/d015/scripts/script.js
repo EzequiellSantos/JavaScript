@@ -105,11 +105,11 @@ function calcTime(){ //coleta do tempo, segundos, minutos e hora. Atualização 
     let minuteForm = minute < 10 ? `0${minute}` : minute
     let secondsForm = seconds < 10 ? `0${seconds}` : seconds
 
-    document.getElementById("hora").innerHTML = `<p>${hourForm} : ${minuteForm} : ${secondsForm}</p>`
+    document.getElementById("hora").innerHTML = `<p>${hourForm} : ${minuteForm} : <p id="p-fixo">${secondsForm}</p> </p>`
 
     setInterval(calcTime, 1000)
 
-}
+} 
 
 calcTime()
 
