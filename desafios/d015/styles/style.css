@@ -33,11 +33,11 @@ header{
     max-width: 600px;
     height: 160px;
 
-    background-color: #999;
+    background-color: #C3C3C3;
     margin: auto;
     margin-top: 5px;
     padding-bottom: 15px;
-    border-radius: 10px;
+    border-radius: 7px;
 
     display: flex;
     flex-direction: column;
@@ -71,6 +71,7 @@ section#section-header > p{
 nav#nav-links-main{
     float: left;
     font-family: var(--font-fil-itali);
+    margin-left: -30px;
 }
 
 div#div-icon-share{
@@ -121,7 +122,7 @@ article#article-subcontainer{
     height: 100%;
     background-color: #ace;
     padding: 3px 0;
-    border-radius:10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
 }
 
 section#time{
@@ -132,7 +133,7 @@ section#time{
     padding: 7px;
 
     border-radius: 10px 10px 0px 0px;
-    background-color: #adadad;
+    background-color: #ffffff;
 
     display: flex;
     flex-direction: column;
@@ -141,11 +142,11 @@ section#time{
 }
 
 span#hora{
-    border: 1px solid white;
+    border: 1px solid rgb(129, 129, 129);
     border-radius: 7px;
-    width: 77%;
+    width: 85%;
     margin: auto;
-    padding: 11px;
+    padding: 10px 17px 10px 5px;
 
     font-size: 1.6em;
     font-weight: normal;
@@ -154,15 +155,21 @@ span#hora{
 
 span#hora > p{
     display: inline-block;
+    margin-right: 10px;
+}
+
+#p-fixo{
+    position: absolute;
 }
 
 section#date{
-    background-color: #fff;
+    background-color: #919191;
+    color: white;
     height: 40%;
     width: 100%;
     height: 30%;
     padding: 2px 0px;
-    border-radius:0px 0px 10px 10px;
+    border-radius: 0px 0px 10px 10px;
 
     display: flex;
     flex-direction: row;
@@ -174,9 +181,10 @@ section#date{
 }
 
 main{
+    position: relative;
     height: 400px;
     width: calc(100% - 10px);
-    background-color: #888;
+    background-color: transparent;
     margin: auto;
     margin-top: 15px;
     margin-bottom: 30px;
@@ -187,22 +195,24 @@ main{
 }
 
 section#section-main{
-    
+    z-index: 2;
 }
 
 aside#aside-title{
-    width: calc(80% - 10px);
+    position: relative;
+    width: 100%;
     text-align: center;
-    height: 40px;
-    background-color: #fff;
+    height: 50px;
+    background-color: #C3C3C3;
     margin: auto;
     margin-bottom: 20px;
-    border-radius: 30px;
+    border-radius: 50px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-family: var(--font-fil-itali);
+    z-index: 2;
 }
 
 article#article-content{
@@ -211,19 +221,21 @@ article#article-content{
     grid-template-columns: 1fr 1fr;
     justify-content: normal;
     align-items: center;
-    gap: 20px; 
+    gap: 15px; 
     justify-items: center;
 
     margin: 12px 0px;
     padding: 5px;
+    z-index: 2;
 }
 
 div.cards-content{
-    max-width: 200px;
+    max-width: 270px;
     width: 100%;
     height: 80px;
-    background-color: #555;
-    border-radius: 15px;
+    background-color: #C3C3C3;
+    border-radius: 9px;
+    z-index: 2;
 }
 
 #item-1{
@@ -250,17 +262,74 @@ aside#aside-weather{
     grid-row: 2 / 3;
     grid-column: 2 / 2; 
     
-    max-width: 200px;
+    max-width: 270px;
     width: 100%;
     height: 200px;
 
     margin: 53px 0px -63px 0px;
-    border-radius: 15px;
-    background-color: #555;
+    border-radius: 9px;
+    background-color: #C3C3C3;
+    z-index: 2;
+}
 
 
+#design-icons-snake01{
+    position: fixed;    
+    left: 15vw;
+    bottom: 50vh;
+    z-index: 1;
+}
+
+#design-icons-snake02{
+    position: fixed;    
+    right: 25vw;
+    bottom: 15vh;
+    z-index: 1;
+}
+
+#design-icons-polygon00{
+    position: fixed;
+    right: 10vw;
+    bottom: 3vh;
+    z-index: 1;
+}
+
+#design-icons-polygon01{
+    position: fixed;    
+    right: 10vw;
+    bottom: 40vh;
+    z-index: 1;
+}
+
+#design-icons-polygon02{
+    position: fixed;    
+    right: 20vw;
+    bottom: 60vh;
+    z-index: 1;
+}
+
+#design-icons-polygon03{
+    position: fixed;    
+    left: 16vw;
+    bottom: 20vh;
+    z-index: 1;
+}
+
+#design-icons-circles00{
+    position: fixed;
+    right: 1.5vw;
+    bottom: 15vh;
+    z-index: 1;
+}
+
+#design-icons-circles01{
+    position: fixed;    
+    left: 1.5vw;
+    bottom: 60vh;
+    z-index: 1;
 }
 
 footer{
     text-align: center;
+    margin: 100px 0px;
 }
