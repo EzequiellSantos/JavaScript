@@ -101,11 +101,11 @@ div#toggle-icon{
 }
 
 #light{
-
+    position: absolute;
 }
 
 #dark{
-
+    position: absolute;
 }
 
 div#div-container-hora{
