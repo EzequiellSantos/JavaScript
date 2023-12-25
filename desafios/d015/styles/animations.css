@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+:root{
+    --color-background00:#1A2535;
+    --color-background01:#36332E;
+    --color-background02: #4A3504;
+
+    --color-simple00:#82B4FF;
+    --color-simple01: #E8B86B;
+    --color-simple02: #E9A60E;
+}
+
+#design-layout{
+    position: relative;
+    z-index: 2;
+}
+
+#design-layout-ball{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 170px;
+    width: 170px; 
+    border-radius: 0 0 100% 0;
+    background-color: var(--color-background00);
+    rotate: -90deg;
+    z-index: 1;
+}
+
+
+#design-icons-snake01{
+    position: fixed;    
+    left: 15vw;
+    bottom: 50vh;
+    z-index: 1;
+}
+
+#design-icons-snake02{
+    position: fixed;    
+    right: 25vw;
+    bottom: 15vh;
+    z-index: 1;
+}
+
+#design-icons-polygon00{
+    position: fixed;
+    right: 10vw;
+    bottom: 3vh;
+    z-index: 1;
+}
+
+#design-icons-polygon01{
+    position: fixed;    
+    right: 10vw;
+    bottom: 40vh;
+    z-index: 1;
+}
+
+#design-icons-polygon02{
+    position: fixed;    
+    right: 20vw;
+    bottom: 60vh;
+    z-index: 1;
+}
+
+#design-icons-polygon03{
+    position: fixed;    
+    left: 16vw;
+    bottom: 20vh;
+    z-index: 1;
+}
+
+#design-icons-circles00{
+    position: fixed;
+    right: 1.5vw;
+    bottom: 15vh;
+    z-index: 1;
+}
+
+#design-icons-circles01{
+    position: fixed;    
+    left: 1.5vw;
+    bottom: 60vh;
+    z-index: 1;
+}
+
+.skeleton{
+    background-color: #555;
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0)
+    );
+    background-size: 50px 100%;
+    background-repeat: no-repeat;
+    background-position: left -40px top 0;
+    border-radius: 5px;
+    animation: load 1.5s ease-in-out infinite;
+}
+
+@-webkit-keyframes load{
+    to {
+        background-position: right -20px top 0;
+    }
+}
+
+@keyframes load{
+    to {
+        background-position: right -20px top 0;
+    }
+}
+
+.skeletonTw{
+    background-color: #555;
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0)
+    );
+    background-size: 50px 100%;
+    background-repeat: no-repeat;
+    background-position: left -40px top 0;
+    border-radius: 5px;
+    animation: loadtw 1.8s ease-in-out infinite;
+}
+
+@-webkit-keyframes loadtw{
+    to {
+        background-position: right -30px top 0;
+        rotate: 180deg;
+    }
+}
+
+@keyframes loadtw{
+    to {
+        background-position: right -30px top 0;
+    }
+}
+
