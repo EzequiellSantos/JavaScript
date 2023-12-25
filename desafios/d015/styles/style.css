@@ -86,11 +86,11 @@ nav#toggle-theme{
     width: 70px;
     height: 30px;
     top: 15px;
-    right: 15px;
+    right: 0px;
 
     background-color: #1A2535;
     border-radius: 30px;
-    margin: 0px 0px;
+    margin-right: -100px;
 }
 
 div#toggle-icon{
@@ -176,7 +176,7 @@ section#date{
     justify-content: center;
     align-items: center;
 
-    font-size: 0.85em;
+    font-size: 0.80em;
     font-family: var(--font-fil-itali);
 }
 
@@ -236,7 +236,10 @@ div.cards-content{
     background-color: #C3C3C3;
     border-radius: 9px;
     z-index: 2;
+
+
 }
+
 
 #item-1{
     grid-row: 1 / 2; 
