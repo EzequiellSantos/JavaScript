@@ -6,13 +6,18 @@
 
 
 :root{
-    --color-background00:#1A2535;
-    --color-background01:#36332E;
-    --color-background02: #4A3504;
 
-    --color-simple00:#82B4FF;
+    --color-background00:#1A2535;
+    --color-background01:#3b3b46;
+    --color-background02: #4A3504;
+    --color-background03: #6e6e6e;
+
+    --color-simple00:#000f25;
     --color-simple01: #E8B86B;
-    --color-simple02: #E9A60E;
+    --color-simple02: #71acd3;
+    --color-simple03:#82B4FF;
+
+    
 
     
     --font-tall-sans: 'Dosis', sans-serif;
@@ -28,16 +33,22 @@ body, html, h1, p{
     margin: 0;
 }
 
+body{
+    background-color: var(--color-background00);
+}
+
 header{
     width: calc(100% - 10px);
     max-width: 600px;
     height: 160px;
 
-    background-color: #C3C3C3;
+    max-width: 600px;
+    background-color: var(--color-background01);
     margin: auto;
     margin-top: 5px;
     padding-bottom: 15px;
     border-radius: 7px;
+    border: 0.5px solid var(--color-background03);
 
     display: flex;
     flex-direction: column;
@@ -52,7 +63,7 @@ section#section-header{
     float: left;
     text-align: center;
     margin: 20px 10px 10px 15px;
-    max-width: 600px;
+    color: #fff;
 }
 
 section#section-header > h1{
@@ -114,13 +125,13 @@ div#div-container-hora{
     height: 70px;
     margin: 0px 10px 15px 0px;
     border-radius: 10px;
-    background-color: #555;
+    background-color: var(--color-simple00);
 }
 
 article#article-subcontainer{
     width: 100%;
     height: 100%;
-    background-color: #ace;
+/*     background-color: #ace; */
     padding: 3px 0;
     border-radius: 10px 10px 10px 10px;
 }
@@ -133,7 +144,9 @@ section#time{
     padding: 7px;
 
     border-radius: 10px 10px 0px 0px;
-    background-color: #ffffff;
+    background-color: var(--color-simple00);
+    color: #fff;
+    text-shadow: 0.0em 0.25em 0.8em rgba(255, 255, 255, 0.849);
 
     display: flex;
     flex-direction: column;
@@ -163,7 +176,7 @@ span#hora > p{
 }
 
 section#date{
-    background-color: #919191;
+    background-color: var(--color-simple02);
     color: white;
     height: 40%;
     width: 100%;
@@ -203,10 +216,13 @@ aside#aside-title{
     width: 100%;
     text-align: center;
     height: 50px;
-    background-color: #C3C3C3;
+
+    color: #fff;
+    background-color: var(--color-background01);
     margin: auto;
     margin-bottom: 20px;
     border-radius: 50px;
+    border: 1px solid var(--color-background03);
 
     display: flex;
     flex-direction: column;
@@ -233,11 +249,10 @@ div.cards-content{
     max-width: 270px;
     width: 100%;
     height: 80px;
-    background-color: #C3C3C3;
+    background-color: var(--color-background01);
     border-radius: 9px;
     z-index: 2;
-
-
+    border: 1px solid var(--color-background03);
 }
 
 
@@ -271,7 +286,8 @@ aside#aside-weather{
 
     margin: 53px 0px -63px 0px;
     border-radius: 9px;
-    background-color: #C3C3C3;
+    border: 1px solid var(--color-background03);
+    background-color: var(--color-background01);
     z-index: 2;
 }
 
