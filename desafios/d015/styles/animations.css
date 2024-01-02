@@ -13,12 +13,12 @@
 
 }
 
-#design-layout{
+#design-layout{ /* conteiner do design bola */
     position: relative;
     z-index: 2;
 }
 
-#design-layout-ball{
+#design-layout-ball{ /* circulo gigante */
     position: fixed;
     bottom: 0;
     left: 0;
@@ -31,7 +31,7 @@
 
 }
 
-@keyframes rot {
+@keyframes rot { /* animação de girar os efeitos */
     0% {
         transform: rotate(0);
     }
@@ -45,7 +45,7 @@
     }
 }
 
-#small-ball{
+.small-ball{ /* classe de rotação */
     animation: rot 3s infinite ease-in-out;
 }
 
@@ -60,7 +60,8 @@
 
 
 }
-.ball-effects{
+
+.ball-effects{ /* bola escura (REFAZER)*/
     position: fixed;
     background-color: var(--color-background00);
     width: 95px;
@@ -71,7 +72,7 @@
     border-radius: 60px;
 }
 
-.animationRot{
+.animationRot{ /* REFAZER */
     position: fixed;
     background-color: var(--color-simple01);
     top: -30px;
