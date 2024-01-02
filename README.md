@@ -8,4 +8,4 @@
 
  Este Curso foi Ensinado pelo <a href="https://www.cursoemvideo.com/" target="_blank">Curso em Vídeo</a>:beginner:
  
- <p><a href="https://ezequiellsantos.github.io/JavaScript/exercicios/moduloC/ex009/index.html">Acessar Site Day</a></p>
+<!--  <p><a href="https://ezequiellsantos.github.io/JavaScript/exercicios/moduloC/ex009/index.html">Acessar Site Day</a></p> -->
