@@ -49,7 +49,9 @@ header{
     padding-bottom: 15px;
     border-radius: 7px;
     border: 0.5px solid var(--color-background03);
+    z-index: 2; 
 
+    position: relative;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -58,6 +60,18 @@ header{
     align-items: center;
     text-align: center;
 }
+
+/* header::after{
+    content: "";
+    position: absolute;
+    right: 20px;
+    height: 160px;
+    width: 40%;
+    z-index: 3;
+    
+    border-radius: 100%;
+    background-color: #000f25;
+} */
 
 section#section-header{
     float: left;
@@ -93,7 +107,11 @@ div#div-icon-share{
 }
 
 nav#toggle-theme{
-    float: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
     width: 70px;
     height: 30px;
     top: 15px;
@@ -105,18 +123,13 @@ nav#toggle-theme{
 }
 
 div#toggle-icon{
-    margin: 5px;
-    border-radius: 10px;
-    border: 1px solid white;
-    padding: 9px;
-}
-
-#light{
-    position: absolute;
-}
-
-#dark{
-    position: absolute;
+    position: relative;
+    width: 60px;
+    height: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.418);
+    box-shadow: 0.0em 0.05em 0.3em rgba(255, 255, 255, 0.473);
+    z-index: 4;
 }
 
 div#div-container-hora{
@@ -253,8 +266,17 @@ div.cards-content{
     border-radius: 9px;
     z-index: 2;
     border: 1px solid var(--color-background03);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+div.cards-content p{
+    margin: 10px;
+    color: white;
+    font-family: var(--font-normal-sans);
+}
 
 #item-1{
     grid-row: 1 / 2; 
