@@ -113,4 +113,38 @@ function calcTime(){ //coleta do tempo, segundos, minutos e hora. Atualização 
 
 calcTime()
 
-console.log(`cuida dormir kkkkjjk`)
+var toggleIcon = document.getElementById("item");
+var toggleSection = document.getElementById("toggle-icon")
+
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){ // Modo escuro está ativado
+
+    console.log('Modo escuro está ativado');
+    msg.innerHTML = 'Você está no modo escuro'
+
+    toggleIcon.setAttribute('class','dark')
+
+    let islight = true
+
+    toggleSection.onclick = () => {
+        toggleIcon.classList.toggle("light")
+        islight = !islight
+    }
+  } 
+  
+  
+if(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)  { // Modo claro está ativado ou não suportado
+
+    msg.innerHTML = '<p>Você está no modo claro</p>'
+
+    toggleIcon.classList.add('light')
+    toggleIcon.classList.remove('dark')
+
+    let islight = true
+
+    toggleSection.onclick = () => {
+        toggleIcon.classList.add('dark')
+        toggleIcon.classList.remove('light')
+        islight = !islight
+    }
+}
