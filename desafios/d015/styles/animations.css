@@ -22,8 +22,8 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    height: 170px;
-    width: 170px; 
+    height: 167px;
+    width: 167px; 
     border-radius: 0 0 100% 0;
     background-color: var(--color-simple01);
     rotate: -90deg;
@@ -31,9 +31,13 @@
 
 }
 
-@keyframes rot { /* animação de girar os efeitos */
+.animation-rot{  /* animação de girar os efeitos */
+    animation: rot 5s infinite ease-in-out;
+} 
+
+@-webkit-keyframes rot{ /* animação de girar os efeitos */
     0% {
-        transform: rotate(0);
+        transform: rotate(0)  scaleY(20px);
     }
 
     50% {
@@ -41,46 +45,58 @@
     }
 
     100% {
-        transform: rotate(360deg);
+        transform: rotate(360deg)  scaleY(-10px);
     }
 }
 
-.small-ball{ /* classe de rotação */
-    animation: rot 3s infinite ease-in-out;
-}
-
-@keyframes move{
+@keyframes rot { /* animação de girar os efeitos */
     0% {
-        transform: translateX(0) translateY(0);
+        transform: rotate(0)  scaleY(20px);
+    }
+
+    50% {
+        transform: rotate(180deg);
     }
 
     100% {
-        transform: translateX(-40px) translateY(60px) ;
+        transform: rotate(360deg)  scaleY(-10px);
     }
-
-
 }
 
-.ball-effects{ /* bola escura (REFAZER)*/
-    position: fixed;
-    background-color: var(--color-background00);
-    width: 95px;
-    height: 83px;
-    margin: 20px 0px;
-    left: 0px;
-    top: 146px;
-    border-radius: 60px;
-}
-
-.animationRot{ /* REFAZER */
+.ball-effects{ /*  */
     position: fixed;
     background-color: var(--color-simple01);
-    top: -30px;
-    left: 30px;
-    width: 135px;
-    height: 120px;
-    border-radius: 120%;
+    border-radius: 100%;
 }
+
+#small-ball-0{
+    top: -35px;
+    left: 73px;
+    width: 96px;
+    height: 98px;
+}
+
+#small-ball-1{
+    top: -8px;
+    left: 30px;
+    width: 125px;
+    height: 129px;
+}
+
+#small-ball-2{
+    top: 8px;
+    left: -20px;
+    width: 149px;
+    height: 146px;
+}
+
+#small-ball-3{
+    top: 30px;
+    left: -65px;
+    width: 138px;
+    height: 143px;
+}
+
 
 #design-icons-snake01{
     position: fixed;    
