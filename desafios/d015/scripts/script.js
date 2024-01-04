@@ -148,3 +148,6 @@ if(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').match
         islight = !islight
     }
 }
+
+var contentCards = document.getElementsByClassName('cards-content');
+
