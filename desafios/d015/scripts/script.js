@@ -1,4 +1,4 @@
-var date = new Date() //coleta de data em dias, mês e ano
+/* var date = new Date() //coleta de data em dias, mês e ano
 
 let day = date.getDay()
 let dayMonth = date.getDate()
@@ -111,7 +111,7 @@ function calcTime(){ //coleta do tempo, segundos, minutos e hora. Atualização 
 
 } 
 
-calcTime()
+calcTime() */
 
 var toggleIcon = document.getElementById("item");
 var toggleSection = document.getElementById("toggle-icon")
