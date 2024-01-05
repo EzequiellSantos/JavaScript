@@ -134,7 +134,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) { // Modo claro está ativado ou não suportado
-
+    console.log('Modo claro está ativado')
     msg.innerHTML = '<p>Você está no modo claro</p>'
 
     toggleIcon.classList.add('light')
@@ -149,29 +149,38 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matc
     }
 }
 
-var contentCards = document.getElementsByClassName('cards-content');
-
-
-
 
 //verificação dos cards-content, para encerrar o skeleton
 var contain = document.querySelectorAll('#article');
 var grupo = document.querySelectorAll('.cards-content');
-var sobGrupo = document.querySelector(".section-of-contents");
+var weatherWidget = document.querySelectorAll('#aside-weather');
 
-// Verifica se o grupo possui algum elemento filho
+// Verifica se o grupo possui algum elemento filho e se possuir remove o skeleton
 grupo.forEach(function (grupo) {
+
     if (grupo.hasChildNodes()) {
 
-        console.log('O grupo possui elementos filhos.');
         grupo.classList.remove('skeleton')
 
     } else {
 
-        console.log('O grupo está vazio ou não existe.');
+        console.log('<- widgets free');
 
     }
+
 });
+
+// verificação especifica do widget de clima,se possui conteúdo ou não
+weatherWidget.forEach(function (grupo){
+    if(grupo.hasChildNodes()){
+        grupo.classList.remove('skeletonTw')
+        console.log()
+    } else{
+        
+        console.log('o widget of weather is free')
+
+    }
+})
 
 
 
