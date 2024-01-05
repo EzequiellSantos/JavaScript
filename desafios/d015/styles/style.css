@@ -49,7 +49,6 @@ header{
     padding-bottom: 15px;
     border-radius: 7px;
     border: 0.5px solid var(--color-background03);
-    z-index: 2; 
 
     position: relative;
     display: flex;
@@ -59,6 +58,7 @@ header{
     align-content: space-between;
     align-items: center;
     text-align: center;
+    z-index: 1;
 }
 
 /* header::after{
@@ -100,10 +100,25 @@ nav#nav-links-main{
 }
 
 div#div-icon-share{
+    position: relative;
     background-color: white;
     padding: 7px 10px;
     border-radius: 15px;
     margin: 10px 5px;
+    z-index: 2;
+}
+
+menu#menu-share{
+    position: absolute;
+    color: white;
+
+    
+    width: 200px;
+    width: 200px;
+    backdrop-filter: blur(16px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.308);
+    z-index: 3;
 }
 
 nav#toggle-theme{
