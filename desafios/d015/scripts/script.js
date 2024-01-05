@@ -5,96 +5,96 @@ let dayMonth = date.getDate()
 let month = date.getMonth()
 let year = date.getFullYear()
 
-switch (day){
+switch (day) {
 
     case 0:
-        day =  "Domingo"
-    break
+        day = "Domingo"
+        break
 
     case 1:
         day = "Segunda-Feira"
-    break
+        break
 
     case 2:
         day = "Terça-Feira"
-    break
+        break
 
     case 3:
         day = "Quarta-Feira"
-    break
+        break
 
     case 4:
         day = "Quinta-Feira"
-    break
+        break
 
     case 5:
         day = "Sexta-Feira"
-    break
+        break
 
     case 6:
         day = "Sábado"
-    break
+        break
 
     default:
         window.alert("ERROR => day")
-    break
+        break
 
 }
 
-switch (month){
+switch (month) {
 
     case 0:
         month = "Jan"
-    break 
+        break
 
     case 1:
         month = "Fev"
-    break 
+        break
 
     case 2:
         month = "Mar"
-    break 
+        break
 
     case 3:
         month = "Abr"
-    break 
+        break
 
     case 4:
         month = "Mai"
-    break 
+        break
 
     case 5:
         month = "Jun"
-    break 
+        break
 
     case 6:
         month = "Jul"
-    break
+        break
 
     case 7:
         month = "Ago"
-    break 
+        break
 
     case 8:
         month = "Set"
-    break 
+        break
 
     case 9:
         month = "Out"
-    break 
+        break
 
     case 10:
         month = "Nov"
-    break 
+        break
 
     case 11:
         month = "Dez"
-    break 
+        break
 }
 
 document.getElementById("date").innerHTML = `<p>${day} ${dayMonth} de ${month} ${year}</p>`
 
-function calcTime(){ //coleta do tempo, segundos, minutos e hora. Atualização automática de cada segundo
+function calcTime() { //coleta do tempo, segundos, minutos e hora. Atualização automática de cada segundo
     var date = new Date()
 
     let hour = date.getHours()
@@ -109,7 +109,7 @@ function calcTime(){ //coleta do tempo, segundos, minutos e hora. Atualização 
 
     setInterval(calcTime, 1000)
 
-} 
+}
 
 calcTime()
 
@@ -117,12 +117,12 @@ var toggleIcon = document.getElementById("item");
 var toggleSection = document.getElementById("toggle-icon")
 
 
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){ // Modo escuro está ativado
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) { // Modo escuro está ativado
 
     console.log('Modo escuro está ativado');
     msg.innerHTML = 'Você está no modo escuro'
 
-    toggleIcon.setAttribute('class','dark')
+    toggleIcon.setAttribute('class', 'dark')
 
     let islight = true
 
@@ -130,10 +130,10 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
         toggleIcon.classList.toggle("light")
         islight = !islight
     }
-  } 
-  
-  
-if(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)  { // Modo claro está ativado ou não suportado
+}
+
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) { // Modo claro está ativado ou não suportado
 
     msg.innerHTML = '<p>Você está no modo claro</p>'
 
@@ -155,23 +155,23 @@ var contentCards = document.getElementsByClassName('cards-content');
 
 
 //verificação dos cards-content, para encerrar o skeleton
-    var contain = document.querySelectorAll('#article');
-    var grupo = document.querySelectorAll('.cards-content');  
-    var sobGrupo = document.querySelector(".section-of-contents");
-  
-    // Verifica se o grupo possui algum elemento filho
-    grupo.forEach(function(grupo) {
-        if (grupo.hasChildNodes()) {
+var contain = document.querySelectorAll('#article');
+var grupo = document.querySelectorAll('.cards-content');
+var sobGrupo = document.querySelector(".section-of-contents");
 
-          console.log('O grupo possui elementos filhos.');
-          grupo.classList.remove('skeleton')
+// Verifica se o grupo possui algum elemento filho
+grupo.forEach(function (grupo) {
+    if (grupo.hasChildNodes()) {
 
-        } else {
+        console.log('O grupo possui elementos filhos.');
+        grupo.classList.remove('skeleton')
 
-          console.log('O grupo está vazio ou não existe.');
-          
-        }
-      });
-    
+    } else {
+
+        console.log('O grupo está vazio ou não existe.');
+
+    }
+});
+
 
 
