@@ -356,7 +356,7 @@
     transition: all 0.6s ease-in;
 }
 
-/* @-webkit-keyframes load{
+@-webkit-keyframes load{
     to {
         background-position: right -20px top 0;
     }
@@ -366,7 +366,7 @@
     to {
         background-position: right -20px top 0;
     }
-} */
+} 
 
 .skeletonTw{
     background-color: #555;
@@ -384,7 +384,7 @@
     transition: all 0.5s ease-in;
 }
 
-/* @-webkit-keyframes loadtw{
+@-webkit-keyframes loadtw{
     to {
         background-position: right -20px top 0;
     }
@@ -395,4 +395,4 @@
         background-position: right -20px top 0;
     }
 }
- */
+
