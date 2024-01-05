@@ -151,3 +151,27 @@ if(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').match
 
 var contentCards = document.getElementsByClassName('cards-content');
 
+
+
+
+//verificação dos cards-content, para encerrar o skeleton
+    var contain = document.querySelectorAll('#article');
+    var grupo = document.querySelectorAll('.cards-content');  
+    var sobGrupo = document.querySelector(".section-of-contents");
+  
+    // Verifica se o grupo possui algum elemento filho
+    grupo.forEach(function(grupo) {
+        if (grupo.hasChildNodes()) {
+
+          console.log('O grupo possui elementos filhos.');
+          grupo.classList.remove('skeleton')
+
+        } else {
+
+          console.log('O grupo está vazio ou não existe.');
+          
+        }
+      });
+    
+
+

@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css"> 
-    <link rel="stylesheet" href="styles/animations.css">    
-    <link rel="shortcut icon" href="https://raw.githubusercontent.com/EzequiellSantos/JavaScript/main/desafios/d015/Imagens/Favicon-Direct/direct-icon-96.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="shortcut icon"
+        href="https://raw.githubusercontent.com/EzequiellSantos/JavaScript/main/desafios/d015/Imagens/Favicon-Direct/direct-icon-96.png"
+        type="image/x-icon">
     <title>Direct by Kiel</title>
 </head>
 
@@ -66,32 +68,44 @@
 
                 <div class="cards-content skeleton" id="item-1">
 
+                    <section class="section-of-contents"></section>
+
                 </div>
 
                 <div class="cards-content skeleton" id="item-2">
-                    <p id="msg"></p>
+
+                    <section class="section-of-contents">   
+                        <p id="msg"></p>
+                    </section>
+
                 </div>
 
-                <div class="cards-content skeleton id="item-3">
+                <div class="cards-content skeleton" id="item-3">
+
+                    <section class="section-of-contents"></section>
 
                 </div>
 
                 <div class="cards-content skeletonTw" id="item-4">
 
+                    <section class="section-of-contents"></section>
+
                 </div>
 
-                <aside class="skeletonTw" id="aside-weather">
+                <aside class="cards-content skeletonTw" id="aside-weather">
+
+                    <section class="section-of-contents"></section>
 
                 </aside>
 
-            </article> 
+            </article>
 
         </section>
 
         <div id="design-layout">
 
             <div id="design-layout-ball">
-        
+
                 <div class="ball-effects animation-rot" id="small-ball-0"></div>
                 <div class="ball-effects animation-rot" id="small-ball-1"></div>
                 <div class="ball-effects animation-rot" id="small-ball-2"></div>
@@ -166,7 +180,7 @@
         <p>&nbsp;</p>
     </footer>
 
-    <script src="scripts/script.js"></script>
+    <script src="scripts/script.js" defer></script> <!-- defer -> o script só é executado após o carregamento do DOM -->
 
 </body>
 
