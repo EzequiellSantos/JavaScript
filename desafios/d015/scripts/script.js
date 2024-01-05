@@ -171,12 +171,14 @@ grupo.forEach(function (grupo) {
 });
 
 // verificação especifica do widget de clima,se possui conteúdo ou não
-weatherWidget.forEach(function (grupo){
-    if(grupo.hasChildNodes()){
+weatherWidget.forEach(function (grupo) {
+     
+    if (grupo.hasChildNodes()) {
+
         grupo.classList.remove('skeletonTw')
-        console.log()
-    } else{
-        
+
+    } else {
+
         console.log('o widget of weather is free')
 
     }
