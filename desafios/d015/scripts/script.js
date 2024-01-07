@@ -1,100 +1,154 @@
- var date = new Date() //coleta de data em dias, mês e ano
+//controle do Menu Share
+var shareIcon = document.querySelector('#div-icon-share');
+var allMenu = document.querySelector('#menu-share')
+var menu = document.querySelector('#content-share')
+
+
+shareIcon.onclick = () => {
+
+    if(allMenu.classList.contains('menu-off') || allMenu.classList.contains('recolhendo-menu')){
+
+        allMenu.classList.add('exibindo-menu')
+        allMenu.classList.remove('menu-off')
+        allMenu.classList.remove('recolhendo-menu')
+
+    } else{
+        allMenu.classList.remove('exibindo-menu')
+        allMenu.classList.add('recolhendo-menu')
+        
+    }
+
+}
+
+menu.onmouseleave = () => {
+
+    allMenu.classList.add('recolhendo-menu')
+    allMenu.classList.remove('exibindo-menu')
+
+}
+
+copyLinkIcon.onclick = () => {
+
+    // Usando a API de área de transferência para copiar o texto
+    // Texto que você deseja copiar
+    const textoCopiar = "KKKKKKK é viaaaado";
+
+    // Criando um elemento de texto oculto para copiar
+    const input = document.createElement('input');
+    input.value = textoCopiar;
+    document.body.appendChild(input);
+
+    // Selecionando e copiando o texto
+    input.select();
+    input.setSelectionRange(0, 99999); // Para dispositivos móveis
+    document.execCommand('copy');
+
+    // Removendo o elemento de texto oculto
+    document.body.removeChild(input);
+
+    console.log('Texto copiado com sucesso!');
+    copyLinkIcon.innerHTML = 'copyed'
+    copyLinkIcon.style.backgroundColor = '#E8B86B'
+}
+
+
+var date = new Date() //coleta de data em dias, mês e ano
 
 let day = date.getDay()
 let dayMonth = date.getDate()
 let month = date.getMonth()
 let year = date.getFullYear()
 
-switch (day){
+switch (day) {
 
     case 0:
-        day =  "Domingo"
-    break
+        day = "Domingo"
+        break
 
     case 1:
         day = "Segunda-Feira"
-    break
+        break
 
     case 2:
         day = "Terça-Feira"
-    break
+        break
 
     case 3:
         day = "Quarta-Feira"
-    break
+        break
 
     case 4:
         day = "Quinta-Feira"
-    break
+        break
 
     case 5:
         day = "Sexta-Feira"
-    break
+        break
 
     case 6:
         day = "Sábado"
-    break
+        break
 
     default:
         window.alert("ERROR => day")
-    break
+        break
 
 }
 
-switch (month){
+switch (month) {
 
     case 0:
         month = "Jan"
-    break 
+        break
 
     case 1:
         month = "Fev"
-    break 
+        break
 
     case 2:
         month = "Mar"
-    break 
+        break
 
     case 3:
         month = "Abr"
-    break 
+        break
 
     case 4:
         month = "Mai"
-    break 
+        break
 
     case 5:
         month = "Jun"
-    break 
+        break
 
     case 6:
         month = "Jul"
-    break
+        break
 
     case 7:
         month = "Ago"
-    break 
+        break
 
     case 8:
         month = "Set"
-    break 
+        break
 
     case 9:
         month = "Out"
-    break 
+        break
 
     case 10:
         month = "Nov"
-    break 
+        break
 
     case 11:
         month = "Dez"
-    break 
+        break
 }
 
 document.getElementById("date").innerHTML = `<p>${day} ${dayMonth} de ${month} ${year}</p>`
 
-function calcTime(){ //coleta do tempo, segundos, minutos e hora. Atualização automática de cada segundo
+function calcTime() { //coleta do tempo, segundos, minutos e hora. Atualização automática de cada segundo
     var date = new Date()
 
     let hour = date.getHours()
@@ -109,7 +163,7 @@ function calcTime(){ //coleta do tempo, segundos, minutos e hora. Atualização 
 
     setInterval(calcTime, 1000)
 
-} 
+}
 
 calcTime() 
 
@@ -117,12 +171,12 @@ var toggleIcon = document.getElementById("item");
 var toggleSection = document.getElementById("toggle-icon")
 
 
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){ // Modo escuro está ativado
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) { // Modo escuro está ativado
 
     console.log('Modo escuro está ativado');
-    msg.innerHTML = 'Você está no modo escuro'
+    msg.innerHTML = 'Seu dispositivo está no modo escuro'
 
-    toggleIcon.setAttribute('class','dark')
+    toggleIcon.setAttribute('class', 'dark')
 
     let islight = true
 
@@ -130,24 +184,59 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
         toggleIcon.classList.toggle("light")
         islight = !islight
     }
-  } 
-  
-  
-if(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)  { // Modo claro está ativado ou não suportado
 
-    msg.innerHTML = '<p>Você está no modo claro</p>'
+} 
 
-    toggleIcon.classList.add('light')
-    toggleIcon.classList.remove('dark')
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) { // Modo claro está ativado ou não suportado { // Modo claro está ativado ou não suportado
 
-    let islight = true
+    console.log('Modo claro está ativado')
+    msg.innerHTML = 'Seu dispositivo está no modo claro'
+
+    toggleIcon.setAttribute('class', 'light')
+
+
+    let islight = false
 
     toggleSection.onclick = () => {
-        toggleIcon.classList.add('dark')
-        toggleIcon.classList.remove('light')
+        toggleIcon.classList.toggle("dark")
         islight = !islight
     }
 }
 
-var contentCards = document.getElementsByClassName('cards-content');
+
+//verificação dos cards-content, para encerrar o skeleton
+var contain = document.querySelectorAll('#article');
+var grupo = document.querySelectorAll('.cards-content');
+var weatherWidget = document.querySelectorAll('#aside-weather');
+
+// Verifica se o grupo possui algum elemento filho e se possuir remove o skeleton
+grupo.forEach(function (grupo) {
+
+    if (grupo.hasChildNodes()) {
+
+        grupo.classList.remove('skeleton')
+
+    } else {
+
+        console.log('<- widgets free');
+
+    }
+
+});
+
+// verificação especifica do widget de clima,se possui conteúdo ou não
+weatherWidget.forEach(function (grupo) {
+     
+    if (grupo.hasChildNodes()) {
+
+        grupo.classList.remove('skeletonTw')
+
+    } else {
+
+        console.log('The widget of weather is free')
+
+    }
+})
+
+
 
