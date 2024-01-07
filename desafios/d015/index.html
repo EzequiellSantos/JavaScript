@@ -24,55 +24,51 @@
 
             <div id="div-icon-share">
                 <span>SHARE</span>
-
-                <menu id="menu-share">
-
-                    <nav id="content-share">
-
-                        <p>share with friends</p>
-
-                        <a href="#" class="link-share">
-
-                            <img width="40" height="40" src="https://img.icons8.com/bubbles/50/000000/whatsapp.png" alt="whatsapp"/>
-
-                        </a>
-
-                        <a href="#" class="link-share">
-
-                            <img width="40" height="40" src="https://img.icons8.com/bubbles/50/000000/instagram-new--v2.png" alt="instagram-new--v2"/>
-
-                        </a>
-
-                    </nav>
-
-                        <hr id="hr-menu">
-
-                    <nav id="content-share">
-
-                        <p>Contat for me</p>
-
-                        <a href="#" class="link-for-me">
-                            
-
-                            <img width="40" height="40" src="https://img.icons8.com/ios-glyphs/30/000000/instagram-new.png" alt="instagram-new"/>
-
-                        </a>
-                        
-                        <a href="#" class="link-for-me">
-
-                            <img width="40" height="40" src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="github"/>
-
-                        </a>
-                        
-                        <a href="#" class="link-for-me">
-                            <img width="40" height="40" src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png" alt="linkedin"/>
-
-                        </a>
-                        
-                    </nav>
-
-                </menu>
             </div>
+
+            <menu id="menu-share" class="menu-off">
+
+                <nav id="content-share">
+
+                    <p>share with friends</p>
+
+                    <a href="#" class="link-share">
+
+                        <img width="40" height="40" src="https://img.icons8.com/bubbles/50/000000/whatsapp.png" alt="whatsapp"/>
+
+                    </a>
+
+                    <a href="#" class="link-share">
+
+                        <img width="40" height="40" src="https://img.icons8.com/bubbles/50/000000/instagram-new--v2.png" alt="instagram-new--v2"/>
+
+                    </a>
+
+                    <hr id="hr-menu">
+
+                    <p>Contat for me</p>
+
+                    <a href="instagram://user?username=_ezequiel.exe_" target="_blank" class="link-for-me">
+                        
+                        <img width="45" height="45" src="https://img.icons8.com/ios-glyphs/30/000000/instagram-new.png" alt="instagram-new"/>
+
+                    </a>
+                    
+                    <a href="https://github.com/EzequiellSantos" target="_blank" class="link-for-me">
+
+                        <img width="45" height="45" src="https://img.icons8.com/ios-glyphs/30/000000/github.png" alt="github"/>
+
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/ezequiel-exe/" target="_blank" class="link-for-me">
+                        
+                        <img width="45" height="45" src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png" alt="linkedin"/>
+
+                    </a>
+                    
+                </nav>
+
+            </menu>
 
         </nav>
 
@@ -224,9 +220,28 @@
     <footer>
         <!-- <p>Kiel &copy;</p>  -->
         <p>&nbsp;</p>
+        <button onclick="compartilhar()">Compartilhar no Instagram</button>
     </footer>
 
-    <script src="#" defer></script> <!-- defer -> o script só é executado após o carregamento do DOM -->
+    
+
+<script>
+function compartilhar() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Site para tela Iniciais',
+      text: 'Com ferramentas para o seu uso diário com navegadores',
+      url: 'https://ezequiellsantos.github.io/javaScript/desafios/d015/'
+    })
+    .then(() => console.log('Conteúdo compartilhado com sucesso'))
+    .catch((error) => console.error('Erro ao compartilhar:', error));
+  } else {
+    console.log('A Web Share API não é suportada neste navegador.');
+  }
+}
+</script>
+
+    <script src="scripts/script.js" defer></script> <!-- defer -> o script só é executado após o carregamento do DOM -->
 
 </body>
 

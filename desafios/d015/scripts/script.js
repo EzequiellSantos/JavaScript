@@ -1,3 +1,32 @@
+//controle do Menu Share
+var shareIcon = document.querySelector('#div-icon-share');
+var allMenu = document.querySelector('#menu-share')
+var menu = document.querySelector('#content-share')
+
+
+shareIcon.onclick = () => {
+
+    if(allMenu.classList.contains('menu-off')){
+
+        allMenu.classList.add('exibindo-menu')
+        allMenu.classList.remove('menu-off')
+
+    } else{
+        allMenu.classList.remove('exibindo-menu')
+        allMenu.classList.add('menu-off')
+        
+    }
+
+}
+
+var clicarFora = menu.onmouseleave = () => {
+
+    allMenu.classList.add('menu-off')
+    allMenu.classList.remove('exibindo-menu')
+
+}
+
+
 var date = new Date() //coleta de data em dias, mês e ano
 
 let day = date.getDay()
@@ -179,7 +208,7 @@ weatherWidget.forEach(function (grupo) {
 
     } else {
 
-        console.log('o widget of weather is free')
+        console.log('The widget of weather is free')
 
     }
 })

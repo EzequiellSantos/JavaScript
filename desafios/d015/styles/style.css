@@ -122,11 +122,23 @@ menu#menu-share{
     color: white;
 
     height: auto;
-    width: 200px;
     padding: 10px;
     backdrop-filter: blur(14px);
-    border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.308);
+    transition: all 0.3s ease-in-out;
+}
+
+menu.menu-off{
+    display: none;
+    opacity: 0;
+}
+
+menu.exibindo-menu{
+    display: block;
+    width: 200px;
+    border-radius: 15px;
+    opacity: 1;
+    transition: all 1s ease-in-out;
 }
 
 nav#content-share{
@@ -172,9 +184,10 @@ a.link-share{
 }
 
 hr#hr-menu{
-    max-width: 85%;
+    position: absolute;
+    width: 70%;
     border: 0;
-    height: 0.07em;
+    height: 0.04em;
     border-radius: 10%;
     margin: auto;
     margin-top: 5px;
