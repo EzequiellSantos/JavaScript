@@ -13,6 +13,46 @@
 
 }
 
+/* animações do menu */
+menu.menu-off{
+    display: none;
+}
+
+menu.recolhendo-menu{
+    animation: resOff 0.8s both ease-in-out;
+}
+
+menu.exibindo-menu{
+    display: block;
+    animation: resize 0.8s ease-in-out ;
+}
+
+@keyframes resize {
+    0% {
+        opacity: 0;
+        width: 125px;
+    }
+
+    100% {
+        opacity: 1;
+        width: 80%;
+    }
+}
+
+@keyframes resOff {
+    0% {
+        opacity: 1;
+        width: 80%;
+    }
+
+    100% {
+        opacity: 0;
+        width: 125px;
+        display: none;
+    }
+}
+
+/* animações do icone de mudar tema */
 .dark{
     position: absolute;
     top: 0.04em;
@@ -249,7 +289,8 @@
     }
 }
 
-.ball-effects{ /*  */
+ /* configurações dos itens fixos no fundo do site */
+.ball-effects{
     position: fixed;
     background-color: var(--color-simple01);
     border-radius: 100%;

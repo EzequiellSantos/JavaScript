@@ -6,24 +6,49 @@ var menu = document.querySelector('#content-share')
 
 shareIcon.onclick = () => {
 
-    if(allMenu.classList.contains('menu-off')){
+    if(allMenu.classList.contains('menu-off') || allMenu.classList.contains('recolhendo-menu')){
 
         allMenu.classList.add('exibindo-menu')
         allMenu.classList.remove('menu-off')
+        allMenu.classList.remove('recolhendo-menu')
 
     } else{
         allMenu.classList.remove('exibindo-menu')
-        allMenu.classList.add('menu-off')
+        allMenu.classList.add('recolhendo-menu')
         
     }
 
 }
 
-var clicarFora = menu.onmouseleave = () => {
+menu.onmouseleave = () => {
 
-    allMenu.classList.add('menu-off')
+    allMenu.classList.add('recolhendo-menu')
     allMenu.classList.remove('exibindo-menu')
 
+}
+
+copyLinkIcon.onclick = () => {
+
+    // Usando a API de área de transferência para copiar o texto
+    // Texto que você deseja copiar
+    const textoCopiar = "KKKKKKK é viaaaado";
+
+    // Criando um elemento de texto oculto para copiar
+    const input = document.createElement('input');
+    input.value = textoCopiar;
+    document.body.appendChild(input);
+
+    // Selecionando e copiando o texto
+    input.select();
+    input.setSelectionRange(0, 99999); // Para dispositivos móveis
+    document.execCommand('copy');
+
+    // Removendo o elemento de texto oculto
+    document.body.removeChild(input);
+
+    console.log('Texto copiado com sucesso!');
+    copyLinkIcon.innerHTML = 'copyed'
+    copyLinkIcon.style.backgroundColor = '#ff8'
 }
 
 

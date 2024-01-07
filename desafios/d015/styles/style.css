@@ -119,27 +119,18 @@ div#div-icon-share > span{
 
 menu#menu-share{
     position: fixed;
-    color: white;
 
     height: auto;
     padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    height: 170px;
     backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.308);
-    transition: all 0.3s ease-in-out;
-}
-
-menu.menu-off{
-    display: none;
-    opacity: 0;
-}
-
-menu.exibindo-menu{
-    display: block;
-    width: 200px;
     border-radius: 15px;
-    opacity: 1;
-    transition: all 1s ease-in-out;
-}
+    color: white;
+    transition: all 0.3s ease-in-out;   
+}   
 
 nav#content-share{
     display: flex;
@@ -147,7 +138,8 @@ nav#content-share{
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    
+
+    margin-top: 10px;
 }
 
 nav#content-share > p{
@@ -157,8 +149,22 @@ nav#content-share > p{
     font-size: 0.9em;
     font-family: var(--font-normal-sans);
 
-    margin: 10px;
+    margin: 0px 0px 10px 0px;
     cursor: default;
+}
+
+nav#content-share > i{
+    font-size: 0.9em;
+    padding:6px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+
+    background-color: var(--color-simple01);
+    font-family: var(--font-normal-sans);
+}
+
+nav#content-share > i:active{
+    transform: skew(3deg);
 }
 
 nav#content-share > a{
@@ -174,25 +180,22 @@ nav#content-share > a:hover > img {
     transition: background 0.2s ease-in-out;
 }
 
-nav#content-share > a:active img:active{
-
-}
-
-a.link-share{
-    width: 30px;
-    height: 30px;
-}
-
 hr#hr-menu{
     position: absolute;
     width: 70%;
     border: 0;
     height: 0.04em;
+    top: 48%;
+
     border-radius: 10%;
     margin: auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
     background-color: var(--color-background03);
+}
+
+a.link-share{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
 }
 
 
