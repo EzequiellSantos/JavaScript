@@ -48,7 +48,7 @@ copyLinkIcon.onclick = () => {
 
     console.log('Texto copiado com sucesso!');
     copyLinkIcon.innerHTML = 'copyed'
-    copyLinkIcon.style.backgroundColor = '#ff8'
+    copyLinkIcon.style.backgroundColor = '#E8B86B'
 }
 
 
