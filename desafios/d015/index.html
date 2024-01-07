@@ -61,7 +61,7 @@
                     </a>
                     
                     <a href="https://www.linkedin.com/in/ezequiel-exe/" target="_blank" class="link-for-me">
-                        
+
                         <img width="45" height="45" src="https://img.icons8.com/ios-glyphs/30/000000/linkedin.png" alt="linkedin"/>
 
                     </a>
@@ -220,26 +220,7 @@
     <footer>
         <!-- <p>Kiel &copy;</p>  -->
         <p>&nbsp;</p>
-        <button onclick="compartilhar()">Compartilhar no Instagram</button>
     </footer>
-
-    
-
-<script>
-function compartilhar() {
-  if (navigator.share) {
-    navigator.share({
-      title: 'Site para tela Iniciais',
-      text: 'Com ferramentas para o seu uso diário com navegadores',
-      url: 'https://ezequiellsantos.github.io/javaScript/desafios/d015/'
-    })
-    .then(() => console.log('Conteúdo compartilhado com sucesso'))
-    .catch((error) => console.error('Erro ao compartilhar:', error));
-  } else {
-    console.log('A Web Share API não é suportada neste navegador.');
-  }
-}
-</script>
 
     <script src="scripts/script.js" defer></script> <!-- defer -> o script só é executado após o carregamento do DOM -->
 
