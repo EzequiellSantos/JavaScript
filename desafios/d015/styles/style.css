@@ -32,6 +32,8 @@ body, html, h1, p{
     padding: 0;
     margin: 0;
     z-index: auto;
+    cursor: default;
+    user-select: none; /* propriedade para o usuário do celular ou tablet não selecionar os icones */
 }
 
 body{
@@ -59,10 +61,10 @@ header{
     align-content: space-between;
     align-items: center;
     text-align: center;
-    z-index: 2;
+    z-index: 1;
 }
 
-/* header::after{
+/* header::after{ design header - divisão de onda 50%
     content: "";
     position: absolute;
     right: 20px;
@@ -105,9 +107,14 @@ nav#nav-links-main{
 
 div#div-icon-share{
     background-color: white;
-    padding: 7px 10px;
+    padding: 7px 0px;
     border-radius: 15px;
     margin: 10px 5px;
+}
+
+div#div-icon-share > span{
+    /* para cumputador ->> cursor: pointer; */
+    padding: 10px;
 }
 
 menu#menu-share{
@@ -122,22 +129,46 @@ menu#menu-share{
     border: 1px solid rgba(255, 255, 255, 0.308);
 }
 
+nav#content-share{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
 nav#content-share > p{
+    display: block;
+    width: 100%;
     text-align: center;
     font-size: 0.9em;
     font-family: var(--font-normal-sans);
-    margin-bottom: 7px;
+
+    margin: 10px;
+    cursor: default;
 }
 
 nav#content-share > a{
+    display: block;
     text-decoration: none;
+    margin-bottom: 15px;
+    cursor: default;     /* para cumputador ->> cursor: pointer; */
 }
 
+nav#content-share > a:hover > img {
+    background-color: var(--color-background03);
+    border-radius: 7px;
+    transition: background 0.2s ease-in-out;
+}
+
+nav#content-share > a:active img:active{
+
+}
 
 a.link-share{
     width: 30px;
     height: 30px;
-    margin: 0px 3px 5px 3px;
 }
 
 hr#hr-menu{
@@ -145,6 +176,9 @@ hr#hr-menu{
     border: 0;
     height: 0.07em;
     border-radius: 10%;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
     background-color: var(--color-background03);
 }
 
@@ -162,6 +196,7 @@ nav#toggle-theme{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    /* para cumputador ->> cursor: pointer; */
 
     width: 70px;
     height: 30px;
@@ -269,11 +304,11 @@ main{
     max-width: 600px;
 
     border-radius: 10px;
-    z-index: 1;
+    z-index: 0;
 }
 
 section#section-main{
-    z-index: 1;
+    z-index: 3;
 }
 
 aside#aside-title{
@@ -307,17 +342,20 @@ article#article-content{
 
     margin: 12px 0px;
     padding: 5px;
-    z-index: 2;
+    z-index: 1;
 }
 
 div.cards-content{
     max-width: 270px;
     width: 100%;
     height: 80px;
+
     background-color: var(--color-background01);
     border-radius: 9px;
     z-index: 2;
     border: 1px solid var(--color-background03);
+    /* para computador ->> cursor: pointer;*/ 
+    user-select: none;
 
     display: flex;
     flex-direction: column;
@@ -328,6 +366,7 @@ div.cards-content p{
     margin: 10px;
     color: white;
     font-family: var(--font-normal-sans);
+    cursor: pointer; 
 }
 
 #item-1{
@@ -363,6 +402,8 @@ aside#aside-weather{
     border: 1px solid var(--color-background03);
     background-color: var(--color-background01);
     z-index: 2;
+    cursor: pointer; 
+    user-select: none;
 }
 
 
