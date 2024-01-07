@@ -149,7 +149,7 @@ var toggleSection = document.getElementById("toggle-icon")
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) { // Modo escuro está ativado
 
     console.log('Modo escuro está ativado');
-    msg.innerHTML = 'Você está no modo escuro'
+    msg.innerHTML = 'Seu dispositivo está no modo escuro'
 
     toggleIcon.setAttribute('class', 'dark')
 
@@ -159,21 +159,21 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
         toggleIcon.classList.toggle("light")
         islight = !islight
     }
-}
 
+} 
 
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) { // Modo claro está ativado ou não suportado
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) { // Modo claro está ativado ou não suportado { // Modo claro está ativado ou não suportado
+
     console.log('Modo claro está ativado')
-    msg.innerHTML = '<p>Você está no modo claro</p>'
+    msg.innerHTML = 'Seu dispositivo está no modo claro'
 
-    toggleIcon.classList.add('light')
-    toggleIcon.classList.remove('dark')
+    toggleIcon.setAttribute('class', 'light')
 
-    let islight = true
+
+    let islight = false
 
     toggleSection.onclick = () => {
-        toggleIcon.classList.add('dark')
-        toggleIcon.classList.remove('light')
+        toggleIcon.classList.toggle("dark")
         islight = !islight
     }
 }
