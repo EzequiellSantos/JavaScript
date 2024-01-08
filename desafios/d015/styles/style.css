@@ -15,7 +15,7 @@
     --color-simple00:#000f25;
     --color-simple01: #E8B86B;
     --color-simple02: #71acd3;
-    --color-simple03:#82B4FF;
+    --color-simple03:#3e8bff;
 
     
 
@@ -127,7 +127,7 @@ menu#menu-share{
     height: 170px;
     backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.308);
-    border-radius: 15px;
+    border-radius: 20px;
     color: white;
     transition: all 0.3s ease-in-out;   
 }   
@@ -139,7 +139,7 @@ nav#content-share{
     align-items: center;
     flex-wrap: wrap;
 
-    margin-top: 10px;
+    padding-top: 10px;
 }
 
 nav#content-share > p{
@@ -153,18 +153,26 @@ nav#content-share > p{
     cursor: default;
 }
 
+/* ICON Compartilhamento */
 nav#content-share > i{
+    font-family: var(--font-normal-sans);
     font-size: 0.9em;
+    width: 75px;
     padding:6px;
     border-radius: 30px;
-    margin-bottom: 15px;
-
-    background-color: var(--color-simple01);
-    font-family: var(--font-normal-sans);
+    margin-bottom: 30px;
 }
 
-nav#content-share > i:active{
-    transform: skew(3deg);
+i.toCopy{
+    background-color: var(--color-simple01);
+}
+
+i:active{
+    transform: scale(1.05);
+}
+
+i.copyed{
+    background-color: var(--color-checked);
 }
 
 nav#content-share > a{
@@ -189,7 +197,7 @@ hr#hr-menu{
 
     border-radius: 10%;
     margin: auto;
-    background-color: var(--color-background03);
+    background-color: #6e6e6e83;
 }
 
 a.link-share{
