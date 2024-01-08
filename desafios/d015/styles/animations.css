@@ -13,6 +13,46 @@
 
 }
 
+/* animações do menu */
+menu.menu-off{
+    display: none;
+}
+
+menu.recolhendo-menu{
+    animation: resOff 0.8s both ease-in-out;
+}
+
+menu.exibindo-menu{
+    display: block;
+    animation: resize 0.8s ease-in-out ;
+}
+
+@keyframes resize {
+    0% {
+        opacity: 0;
+        width: 125px;
+    }
+
+    100% {
+        opacity: 1;
+        width: 80%;
+    }
+}
+
+@keyframes resOff {
+    0% {
+        opacity: 1;
+        width: 80%;
+    }
+
+    100% {
+        opacity: 0;
+        width: 125px;
+        display: none;
+    }
+}
+
+/* animações do icone de mudar tema */
 .dark{
     position: absolute;
     top: 0.04em;
@@ -249,7 +289,8 @@
     }
 }
 
-.ball-effects{ /*  */
+ /* configurações dos itens fixos no fundo do site */
+.ball-effects{
     position: fixed;
     background-color: var(--color-simple01);
     border-radius: 100%;
@@ -288,56 +329,56 @@
     position: fixed;    
     left: 15vw;
     bottom: 50vh;
-    z-index: 1;
+    z-index: -1;
 }
 
 #design-icons-snake02{
     position: fixed;    
     right: 25vw;
     bottom: 15vh;
-    z-index: 1;
+    z-index: -1;
 }
 
 #design-icons-polygon00{
     position: fixed;
     right: 10vw;
     bottom: 3vh;
-    z-index: 1;
+    z-index: -1;
 }
 
 #design-icons-polygon01{
     position: fixed;    
     right: 10vw;
     bottom: 40vh;
-    z-index: 1;
+    z-index: -1;
 }
 
 #design-icons-polygon02{
     position: fixed;    
     right: 20vw;
     bottom: 60vh;
-    z-index: 1;
+    z-index: -1;
 }
 
 #design-icons-polygon03{
     position: fixed;    
     left: 16vw;
     bottom: 20vh;
-    z-index: 1;
+    z-index: -1;
 }
 
 #design-icons-circles00{
     position: fixed;
     right: 1.5vw;
     bottom: 15vh;
-    z-index: 1;
+    z-index: -1;
 }
 
 #design-icons-circles01{
     position: fixed;    
     left: 1.5vw;
     bottom: 60vh;
-    z-index: 1;
+    z-index: -1;
 }
 
 .skeleton{
@@ -394,5 +435,4 @@
     to {
         background-position: right -20px top 0;
     }
-}
-
+}   
