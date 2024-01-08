@@ -18,7 +18,7 @@ shareIcon.onclick = () => {
         
     }
 
-}
+} 
 
 menu.onmouseleave = () => {
 
@@ -31,7 +31,7 @@ copyLinkIcon.onclick = () => {
 
     // Usando a API de área de transferência para copiar o texto
     // Texto que você deseja copiar
-    const textoCopiar = "KKKKKKK é viaaaado";
+    const textoCopiar = 'https://ezequiellsantos.github.io/JavaScript/desafios/d015/';
 
     // Criando um elemento de texto oculto para copiar
     const input = document.createElement('input');
@@ -46,9 +46,8 @@ copyLinkIcon.onclick = () => {
     // Removendo o elemento de texto oculto
     document.body.removeChild(input);
 
-    console.log('Texto copiado com sucesso!');
-    copyLinkIcon.innerHTML = 'copyed'
-    copyLinkIcon.style.backgroundColor = '#E8B86B'
+    copyLinkIcon.innerHTML = 'Copiado'
+    copyLinkIcon.classList.add('copyed')
 }
 
 
