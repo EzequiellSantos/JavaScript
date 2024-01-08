@@ -4,7 +4,7 @@ var allMenu = document.querySelector('#menu-share')
 var menu = document.querySelector('#content-share')
 
 
-shareIcon.onclick = () => {
+shareIcon.onclick = () => { //ativar e desativar menu com clique
 
     if(allMenu.classList.contains('menu-off') || allMenu.classList.contains('recolhendo-menu')){
 
@@ -20,7 +20,7 @@ shareIcon.onclick = () => {
 
 } 
 
-menu.onmouseleave = () => {
+menu.onmouseleave = () => { //ocultar menu ao retirar o mouse de dentro do menu
 
     allMenu.classList.add('recolhendo-menu')
     allMenu.classList.remove('exibindo-menu')
@@ -33,7 +33,7 @@ copyLinkIcon.onclick = () => {
     // Texto que você deseja copiar
     const textoCopiar = 'https://ezequiellsantos.github.io/JavaScript/desafios/d015/';
 
-    // Criando um elemento de texto oculto para copiar
+    // Criando um elemento oculto para copiar
     const input = document.createElement('input');
     input.value = textoCopiar;
     document.body.appendChild(input);
@@ -147,24 +147,20 @@ switch (month) {
 
 document.getElementById("date").innerHTML = `<p>${day} ${dayMonth} de ${month} ${year}</p>`
 
-function calcTime() { //coleta do tempo, segundos, minutos e hora. Atualização automática de cada segundo
-    var date = new Date()
 
-    let hour = date.getHours()
-    let minute = date.getMinutes()
-    let seconds = date.getSeconds()
+function atualizarRelogio() { //coleta do tempo, segundos, minutos e hora. Atualização automática de cada segundo
+    const now = new Date();
+    const hour = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+  
 
-    let hourForm = hour < 10 ? `0${hour}` : hour
-    let minuteForm = minute < 10 ? `0${minute}` : minute
-    let secondsForm = seconds < 10 ? `0${seconds}` : seconds
-
-    document.getElementById("hora").innerHTML = `<p>${hourForm} : ${minuteForm} : <p id="p-fixo">${secondsForm}</p> </p>`
-
-    setInterval(calcTime, 1000)
-
+    hora.innerHTML = `<p>${hour} : ${minutes} : <p id="p-fixo">${seconds}</p></p>`;
 }
-
-calcTime() 
+  
+setInterval(atualizarRelogio, 1000);
+  
+atualizarRelogio();
 
 var toggleIcon = document.getElementById("item");
 var toggleSection = document.getElementById("toggle-icon")
