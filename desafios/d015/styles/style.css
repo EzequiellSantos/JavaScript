@@ -10,7 +10,7 @@
     --color-background00:#1A2535;
     --color-background01:#3b3b46;
     --color-background02: #4A3504;
-    --color-background03: #6e6e6e;
+    --color-background03: #dfdfdf;
 
     --color-simple00:#000f25;
     --color-simple01: #E8B86B;
@@ -36,8 +36,17 @@ body, html, h1, p{
     user-select: none; /* propriedade para o usuário do celular ou tablet não selecionar os icones */
 }
 
-body{
+.light{
+    background-color: #fff;
+    color: #000;
+}
+
+.dark{
     background-color: var(--color-background00);
+}
+
+body{
+    transition: background-color .7s;
 }
 
 header{
@@ -51,7 +60,6 @@ header{
     margin-top: 5px;
     padding-bottom: 15px;
     border-radius: 7px;
-    border: 0.5px solid var(--color-background03);
 
     position: relative;
     display: flex;
@@ -64,17 +72,11 @@ header{
     z-index: 1;
 }
 
-/* header::after{ design header - divisão de onda 50%
-    content: "";
-    position: absolute;
-    right: 20px;
-    height: 160px;
-    width: 40%;
-    z-index: 3;
-    
-    border-radius: 100%;
-    background-color: #000f25;
-} */
+.light header{
+    background-color: var(--color-background03);
+}
+
+/* design header - divisão de onda 50% */
 
 section#section-header{
     float: left;
@@ -83,11 +85,14 @@ section#section-header{
     color: #fff;
 }
 
+.light #section-header{
+    color: black;
+}
+
 section#section-header > h1{
     font-weight: normal;
     font-size: 1.9em;
     font-family: var(--font-sans-light); 
-
 }
 
 section#section-header > p{
@@ -117,6 +122,10 @@ div#div-icon-share > span{
     padding: 10px;
 }
 
+#div-icon-share:active{
+    transform: scale(1.03);
+}
+
 menu#menu-share{
     position: fixed;
 
@@ -130,7 +139,16 @@ menu#menu-share{
     border-radius: 20px;
     color: white;
     transition: all 0.3s ease-in-out;   
-}   
+}  
+
+.light #menu-share{
+    border-color: #c4c4c4;
+}
+
+.light #div-icon-share{
+    background-color: #5779af;
+    color: white;
+}
 
 nav#content-share{
     display: flex;
@@ -140,6 +158,10 @@ nav#content-share{
     flex-wrap: wrap;
 
     padding-top: 10px;
+}
+
+.light #content-share{
+    color: black;
 }
 
 nav#content-share > p{
@@ -227,9 +249,13 @@ nav#toggle-theme{
     top: 15px;
     right: 0px;
 
-    background-color: #1A2535;
+    background-color: var(--color-background00);
     border-radius: 30px;
     margin-right: -100px;
+}
+
+.light #toggle-theme{
+    background-color: #ffffff;
 }
 
 div#toggle-icon{
@@ -242,19 +268,29 @@ div#toggle-icon{
     z-index: 2;
 }
 
+.light #toggle-icon{
+    border-color: #c5c5c5;
+    box-shadow: 0.0em 0.05em 0.3em rgba(77, 77, 77, 0.315);
+}
+
 div#div-container-hora{
+    display: relative;
+    z-index: 1;
     float: right;
     width: 180px;
     height: 70px;
     margin: 0px 10px 15px 0px;
-    border-radius: 10px;
+    border-radius: 10px 10px 0px 0px;
     background-color: var(--color-simple00);
+}
+
+.light #div-container-hora{
+    background-color: /* var(--color-background03) */ #64646465;
 }
 
 article#article-subcontainer{
     width: 100%;
     height: 100%;
-/*     background-color: #ace; */
     padding: 3px 0;
     border-radius: 10px 10px 10px 10px;
 }
@@ -267,14 +303,16 @@ section#time{
     padding: 7px;
 
     border-radius: 10px 10px 0px 0px;
-    background-color: var(--color-simple00);
     color: #fff;
     text-shadow: 0.0em 0.25em 0.8em rgba(255, 255, 255, 0.849);
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
 
+.light #time{
+   background-color: #fff; 
 }
 
 span#hora{
@@ -287,6 +325,13 @@ span#hora{
     font-size: 1.6em;
     font-weight: normal;
     font-family: var(--font-number);
+    z-index: 3;
+}
+
+
+.light #hora{
+    text-shadow: none;
+    color: #000;
 }
 
 span#hora > p{
@@ -311,9 +356,15 @@ section#date{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    z-index: 2;
 
     font-size: 0.80em;
     font-family: var(--font-fil-itali);
+}
+
+.light #date{
+    background-color: #ffd560;
+    color: black;
 }
 
 main{
@@ -346,13 +397,17 @@ aside#aside-title{
     margin: auto;
     margin-bottom: 20px;
     border-radius: 50px;
-    border: 1px solid var(--color-background03);
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-family: var(--font-fil-itali);
     z-index: 2;
+}
+
+.light #aside-title{
+    background-color: var(--color-background03);
+    color: black;
 }
 
 article#article-content{
@@ -375,22 +430,27 @@ div.cards-content{
     height: 80px;
 
     background-color: var(--color-background01);
+    color: white;
     border-radius: 9px;
     z-index: 2;
-    border: 1px solid var(--color-background03);
     /* para computador ->> cursor: pointer;*/ 
     user-select: none;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: all 0.6s ease-in;
 }
 
 div.cards-content p{
     margin: 10px;
-    color: white;
     font-family: var(--font-normal-sans);
     cursor: pointer; 
+}
+
+.light div.cards-content{
+    background-color: var(--color-background03);
+    color: black;
 }
 
 #item-1{
@@ -423,11 +483,14 @@ aside#aside-weather{
 
     margin: 53px 0px -63px 0px;
     border-radius: 9px;
-    border: 1px solid var(--color-background03);
     background-color: var(--color-background01);
     z-index: 2;
-    cursor: pointer; 
+/*  para computador => cursor: pointer;  */
     user-select: none;
+}
+
+.light #aside-weather{
+    background-color: var(--color-background03);
 }
 
 
