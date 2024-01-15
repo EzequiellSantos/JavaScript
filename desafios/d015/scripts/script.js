@@ -6,19 +6,19 @@ var menu = document.querySelector('#content-share')
 
 shareIcon.onclick = () => { //ativar e desativar menu com clique
 
-    if(allMenu.classList.contains('menu-off') || allMenu.classList.contains('recolhendo-menu')){
+    if (allMenu.classList.contains('menu-off') || allMenu.classList.contains('recolhendo-menu')) {
 
         allMenu.classList.add('exibindo-menu')
         allMenu.classList.remove('menu-off')
         allMenu.classList.remove('recolhendo-menu')
 
-    } else{
+    } else {
         allMenu.classList.remove('exibindo-menu')
         allMenu.classList.add('recolhendo-menu')
-        
+
     }
 
-} 
+}
 
 menu.onmouseleave = () => { //ocultar menu ao retirar o mouse de dentro do menu
 
@@ -153,50 +153,47 @@ function atualizarRelogio() { //coleta do tempo, segundos, minutos e hora. Atual
     const hour = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
-  
+
 
     hora.innerHTML = `<p>${hour} : ${minutes} : <p id="p-fixo">${seconds}</p></p>`;
 }
-  
+
 setInterval(atualizarRelogio, 1000);
-  
 atualizarRelogio();
 
-var toggleIcon = document.getElementById("item");
-var toggleSection = document.getElementById("toggle-icon")
+document.addEventListener('DOMContentLoaded', function () {
 
+    const temaEstilos = document.getElementById('tema-estilos');// animation
+    var toggleSection = document.getElementById("toggle-icon")// section que guarda lua | sol
+    var toggleIcon = document.getElementById("item"); //Lua | sol
 
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) { // Modo escuro está ativado
+    const temaPreferido = localStorage.getItem('tema-preferido') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
-    console.log('Modo escuro está ativado');
-    msg.innerHTML = 'Seu dispositivo está no modo escuro'
+    // Aplicação dos estilos iniciais
+    aplicarTema(temaPreferido);
+    
 
-    toggleIcon.setAttribute('class', 'dark')
-
-    let islight = true
-
+    // Mudando e Guardando o tema escolhido
     toggleSection.onclick = () => {
-        toggleIcon.classList.toggle("light")
-        islight = !islight
+ 
+        let novoTema = temaEstilos.dataset.tema === 'light' ? 'dark' : 'light';
+        aplicarTema(novoTema);
+        localStorage.setItem('tema-preferido', novoTema); //guardando o tema escolhido  
+        
+    };
+
+    function aplicarTema(tema) {
+        // Adicionar ou remover a classe conforme o tema
+        document.body.classList.remove('dark', 'light');
+        document.body.classList.add(`${tema}`);
+        msg.innerHTML = `<p>Você esta no tema ${tema}`
+
+        // Atualizar o dataset para referência futura
+        temaEstilos.dataset.tema = tema;
     }
 
-} 
-
-if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) { // Modo claro está ativado ou não suportado { // Modo claro está ativado ou não suportado
-
-    console.log('Modo claro está ativado')
-    msg.innerHTML = 'Seu dispositivo está no modo claro'
-
-    toggleIcon.setAttribute('class', 'light')
-
-
-    let islight = false
-
-    toggleSection.onclick = () => {
-        toggleIcon.classList.toggle("dark")
-        islight = !islight
-    }
-}
+    
+});
 
 
 //verificação dos cards-content, para encerrar o skeleton
@@ -221,7 +218,7 @@ grupo.forEach(function (grupo) {
 
 // verificação especifica do widget de clima,se possui conteúdo ou não
 weatherWidget.forEach(function (grupo) {
-     
+
     if (grupo.hasChildNodes()) {
 
         grupo.classList.remove('skeletonTw')
