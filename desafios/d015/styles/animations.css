@@ -4,7 +4,7 @@
     --color-background00:#1A2535;
     --color-background01:#3b3b46;
     --color-background02: #4A3504;
-    --color-background03: #6e6e6e;
+    --color-background03: #dfdfdf;
 
     --color-simple00:#000f25;
     --color-simple01: #E8B86B;
@@ -55,11 +55,11 @@ menu.exibindo-menu{
 }
 
 /* animações do icone de mudar tema */
-.dark{
+.dark div#item{
     position: absolute;
-    top: 0.04em;
+    top: 0.07em;
     width: 19px;
-    left: 0.1em;
+    left: 0.103em;
     height: 18.5px;
     border-radius: 50%;
     background-color: rgb(212, 212, 212);  
@@ -68,7 +68,7 @@ menu.exibindo-menu{
     box-shadow: inset 0.3em 0.2em 0.3em rgba(0, 0, 0, 0.61);
 }
 
-.dark::after{
+.dark div#item::after{
     content: "";
     background-color: #49494967;
     border: 1px solid #3b3b4625;
@@ -79,10 +79,11 @@ menu.exibindo-menu{
     right: 30%;
     border-radius: 50%;
     position: absolute;
-    transition: all 0.5s ease-in-out;
+    transition: background 0.7s ease-in-out;
+    animation: born 0.4s ease-in-out;
 }
 
-.dark::before{
+.dark div#item::before{
     content: "";
     background-color: #6e6e6e83;
     border: 1px solid #3b3b4636;
@@ -93,13 +94,23 @@ menu.exibindo-menu{
     left: 20%;
     border-radius: 50%;
     position: absolute;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.8s ease-in-out;
+    animation: born 0.4s ease-in-out;
+}
+
+@keyframes born {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
 }
 
 .dark #icon00{
     display: block;
     opacity: 1;
-    content: "";
     background-color: #3b3b4679;
     box-shadow: 0.0em 0.03em 0.1em rgba(0, 0, 0, 0.493);
     width: 3px;
@@ -108,13 +119,13 @@ menu.exibindo-menu{
     right: 10%;
     border-radius: 50%;
     position: absolute;
-    transition: all 0.8s ease-in;
+    transition: all 0.8s ease-in-out;
+    animation: born 1.5s ease-in-out;
 }
 
 .dark #icon01{
     display: block;
     opacity: 1;
-    content: "";
     background-color: #3b3b4663;
     width: 3px;
     height: 4px;
@@ -122,7 +133,8 @@ menu.exibindo-menu{
     right: 70%;
     border-radius: 50%;
     position: absolute;
-    transition: all 0.8s ease-in;
+    transition: opacity 0.8s ease-in-out;
+    animation: born 1.6s ease-in-out;
 }
 
 .light #icon02{
@@ -137,43 +149,48 @@ menu.exibindo-menu{
     transition: opacity 5s ease-in-out;
 }
 
-.light{
+.light div#item{
     position: absolute;
-    top: 0.45px;
-    width: 18px;
+    top: 0.075em;
+    width: 18px;   
+    height: 18px;
     left: 40px;
-    height: 19px;
+ 
     border-radius: 50%;
     background-color: #fff563;  
-    animation: rot  7s infinite ease-in-out;
+    animation: rot 7s infinite ease-in-out;
     transition: all 0.9s ease-in-out;
 }
 
-.light::before{
+.light div#item::before{
     content: "";
     background-color: #ffffffce;
     border: 1px solid #fceb00;
-    box-shadow: 0.0em 0.1em 0.6em rgba(255, 255, 255, 0.945);
+    box-shadow: 0.0em 0.1em 0.6em rgba(255, 255, 255, 0.945); 
     width: 6px;
     height: 6px;
     border-radius: 50%;
     position: absolute;
-    transform: translate(20%, -50%);
-    transition: all 0.4s ease-in;
+    /*transform: translate(-50%, 60%); */
+    top: 26%;
+    right: 28%;
+    transition: all 0.4s ease-in-out;
     z-index: 1;
 }
 
-.light::after{
+.light div#item::after{
     content: "";
-    background-color: #fdf397d0;
+    background-color: #fdf397;
     border: 1px solid #f2f700;
-    box-shadow: 0.0em 0.1em 0.6em rgba(255, 145, 0, 0.945);
-    width: 13px;
-    height: 13px;
+    box-shadow: 0.0em 0.1em 0.6em rgba(255, 145, 0, 0.945); 
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     position: absolute;
-    transform: translate(25%, 60%);
-    transition: all 0.9s ease-in;
+    /* transform: translate(-50%, 15%); */
+    top: 10%;
+    right: 12%;
+    transition: all 0.8s ease-in-out;
 }
 
 .light #icon00{
@@ -192,30 +209,30 @@ menu.exibindo-menu{
     display: block;
     opacity: 1;
     background-color: #f3f700;
-    box-shadow: 0.0em 0.1em 0.3em rgba(255, 255, 255, 0.199);
+    box-shadow: 0.0em 0.1em 0.3em rgba(255, 230, 0, 0.342); 
     width: 14px;
     height: 14px;
     border-radius: 1px;
     position: absolute;
-    top: 14%;
-    left: 13%;
+    top: 12%;
+    left: 11%;
     transition: all 0.9s ease-in;
-    animation: rotTw 7s infinite ease-in-out;  
+    animation: rotTw 8s infinite ease-in-out;  
 }
 
 .light #icon03{
     display: block;
     opacity: 1;
     background-color: #f3f700;
-    box-shadow: 0.0em 0.1em 0.3em rgba(255, 255, 255, 0.144);
+    box-shadow: 0.0em 0.1em 0.3em rgba(255, 230, 0, 0.342); 
     width: 14px;
     height: 14px;
     border-radius: 1px;
     position: absolute;
-    top: 14%;
+    top: 12%;
     left: 13%;
     transition: all 0.9s ease-in;
-    animation: rotTw 6s infinite ease-in; 
+    animation: rotTw 7s infinite ease-in-out; 
 }
 
 @keyframes rotTw {
@@ -231,10 +248,6 @@ menu.exibindo-menu{
 @-webkit-keyframes rotTw{
     0% {
         transform: rotate(0deg);
-    }
-
-    50% {
-        transform: rotate(180deg);
     }
 
     100%{
@@ -258,10 +271,6 @@ menu.exibindo-menu{
     rotate: -90deg;
     z-index: 1;
 }
-
-.animation-rot{  /* animação de girar os efeitos */
-    animation: rot 5s infinite ease-in-out;
-} 
 
 @-webkit-keyframes rot{ /* animação de girar os efeitos */
     0% {
@@ -296,8 +305,17 @@ menu.exibindo-menu{
     position: fixed;
     background-color: var(--color-simple01);
     border-radius: 100%;
+    animation: rot 5s infinite ease-in-out;
 }
 
+.light .ball-effects{
+    background-color: var(--color-simple02);
+}
+
+.light #design-layout-ball{
+    background-color: var(--color-simple02);
+}
+ 
 #small-ball-0{
     top: -35px;
     left: 73px;
@@ -326,6 +344,15 @@ menu.exibindo-menu{
     height: 143px;
 }
 
+/* itens fixos no fundo do site */
+
+.background-icons{
+    transition: all 0.5s ease-in-out;
+}
+
+.light .background-icons{
+    opacity: 0.4;
+}
 
 #design-icons-snake01{
     position: fixed;    
@@ -396,7 +423,18 @@ menu.exibindo-menu{
     background-position: left -40px top 0;
     border-radius: 5px;
     animation: load 1.5s ease-in-out infinite;
-    transition: all 0.6s ease-in;
+    transition: all 0.3s ease-in-out;
+}
+
+.light .skeleton{
+    background-color: #d6d6d6;
+    background-image: linear-gradient(
+        90deg,
+        rgba(245, 245, 245, 0),
+        rgba(255, 255, 255, 0.26),
+        rgba(196, 196, 196, 0)
+    );
+    transition: all 0.3s ease-in-out;
 }
 
 @-webkit-keyframes load{
@@ -411,30 +449,4 @@ menu.exibindo-menu{
     }
 } 
 
-.skeletonTw{
-    background-color: #555;
-    background-image: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0),
-        rgba(77, 77, 77, 0.26),
-        rgba(255, 255, 255, 0)
-    );
-    background-size: 50px 100%;
-    background-repeat: no-repeat;
-    background-position: left -40px top 0;
-    border-radius: 5px;
-    animation: loadtw 1.8s ease-in-out infinite;
-    transition: all 0.5s ease-in;
-}
-
-@-webkit-keyframes loadtw{
-    to {
-        background-position: right -20px top 0;
-    }
-}
-
-@keyframes loadtw{
-    to {
-        background-position: right -20px top 0;
-    }
-}   
+   
