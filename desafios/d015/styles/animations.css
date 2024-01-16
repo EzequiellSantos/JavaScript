@@ -157,22 +157,21 @@ menu.exibindo-menu{
     left: 40px;
  
     border-radius: 50%;
-    background-color: #fff563;  
+    background-color: #f5eb6093;   
     animation: rot 7s infinite ease-in-out;
     transition: all 0.9s ease-in-out;
 }
 
 .light div#item::before{
     content: "";
-    background-color: #ffffffce;
+    background-color: #f8ffb9ce;
     border: 1px solid #fceb00;
-    box-shadow: 0.0em 0.1em 0.6em rgba(255, 255, 255, 0.945); 
+    box-shadow: 0.0em 0.1em 0.6em rgba(255, 255, 255, 0.945);  
     width: 6px;
     height: 6px;
     border-radius: 50%;
     position: absolute;
-    /*transform: translate(-50%, 60%); */
-    top: 26%;
+    top: 28%;
     right: 28%;
     transition: all 0.4s ease-in-out;
     z-index: 1;
@@ -181,14 +180,13 @@ menu.exibindo-menu{
 .light div#item::after{
     content: "";
     background-color: #fdf397;
-    border: 1px solid #f2f700;
-    box-shadow: 0.0em 0.1em 0.6em rgba(255, 145, 0, 0.945); 
+    border: 1px solid #eeff00;
+    box-shadow: 0.0em 0.0em 0.35em rgba(255, 145, 0, 0.945);  
     width: 12px;
     height: 12px;
     border-radius: 50%;
     position: absolute;
-    /* transform: translate(-50%, 15%); */
-    top: 10%;
+    top: 13%;
     right: 12%;
     transition: all 0.8s ease-in-out;
 }
@@ -209,7 +207,7 @@ menu.exibindo-menu{
     display: block;
     opacity: 1;
     background-color: #f3f700;
-    box-shadow: 0.0em 0.1em 0.3em rgba(255, 230, 0, 0.342); 
+    box-shadow: 0.0em 0.0em 0.2em rgba(255, 230, 0, 0.233); 
     width: 14px;
     height: 14px;
     border-radius: 1px;
@@ -224,7 +222,7 @@ menu.exibindo-menu{
     display: block;
     opacity: 1;
     background-color: #f3f700;
-    box-shadow: 0.0em 0.1em 0.3em rgba(255, 230, 0, 0.342); 
+    box-shadow: 0.0em 0.0em 0.2em rgba(255, 230, 0, 0.233); 
     width: 14px;
     height: 14px;
     border-radius: 1px;
@@ -300,7 +298,7 @@ menu.exibindo-menu{
     }
 }
 
- /* configurações dos itens fixos no fundo do site */
+/* configurações dos itens fixos no fundo do site */
 .ball-effects{
     position: fixed;
     background-color: var(--color-simple01);
