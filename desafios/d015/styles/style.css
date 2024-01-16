@@ -146,7 +146,7 @@ menu#menu-share{
 }
 
 .light #div-icon-share{
-    background-color: #5779af;
+    background-color: var(--color-background01);
     color: white;
 }
 
@@ -269,8 +269,10 @@ div#toggle-icon{
 }
 
 .light #toggle-icon{
-    border-color: #c5c5c5;
-    box-shadow: 0.0em 0.05em 0.3em rgba(77, 77, 77, 0.315);
+    border: none;
+    background-color: #b0defd;
+    box-shadow: 0.0em 0.05em 0.4em rgba(8, 86, 202, 0.247);
+    transition: background .5s ease-in-out;
 }
 
 div#div-container-hora{
