@@ -13,6 +13,7 @@ shareIcon.onclick = () => { //ativar e desativar menu com clique
         allMenu.classList.remove('recolhendo-menu')
 
     } else {
+
         allMenu.classList.remove('exibindo-menu')
         allMenu.classList.add('recolhendo-menu')
 
@@ -27,9 +28,9 @@ menu.onmouseleave = () => { //ocultar menu ao retirar o mouse de dentro do menu
 
 }
 
-copyLinkIcon.onclick = () => {
+copyLinkIcon.onclick = () => { // Usando a API de área de transferência para copiar o texto
 
-    // Usando a API de área de transferência para copiar o texto
+
     // Texto que você deseja copiar
     const textoCopiar = 'https://ezequiellsantos.github.io/JavaScript/desafios/d015/';
 
@@ -48,6 +49,7 @@ copyLinkIcon.onclick = () => {
 
     copyLinkIcon.innerHTML = 'Copiado'
     copyLinkIcon.classList.add('copyed')
+
 }
 
 
@@ -57,6 +59,7 @@ let day = date.getDay()
 let dayMonth = date.getDate()
 let month = date.getMonth()
 let year = date.getFullYear()
+let intervaloRelogio;
 
 switch (day) {
 
@@ -148,24 +151,89 @@ switch (month) {
 document.getElementById("date").innerHTML = `<p>${day} ${dayMonth} de ${month} ${year}</p>`
 
 
-function atualizarRelogio() { //coleta do tempo, segundos, minutos e hora. Atualização automática de cada segundo
+function atualizarRelogio() { 
+
     const now = new Date();
     const hour = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
 
-
     hora.innerHTML = `<p>${hour} : ${minutes} : <p id="p-fixo">${seconds}</p></p>`;
+
 }
 
-setInterval(atualizarRelogio, 1000);
-atualizarRelogio();
+
+/* 
+    configurações para otimização da página e evitar lentidão e excesso de memória utilizada
+    pelo navegador
+*/
+
+function iniciarRelogio(){
+
+    intervaloRelogio = setInterval(atualizarRelogio, 1000); //atualização automática do relógio
+    atualizarRelogio();
+
+}
+
+function pararRelogio(){
+
+    clearInterval(intervaloRelogio);
+
+}
+
+
+/* 
+    verificação para identificar se 
+    o usuário está ou não na página
+*/
+
+function pageVisibility(){
+
+    if(document.hidden){
+
+        pararRelogio();
+
+    }else{
+
+        iniciarRelogio();
+        titulo.innerHTML = 'Direct by Kiel'
+
+    }
+
+}
+
+document.addEventListener('visibilitychange', pageVisibility)
+
+window.addEventListener('blur', function(){ // qunado o usuário sai da página
+
+    pararRelogio();
+    //titulo.innerHTML = 'Direct by Kiel :('
+
+})
+
+window.addEventListener('focus', function(){ //quando a aba ganha foco
+
+    iniciarRelogio();
+
+})
+
+iniciarRelogio();
+
+window.addEventListener('beforeunload', function(){ //parar o relógio quando o user mudar de página ou minimizar
+
+    pararRelogio();
+
+})
+
+
+/* 
+    Gerenciamento do Tema do site
+*/
 
 document.addEventListener('DOMContentLoaded', function () {
 
     const temaEstilos = document.getElementById('tema-estilos');// animation
     var toggleSection = document.getElementById("toggle-icon")// section que guarda lua | sol
-    var toggleIcon = document.getElementById("item"); //Lua | sol
 
     const temaPreferido = localStorage.getItem('tema-preferido') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
@@ -183,6 +251,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     function aplicarTema(tema) {
+
         // Adicionar ou remover a classe conforme o tema
         document.body.classList.remove('dark', 'light');
         document.body.classList.add(`${tema}`);
@@ -190,19 +259,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Atualizar o dataset para referência futura
         temaEstilos.dataset.tema = tema;
+
     }
 
     
 });
 
 
-//verificação dos cards-content, para encerrar o skeleton
+/* 
+    Checagem de conteúdo, para atribuir ou retirar 
+    o carregamento de conteúdo
+*/
+
 var contain = document.querySelectorAll('#article');
 var grupo = document.querySelectorAll('.cards-content');
 var weatherWidget = document.querySelectorAll('#aside-weather');
 
-// Verifica se o grupo possui algum elemento filho e se possuir remove o skeleton
-grupo.forEach(function (grupo) {
+
+grupo.forEach(function (grupo) { // Verifica se o grupo possui algum elemento filho e se possuir remove o skeleton
 
     if (grupo.hasChildNodes()) {
 
@@ -216,19 +290,6 @@ grupo.forEach(function (grupo) {
 
 });
 
-// verificação especifica do widget de clima,se possui conteúdo ou não
-weatherWidget.forEach(function (grupo) {
-
-    if (grupo.hasChildNodes()) {
-
-        grupo.classList.remove('skeletonTw')
-
-    } else {
-
-        console.log('The widget of weather is free')
-
-    }
-})
 
 
 
