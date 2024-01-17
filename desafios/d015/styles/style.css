@@ -120,7 +120,7 @@ div#div-icon-share{
     padding: 7px 0px;
     margin: 10px 5px;
     border-radius: 15px;
-    box-shadow: 0.1em 0.05em 0.5em #000000;
+    box-shadow: 0.1em 0.05em 0.5em #0000004f;
 }
 
 div#div-icon-share > span{
@@ -155,7 +155,7 @@ menu#menu-share{
     background-color: var(--color-background01);
     color: white;
     border-radius: 15px;
-    box-shadow: 0.1em 0.05em 0.5em #0000005b;
+    box-shadow: 0.1em 0.05em 0.5em #00000041;
 }
 
 nav#content-share{
@@ -265,7 +265,7 @@ nav#toggle-theme{
 }
 
 .light #toggle-theme{
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 div#toggle-icon{
@@ -291,7 +291,7 @@ div#toggle-icon{
 div#div-container-hora{
     display: relative;
     float: right;
-    width: 180px;
+    width: 190px;
     height: auto;
     margin-right: 13px;
     margin-bottom: -3px;
@@ -355,6 +355,7 @@ span#hora > p{
 #p-fixo{
     position: absolute;
     margin-left: -2px;
+    user-select: none;
 }
 
 section#date{
