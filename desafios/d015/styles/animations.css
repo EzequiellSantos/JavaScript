@@ -29,9 +29,20 @@ menu.recolhendo-menu{
     transition: all 0.6s ease-in-out;
 }
 
+menu.recolhendo-menuTw{
+    animation: resOffTw 0.8s both ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+
 menu.exibindo-menu{
     display: block;
     animation: resize 0.8s ease-in-out ;
+    transition: all 0.6s ease-in-out;
+}
+
+menu.exibindo-menuTw{
+    display: block;
+    animation: resizeTw 0.8s ease-in-out ;
     transition: all 0.6s ease-in-out;
 }
 
@@ -57,6 +68,34 @@ menu.exibindo-menu{
         margin-left: -40px;
         margin-top: -4px;
         height: 70px;
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes resizeTw {
+    0% {
+        opacity: 0;
+        margin-left: -40px;
+        margin-top: -4px;
+        height: 150px;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes resOffTw {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        margin-left: -40px;
+        margin-top: -4px;
+        height: 150px;
         opacity: 0;
         display: none;
     }

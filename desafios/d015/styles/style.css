@@ -21,7 +21,7 @@
     --color-light00:#82FFFB;
     --color-light01:#B1FA8C;
     --color-light02:#FADA8C;
-    --color-single-light:#A082FF;
+    --color-single-light:#828fff;
 
     --color-checked: #6be875;
 
@@ -33,10 +33,11 @@
     --font-number: 'Exo', sans-serif;
 }
 
-body, html, h1, p{
+body, html, h1, p, a{
     padding: 0;
     margin: 0;
     z-index: auto;
+    text-decoration: none;
     cursor: default;
     user-select: none; /* propriedade para o usuário do celular ou tablet não selecionar os icones */
 }
@@ -144,7 +145,7 @@ div.buttons-inter:active{
     transform: scale(1.03);
 }
 
-.light div.buttons-inter   {
+.light div.buttons-inter{
     background-image: linear-gradient(120deg, #ebfffd 20%, #c3fffb ) ;
     color: #000;
 
@@ -153,6 +154,19 @@ div.buttons-inter:active{
 }
 
 menu#menu-share{
+    width: 30%;
+    max-width: 100px;
+    height: 100px;
+}  
+
+.light menu#menu-share{
+    border-color: #c4c4c4;
+    background-color: #fff;
+    border: 0.05em solid #6969698e;
+    box-shadow: 0.3em 0.3em 0.0em #8bf1ffb7;
+}
+
+menu#menu-share, menu#menu-contact{
     position: fixed;
 
     height: auto;
@@ -166,14 +180,58 @@ menu#menu-share{
     box-shadow: 0.3em 0.3em 0.0em #8bb9ffb7;
     border-radius: 20px;
     color: white;
-    transition: all 0.3s ease-in-out; 
-}  
+    transition: all 0.5s ease-in-out; 
+}
 
-.light #menu-share{
+menu#menu-contact{
+    width: 60%;
+    max-width: 200px;
+    height: 170px;
+}
+
+.light menu#menu-contact{
     border-color: #c4c4c4;
     background-color: #fff;
     border: 0.05em solid #6969698e;
     box-shadow: 0.3em 0.3em 0.0em #8bf1ffb7;
+}
+
+menu#menu-contact .first-p{
+    margin-top: -5px;
+}
+
+menu#menu-contact .second-p{
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+menu#menu-contact a#link-report{
+    padding: 7px 9px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+
+    background-color: var(--color-simple01);
+    color: #fff;
+}
+
+.light menu#menu-contact a#link-report{
+    background-color: var(--color-light02);
+    box-shadow: 0.1em 0.1em 0.5em #00000028;
+    overflow: hidden;
+}
+
+a#link-report span#span-report{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: var(--font-fil-itali);
+    overflow: hidden;
+}
+
+.light a#link-report> span#span-report{
+    color: #000;
+    font-weight: normal;
+    overflow: hidden;
 }
 
 nav#content-share{
@@ -186,11 +244,11 @@ nav#content-share{
     padding-top: 10px;
 }
 
-.light nav#content-share{
-    color: black;
+.light nav#content-share, span#span-report{
+    color: #000;
 }
 
-nav#content-share #xMenu{
+nav#content-share #xMenu, #kMenu{
     position: absolute;
     top: -8px;
     right: -10px;
@@ -204,7 +262,7 @@ nav#content-share #xMenu{
 
 }
 
-#xMenu:active{
+#xMenu:active, #kMenu:active{
     transform: scale(1.1);
 }
 
@@ -241,7 +299,7 @@ i.toCopy{
     background-color: var(--color-light02);
 }
 
-i:active{
+i:active, a#link-report > span{
     transform: scale(1.05);
 }
 
@@ -258,15 +316,14 @@ i.copyed::after{
     background-color: var(--color-light01);
 }
 
-nav#content-share > a{
-    display: block;
+nav#content-share  a.link-form-me{
     text-decoration: none;
     margin-bottom: 15px;
     cursor: default;     /* para cumputador ->> cursor: pointer; */
 }
 
 nav#content-share > a:hover > img {
-    background-color: var(--color-background03);
+    background-color: var(--color-light02);
     border-radius: 7px;
     transition: background 0.2s ease-in-out;
 }
@@ -276,7 +333,7 @@ hr#hr-menu{
     width: 70%;
     border: 0;
     height: 0.04em;
-    top: 48%;
+    top: 53%;
 
     border-radius: 10%;
     margin: auto;
@@ -294,7 +351,6 @@ a.link-for-me{
     height: 100%;
     width: 30px;
     height: 30px;
-    margin: 0px 3px 5px 3px;
 }
 
 nav#toggle-theme{

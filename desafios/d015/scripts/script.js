@@ -1,37 +1,40 @@
+const contactIcon = document.querySelector('#div-icon-contact')
+const shareIcon = document.querySelector('#div-icon-share');
+const menuShare = document.querySelector('#menu-share')
+const menuContact = document.querySelector('#menu-contact')
+const menu = document.querySelector('#content-share')
+
 //controle do Menu Share
-var shareIcon = document.querySelector('#div-icon-share');
-var allMenu = document.querySelector('#menu-share')
-var menu = document.querySelector('#content-share')
-
-
 shareIcon.onclick = () => { //ativar e desativar menu com clique
 
-    if (allMenu.classList.contains('menu-off') || allMenu.classList.contains('recolhendo-menu')) {
+    if (menuContact.classList.contains('exibindo-menuTw') || menuContact.classList.contains('menu-off')) {
 
-        allMenu.classList.add('exibindo-menu')
-        allMenu.classList.remove('menu-off')
-        allMenu.classList.remove('recolhendo-menu')
+        menuContact.classList.add('recolhendo-menuTw')
+        menuContact.classList.remove('exibindo-menuTw')
 
-    } else {
+        menuShare.classList.remove('menu-off')
+        menuShare.classList.add('exibindo-menu')
+        menuShare.classList.remove('recolhendo-menu')
 
-        allMenu.classList.remove('exibindo-menu')
-        allMenu.classList.add('recolhendo-menu')
+    } else if(menuShare.classList.contains('recolhendo-menu')){
+
+        menuShare.classList.add('exibindo-menu')
+        menuShare.classList.remove('recolhendo-menu')
 
     }
+    else {
 
-}
+        menuShare.classList.remove('exibindo-menu')
+        menuShare.classList.add('recolhendo-menu')
 
-menu.onmouseleave = () => { //ocultar menu ao retirar o mouse de dentro do menu
-
-    allMenu.classList.add('recolhendo-menu')
-    allMenu.classList.remove('exibindo-menu')
+    }
 
 } 
 
 xMenu.onclick = () => { //ocultar menu pelo X
 
-    allMenu.classList.remove('exibindo-menu')
-    allMenu.classList.add('recolhendo-menu')
+    menuShare.classList.remove('exibindo-menu')
+    menuShare.classList.add('recolhendo-menu')
 
 }
 
@@ -59,6 +62,32 @@ copyLinkIcon.onclick = () => { // Usando a API de área de transferência para c
 
 }
 
+//controle do menu contact
+contactIcon.onclick = () => {
+    if (menuShare.classList.contains('exibindo-menu') ||  menuShare.classList.contains('menu-off')) {
+
+        menuShare.classList.remove('exibindo-menu')
+        menuShare.classList.add('recolhendo-menu')
+
+        menuContact.classList.remove('menu-off')
+        menuContact.classList.add('exibindo-menuTw')
+        menuContact.classList.remove('recolhendo-menuTw')
+
+    } else if(menuContact.classList.contains('recolhendo-menuTw')) {
+ 
+        menuContact.classList.add('exibindo-menuTw')
+        menuContact.classList.remove('recolhendo-menuTw')
+
+    }else{
+        menuContact.classList.remove('exibindo-menuTw')
+        menuContact.classList.add('recolhendo-menuTw')
+    }
+}
+
+kMenu.onclick = () => {
+    menuContact.classList.add('recolhendo-menuTw')
+    menuContact.classList.remove('exibindo-menuTw')
+}
 
 var date = new Date() //coleta de data em dias, mês e ano
 
