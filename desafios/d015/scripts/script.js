@@ -26,6 +26,13 @@ menu.onmouseleave = () => { //ocultar menu ao retirar o mouse de dentro do menu
     allMenu.classList.add('recolhendo-menu')
     allMenu.classList.remove('exibindo-menu')
 
+} 
+
+xMenu.onclick = () => { //ocultar menu pelo X
+
+    allMenu.classList.remove('exibindo-menu')
+    allMenu.classList.add('recolhendo-menu')
+
 }
 
 copyLinkIcon.onclick = () => { // Usando a API de área de transferência para copiar o texto
@@ -158,7 +165,7 @@ function atualizarRelogio() {
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
 
-    hora.innerHTML = `<p>${hour} : ${minutes} : <p id="p-fixo">${seconds}</p></p>`;
+    hora.innerHTML = `<p>${hour} : ${minutes} : <p id="p-fixo">${seconds}</p> </p>`;
 
 }
 

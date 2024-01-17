@@ -157,12 +157,13 @@ menu#menu-share{
 
     height: auto;
     padding: 10px;
-    width: 80%;
-    max-width: 400px;
-    height: 170px;
+    width: 30%;
+    max-width: 100px;
+    height: 100px;
 
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.308);
+    background-color: var(--color-simple00);
+    border: 0.05em solid #696969;
+    box-shadow: 0.3em 0.3em 0.0em #8bb9ffb7;
     border-radius: 20px;
     color: white;
     transition: all 0.3s ease-in-out; 
@@ -170,6 +171,9 @@ menu#menu-share{
 
 .light #menu-share{
     border-color: #c4c4c4;
+    background-color: #fff;
+    border: 0.05em solid #6969698e;
+    box-shadow: 0.3em 0.3em 0.0em #8bf1ffb7;
 }
 
 nav#content-share{
@@ -184,6 +188,24 @@ nav#content-share{
 
 .light nav#content-share{
     color: black;
+}
+
+nav#content-share #xMenu{
+    position: absolute;
+    top: -8px;
+    right: -10px;
+
+    background-color: #ff6d6d;
+    padding: 6px;
+    width: 20px;
+    text-align: center;
+
+    border-radius: 80% 20% 77% 23%/28% 72% 28% 72%;
+
+}
+
+#xMenu:active{
+    transform: scale(1.1);
 }
 
 nav#content-share > p{
@@ -201,14 +223,22 @@ nav#content-share > p{
 nav#content-share > i{
     font-family: var(--font-normal-sans);
     font-size: 0.9em;
-    width: 75px;
+    text-align: center;
+
+    width: 80%;
+
     padding:6px;
     border-radius: 30px;
     margin-bottom: 30px;
 }
 
+
 i.toCopy{
     background-color: var(--color-simple01);
+}
+
+.light i.toCopy{
+    background-color: var(--color-light02);
 }
 
 i:active{
@@ -217,6 +247,15 @@ i:active{
 
 i.copyed{
     background-color: var(--color-checked);
+    text-align: center;
+}
+
+i.copyed::after{
+    content: ' \2713';
+}
+
+.light i.copyed{
+    background-color: var(--color-light01);
 }
 
 nav#content-share > a{
