@@ -161,7 +161,7 @@ menu.exibindo-menu{
     left: 40px;
  
     border-radius: 50%;
-    /* background-color: #f5eb608c; */   
+    background-color: #f5eb603d;  
     animation: rot 7s infinite ease-in-out;
     transition: all 0.9s ease-in-out;
 }
