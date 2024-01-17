@@ -15,6 +15,8 @@
     --color-simple00:#000f25;
     --color-simple01: #E8B86B;
     --color-simple02: #6fc2fa;
+    --color-simple03: #002838;
+    --color-simple04: #6EEEFA;
 
     --color-light00:#82FFFB;
     --color-light01:#B1FA8C;
@@ -55,14 +57,14 @@ body{
 header{
     width: calc(100% - 10px);
     max-width: 600px;
-    height: 160px;
+    height: 165px;
 
     max-width: 600px;
     background-color: var(--color-background01);
     margin: auto;
     margin-top: 5px;
     padding-bottom: 15px;
-    border-radius: 7px;
+    border-radius: 15px;
 
     position: relative;
     display: flex;
@@ -94,13 +96,13 @@ section#section-header{
 
 section#section-header > h1{
     font-weight: normal;
-    font-size: 1.9em;
+    font-size: 2.0em;
     font-family: var(--font-sans-light); 
 }
 
 section#section-header > p{
     text-align: left;
-    font-size: 1.6em;
+    font-size: 1.7em;
     font-family: var(--font-fil-itali);
 }
 
@@ -116,8 +118,9 @@ nav#nav-links-main{
 div#div-icon-share{
     background-color: white;
     padding: 7px 0px;
-    border-radius: 15px;
     margin: 10px 5px;
+    border-radius: 15px;
+    box-shadow: 0.1em 0.05em 0.5em #000000;
 }
 
 div#div-icon-share > span{
@@ -151,6 +154,8 @@ menu#menu-share{
 .light #div-icon-share{
     background-color: var(--color-background01);
     color: white;
+    border-radius: 15px;
+    box-shadow: 0.1em 0.05em 0.5em #0000005b;
 }
 
 nav#content-share{
@@ -255,6 +260,8 @@ nav#toggle-theme{
     background-color: var(--color-background00);
     border-radius: 30px;
     margin-right: -100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .light #toggle-theme{
@@ -278,41 +285,43 @@ div#toggle-icon{
         rgb(255, 255, 255) 35%,
         rgb(156, 227, 255));
     box-shadow: 0.0em 0.05em 0.4em rgba(151, 151, 151, 0.575);
-    transition: background .5s ease-in-out;
+    transition: background 5s ease-in-out;
 }
 
 div#div-container-hora{
     display: relative;
-    z-index: 1;
     float: right;
     width: 180px;
-    height: 70px;
-    margin: 0px 10px 15px 0px;
-    border-radius: 10px 10px 0px 0px;
-    background-color: var(--color-simple00);
-}
+    height: auto;
+    margin-right: 13px;
+    margin-bottom: -3px;
 
-.light #div-container-hora{
-    background-color: #64646465;
+    z-index: 1;
+    border-radius: 10px;
 }
 
 article#article-subcontainer{
-    width: 100%;
-    height: 100%;
-    padding: 3px 0;
-    border-radius: 10px 10px 10px 10px;
+    padding: 10px;
+    border-radius: 13px;
+
+    background-image: linear-gradient(140deg, var(--color-simple00), var(--color-simple03));
+    box-shadow: 0.0em 0.05em 0.3em #000f25;
+}
+
+.light #article-subcontainer{
+    background-image: linear-gradient(140deg, var(--color-background03), rgb(211, 211, 211));
+    box-shadow: 0.0em 0.1em 0.5em #000f2546;
 }
 
 section#time{
-    height: 30px;
-    width: 90%;
-    height: 70%;
     margin: auto;
-    padding: 7px;
-
-    border-radius: 10px 10px 0px 0px;
+    width: 75%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+    padding: 14px 25px 14px 7px;
     color: #fff;
-    text-shadow: 0.0em 0.25em 0.8em rgba(255, 255, 255, 0.849);
+    text-shadow: 0.0em 0.1em 0.7em rgba(255, 255, 255, 0.849);
 
     display: flex;
     flex-direction: column;
@@ -320,15 +329,11 @@ section#time{
 }
 
 .light #time{
-   background-color: #fff; 
+    border-color: #000;
 }
 
 span#hora{
-    border: 1px solid rgb(129, 129, 129);
-    border-radius: 7px;
-    width: 85%;
     margin: auto;
-    padding: 10px 17px 10px 5px;
 
     font-size: 1.6em;
     font-weight: normal;
@@ -349,29 +354,26 @@ span#hora > p{
 
 #p-fixo{
     position: absolute;
+    margin-left: -2px;
 }
 
 section#date{
-    background-color: var(--color-simple02);
-    color: white;
-    height: 40%;
-    width: 100%;
-    height: 30%;
-    padding: 2px 0px;
-    border-radius: 0px 0px 10px 10px;
+    width: 90%;
+    margin: auto;
+    padding: 3px 4px;
+    border-radius: 5px;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
+    background-image: linear-gradient(-30deg, var(--color-light02), var(--color-simple01));
+    color: white;
 
     font-size: 0.80em;
     font-family: var(--font-fil-itali);
+    z-index: 2;
+    transition: background 0.4s ease-in-out;
 }
 
 .light #date{
-    background-color: #ffd560;
+    background-image: linear-gradient(-120deg, var(--color-simple04), var(--color-light00));
     color: black;
 }
 
@@ -439,7 +441,7 @@ div.cards-content{
 
     background-color: var(--color-background01);
     color: white;
-    border-radius: 9px;
+    border-radius: 14px;
     z-index: 2;
     /* para computador ->> cursor: pointer;*/ 
     user-select: none;
@@ -490,7 +492,7 @@ aside#aside-weather{
     height: 200px;
 
     margin: 53px 0px -63px 0px;
-    border-radius: 9px;
+    border-radius: 14px;
     background-color: var(--color-background01);
     z-index: 2;
 /*  para computador => cursor: pointer;  */
