@@ -161,9 +161,10 @@ menu.exibindo-menu{
     left: 40px;
  
     border-radius: 50%;
-    background-color: #f5eb603d;  
+    background-color: #fffab3;  
     animation: rot 7s infinite ease-in-out;
     transition: all 0.9s ease-in-out;
+    z-index: 0;
 }
 
 .light div#item::before{
