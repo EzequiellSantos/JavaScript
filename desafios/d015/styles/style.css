@@ -154,7 +154,7 @@ div.buttons-inter{
 
 div.buttons-inter > span{
     /* para cumputador ->> cursor: pointer; */
-
+    display: block;
 }
 
 div.buttons-inter:active{
