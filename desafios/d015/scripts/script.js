@@ -280,7 +280,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Adicionar ou remover a classe conforme o tema
         document.body.classList.remove('dark', 'light');
         document.body.classList.add(`${tema}`);
-        msg.innerHTML = `<p>Você esta no tema ${tema}`
 
         // Atualizar o dataset para referência futura
         temaEstilos.dataset.tema = tema;
