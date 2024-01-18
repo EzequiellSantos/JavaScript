@@ -7,22 +7,16 @@ const menu = document.querySelector('#content-share')
 //controle do Menu Share
 shareIcon.onclick = () => { //ativar e desativar menu com clique
 
-    if (menuContact.classList.contains('exibindo-menuTw') || menuContact.classList.contains('menu-off')) {
+    if(menuShare.classList.contains('menu-off') || menuShare.classList.contains('recolhendo-menu') || menuContact.classList.contains('exibindo-menuTw')){
 
-        menuContact.classList.add('recolhendo-menuTw')
-        menuContact.classList.remove('exibindo-menuTw')
-
+        menuShare.classList.remove('recolhendo-menu')
         menuShare.classList.remove('menu-off')
         menuShare.classList.add('exibindo-menu')
-        menuShare.classList.remove('recolhendo-menu')
 
-    } else if(menuShare.classList.contains('recolhendo-menu')){
+        menuContact.classList.remove('exibindo-menuTw')
+        menuContact.classList.add('recolhendo-menuTw')
 
-        menuShare.classList.add('exibindo-menu')
-        menuShare.classList.remove('recolhendo-menu')
-
-    }
-    else {
+    } else if(menuShare.classList.contains('exibindo-menu')){
 
         menuShare.classList.remove('exibindo-menu')
         menuShare.classList.add('recolhendo-menu')
@@ -64,21 +58,16 @@ copyLinkIcon.onclick = () => { // Usando a API de área de transferência para c
 
 //controle do menu contact
 contactIcon.onclick = () => {
-    if (menuShare.classList.contains('exibindo-menu') ||  menuShare.classList.contains('menu-off')) {
+    if(menuContact.classList.contains('menu-off') || menuContact.classList.contains('recolhendo-menuTw') || menuShare.classList.contains('exibindo-menu')){
+
+        menuContact.classList.remove('menu-off')
+        menuContact.classList.remove('recolhendo-menuTw')
+        menuContact.classList.add('exibindo-menuTw')
 
         menuShare.classList.remove('exibindo-menu')
         menuShare.classList.add('recolhendo-menu')
 
-        menuContact.classList.remove('menu-off')
-        menuContact.classList.add('exibindo-menuTw')
-        menuContact.classList.remove('recolhendo-menuTw')
-
-    } else if(menuContact.classList.contains('recolhendo-menuTw')) {
- 
-        menuContact.classList.add('exibindo-menuTw')
-        menuContact.classList.remove('recolhendo-menuTw')
-
-    }else{
+    }else if(menuContact.classList.contains('exibindo-menuTw')){
         menuContact.classList.remove('exibindo-menuTw')
         menuContact.classList.add('recolhendo-menuTw')
     }
