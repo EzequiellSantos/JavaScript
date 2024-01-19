@@ -2,17 +2,31 @@ const key = 'adbe00f238877e96d2b64a528c71ebb2'
 
 function consumirDados(dados){
 
-    document.getElementById('tempo-cidade').innerHTML = "Tempo em " + dados.name
+    if(dados.message == 'city not found' || townName.value.length == ' '){
 
-    document.getElementById('graus').innerHTML = dados.main.temp.toFixed(0) + "°C"
+        document.getElementById('tempo-cidade').innerHTML = 'Não Encontrado :('
+        document.querySelector('.graus').innerHTML = '..°C'
+        document.querySelector('.info-clima').innerHTML = '...'
+        document.querySelector('.umidade').innerHTML = "Umidade: " + "'-'"
 
-    document.querySelector('.info-clima').innerHTML = dados.weather[0].description
+    } else{
 
-    document.querySelector('.img-info').setAttribute('src', `https://openweathermap.org/img/wn/${dados.weather[0].icon}.png`)
 
-    document.querySelector('#umidade').innerHTML = "Umidade: " +  dados.main.humidity + "%"
+        document.getElementById('tempo-cidade').innerHTML = "Tempo em " + dados.name
 
-    console.log(dados)
+        document.querySelector('.graus').innerHTML = dados.main.temp.toFixed(0) + "°C"
+    
+        document.querySelector('.info-clima').innerHTML = dados.weather[0].description
+    
+        document.querySelector('#img-info').setAttribute('src', `https://openweathermap.org/img/wn/${dados.weather[0].icon}.png`)
+    
+        document.querySelector('.umidade').innerHTML = "Umidade: " +  dados.main.humidity + "%"
+    
+        console.log(dados)
+
+    }
+
+
 }   
 
 async function buscarCidade(cidade){ //quando for funções que precisam de servidor externo, se usa async antes
@@ -38,6 +52,6 @@ townName.addEventListener('keydown', function(event){
         buscarCidade(townName)
         
     }
-    
+
 })
 

@@ -59,7 +59,7 @@ button:active{
     transform: scale(1.05);
 }
 
-img.lupa-botao{
+img#lupa-botao{
     width: 25px;
     margin: 7px 7px 5px 7px;
 }
@@ -69,7 +69,6 @@ section{
 }
 
 article{
-    margin: 10px 0px;
 }
 
 h2#tempo-cidade, p{
@@ -77,12 +76,12 @@ h2#tempo-cidade, p{
     margin: 15px 0px;
 }
 
-div.imagem-info{
+div#imagem-info{
     display: flex;
     align-items: center;
 }
 
-img.img-info{
+img#img-info{
     width: 40px;
     margin: -10px 0px -10px -5px;
 }
