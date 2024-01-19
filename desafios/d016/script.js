@@ -32,8 +32,8 @@ async function buscarCidade(cidade){ //quando for funções que precisam de serv
 
     const dados = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${key}&lang=pt_br&units=metric`).then( resposta => resposta.json())
     // o await diz para que o código espere até quando  o servidor responder
-
     consumirDados(dados)
+    
 }
 
 pesquisa.onclick = () => {
