@@ -84,7 +84,7 @@ div.imagem-info{
 
 img.img-info{
     width: 40px;
-    margin-left: -5px;
+    margin: -10px 0px -10px -5px;
 }
 
 p.info-clima{
@@ -92,3 +92,6 @@ p.info-clima{
     text-transform: capitalize;
 }
 
+aside{
+    margin: 0;
+}

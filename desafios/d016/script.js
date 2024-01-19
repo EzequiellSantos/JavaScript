@@ -31,11 +31,13 @@ pesquisa.onclick = () => {
 }
 
 townName.addEventListener('keydown', function(event){
+
     if(event.keyCode === 13){
 
         var townName = document.getElementById('townName').value
         buscarCidade(townName)
         
     }
+    
 })
 
