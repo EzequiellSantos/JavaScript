@@ -24,14 +24,16 @@ main{
 
     border-radius: 20px;
     padding: 20px;
+    margin: 0px 10px;
 
-    width: 95%;
-    max-width: 250px;
+    width: 90%;
+    max-width: 300px;
 }
 
 section{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 input{
@@ -59,7 +61,7 @@ button:active{
 
 img.lupa-botao{
     width: 25px;
-    margin: 6px 5px 4px 5px;
+    margin: 7px 7px 5px 7px;
 }
 
 section{
@@ -67,15 +69,15 @@ section{
 }
 
 article{
-    margin: 20px 0px;
-}
-
-h2.tempo-cidade, p{
-    font-weight: lighter;
     margin: 10px 0px;
 }
 
-section.imagem-info{
+h2#tempo-cidade, p{
+    font-weight: lighter;
+    margin: 15px 0px;
+}
+
+div.imagem-info{
     display: flex;
     align-items: center;
 }
@@ -87,5 +89,6 @@ img.img-info{
 
 p.info-clima{
     margin-left: 5px;
+    text-transform: capitalize;
 }
 
