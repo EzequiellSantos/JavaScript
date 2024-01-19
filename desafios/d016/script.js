@@ -21,8 +21,7 @@ function consumirDados(dados){
         document.querySelector('#img-info').setAttribute('src', `https://openweathermap.org/img/wn/${dados.weather[0].icon}.png`)
     
         document.querySelector('.umidade').innerHTML = "Umidade: " +  dados.main.humidity + "%"
-    
-        console.log(dados)
+
 
     }
 
