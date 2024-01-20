@@ -592,17 +592,24 @@ div.cards-content{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: all 0.6s ease-in;
+    transition: all 0.4s ease-in-out;
 }
 
 div.cards-content p{
-    margin: 10px;
+    margin: 8px;
     font-family: var(--font-normal-sans);
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
 .light div.cards-content{
     background-color: var(--color-background03);
     color: black;
+}
+
+div.cards-content:active{
+    transform: scale(1.02);
+    transition: none;
 }
 
 #item-1{
@@ -648,7 +655,6 @@ aside#aside-weather{
 section#section-of-contents{
     width: 100%;
     text-align: left;
-    font-weight: bolder;
     color: #dadada;
 
     display: flex;
@@ -664,12 +670,127 @@ section#section-of-contents > p{
     color: #000;
 }
 
+section#section-of-weather{
+    width: 86%;
+    text-align: left;
+    color: #dadada;
+    background-color: var(--color-background03);
+
+    margin: auto;
+    margin-top: 7px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.light section#section-of-weather{
+    color: #000;
+}
+
+article#search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    margin-bottom: 8px;
+}
+
+input#nomeCidade{
+    width: 70%;
+    padding: 10px;
+
+    border-radius: 20px;
+    outline: none;
+    border: 0.5px solid rgb(143, 143, 143);
+    background-color: rgba(179, 179, 179, 0.164);
+    color: #dadada;
+
+    font-size: 0.7em;
+}
+
+input#nomeCidade::placeholder{
+    font-size: 0.85em;
+    color: #8f8f8f;
+}
+
+button#botaoBusca{
+    border: 0.05em solid #dadada;
+    background-color: #8f8f8f5e;
+    border-radius: 50%;
+    padding: 7px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 7px;
+}
+
+h3#infoCidade{
+    margin: 0px 0px 5px 0px;
+    padding: 4px 4px 4px 8px;
+    border-radius: 25px;
+    background-color: #999999;
+    width: 76%;
+
+    font-family: var(--font-sans-light);
+    font-size: 0.99em;
+}
+
+p#grauCelsius{
+    font-family: var(--font-number);
+    text-align: center;
+    font-size: 0.75em;
+
+    max-width: 25%;
+    width: auto;
+    border-radius: 15px;
+    background-color: #999999;
+    margin-bottom: 5px;
+    padding: 4px 4px 4px 8px;
+}
+
+p#infoClima{
+    max-width: 80%;
+    width: auto;
+    padding: 4px 4px 4px 8px;
+}
+
+
+p#infoClima, p#umidade{
+    font-family: var(--font-sans-light);
+
+    padding: 5px;
+    border-radius: 15px;
+    background-color: #999999;
+    margin-bottom: 5px;
+}
+
+p#umidade{
+    width: auto;
+    max-width: 50%;
+    padding: 4px 4px 4px 8px;
+    text-align: left;
+}
+
+.font-short{
+    font-size: 0.8em;
+}
+
 #news{
     stroke: #dadada;
 }
 
 .light #news{
     stroke: #000;
+
+}
+
+#icons-cards{
+    fill: #dadada;
+}
+
+.light #icons-cards{
+    fill: #000;
 }
 
 footer{
