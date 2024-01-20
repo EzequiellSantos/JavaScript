@@ -394,7 +394,7 @@ menu.exibindo-menuTw{
 
 .background-icons{
     transition: all 0.5s ease-in-out;
-    opacity: 0.4;
+    opacity: 0.2;
 }
 
 .light .background-icons{
@@ -458,17 +458,19 @@ menu.exibindo-menuTw{
 }
 
 .skeleton{
-    background-color: #555;
+    background-color: #1a25356e;
     background-image: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0),
-        rgba(77, 77, 77, 0.26),
+        rgba(85, 85, 85, 0.26),
         rgba(255, 255, 255, 0)
     );
     background-size: 50px 100%;
     background-repeat: no-repeat;
     background-position: left -40px top 0;
-    border-radius: 5px;
+    border-radius: 25px;
+    padding: 4px ;
+    height: 18px;
     animation: load 1.5s ease-in-out infinite;
     transition: all 0.3s ease-in-out;
 }
@@ -486,13 +488,13 @@ menu.exibindo-menuTw{
 
 @-webkit-keyframes load{
     to {
-        background-position: right -20px top 0;
+        background-position: right -40px top 0;
     }
 }
 
 @keyframes load{
     to {
-        background-position: right -20px top 0;
+        background-position: right -40px top 0;
     }
 } 
 
