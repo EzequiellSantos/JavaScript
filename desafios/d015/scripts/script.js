@@ -295,24 +295,45 @@ document.addEventListener('DOMContentLoaded', function () {
     o carregamento de conteúdo
 */
 
-var contain = document.querySelectorAll('#article');
-var grupo = document.querySelectorAll('.cards-content');
+var contain = document.querySelectorAll('section-of-weather');
+var grupo = document.querySelectorAll('.p-infor-weather');
 var weatherWidget = document.querySelectorAll('#aside-weather');
 
+function limparSkeleton(){
 
-grupo.forEach(function (grupo) { // Verifica se o grupo possui algum elemento filho e se possuir remove o skeleton
+    grupo.forEach(function (grupo) { // Verifica se o grupo possui algum elemento filho e se possuir remove o skeleton
+        if (grupo.hasChildNodes()) {
 
-    if (grupo.hasChildNodes()) {
+            grupo.classList.remove('skeleton')
 
-        grupo.classList.remove('skeleton')
+        }
+    })
 
-    } else {
+}
 
-        console.log('<- widgets free');
 
-    }
+//controle do widget de clima
 
-});
+const key = 'adbe00f238877e96d2b64a528c71ebb2'
+
+function limparSearch(){
+
+    nomeCidade.value = ''
+
+}
+
+botaoBusca.onclick = () => {
+
+    const nameCity = nomeCidade.value
+    infoCidade.innerHTML = `${nameCity}`
+    limparSkeleton()
+    limparSearch()
+
+}
+
+async function buscarCidade(cidade){
+    const dados = await fetch(``)
+}
 
 
 
