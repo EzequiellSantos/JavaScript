@@ -647,14 +647,29 @@ aside#aside-weather{
 
 section#section-of-contents{
     width: 100%;
-    text-align: center;
-    font-size: 1.4em;
+    text-align: left;
     font-weight: bolder;
-    color: #27272e;
+    color: #dadada;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 section#section-of-contents > p{
     font-family:  var(--font-bolder);
+}
+
+.light section#section-of-contents{
+    color: #000;
+}
+
+#news{
+    stroke: #dadada;
+}
+
+.light #news{
+    stroke: #000;
 }
 
 footer{
