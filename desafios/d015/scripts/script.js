@@ -306,6 +306,10 @@ function limparSkeleton(){
 
             grupo.classList.remove('skeleton')
 
+        }else{
+
+            grupo.classList.add('skeleton')
+
         }
     })
 
@@ -324,17 +328,60 @@ function limparSearch(){
 
 botaoBusca.onclick = () => {
 
-    const nameCity = nomeCidade.value
-    infoCidade.innerHTML = `${nameCity}`
-    limparSkeleton()
+    buscarCidade(nomeCidade.value)
     limparSearch()
 
 }
 
+nomeCidade.addEventListener("keydown", function(event) {
+
+    if(event.keyCode === 13){
+
+        buscarCidade(nomeCidade.value)
+        limparSearch()
+        
+    }
+    
+})
+
 async function buscarCidade(cidade){
-    const dados = await fetch(``)
+
+    const dados = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${key}&lang=pt_br&units=metric`).then(resposta => resposta.json())
+    
+    consumirDados(dados)
+    limparSkeleton()
+
 }
 
+function consumirDados(dados){
+
+    if(dados.cod == '404' || dados.cod == '400'){
+
+        inputError()
+
+    }else{
+
+        infoCidade.innerHTML = dados.name
+        grauCelsius.innerHTML = dados.main.temp.toFixed(0) + "°C"
+        infoClima.innerHTML =  `<img id="img-weather" src="https://raw.githubusercontent.com/EzequiellSantos/JavaScript/main/desafios/d015/Imagens/icons-weather/${dados.weather[0].icon}.png">` + dados.weather[0].description
+        umidade.innerHTML = 'umidade: ' + dados.main.humidity + '%'
+    
+        //https://openweathermap.org/img/wn/${dados.weather[0].icon}.png
+
+        console.log(dados)
+        limparSkeleton()
+
+    }
 
 
 
+}
+
+function inputError(){
+    infoCidade.innerHTML = 'Não Encontrado'
+    grauCelsius.innerHTML = ''
+    infoClima.innerHTML = ''
+    umidade.innerHTML = ''
+
+    limparSkeleton()
+}

@@ -37,7 +37,7 @@
     --font-bolder: "Exo", sans-serif;;
 }
 
-body, html, h1, p, a{
+body, html, h1, h3, p, a{
     padding: 0;
     margin: 0;
     z-index: auto;
@@ -509,6 +509,7 @@ section#date{
     background-image: linear-gradient(-30deg, var(--color-light02), var(--color-simple01));
     color: white;
 
+    text-align: center;
     font-size: 0.80em;
     font-family: var(--font-fil-itali);
     z-index: 2;
@@ -672,16 +673,17 @@ section#section-of-contents > p{
 }
 
 section#section-of-weather{
-    width: 86%;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
     text-align: left;
     text-transform: capitalize;
     color: #dadada;
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(30px); 
 
     margin: auto;
-    margin-top: 7px;
+
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 14px;
 }
 
 .light section#section-of-weather{
@@ -695,6 +697,7 @@ article#search{
     flex-direction: row;
 
     margin-bottom: 8px;
+    margin-top: 5px;
 }
 
 input#nomeCidade{
@@ -736,14 +739,12 @@ button#botaoBusca:active{
 }
 
 h3#infoCidade{
-    margin: 0px 0px 5px 0px;
     padding: 4px ;
-
-/*     background-color: #999999; */
-    width: 76%;
+    margin: 0;
+    width: 95%;
 
     font-family: var(--font-sans-light);
-    font-size: 1.05em;
+    font-size: 1.2em;
 }
 
 p#grauCelsius{
@@ -753,29 +754,32 @@ p#grauCelsius{
     max-width: 25%;
     width: auto;
     border-radius: 15px;
-    margin-bottom: 5px;
     padding: 4px;
 }
 
+img#img-weather{
+    margin: 0px 5px -8px 4px;
+    width: 30px;
+    height: 30px;
+}
+
 p#infoClima{
-    max-width: 80%;
+    max-width: 75%;
     width: auto;
-    padding: 4px 4px 4px 8px;
+    padding: 0px 4px 4px 0px;
 }
 
 
 p#infoClima, p#umidade{
     font-family: var(--font-sans-light);
 
-    padding: 5px;
     border-radius: 15px;
     margin-bottom: 5px;
 }
 
 p#umidade{
-    width: auto;
-    max-width: 50%;
-    padding: 4px;
+    width: 50%;
+    padding-left: 4px;
     text-align: left;
 }
 
