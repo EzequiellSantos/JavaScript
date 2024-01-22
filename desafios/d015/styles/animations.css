@@ -302,7 +302,7 @@ menu.exibindo-menuTw{
 }
 
 #design-layout{ /* conteiner do design bola */
-/*     display: none; */
+    display: none; 
     position: relative;
     z-index: 2;
 }
@@ -411,18 +411,18 @@ menu.exibindo-menuTw{
 
 #design-icons-snake02{
     position: fixed;    
-    right: 25vw;
-    bottom: 15vh; 
-/*  right: 25vw; 
-    bottom: 10vh;*/
+/*    right: 25vw;
+    bottom: 15vh;*/ 
+    right: 25vw; 
+    bottom: 10vh;
     z-index: -1;
 }
 
 #design-icons-polygon00{
     position: fixed;
-    right: 10vw;
+/*     right: 10vw;*/
     bottom: 3vh; 
-/*     left: 10vw; */
+    left: 10vw; 
     z-index: -1;
 }
 
