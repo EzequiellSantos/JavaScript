@@ -363,7 +363,7 @@ function consumirDados(dados){
 
         infoCidade.innerHTML = dados.name
         grauCelsius.innerHTML = dados.main.temp.toFixed(0) + "°C"
-        infoClima.innerHTML =  `<img id="img-weather" src="https://raw.githubusercontent.com/EzequiellSantos/JavaScript/main/desafios/d015/Imagens/icons-weather/${dados.weather[0].icon}.png">` + dados.weather[0].description
+        infoClima.innerHTML =  `<img id="img-weather" src="https://raw.githubusercontent.com/EzequiellSantos/JavaScript/main/desafios/d015/Imagens/icons-weather/nublado-Dark.png">` + dados.weather[0].description
         umidade.innerHTML = 'umidade: ' + dados.main.humidity + '%'
     
         //https://openweathermap.org/img/wn/${dados.weather[0].icon}.png
