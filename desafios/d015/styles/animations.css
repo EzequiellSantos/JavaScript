@@ -473,9 +473,9 @@ menu.exibindo-menuTw{
     background-repeat: no-repeat;
     background-position: left -40px top 0;
     border-radius: 25px;
-    padding: 4px ;
     margin: 10px 0px;
     height: 18px;
+    max-width: 90%;
     animation: load 1.5s ease-in-out infinite;
     transition: all 0.3s ease-in-out;
 }
