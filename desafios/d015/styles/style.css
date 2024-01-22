@@ -682,7 +682,7 @@ section#section-of-weather{
 
     margin: auto;
 
-    padding: 5px;
+    padding: 7px 5px 3px 7px;
     border-radius: 14px;
 }
 
@@ -739,12 +739,13 @@ button#botaoBusca:active{
 }
 
 h3#infoCidade{
-    padding: 4px ;
+    padding: 4px;
     margin: 0;
-    width: 95%;
+    width: 98%;
 
     font-family: var(--font-sans-light);
     font-size: 1.2em;
+    line-height: 0.99em;
 }
 
 p#grauCelsius{
@@ -758,15 +759,15 @@ p#grauCelsius{
 }
 
 img#img-weather{
-    margin: 0px 5px -8px 4px;
+    margin: 0px 5px -8px 0px;
     width: 30px;
     height: 30px;
 }
 
 p#infoClima{
-    max-width: 75%;
+    width: 80%;
     width: auto;
-    padding: 0px 4px 4px 0px;
+    padding: 4px;
 }
 
 
