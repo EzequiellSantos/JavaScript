@@ -10,23 +10,40 @@
 
 :root{
 
-    --color-background00:#1A2535;
-    --color-background01:#3b3b46;
+    --color-background00: #1A2535;
+    --color-background01: #3b3b46;
     --color-background02: #a0e4ff;
     --color-background03: #e7e7e7;
 
-    --color-simple00:#000f25;
+    --color-simple00 :#000f25;
     --color-simple01: #E8B86B;
     --color-simple02: #6fc2fa;
     --color-simple03: #002838;
     --color-simple04: #6EEEFA;
 
-    --color-light00:#82FFFB;
-    --color-light01:#B1FA8C;
-    --color-light02:#FADA8C;
-    --color-single-light:#828fff;
-
+    --color-light00: #82FFFB;
+    --color-light01: #B1FA8C;
+    --color-light02: #FADA8C;
     --color-checked: #6be875;
+
+    --color-01d: #7e7500, #7e6102;
+    --color-01n: #433966;
+    --color-02d: #999453;
+    --color-02n: #716699;
+    --color-03d: #9e9e9e;
+    --color-03n: #8e849e;
+    --color-04d: #6b6b6b;
+    --color-04n: #5b5a6d;
+    --color-09d: #161d24;
+    --color-09n: #6b7aac;
+    --color-10d: #17456b;
+    --color-10n: #202f63;
+    --color-11d: #003249;
+    --color-11n: #12032b77;
+    --color-13d: #a1c0ce;
+    --color-13n: #a1a6ce;
+    --color-50d: #9faeb3;
+    --color-50n: #a7a4b8;
 
     --font-tall-sans: 'Dosis', sans-serif;
     --font-couri-light: 'Josefin Slab', serif;
@@ -651,8 +668,44 @@ aside#aside-weather{
 }
 
 .light #aside-weather{
-    background-image: linear-gradient(130deg, var(--color-background03)40%, var(--color-background02));
+    background-image: linear-gradient(130deg, var(--color-background03)40%, var(--color-background02)); 
+
 }
+
+
+aside#icon-background{
+    height: 100%;
+    width: 100%;
+    border-radius: 14px;
+    position: absolute;
+
+    background-image: linear-gradient(130deg, var(--color-background01)40%, var(--color-simple00));
+
+    z-index: 0;
+    transition: background-image 0.9s ease-in-out;
+}
+
+.light aside#icon-background{
+    background-image: linear-gradient(130deg, var(--color-background03)40%, var(--color-background02));
+    /* background-image: linear-gradient(to bottom, var(--color-background03)55%, #a7a4b8) */
+}
+
+aside#icon-background::after{
+    
+    z-index: 0;
+}
+
+/* @keyframes moveShort {
+    to{
+        background-position: bottom -40px right 5px;
+    }
+}
+
+@keyframes moveBig {
+    to {
+        background-position: bottom -40px left 5px;
+    }
+} */
 
 section#section-of-contents{
     width: 100%;
@@ -678,7 +731,7 @@ section#section-of-weather{
     text-align: left;
     text-transform: capitalize;
     color: #dadada;
-    backdrop-filter: blur(30px); 
+    backdrop-filter: blur(10px);  
 
     margin: auto;
 
