@@ -378,9 +378,8 @@ function consumirDados(dados) {
 
         /* https://openweathermap.org/img/wn/${dados.weather[0].icon}.png */
 
-        console.log(dados)
         limparSkeleton()
-
+        
     }
 
 
@@ -395,5 +394,101 @@ function inputError() { // erro ao digitar o nome errado | bucar cidade sem digi
     umidade.innerHTML = ''
 
     limparSkeleton()
+
+}
+
+function exibirGradient(dados){
+
+    var cor = dados.weather[0].icon;
+
+    switch (cor){
+
+        case "01d": 
+            cor = "#7e7500, #7e6102"
+            break
+
+        case "01n":
+            cor = "#433966"
+            break
+
+        case "02d":
+            cor = "#999453"
+            break
+
+        case "02n":
+            cor = "#716699"
+            break
+
+        case "03d":
+            cor = '#9e9e9e'
+            break
+
+        case "03n":
+            cor = '#8e849e'
+            break
+
+        case "04d":
+            cor = '#6b6b6b' //clarear mais no tema claro
+            break
+
+        case "04n":
+            cor = '#5b5a6d'
+            break
+
+        case "09d":
+            cor = '#161d24'
+            break
+
+        case "09n":
+            cor = '#6b7aac'
+            break
+
+        case "10d":
+            cor = '#17456b'
+            break
+
+        case "10n":
+            cor = '#202f63'
+            break
+
+        case "11d":
+            cor = '#003249'
+            break
+
+        case "11n":
+            cor = '#12032b77'
+            break
+
+        case "13d":
+            cor = '#a1c0ce'
+            break
+
+        case "13n":
+            cor = '#a1a6ce'
+            break
+
+        case "50d":
+            cor = '#9faeb3'
+            break
+
+        case "50n":
+            cor = '#a7a4b8'
+            break
+
+    }
+
+    var asideGradient = document.getElementById('icon-background');
+
+    if(localStorage.getItem('tema-preferido') == "dark"){
+
+        asideGradient.style.backgroundImage = `linear-gradient(to bottom, var(--color-background01)55%, ${cor})`
+
+    }else if(localStorage.getItem('tema-preferido') == "light"){
+
+        asideGradient.style.backgroundImage = `linear-gradient(to bottom, var(--color-background03)55%, ${cor})`
+
+    }
+
+    console.log(cor)
 
 }
