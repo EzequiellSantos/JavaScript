@@ -1,48 +1,180 @@
 @charset "UTF-8";
 
-header.eloquio-header{
-    position: fixed;
-    top: 10px;
-    left: 5px;
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Josefin+Slab:wght@100&family=Philosopher:wght@400;700&family=Quicksand:wght@500&family=Ysabeau+Infant:ital,wght@0,100;0,300;0,700;1,1;1,100;1,200&display=swap');
 
+ @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;1,300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Exo:ital,wght@0,800;1,800&display=swap');
+
+:root{
+
+    --color-background00: #1A2535;
+    --color-background01: #3b3b46;
+    --color-background02: #a0e4ff;
+    --color-background03: #e7e7e7;
+
+    --color-simple00 :#000f25;
+    --color-simple01: #E8B86B;
+    --color-simple02: #6fc2fa;
+    --color-simple03: #002838;
+    --color-simple04: #6EEEFA;
+
+    --color-light00: #82FFFB;
+    --color-light01: #B1FA8C;
+    --color-light02: #FADA8C;
+    --color-checked: #6be875;
+
+    --font-tall-sans: 'Dosis', sans-serif;
+    --font-couri-light: 'Josefin Slab', serif;
+    --font-fil-itali: 'Philosopher', sans-serif;
+    --font-normal-sans: 'Quicksand', sans-serif;
+    --font-sans-light: 'Ysabeau Infant', sans-serif;
+    --font-number: 'Exo', sans-serif;
+    --font-bolder: "Exo", sans-serif;;
+
+}
+
+header.eloquio-header{
+    position: sticky;
+    top: 10px;
+    width: calc(100% - 16px);
+    max-width: 598px;
+    left: 10px;
     height: 50px;
     margin: auto;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.5s ease;
 
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+
+    justify-content: space-around;
+}
+
+.eloquio-header.oculto {
+    opacity: 0;
 }
 
 a{
     color: #fff;
     margin: 0;
+    margin-top: 15px;
 }
 
 .light a{
     color: #000;
 }
 
-nav#toggle-theme{
-    margin: 10px 10px 0px 0px;
+header.eloquio-header > nav#toggle-theme{
+    margin-top: 15px;
 }
 
-main{
+main.cards-content{
+    width: calc(100% - 10px);
+    max-width: 600px;
+    max-width: 600px;
+
     margin: auto;
-    max-width: 400px;
+    margin-top: 10px;
+    height: auto;
+
+    text-align: justify;
 }
 
-article{
+article.article-content{
+    background-color: var(--color-background01);
+    color: #fff;
+    font-family: var(--font-number);
     width: calc(100% - 30px);
     margin: auto;
     padding: 10px;
     border-radius: 15px;
 
-    box-shadow: 3px 3px 0px rgb(0, 168, 98);
+    box-shadow: 3px 3px 1px rgb(0, 168, 76);
 }
 
-article > p{
+.light article.article-content{
+    background-color: var(--color-background03);
+    color: #000;
+    box-shadow: 3px 3px 1px rgb(0, 235, 106);
+}
+
+article.article-content  > p, h4{
     margin: 15px 20px;
     letter-spacing: 1px;
     line-height: 2em;
 }
 
+span#quote{
+    display: block;
+    text-align: left;
+    border-left: 4px solid #838383;
+    border-radius: 5px;
+    background-color: #94949431;
+    margin: 15px 0px 40px 0px;
+    padding: 2px 5px 2px 20px;
+}
+
+span#enfase{
+    background-color: #838383;
+    text-decoration: bold;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+.light span#enfase{
+    background-color: #949494;
+    color: #fff;
+}
+
+#toTop{
+    opacity: 0;
+    overflow: hidden;
+    position: sticky;
+    top: 30px;
+    bottom: 30px;
+    left: 13px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: var(--color-simple03);
+    box-shadow: 0.2em 0.2em 0em rgb(0, 168, 76);
+    transition: opacity 0.5s ease-in-out;
+}
+
+.light #toTop{
+    background-color: #f1f1f1;
+    box-shadow: 0.2em 0.2em 0em rgb(0, 235, 106);
+}
+
+#toTop > img{
+    width: 40px;
+    height: 40px;
+}
+
+#toHome{
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    margin-top: 15px;
+    margin-left: -35px;
+    padding: 4px;
+    background-color: #000f2560;
+}
+
+.light #toHome{
+    background-color: #ffffff98;
+}
+
+#toHome > img{
+    width: 40px;
+    height: 40px;
+}
+
+#toHome:active{
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+}

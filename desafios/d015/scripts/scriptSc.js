@@ -31,3 +31,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
+
+window.addEventListener('scroll', function() {
+
+    var elementoSticky = document.getElementById('eloquio-header');
+    var scrollTop = window.scrollY;
+  
+    if (scrollTop > 40) {  
+
+      elementoSticky.classList.add('oculto');
+
+    } else {
+
+      elementoSticky.classList.remove('oculto');
+
+    }
+
+    var rolarParaCima = this.document.getElementById('toTop')
+    rolarParaCima.style.opacity = this.window.scrollY > 1200 ? '1' : '0'
+
+});
+
+toTop.onclick = () => {
+    window.scrollTo({
+        top: 100,
+        behavior: 'smooth'
+    })
+}

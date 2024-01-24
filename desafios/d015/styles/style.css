@@ -63,10 +63,6 @@ body, html, h1, h3, p, a{
     user-select: none; /* propriedade para o usuário do celular ou tablet não selecionar os icones */
 }
 
-body{
-    transition: background-color .0s;
-}
-
 .light{
     background-color: #fff;
     color: #000;
@@ -214,7 +210,7 @@ menu#menu-share, menu#menu-contact{
     box-shadow: 0.3em 0.3em 0.0em #8bb9ffb7;
     border-radius: 20px;
     color: white;
-    transition: all 0.5s ease-in-out; 
+    transition: opacity 0.5s ease-in-out;
 }
 
 menu#menu-contact{
@@ -553,29 +549,6 @@ main{
     z-index: 0;
 }
 
-main.cards-content{
-    width: calc(100% - 10px);
-    max-width: 600px;
-    max-width: 600px;
-
-    margin: auto;
-    height: auto;
-
-    text-align: justify;
-}
-
-article.article-content{
-    background-color: var(--color-background01);
-    margin-top: 70px;
-    color: #fff;
-    font-family: var(--font-number);
-}
-
-.light article.article-content{
-    background-color: var(--color-background03);
-    color: #000;
-}
-
 section#section-main{
     z-index: 3;
 }
@@ -632,8 +605,7 @@ div.cards-content{
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    transition: all 0.4s ease-in-out;
+    justify-content: center;            
 }
 
 div.cards-content p{
@@ -717,18 +689,6 @@ aside#icon-background::after{
     
     z-index: 0;
 }
-
-/* @keyframes moveShort {
-    to{
-        background-position: bottom -40px right 5px;
-    }
-}
-
-@keyframes moveBig {
-    to {
-        background-position: bottom -40px left 5px;
-    }
-} */
 
 section#section-of-contents{
     width: 100%;

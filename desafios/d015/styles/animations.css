@@ -477,7 +477,6 @@ menu.exibindo-menuTw{
     height: 18px;
     max-width: 90%;
     animation: load 1.5s ease-in-out infinite;
-    transition: all 0.3s ease-in-out;
 }
 
 .light .skeleton{
@@ -488,7 +487,6 @@ menu.exibindo-menuTw{
         rgba(255, 255, 255, 0.26),
         rgba(196, 196, 196, 0)
     );
-    transition: all 0.3s ease-in-out;
 }
 
 @-webkit-keyframes load{
