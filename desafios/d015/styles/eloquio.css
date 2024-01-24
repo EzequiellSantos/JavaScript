@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+header.eloquio-header{
+    position: fixed;
+    top: 10px;
+    left: 5px;
+
+    height: 50px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+a{
+    color: #fff;
+    margin: 0;
+}
+
+.light a{
+    color: #000;
+}
+
+nav#toggle-theme{
+    margin: 10px 10px 0px 0px;
+}
+
+main{
+    margin: auto;
+    max-width: 400px;
+}
+
+article{
+    width: calc(100% - 30px);
+    margin: auto;
+    padding: 10px;
+    border-radius: 15px;
+
+    box-shadow: 3px 3px 0px rgb(0, 168, 98);
+}
+
+article > p{
+    margin: 15px 20px;
+    letter-spacing: 1px;
+    line-height: 2em;
+}
+
