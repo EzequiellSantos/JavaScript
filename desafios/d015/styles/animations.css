@@ -155,7 +155,7 @@ menu.exibindo-menuTw{
     }
 }
 
-.dark #icon00{
+.dark i#icon00{
     display: block;
     opacity: 1;
     background-color: #3b3b4679;
@@ -170,7 +170,7 @@ menu.exibindo-menuTw{
     animation: born 1.5s ease-in-out;
 }
 
-.dark #icon01{
+.dark i#icon01{
     display: block;
     opacity: 1;
     background-color: #3b3b4663;
@@ -184,13 +184,13 @@ menu.exibindo-menuTw{
     animation: born 1.6s ease-in-out;
 }
 
-.light #icon02{
+.light i#icon02{
     display: none;
     opacity: 0;
     transition: opacity 5s ease-in-out;
 }
 
-.light #icon03{
+.light i#icon03{
     display: none;
     opacity: 0;
     transition: opacity 5s ease-in-out;
@@ -239,19 +239,19 @@ menu.exibindo-menuTw{
     transition: all 0.8s ease-in-out;
 }
 
-.light #icon00{
+.light i#icon00{
     display: none;
     opacity: 0;
     transition: opacity 3s ease-in-out;
 }
 
-.light #icon01{
+.light i#icon01{
     display: none;
     opacity: 0;
     transition: opacity 3s ease-in-out;
 }
 
-.light #icon02{
+.light i#icon02{
     display: block;
     opacity: 1;
     background-color: #ffee07;
@@ -266,7 +266,7 @@ menu.exibindo-menuTw{
     animation: rotTw 8s infinite ease-in-out;  
 }
 
-.light #icon03{
+.light i#icon03{
     display: block;
     opacity: 1;
     background-color: #ffee07  ;
@@ -503,4 +503,6 @@ menu.exibindo-menuTw{
     }
 } 
 
-   
+span#error{
+    display: none;
+}  
