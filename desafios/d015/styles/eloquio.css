@@ -140,7 +140,7 @@ span#enfase{
     height: 50px;
     border: none;
     outline: none;
-    background-color: var(--color-simple03);
+    background-color: var(--color-background00);
     box-shadow: 0.2em 0.2em 0em rgb(0, 168, 76);
     transition: opacity 0.5s ease-in-out;
 }

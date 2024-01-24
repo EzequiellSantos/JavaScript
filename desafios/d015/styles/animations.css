@@ -504,3 +504,191 @@ menu.exibindo-menuTw{
 span#error{
     display: none;
 }  
+
+#icons-eloquio{
+    background-color: var(--color-background00);
+}
+
+.light path#eloquio-path{
+    stroke: #00b100;
+}
+
+#icons-eloquio-snake{
+    background-color: var(--color-background00);
+    border-radius: 50%;
+    margin: 0;
+}
+
+#contain-snake{
+    position: absolute;
+    right: 30px;
+    margin-top: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    animation: transf 4s infinite ease-in-out;
+}
+
+@keyframes transf {
+    0%{
+        transform: skewY(0deg);
+    }
+
+    25%{
+        transform: skewY(7deg);
+    }
+
+    50%{
+        transform: skewY(-7deg);  
+    }
+
+    75%{
+        transform: skewY(0deg);
+    }
+
+    100%{
+        transform: skewY(0deg);
+    }
+}
+
+.light #icons-eloquio-snake{
+    background-color: #ffffffd5;
+}
+
+#icons-eloquio-circles{
+    display: inline-block;
+    margin: 0px;
+}
+
+#contain-circles{
+    position: absolute;
+    right: 30px;
+    margin-top: -30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 45px;
+    border-radius: 1px;
+    background-color: var(--color-background00);
+    box-shadow: 0.1em 0.1em 0em var(--color-checked);
+    animation: mexer 5s infinite ease;
+}
+
+@keyframes mexer {
+    0%{
+        transform: scale(1);
+    }
+
+    10%{
+        transform: scale(1.1);
+    }
+
+    25%{
+        transform: scale(1);
+
+    }
+
+    50%{
+        transform: rotate(0deg);
+    }
+
+    55%{
+        transform: rotate(6deg);
+    }
+
+    60%{
+        transform: rotate(-6deg);
+    }
+
+    65%{
+        transform: rotate(6deg);
+    }
+
+    70%{
+        transform: rotate(-6deg);
+    }
+
+    75%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+
+.light #contain-circles{
+    background-color: #ffffffd5;
+}
+
+#icons-eloquio-polig{
+    margin-top: -7px;
+}
+
+#icons-eloquio-polig02{
+    margin-top: 6px;
+}
+
+#contain-polig{
+    position: absolute;
+    right: 25px;
+    margin-top: -30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--color-background00);
+    animation: gira 5s infinite ease-in-out;
+}
+
+@keyframes gira {
+    0%{
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    10%{
+        transform: scale(1.05);
+        box-shadow: 0.1em 0.1em 0em var(--color-checked);
+    }
+
+    20%{
+        transform: scale(1);
+
+    }
+
+    25%{
+        transform: rotate(0deg);
+        box-shadow: none;
+    }
+
+/*     30%{
+        transform: rotate(90deg);
+    }
+
+    40%{
+        transform: rotate(180deg);
+    } */
+
+    50%{
+        transform: rotate(360deg);
+    }
+
+    55%{
+        transform: rotate(360deg);
+    }
+
+    75%{
+        transform: rotate(0deg);
+    }
+}
+
+.light #contain-polig{
+    background-color: #ffffffd5;
+}
