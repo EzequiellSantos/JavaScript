@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+        <div>
+            <input id="display" type="text" readonly>
+        </div>
+
+        <aside>
+            <button class="" onclick="limparDisplay()">C</button>
+            <button class="" onclick="">del</button>
+            <button class="" onclick="clicouOperador('%')">%</button>
+            <button class="" onclick="clicouOperador('/')">/</button>
+
+            <button class="" onclick="addNumber('7')">7</button>
+            <button class="" onclick="addNumber('8')">8</button>
+            <button class="" onclick="addNumber('9')">9</button>
+
+            <button class="" onclick="clicouOperador('X')">X</button>
+
+            <button class="" onclick="addNumber('4')">4</button>
+            <button class="" onclick="addNumber('5')">5</button>
+            <button class="" onclick="addNumber('6')">6</button>
+
+            <button class="" onclick="clicouOperador('-')">-</button>
+
+            <button class="" onclick="addNumber('1')">1</button>
+            <button class="" onclick="addNumber('2')">2</button>
+            <button class="" onclick="addNumber('3')">3</button>
+
+            <button class="" onclick="clicouOperador('+')">+</button>
+
+            <button class="" onclick="">?</button>
+
+            <button class="" onclick="addNumber('0')">0</button>
+
+            <button class="" onclick="adicionarDecimal()">.</button>
+            <button class="" onclick="calcularResultado()">=</button>
+        </aside>
+    </main>
+
+    <script src="scriptCalculadora.js"></script>
+</body>
+
+</html>
