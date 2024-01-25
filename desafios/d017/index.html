@@ -12,13 +12,14 @@
 
     <main>
         <div>
-            <input id="display" type="text" readonly>
+            <input id="secondDisplay" type="text" readonly>
+            <input id="display" type="text" readonly value="0">
         </div>
 
         <aside>
             <button class="" onclick="limparDisplay()">C</button>
-            <button class="" onclick="">del</button>
-            <button class="" onclick="clicouOperador('%')">%</button>
+            <button class="" onclick="deleteNumber()">del</button>
+            <button class="" onclick="">?</button><!-- % -->
             <button class="" onclick="clicouOperador('/')">/</button>
 
             <button class="" onclick="addNumber('7')">7</button>
