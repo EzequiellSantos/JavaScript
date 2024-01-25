@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon"
+        href="https://raw.githubusercontent.com/EzequiellSantos/JavaScript/main/desafios/d015/Imagens/Favicon-Direct/direct-icon-96.png"
+        type="image/x-icon">
+    <link rel="stylesheet" href="styles/calculadora.css">
+    <link rel="stylesheet" href="styles/style.css" id="tema-estilos">
+    <link rel="stylesheet" href="styles/animations.css" id="tema-estilos">
+    <link rel="stylesheet" href="styles/print.css" media="print">
+    <title>Calculadora Direct</title>
+</head>
+
+<body>
+
+    <header id="calculadora-header">
+
+        <nav>
+
+            <menu>
+
+                <a href="index.html">
+
+                    <button id="toHome">
+                        <img src="Imagens/icons-Direct/voltar.png" alt="seta-voltar">
+                    </button>
+
+                </a>
+
+            </menu>
+
+        </nav>
+
+        <nav id="toggle-theme">
+
+            <div id="toggle-icon">
+
+                <div id="item" class="">
+                    <i id="icon00"></i>
+                    <i id="icon01"></i>
+                    <i id="icon02"></i>
+                    <i id="icon03"></i>
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main id="main-calculadora">
+
+        <article id="article-calculadora">
+
+            <section id="campo-texto" class="numbers">
+
+                <input type="text" name="num" id="display" readonly>
+
+            </section>
+
+            <section id="teclas">
+
+                <div class="icons-orange">C</div>
+                <div class="icons-orange">Del</div>
+                <div class="icons-orange">%</div>
+                <div class="icons-orange">/</div>
+
+                <div class="numbers">7</div>
+                <div class="numbers">8</div>
+                <div class="numbers">9</div>
+                <div class="icons-orange">X</div>
+
+                <div class="numbers">4</div>
+                <div class="numbers">5</div>
+                <div class="numbers">6</div>
+                <div class="icons-orange">-</div>
+
+                <div class="numbers">1</div>
+                <div class="numbers">2</div>
+                <div class="numbers">3</div>
+                <div class="icons-orange">+</div>
+
+                <div class="icons-orange">[]</div>
+                <div class="numbers">0</div>
+                <div class="numbers">.</div>
+                <div class="icons-white-orange">=</div>
+
+            </section>
+
+        </article>
+
+    </main>
+
+    <script src="scripts/calculadora.js" defer></script>
+</body>
+
+</html>

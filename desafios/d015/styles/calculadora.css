@@ -13,10 +13,8 @@
     --color-simple03: #002838;
     --color-simple04: #6EEEFA;
 
-    --color-light00: #82FFFB;
-    --color-light01: #B1FA8C;
-    --color-light02: #FADA8C;
-    --color-checked: #6be875;
+    --color-calc-background-orange: rgb(255, 103, 48);
+    --color-calc-background: #6b6b6b80;
 
     --font-tall-sans: 'Dosis', sans-serif;
     --font-couri-light: 'Josefin Slab', serif;
@@ -51,11 +49,11 @@ header#calculadora-header{
     justify-content: space-around;
 }
 
-#toggle-theme{
+nav#toggle-theme{
     margin-right: 10px;
 }
 
-#toHome{
+button#toHome{
     outline: none;
     border: none;
     border-radius: 15px;
@@ -65,32 +63,32 @@ header#calculadora-header{
     background-color: #000f2560;
 }
 
-.light #toHome{
+.light button#toHome{
     background-color: #ffffff98;
 }
 
-#toHome > img{
+button#toHome > img{
     width: 40px;
     height: 40px;
 }
 
-#toHome:active{
+button#toHome:active{
     transform: scale(1.1);
     transition: all 0.2s ease;
 }
 
-#main-calculadora{
+main#main-calculadora{
     width: calc(100% - 15px);
     margin: auto;
     margin-top: 0;
 }
 
-#article-calculadora{
+main#article-calculadora{
     margin: auto;
     margin-top: 20;
 }
 
-#campo-texto{
+section#campo-texto{
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-start;
@@ -98,32 +96,32 @@ header#calculadora-header{
 
     height: 150px;
 
-    color: white;
+    color: #fff;
 
     margin: -40px 0px 10px 0px;
     padding: 7px;
     border-radius: 15px;
 }
 
-.light #campo-texto{
+.light section#campo-texto{
     color: #000;
 }
 
-#campo-texto > input{
+section#campo-texto > input{
     outline: 0;
     padding: 15px;
     width: 100%;
     border: 0;
     border-radius: 10px;
     background-color: transparent;
-    color: white;
+    color: #fff;
     font-size: 2em;    
     font-family: var(--font-number);
     letter-spacing: 2px;
     text-align: right;
 }
 
-.light #campoTexto{
+.light section#campoTexto{
     color: #000;
 }
 
@@ -132,7 +130,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
     margin: 0;
 }
 
-#teclas{
+section#teclas{
     background-color: var(--color-background01);
     margin: auto;
     padding: 15px 0px;
@@ -143,11 +141,17 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
     justify-items: center;
 }
 
-#teclas > div{
+.light section#teclas{
+    background-color: var(--color-background03);
+}
+
+section#teclas > div{
     width: 50px;
     height: 50px;
     text-align: center;
     border-radius: 50%;
+    margin: 3px 0px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -155,44 +159,40 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
     cursor: pointer;
 }
 
-.light #teclas{
-    background-color: var(--color-background03);
-}
-
-.numbers, .icons-orange, .icons-white-orange{
+.numbers, div.icons-orange, div.icons-white-orange{
     font-family: var(--font-number);
 }
 
 .numbers{
-    color: white;
+    color: #fff;
 }
 
-#teclas > .numbers:active{
-    background-color: var(--color-background00);
-/*     transition: all 0.2s ease-in-out; */
+section#teclas > .numbers:active{
+    background-color: var(--color-calc-background);
+
 }
 
 .light .numbers{
     color: #000;
 }
 
-.icons-orange{
-    color: orangered;
+div.icons-orange{
+    color: var(--color-calc-background-orange);
 }
 
-.icons-orange:active{
+div.icons-orange:active{
     background-color: rgb(255, 190, 167);
 }
 
-.icons-white-orange{
-    background-color: orangered;
-    color: white;
+div.icons-white-orange{
+    background-color: var(--color-calc-background-orange);
+    color: #fff;
 }
 
-.light .icons-white-orange{
+.light div.icons-white-orange{
     background-color: rgba(248, 80, 19, 0.87);
 }
 
-.icons-white-orange:active{
-    background-color: rgba(255, 68, 0, 0.555);
+div.icons-white-orange:active{
+    background-color: rgb(255, 139, 97);
 }
