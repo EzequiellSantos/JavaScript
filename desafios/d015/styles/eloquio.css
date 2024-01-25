@@ -52,12 +52,11 @@ header.eloquio-header{
     justify-content: space-around;
 }
 
-.eloquio-header.oculto {
+header.eloquio-header.oculto {
     opacity: 0;
 }
 
 a{
-    color: #fff;
     margin: 0;
     margin-top: 15px;
 }
@@ -128,7 +127,7 @@ span#enfase{
     color: #fff;
 }
 
-#toTop{
+button#toTop{
     opacity: 0;
     overflow: hidden;
     position: sticky;
@@ -145,7 +144,7 @@ span#enfase{
     transition: opacity 0.5s ease-in-out;
 }
 
-.light #toTop{
+.light button#toTop{
     background-color: #f1f1f1;
     box-shadow: 0.2em 0.2em 0em rgb(0, 235, 106);
 }
@@ -155,7 +154,7 @@ span#enfase{
     height: 40px;
 }
 
-#toHome{
+button#toHome{
     outline: none;
     border: none;
     border-radius: 15px;
@@ -165,16 +164,16 @@ span#enfase{
     background-color: #000f2560;
 }
 
-.light #toHome{
+.light button#toHome{
     background-color: #ffffff98;
 }
 
-#toHome > img{
+button#toHome > img{
     width: 40px;
     height: 40px;
 }
 
-#toHome:active{
+button#toHome:active{
     transform: scale(1.1);
     transition: all 0.2s ease;
 }

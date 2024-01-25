@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-header, main, .background-icons{
+header, main, svg.background-icons{
     display: none;
 }
 

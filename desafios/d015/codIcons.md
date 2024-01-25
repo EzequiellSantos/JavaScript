@@ -24,3 +24,27 @@
 
 50d = névoa #9faeb3
 50n = névoa #a7a4b8
+
+
+<!-- 
+
+    --color-01d: #7e7500, #7e6102;
+    --color-01n: #433966;
+    --color-02d: #999453;
+    --color-02n: #716699;
+    --color-03d: #9e9e9e;
+    --color-03n: #8e849e;
+    --color-04d: #6b6b6b;
+    --color-04n: #5b5a6d;
+    --color-09d: #161d24;
+    --color-09n: #6b7aac;
+    --color-10d: #17456b;
+    --color-10n: #202f63;
+    --color-11d: #003249;
+    --color-11n: #12032b77;
+    --color-13d: #a1c0ce;
+    --color-13n: #a1a6ce;
+    --color-50d: #9faeb3;
+    --color-50n: #a7a4b8;
+
+ -->
