@@ -7,19 +7,19 @@ const menu = document.querySelector('#content-share')
 //controle do Menu Share
 shareIcon.onclick = () => { //ativar e desativar menu com clique
 
-    if (menuShare.classList.contains('menu-off') || menuShare.classList.contains('recolhendo-menu') || menuContact.classList.contains('exibindo-menuTw')) {
+    if (menuShare.classList.contains('menu-off') || menuShare.classList.contains('recolhendo') || menuContact.classList.contains('exibindoTw')) {
 
-        menuShare.classList.remove('recolhendo-menu')
+        menuShare.classList.remove('recolhendo')
         menuShare.classList.remove('menu-off')
-        menuShare.classList.add('exibindo-menu')
+        menuShare.classList.add('exibindo')
 
-        menuContact.classList.remove('exibindo-menuTw')
-        menuContact.classList.add('recolhendo-menuTw')
+        menuContact.classList.remove('exibindoTw')
+        menuContact.classList.add('recolhendoTw')
 
-    } else if (menuShare.classList.contains('exibindo-menu')) {
+    } else if (menuShare.classList.contains('exibindo')) {
 
-        menuShare.classList.remove('exibindo-menu')
-        menuShare.classList.add('recolhendo-menu')
+        menuShare.classList.remove('exibindo')
+        menuShare.classList.add('recolhendo')
 
     }
 
@@ -27,8 +27,8 @@ shareIcon.onclick = () => { //ativar e desativar menu com clique
 
 xMenu.onclick = () => { //ocultar menu pelo X
 
-    menuShare.classList.remove('exibindo-menu')
-    menuShare.classList.add('recolhendo-menu')
+    menuShare.classList.remove('exibindo')
+    menuShare.classList.add('recolhendo')
 
 }
 
@@ -58,26 +58,26 @@ copyLinkIcon.onclick = () => { // Usando a API de área de transferência para c
 
 //controle do menu contact
 contactIcon.onclick = () => {
-    if (menuContact.classList.contains('menu-off') || menuContact.classList.contains('recolhendo-menuTw') || menuShare.classList.contains('exibindo-menu')) {
+    if (menuContact.classList.contains('menu-off') || menuContact.classList.contains('recolhendoTw') || menuShare.classList.contains('exibindo')) {
 
         menuContact.classList.remove('menu-off')
-        menuContact.classList.remove('recolhendo-menuTw')
-        menuContact.classList.add('exibindo-menuTw')
+        menuContact.classList.remove('recolhendoTw')
+        menuContact.classList.add('exibindoTw')
 
-        menuShare.classList.remove('exibindo-menu')
-        menuShare.classList.add('recolhendo-menu')
+        menuShare.classList.remove('exibindo')
+        menuShare.classList.add('recolhendo')
 
-    } else if (menuContact.classList.contains('exibindo-menuTw')) {
+    } else if (menuContact.classList.contains('exibindoTw')) {
 
-        menuContact.classList.remove('exibindo-menuTw')
-        menuContact.classList.add('recolhendo-menuTw')
+        menuContact.classList.remove('exibindoTw')
+        menuContact.classList.add('recolhendoTw')
 
     }
 }
 
 kMenu.onclick = () => {
-    menuContact.classList.add('recolhendo-menuTw')
-    menuContact.classList.remove('exibindo-menuTw')
+    menuContact.classList.add('recolhendoTw')
+    menuContact.classList.remove('exibindoTw')
 }
 
 var date = new Date() //coleta de data em dias, mês e ano
