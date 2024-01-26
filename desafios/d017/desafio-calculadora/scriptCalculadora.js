@@ -2,7 +2,7 @@ let atualInput = ''
 let secondInput = ''
 let operador = ''
 let resultado = ''
-let seguirConta = 0
+let primeiroNumero = ''
 let podeDeletar = true 
 
 let salvarConta = ''
@@ -18,6 +18,7 @@ function addNumber(number){
         atualInput += number
         atualizarDisplay()
         atualizarSecond()
+        podeDeletar = true
 
     } else if(fezUmaConta !== false){ //pra apagar o resultado da ultima conta
 
@@ -27,7 +28,7 @@ function addNumber(number){
         atualizarDisplay()
         atualizarSecond()
         fezUmaConta = false
-
+        podeDeletar = false
     }
 
 
@@ -40,24 +41,25 @@ function clicouOperador(op){
         if(fezUmaConta == false){
             
             operador = op
-            resultado = parseFloat(atualInput)
+            primeiroNumero = parseFloat(atualInput)
             atualInput = ''
             display.value = ''
+            salvarConta = `${primeiroNumero} ${operador}`
 
             atualizarDisplay()
-            atualizarSecond()
+            podeDeletar = true
 
         } else if(fezUmaConta == true){
 
             operador = op
             atualInput = ''
             display.value = ''
+            salvarConta = `${primeiroNumero} ${operador}`
 
             atualizarDisplay()
             atualizarSecond()
             fezUmaConta = false
             podeDeletar = true
-
         }
 
         atualizarSecond()
@@ -84,32 +86,32 @@ function calcularResultado(){
         switch(operador){
 
             case '+':
-                salvarOld = resultado
-                resultado += parseFloat(atualInput)
+                salvarOld = primeiroNumero
+                resultado = primeiroNumero += parseFloat(atualInput)
                 salvarConta = `${salvarOld} + ${parseFloat(atualInput)} = `
                 break
 
             case '-':
-                salvarOld = resultado
-                resultado -= parseFloat(atualInput)
+                salvarOld = primeiroNumero
+                resultado = primeiroNumero -= parseFloat(atualInput)
                 salvarConta = `${salvarOld} - ${parseFloat(atualInput)} = `
                 break
 
             case '/':
-                salvarOld = resultado
-                resultado /= parseFloat(atualInput)
+                salvarOld = primeiroNumero
+                resultado = primeiroNumero /= parseFloat(atualInput)
                 salvarConta = `${salvarOld} / ${parseFloat(atualInput)} = `
                 break
 
             case 'x':
-                salvarOld = resultado
-                resultado *= parseFloat(atualInput)
+                salvarOld = primeiroNumero
+                resultado = primeiroNumero *= parseFloat(atualInput)
                 salvarConta = `${salvarOld} x ${parseFloat(atualInput)} = `
                 break
 
             case '%':
-                salvarOld = resultado
-                resultado = resultado * parseFloat(atualInput) / 100
+                salvarOld = primeiroNumero
+                resultado = primeiroNumero * parseFloat(atualInput) / 100
                 salvarConta = `${salvarOld} % ${parseFloat(atualInput)} =`
 
                 break
@@ -119,13 +121,14 @@ function calcularResultado(){
         if(fezUmaConta == false){
 
             atualInput = resultado.toString()
-            atualizarSecond
 
             atualizarDisplay()
             atualizarSecond()
             fezUmaConta = true
+            salvarConta = ''
         }
 
+/*         display.value = '' limpar o display após executar a conta */
         secondInput = salvarConta
         podeDeletar = false
 
@@ -137,6 +140,7 @@ function limparDisplay(){
     atualInput = ''
     operador = ''
     resultado = ''
+    primeiroNumero = ''
     salvarConta = ''
 
     atualizarDisplay()
@@ -155,8 +159,6 @@ function deleteNumber(){
         atualizarSecond()
         checkDisplay()
 
-    }else{
-        podeDeletar = true
     }
 
 
@@ -170,7 +172,7 @@ function atualizarDisplay(){
 
 function atualizarSecond(){
 
-    document.getElementById('secondDisplay').value = resultado == atualInput ? `${salvarConta}  ${resultado}` : `${resultado} ${operador} ${atualInput}`
+    document.getElementById('secondDisplay').value = atualInput == resultado ? `${salvarConta}  ${resultado}` : `${salvarConta} ${atualInput}`
 
 }
 
