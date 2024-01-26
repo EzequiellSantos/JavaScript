@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="secondStyle.css" >
+    <link rel="stylesheet" href="https://raw.githack.com/EzequiellSantos/JavaScript/main/desafios/d015/styles/eloquio.css">
 </head>
 
 <body>
@@ -17,35 +19,35 @@
         </div>
 
         <aside>
-            <button class="" onclick="limparDisplay()">C</button>
-            <button class="" onclick="deleteNumber()">del</button>
-            <button class="" onclick="">?</button><!-- % -->
-            <button class="" onclick="clicouOperador('/')">/</button>
+            <button id="teclas" class="simbols" onclick="limparDisplay()">C</button>
+            <button id="teclas" class="simbols" onclick="deleteNumber()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB3UlEQVR4nO2YwU7CMBjHe1BvhpMEg0YPGhMM/UYWDWjLLjyBJ30EOYvvgvEFjPGmB04+g0LiI+jFRI1y078Zq4YBboMU2LC/ZAmHb91+tP23K2MGg8FgMBj+KajYKQhqQhJicL1B0BXK1uZwEo4zB8EbMRBAz/WMImWji0he79wo6BGlwhqbMihSFoJfe+/EL6LdJKnm2fMPlK0dFhMgt1eVyEt4cZkfQNInJH1B8EMWM6CGWHCRyNsQ9K5644TFEISJuPOgMx+8eXHOYgqCRLC3tQhJd6onbpHLLbCkiaA7Zt01o2KnRnqA4Mco8XRoXYmn3dpRnhEsoiFmIazq7x8RIONJqAVWWFVtIhB0qoZTG/v54igNe+1YSxB0r2QeIO3l0Bonl9Eiojtmg2R0SfSJ+GOWakwTg2R0SvhEfDEreZ1pxj8PqOn7HSEMootI3lLLfMNNLDYGfDIaJf4Wse15lliRkm9onelofCpDa6KT3cllokRzvOO3K510ymCiC+KAiNUlgwhblKfEblH6v815K7GbxpnZxs/Uh9UP44rliYv0x3L+iCVVpOc4qA1JuyyJx0EDY9mhdTZl4ORXIPiN6pHL2TgydQobCT7E5q9uTwwtYTAYDAaDgcWfb9d2sgufd8wFAAAAAElFTkSuQmCC"></button>
+            <button id="teclas" class="simbols" onclick="clicouOperador('%')">%</button>
+            <button id="teclas" class="simbols" onclick="clicouOperador('/')">/</button>
 
-            <button class="" onclick="addNumber('7')">7</button>
-            <button class="" onclick="addNumber('8')">8</button>
-            <button class="" onclick="addNumber('9')">9</button>
+            <button id="teclas" class="numbers" onclick="addNumber('7')">7</button>
+            <button id="teclas" class="numbers" onclick="addNumber('8')">8</button>
+            <button id="teclas" class="numbers" onclick="addNumber('9')">9</button>
 
-            <button class="" onclick="clicouOperador('X')">X</button>
+            <button id="teclas" class="simbols" onclick="clicouOperador('x')">x</button>
 
-            <button class="" onclick="addNumber('4')">4</button>
-            <button class="" onclick="addNumber('5')">5</button>
-            <button class="" onclick="addNumber('6')">6</button>
+            <button id="teclas" class="numbers" onclick="addNumber('4')">4</button>
+            <button id="teclas" class="numbers" onclick="addNumber('5')">5</button>
+            <button id="teclas" class="numbers" onclick="addNumber('6')">6</button>
 
-            <button class="" onclick="clicouOperador('-')">-</button>
+            <button id="teclas" class="simbols" onclick="clicouOperador('-')">-</button>
 
-            <button class="" onclick="addNumber('1')">1</button>
-            <button class="" onclick="addNumber('2')">2</button>
-            <button class="" onclick="addNumber('3')">3</button>
+            <button id="teclas" class="numbers" onclick="addNumber('1')">1</button>
+            <button id="teclas" class="numbers" onclick="addNumber('2')">2</button>
+            <button id="teclas" class="numbers" onclick="addNumber('3')">3</button>
 
-            <button class="" onclick="clicouOperador('+')">+</button>
+            <button id="teclas" class="simbols" onclick="clicouOperador('+')">+</button>
 
-            <button class="" onclick="">?</button>
+            <button id="teclas" class="simbols" onclick="">?</button>
 
-            <button class="" onclick="addNumber('0')">0</button>
+            <button id="teclas" class="numbers" onclick="addNumber('0')">0</button>
 
-            <button class="" onclick="adicionarDecimal()">.</button>
-            <button class="" onclick="calcularResultado()">=</button>
+            <button id="teclas" class="numbers" onclick="adicionarDecimal()">.</button>
+            <button id="teclas" class="simbolX" onclick="calcularResultado()">=</button>
         </aside>
     </main>
 

@@ -1,8 +1,9 @@
-
 let atualInput = ''
+let secondInput = ''
 let operador = ''
 let resultado = ''
 let seguirConta = 0
+let podeDeletar = true 
 
 let salvarConta = ''
 var salvarOld = ''
@@ -19,11 +20,14 @@ function addNumber(number){
         atualizarSecond()
 
     } else if(fezUmaConta !== false){ //pra apagar o resultado da ultima conta
+
         limparDisplay()
         atualInput += number
+
         atualizarDisplay()
-        fezUmaConta = false
         atualizarSecond()
+        fezUmaConta = false
+
     }
 
 
@@ -39,6 +43,7 @@ function clicouOperador(op){
             resultado = parseFloat(atualInput)
             atualInput = ''
             display.value = ''
+
             atualizarDisplay()
             atualizarSecond()
 
@@ -47,10 +52,14 @@ function clicouOperador(op){
             operador = op
             atualInput = ''
             display.value = ''
+
             atualizarDisplay()
+            atualizarSecond()
             fezUmaConta = false
+            podeDeletar = true
 
         }
+
         atualizarSecond()
 
     }
@@ -73,37 +82,52 @@ function calcularResultado(){
     if(atualInput !== ''){
 
         switch(operador){
+
             case '+':
                 salvarOld = resultado
                 resultado += parseFloat(atualInput)
                 salvarConta = `${salvarOld} + ${parseFloat(atualInput)} = `
                 break
+
             case '-':
                 salvarOld = resultado
                 resultado -= parseFloat(atualInput)
                 salvarConta = `${salvarOld} - ${parseFloat(atualInput)} = `
                 break
+
             case '/':
                 salvarOld = resultado
                 resultado /= parseFloat(atualInput)
                 salvarConta = `${salvarOld} / ${parseFloat(atualInput)} = `
                 break
-            case 'X':
+
+            case 'x':
                 salvarOld = resultado
                 resultado *= parseFloat(atualInput)
-                salvarConta = `${salvarOld} X ${parseFloat(atualInput)} = `
+                salvarConta = `${salvarOld} x ${parseFloat(atualInput)} = `
                 break
+
+            case '%':
+                salvarOld = resultado
+                resultado = resultado * parseFloat(atualInput) / 100
+                salvarConta = `${salvarOld} % ${parseFloat(atualInput)} =`
+
+                break
+
         }
 
         if(fezUmaConta == false){
 
             atualInput = resultado.toString()
+            atualizarSecond
+
             atualizarDisplay()
             atualizarSecond()
-            atualizarSecond
             fezUmaConta = true
-
         }
+
+        secondInput = salvarConta
+        podeDeletar = false
 
     }
 }
@@ -114,18 +138,27 @@ function limparDisplay(){
     operador = ''
     resultado = ''
     salvarConta = ''
+
     atualizarDisplay()
     atualizarSecond()
+    checkDisplay()
     fezUmaConta = false
-    display.value = 0
 
 }
 
 function deleteNumber(){
-    atualInput = atualInput.slice(0, -1)
-    atualizarDisplay()
-    atualizarSecond()
-    checkDisplay()
+
+    if(podeDeletar == true){
+
+        atualInput = atualInput.slice(0, -1)
+        atualizarDisplay()
+        atualizarSecond()
+        checkDisplay()
+
+    }else{
+        podeDeletar = true
+    }
+
 
 }
 
@@ -137,7 +170,7 @@ function atualizarDisplay(){
 
 function atualizarSecond(){
 
-    document.getElementById('secondDisplay').value = resultado == atualInput ? `${salvarConta.toString()} ${resultado}` : `${resultado} ${operador} ${atualInput}`
+    document.getElementById('secondDisplay').value = resultado == atualInput ? `${salvarConta}  ${resultado}` : `${resultado} ${operador} ${atualInput}`
 
 }
 
@@ -149,3 +182,6 @@ function checkDisplay(){
     
 }
 
+function checkagemSecondDisplay(){
+    display.value = 'pika'
+}
