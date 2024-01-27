@@ -47,7 +47,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
             case '+':
                 resultadoParcial = parseFloat(resultSoma) + parseFloat(numerosDigitados) 
                 console.log(resultSoma)
-                console.log(numerosDigitados)
+                console.log(resultadoParcial)
             break
 
             case '-':
