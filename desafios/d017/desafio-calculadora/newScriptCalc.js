@@ -45,9 +45,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
         switch(operador){
         
             case '+':
-                resultadoParcial = parseFloat(resultSoma) + parseFloat(numerosDigitados) 
-                console.log(resultSoma)
-                console.log(resultadoParcial)
+                resultadoParcial = parseFloat(resultSoma) + parseFloat(numerosDigitados) // mostrar o resultado antecipado da operação digitada
             break
 
             case '-':
@@ -59,7 +57,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                 }else if(resultSubtra < numerosDigitados){//se o resultado da subtração for menor que o numero digitado
                     
                     resultadoParcial = numerosDigitados - resultSubtra 
-                    resultadoParcial = resultadoParcial * -1  
+                    resultadoParcial = resultadoParcial * -1  //transformação do número em negativo
 
                 }else if(resultSubtra = numerosDigitados){
 
@@ -83,7 +81,7 @@ function addNumber(number){
 
     firstDisplay += number //adiciona o numero
     resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
-    numerosDigitados += parseFloat(number) //coloca os numeros digitados dentro da variavel de armazenamento
+    numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
 
     atualizarFirstDisplay()
     atualizarSecondDisplay()
@@ -109,7 +107,7 @@ function clicouOperador(op){
     
             firstDisplay += ` ${op} ` //adicionando o operador em forma de string no primeiro display
     
-            numeroAntesOp = numerosDigitados //armazena os numeros antes do sinal, para limpar a array
+            numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a array
             somar.push(numeroAntesOp) //adiciona os números armazenados na array de soma
             numerosDigitados = '' // limpa a variável
             
@@ -150,9 +148,9 @@ function efetuarSoma(){ //efetuação da soma dos itens dentro da array e armaze
 
     let SomaInArray = 0 // variavel para armazenar o resultado da array
 
-    SomaInArray = somar.reduce(function (a, b){
-        return a + b
-    })
+    for(var i = 0 ; i < somar.length ; i++){ //loop para percorrer cada item da array de soma e soma-los
+        SomaInArray += somar[i]
+    }
 
     resultSoma = SomaInArray + numerosDigitados //vai somar a array com o numero digitado
 
@@ -160,13 +158,10 @@ function efetuarSoma(){ //efetuação da soma dos itens dentro da array e armaze
     atualizarSecondDisplay()
     mostrarResultadoAntecipado()
 
-
-    console.log(resultSoma + 'kkk')
-
 }
 
-let resultSubtra = 0
-let diminuir = []
+let resultSubtra = 0 // variavel para armazenar o resultado das subtrações
+let diminuir = [] //array para efetuar as subtrações
 
 function efetuarSubtracao(){
 
