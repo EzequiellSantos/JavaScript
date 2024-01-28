@@ -45,11 +45,11 @@ input{
     font-family: var(--font-number);
 }
 
-#secondInput{
+#firstInput{
     color: white;
 }
 
-#firstInput{
+#secondInput{
     font-size: 0.9em;
     padding: 10px;
     color: gray;

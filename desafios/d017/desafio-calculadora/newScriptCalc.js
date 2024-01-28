@@ -77,7 +77,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                 }else{ // senão
 
                     resultadoParcial = resultDivisao / numerosDigitados  
-                    
+
                 }
                 
             break
@@ -131,11 +131,7 @@ function clicouOperador(op){
             efetuarSoma() //vai efetuar a soma dos itens dentro da array Soma
             atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
     
-            console.log(numerosDigitados)//teste
-            console.log(somar)//teste
-    
             break
-
 
             case '-':
 
@@ -232,12 +228,11 @@ function efetuarDivisao(){ // efetua a divisão dos itens dentro da array com os
 
 }
 
-
-let multiplicar = []
 let resultMultipli = 0
+let multiplicar = []
 
-let porcentagem = []
 let resultPorcent = 0
+let porcentagem = []
 
 
 /* quando clicar em igual, precisa somar as arrays guardadas(somar, dividir etc) e a atual => que pode ser o resultado parcial por enquanto */
