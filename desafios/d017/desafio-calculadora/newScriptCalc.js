@@ -67,7 +67,19 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
             break
 
             case '/':
-                resultadoParcial = resultDivisao / numerosDigitados
+
+                let check = resultDivisao / numerosDigitados // variavel para fazer a verificação de divisão inválida
+
+                if(check == Infinity){ // se o numero for dividido por 0
+ 
+                    resultadoParcial = `Can't divide by zero` 
+
+                }else{ // senão
+
+                    resultadoParcial = resultDivisao / numerosDigitados  
+                    
+                }
+                
             break
 
         }
@@ -130,7 +142,7 @@ function clicouOperador(op){
             firstDisplay += ` ${op} ` //adicionando o operador em forma de string no primeiro display
     
             numeroAntesOp = numerosDigitados //armazena os numeros antes do sinal, para limpar a variável e receber novos números
-            diminuir.push(numeroAntesOp) //adiciona os números armazenados na array de soma
+            diminuir.push(numeroAntesOp) //adiciona os números armazenados na array de diminuir
             numerosDigitados = '' // limpa a variável
             
     
@@ -141,11 +153,11 @@ function clicouOperador(op){
 
             case '/':
 
-            firstDisplay += ` ${op} `
+            firstDisplay += ` ${op} ` //adicionando o operador em forma de string no primeiro display
 
-            numeroAntesOp = parseFloat(numerosDigitados)
-            dividir.push(numeroAntesOp)
-            numerosDigitados = ''
+            numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
+            dividir.push(numeroAntesOp) //adiciona os números armazenados na array de dividir
+            numerosDigitados = '' // limpa a variável
 
             efetuarDivisao() //vai efetuar a subtraçao dos itens dentro da array subtraçao
             atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
@@ -180,11 +192,11 @@ function efetuarSoma(){ //efetuação da soma dos itens dentro da array e armaze
 let resultSubtra = 0 // variavel para armazenar o resultado das subtrações
 let diminuir = [] //array para efetuar as subtrações
 
-function efetuarSubtracao(){
+function efetuarSubtracao(){ //efetuação da subtração dos itens dentro da array e armazena o resultado na resultSubtra
 
     let subtracaoInArray = 0 // variavel para armazenar o resultado da array
 
-    subtracaoInArray = diminuir.reduce(function (a, b){
+    subtracaoInArray = diminuir.reduce(function (a, b){ //metodo reduce percorre os itens dentro da array e subtrai ele
         return a - b
     })
 
@@ -203,14 +215,14 @@ function efetuarSubtracao(){
 
 }
 
-let resultDivisao = 0
-let dividir = []
+let resultDivisao = 0 // variavel para armazenar o resultado das divisões
+let dividir = [] //array para efetuar divisões
 
-function efetuarDivisao(){
+function efetuarDivisao(){ // efetua a divisão dos itens dentro da array com os numeros digitados e armazena o valor na resultDivisão
 
-    let divisaoInArray = 0
+    let divisaoInArray = 0 // variavel pra armazenar somente a divisão dentro da array
 
-    divisaoInArray = dividir.reduce(function (a, b){
+    divisaoInArray = dividir.reduce(function (a, b){// metodo reduce percorre os itens na array e divide-os
         return a / b
     })
 
