@@ -66,6 +66,10 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                 }
             break
 
+            case '/':
+                resultadoParcial = resultDivisao / numerosDigitados
+            break
+
         }
 
     }
@@ -135,6 +139,19 @@ function clicouOperador(op){
     
             break
 
+            case '/':
+
+            firstDisplay += ` ${op} `
+
+            numeroAntesOp = parseFloat(numerosDigitados)
+            dividir.push(numeroAntesOp)
+            numerosDigitados = ''
+
+            efetuarDivisao() //vai efetuar a subtraçao dos itens dentro da array subtraçao
+            atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+    
+            break
+
         }
 
     }
@@ -186,8 +203,23 @@ function efetuarSubtracao(){
 
 }
 
-let dividir = []
 let resultDivisao = 0
+let dividir = []
+
+function efetuarDivisao(){
+
+    let divisaoInArray = 0
+
+    divisaoInArray = dividir.reduce(function (a, b){
+        return a / b
+    })
+
+    resultDivisao = divisaoInArray
+
+    atualizarSecondDisplay() //atualiza o segundo display
+
+}
+
 
 let multiplicar = []
 let resultMultipli = 0
