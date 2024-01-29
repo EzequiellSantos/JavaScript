@@ -122,25 +122,29 @@ function addNumber(number){
 
 }
 
+let pontoPresenteNoNumero = false // variável para validações
+
 function adicionarDecimal(){ // função para adcionar decimais
 
-    if(numerosDigitados.indexOf('.')  == -1) { // verificação se ja existe um ponto nos numeros digitados
-
-
+    if(pontoPresenteNoNumero == false){// verificação se ja existe um ponto nos numeros digitados
+        
         if(firstDisplay == ''){ // caso o usuário digite um ponto de início
 
             firstDisplay += '0.'
             numerosDigitados = '0.'
+            console.log(numerosDigitados)
             atualizarFirstDisplay()
             atualizarSecondDisplay()
+            pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
 
-        }else { // caso ja tenha numeros digitados
+        } else{ // caso ja tenha numeros digitados
 
             firstDisplay += '.'
             numerosDigitados += '.'
             atualizarFirstDisplay()
             atualizarSecondDisplay()
-
+            console.log(numerosDigitados)
+            pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
         }
     }
 
@@ -157,6 +161,8 @@ function clicouOperador(op){
     operador = op //definindo o operador
 
     if(numerosDigitados !== ''){
+
+        pontoPresenteNoNumero = false //liberação da adição de um ponto
 
         switch(operador){
 
