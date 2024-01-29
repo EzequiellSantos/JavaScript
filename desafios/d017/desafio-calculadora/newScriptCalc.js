@@ -82,6 +82,11 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                 
             break
 
+            case 'x':
+                
+                resultadoParcial = resultMultipli * numerosDigitados
+
+            break
         }
 
     }
@@ -155,11 +160,23 @@ function clicouOperador(op){
             dividir.push(numeroAntesOp) //adiciona os números armazenados na array de dividir
             numerosDigitados = '' // limpa a variável
 
-            efetuarDivisao() //vai efetuar a subtraçao dos itens dentro da array subtraçao
+            efetuarDivisao() //vai efetuar a divisão dos itens dentro da array subtraçao
             atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
     
             break
 
+            case 'x':
+
+                firstDisplay += ` ${op} ` //adicionando o operador em forma de string no primeiro display
+
+                numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, limpa a variável e receber novos números
+                multiplicar.push(numeroAntesOp) //adiciona os números armazenados na array de multiplicar
+                numerosDigitados = '' // limpa a variável
+    
+                efetuarMultiplicação() //vai efetuar a subtração dos itens dentro da array subtraçao
+                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+        
+            break
         }
 
     }
@@ -230,6 +247,22 @@ function efetuarDivisao(){ // efetua a divisão dos itens dentro da array com os
 
 let resultMultipli = 0
 let multiplicar = []
+
+function efetuarMultiplicação(){
+
+    let multiplicacaoInArray = 0
+
+    multiplicacaoInArray = multiplicar.reduce(function (a, b){
+        
+        return a * b
+
+    })
+
+    resultMultipli = multiplicacaoInArray 
+
+    atualizarSecondDisplay()
+
+}
 
 let resultPorcent = 0
 let porcentagem = []
