@@ -243,6 +243,8 @@ function clicouOperador(op){
 
 }
 
+
+
 let resultSoma = 0 // variavel para armazenar o resultado das somas
 let somar = [] //array para efetuar somas
 
@@ -254,7 +256,7 @@ function efetuarSoma(){ //efetuação da soma dos itens dentro da array e armaze
         SomaInArray += somar[i]
     }
 
-    resultSoma = SomaInArray + numerosDigitados //vai somar a array com o numero digitado
+    resultSoma = SomaInArray //armazenando os resultados
 
 
 }
@@ -270,16 +272,7 @@ function efetuarSubtracao(){ //efetuação da subtração dos itens dentro da ar
         return a - b
     })
 
-    if(subtracaoInArray >= numerosDigitados){ // se a array for maior ou igual os numeros digitados..
-
-        resultSubtra = subtracaoInArray - numerosDigitados    //vai subtrair a array com o numero digitado
-
-    }else if(subtracaoInArray < numerosDigitados) { // se a array for menor ou igual os numeros digitados..
-
-        resultSubtra = numerosDigitados - subtracaoInArray   //vai subtrair a numero digitado com a array
-        resultSubtra = resultSubtra * -1 // converte o numero pra negativo para efetuar as contas perfeitamente
-
-    }
+    resultSubtra = subtracaoInArray //armazenando os resultados
 
 
 }
@@ -295,7 +288,7 @@ function efetuarDivisao(){ // efetua a divisão dos itens dentro da array com os
         return a / b
     })
 
-    resultDivisao = divisaoInArray
+    resultDivisao = divisaoInArray //armazenando os resultados
 
 }
 
@@ -312,7 +305,7 @@ function efetuarMultiplicação(){ // efetua a multiplicação dos itens dentro 
 
     })
 
-    resultMultipli = multiplicacaoInArray 
+    resultMultipli = multiplicacaoInArray //armazenando os resultados
 
 }
 
@@ -327,7 +320,7 @@ function efetuarPorcentagem(){
         return a + b
     })
 
-    resultPorcent = porcentagemInArray
+    resultPorcent = porcentagemInArray //armazenando os resultados
 
 }
 
