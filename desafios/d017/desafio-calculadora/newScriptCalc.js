@@ -37,15 +37,21 @@ function atualizarSecondDisplay(){
 
 let resultadoParcial = '' //numeros digitados apenas
 let resultadoFinal = '' //resultado das operações
+let resultadoParcialNumber = 0
 
 function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, mesmo sem apertar igual deve aparecer isso no segundo display
 
-    if(numerosDigitados !== ''){ // caso o operador seja de mais, o resultado parcial será calculado com o operador definido
+    if(numerosDigitados !== ''){ //  resultado parcial será calculado com o operador definido mais os resultados das contas das arrays feito a conta com os numeros digitados
 
         switch(operador){
         
             case '+':
                 resultadoParcial = parseFloat(resultSoma) + parseFloat(numerosDigitados) // mostrar o resultado antecipado da operação digitada
+
+                /* 
+                adicionar a verificaçãoDecimal() pois ha números mt grande e precisam ser limitados 
+                */
+
             break
 
             case '-':
@@ -106,48 +112,29 @@ let numerosDigitados = '' //armazena números digitados
 
 function addNumber(number){
 
-    if(firstDisplay.indexOf('0.') !== -1){
-
-
-        firstDisplay += number //adiciona o numero
-        resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
-        numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
+    firstDisplay += number //adiciona o numero
+    resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
+    numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
     
-        atualizarFirstDisplay()
-        atualizarSecondDisplay()
-        mostrarResultadoAntecipado() 
-
-
-
-    }else{
-
-        firstDisplay += number //adiciona o numero
-        resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
-        numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
-    
-        atualizarFirstDisplay()
-        atualizarSecondDisplay()
-        mostrarResultadoAntecipado()
-
-    }
-
-
+    atualizarFirstDisplay()
+    atualizarSecondDisplay()
+    mostrarResultadoAntecipado()
 
 }
 
-function adicionarDecimal(){
+function adicionarDecimal(){ // função para adcionar decimais
 
-    if(numerosDigitados.indexOf('.')  === -1) {
+    if(numerosDigitados.indexOf('.')  == -1) { // verificação se ja existe um ponto nos numeros digitados
 
 
-        if(firstDisplay == ''){
+        if(firstDisplay == ''){ // caso o usuário digite um ponto de início
 
             firstDisplay += '0.'
             numerosDigitados = '0.'
             atualizarFirstDisplay()
             atualizarSecondDisplay()
 
-        }else {
+        }else { // caso ja tenha numeros digitados
 
             firstDisplay += '.'
             numerosDigitados += '.'
@@ -311,14 +298,14 @@ function efetuarDivisao(){ // efetua a divisão dos itens dentro da array com os
 
 }
 
-let resultMultipli = 0
-let multiplicar = []
+let resultMultipli = 0 // variavel para armazenar o resultado das dvisões
+let multiplicar = [] // array para efetuar multiplicações
 
-function efetuarMultiplicação(){
+function efetuarMultiplicação(){ // efetua a multiplicação dos itens dentro da array multiplicar 
 
-    let multiplicacaoInArray = 0
+    let multiplicacaoInArray = 0 // variavel para armazenar o resultado da conta dentro da array
 
-    multiplicacaoInArray = multiplicar.reduce(function (a, b){
+    multiplicacaoInArray = multiplicar.reduce(function (a, b){ // multiplicando os itens dentro da array
         
         return a * b
 
@@ -326,24 +313,22 @@ function efetuarMultiplicação(){
 
     resultMultipli = multiplicacaoInArray 
 
-    atualizarSecondDisplay()
+    atualizarSecondDisplay() //atualizar o segundo display 
 
 }
 
-let resultPorcent = 0
+let resultPorcent = 0 // variavel para armazenar o resultado das porcentagens
 let porcentagem = []
 
 function efetuarPorcentagem(){
 
-    let porcentagemInArray = 0
+    let porcentagemInArray = 0 // variável para armazenar o resultado da soma dos itens dentro da array porcentagem
 
-    porcentagemInArray = porcentagem.reduce( function (a, b){
+    porcentagemInArray = porcentagem.reduce( function (a, b){ // soma os itens dentro da array porcentagem
         return a + b
     })
 
     resultPorcent = porcentagemInArray
-
-    console.log(porcentagemInArray)
 
 }
 
@@ -362,13 +347,24 @@ function checkSecondDisplay(){
 
 checkSecondDisplay() //verifica quando o documento carrega, pra prencher corretamente o secondDislay
 
-function limparDisplay(){
-    resultadoFinal = ''
+function limparDisplay(){ // quando o usuário clicar em clean
+
     resultadoParcial = ''
+    numerosDigitados = ''
+
+    dividir = []
+    multiplicar = []
+    porcentagem = []
+    somar = []
+    diminuir = []
+
+    operador = ''
+    numeroAntesOp = 0
+
     firstDisplay = ''
     secondDisplay = ''
     firstInput.value = ''
     secondInput.value = ''
 
-    checkSecondDisplay()
+    checkSecondDisplay() // chama a função de checagem de preenchimento dos displays
 }
