@@ -169,42 +169,42 @@ function clicouOperador(op){
 
             case '+':
     
-            firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
-    
-            numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a array
-            somar.push(numeroAntesOp) //adiciona os números armazenados na array de soma
-            numerosDigitados = '' // limpa a variável
-            
-    
-            efetuarSoma() //vai efetuar a soma dos itens dentro da array Soma
-            atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
-    
+                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
+        
+                numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a array
+                somar.push(numeroAntesOp) //adiciona os números armazenados na array de soma
+                numerosDigitados = '' // limpa a variável
+                
+        
+                efetuarSoma() //vai efetuar a soma dos itens dentro da array Soma
+                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+        
             break
 
             case '-':
 
-            firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
-    
-            numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
-            diminuir.push(numeroAntesOp) //adiciona os números armazenados na array de diminuir
-            numerosDigitados = '' // limpa a variável
-            
-    
-            efetuarSubtracao() //vai efetuar a subtraçao dos itens dentro da array subtraçao
-            atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
+        
+                numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
+                diminuir.push(numeroAntesOp) //adiciona os números armazenados na array de diminuir
+                numerosDigitados = '' // limpa a variável
+                
+        
+                efetuarSubtracao() //vai efetuar a subtraçao dos itens dentro da array subtraçao
+                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
     
             break
 
             case '/':
 
-            firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
+                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
 
-            numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
-            dividir.push(numeroAntesOp) //adiciona os números armazenados na array de dividir
-            numerosDigitados = '' // limpa a variável
+                numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
+                dividir.push(numeroAntesOp) //adiciona os números armazenados na array de dividir
+                numerosDigitados = '' // limpa a variável
 
-            efetuarDivisao() //vai efetuar a divisão dos itens dentro da array subtraçao
-            atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+                efetuarDivisao() //vai efetuar a divisão dos itens dentro da array subtraçao
+                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
     
             break
 
@@ -387,6 +387,13 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
     checkDels()
 }
 
+let deletou
+
 function checkDels(){ //função para verificar o que foi deletado
+    
+    efetuarSoma()
+    atualizarFirstDisplay()
+    atualizarSecondDisplay()
+    mostrarResultadoAntecipado()
 
 }
