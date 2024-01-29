@@ -23,11 +23,12 @@ function atualizarSecondDisplay(){
     
     if(numerosDigitados !== '' && operador == ''){//apenas os numeros digitados sem o resultado e sem o operador
     
-        secondInput.value = `= ${numerosDigitados}` 
+        secondInput.value = `= ${parseFloat(numerosDigitados)}` 
     
     }else if(operador !== ''){ //apenas para mostrar o resultado antes de apertar igual
     
-        secondInput.value = `= ${resultadoParcial}`
+        secondInput.value = `= ${parseFloat(resultadoParcial)}`
+
             
     }else if(resultSoma !== 0){
     }
@@ -91,8 +92,6 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
             case '%':
 
                 resultadoParcial = resultPorcent * numerosDigitados / 100
-                console.log(resultPorcent + ' percent')
-                console.log(numerosDigitados + ' result parcial')
 
             break
         }
@@ -108,13 +107,56 @@ let numerosDigitados = '' //armazena números digitados
 
 function addNumber(number){
 
-    firstDisplay += number //adiciona o numero
-    resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
-    numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
+    if(firstDisplay.indexOf('0.') !== -1){
 
-    atualizarFirstDisplay()
-    atualizarSecondDisplay()
-    mostrarResultadoAntecipado()
+
+        firstDisplay += number //adiciona o numero
+        resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
+        numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
+    
+        atualizarFirstDisplay()
+        atualizarSecondDisplay()
+        mostrarResultadoAntecipado() 
+
+
+
+    }else{
+
+        firstDisplay += number //adiciona o numero
+        resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
+        numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
+    
+        atualizarFirstDisplay()
+        atualizarSecondDisplay()
+        mostrarResultadoAntecipado()
+
+    }
+
+
+
+}
+
+function adicionarDecimal(){
+
+    if(numerosDigitados.indexOf('.')  === -1) {
+
+
+        if(firstDisplay == ''){
+
+            firstDisplay += '0.'
+            numerosDigitados = '0.'
+            atualizarFirstDisplay()
+            atualizarSecondDisplay()
+
+        }else {
+
+            firstDisplay += '.'
+            numerosDigitados += '.'
+            atualizarFirstDisplay()
+            atualizarSecondDisplay()
+
+        }
+    }
 
 }
 
@@ -138,7 +180,7 @@ function clicouOperador(op){
     
             numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a array
             somar.push(numeroAntesOp) //adiciona os números armazenados na array de soma
-            numerosDigitados = '' // limpa a variável
+            numerosDigitados = 0 // limpa a variável
             
     
             efetuarSoma() //vai efetuar a soma dos itens dentro da array Soma
