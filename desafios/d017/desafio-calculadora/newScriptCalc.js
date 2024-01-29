@@ -87,6 +87,14 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                 resultadoParcial = resultMultipli * numerosDigitados
 
             break
+        
+            case '%':
+
+                resultadoParcial = resultPorcent * numerosDigitados / 100
+                console.log(resultPorcent + ' percent')
+                console.log(numerosDigitados + ' result parcial')
+
+            break
         }
 
     }
@@ -177,6 +185,23 @@ function clicouOperador(op){
                 atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
         
             break
+        
+            case '%':
+
+                if(firstDisplay.indexOf('%') == -1){ // caso não tenha calculado a porcentagem antes
+
+                    firstDisplay += ` ${op} ` //adicionando o operador em forma de string no primeiro display
+
+                    numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, limpa a variável e receber novos números
+                    porcentagem.push(numeroAntesOp) //adiciona os números armazenados na array de saber a porcentagem
+                    numerosDigitados = '' // limpa a variável
+        
+                    efetuarPorcentagem() //vai efetuar a subtração dos itens dentro da array subtraçao
+                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+
+                }
+
+            break
         }
 
     }
@@ -266,6 +291,20 @@ function efetuarMultiplicação(){
 
 let resultPorcent = 0
 let porcentagem = []
+
+function efetuarPorcentagem(){
+
+    let porcentagemInArray = 0
+
+    porcentagemInArray = porcentagem.reduce( function (a, b){
+        return a + b
+    })
+
+    resultPorcent = porcentagemInArray
+
+    console.log(porcentagemInArray)
+
+}
 
 
 /* quando clicar em igual, precisa somar as arrays guardadas(somar, dividir etc) e a atual => que pode ser o resultado parcial por enquanto */
