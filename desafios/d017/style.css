@@ -85,6 +85,8 @@ button{
     justify-content: center;
     font-family: var(--font-number);
     background-color: transparent;
+
+    user-select: none;
 }
 
 .numbers:active{
@@ -112,6 +114,7 @@ button{
 .simbols > img{
     width: 35px;
     height: 35px;
+    user-select: none;
 }
 
 .simbolX{

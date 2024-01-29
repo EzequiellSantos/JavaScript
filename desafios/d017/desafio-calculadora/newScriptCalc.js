@@ -135,7 +135,6 @@ function adicionarDecimal(){ // função para adcionar decimais
 
             firstDisplay += '0.'
             numerosDigitados = '0.'
-            console.log(numerosDigitados)
             atualizarFirstDisplay()
             atualizarSecondDisplay()
             pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
@@ -146,7 +145,6 @@ function adicionarDecimal(){ // função para adcionar decimais
             numerosDigitados += '.'
             atualizarFirstDisplay()
             atualizarSecondDisplay()
-            console.log(numerosDigitados)
             pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
         }
     }
@@ -171,7 +169,7 @@ function clicouOperador(op){
 
             case '+':
     
-            firstDisplay += ` ${op} ` //adicionando o operador em forma de string no primeiro display
+            firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
     
             numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a array
             somar.push(numeroAntesOp) //adiciona os números armazenados na array de soma
@@ -185,7 +183,7 @@ function clicouOperador(op){
 
             case '-':
 
-            firstDisplay += ` ${op} ` //adicionando o operador em forma de string no primeiro display
+            firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
     
             numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
             diminuir.push(numeroAntesOp) //adiciona os números armazenados na array de diminuir
@@ -199,7 +197,7 @@ function clicouOperador(op){
 
             case '/':
 
-            firstDisplay += ` ${op} ` //adicionando o operador em forma de string no primeiro display
+            firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
 
             numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
             dividir.push(numeroAntesOp) //adiciona os números armazenados na array de dividir
@@ -212,7 +210,7 @@ function clicouOperador(op){
 
             case 'x':
 
-                firstDisplay += ` ${op} ` //adicionando o operador em forma de string no primeiro display
+                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
 
                 numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, limpa a variável e receber novos números
                 multiplicar.push(numeroAntesOp) //adiciona os números armazenados na array de multiplicar
@@ -227,7 +225,7 @@ function clicouOperador(op){
 
                 if(firstDisplay.indexOf('%') == -1){ // caso não tenha um operador antes
 
-                    firstDisplay += ` ${op} ` //adicionando o operador em forma de string no primeiro display
+                    firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
 
                     numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, limpa a variável e receber novos números
                     porcentagem.push(numeroAntesOp) //adiciona os números armazenados na array de saber a porcentagem
@@ -337,12 +335,14 @@ function efetuarPorcentagem(){
 /* quando clicar em igual, precisa somar as arrays guardadas(somar, dividir etc) e a atual => que pode ser o resultado parcial por enquanto */
 
 
-//quando o usuário entrar na página ou limpar o input
-function checkSecondDisplay(){
+
+function checkSecondDisplay(){ //quando o usuário entrar na página ou limpar o input
 
     if(secondInput.value == ''){ //verifica se o segundo input está vazio e coloca um zero    
         secondInput.value = 0
-    } 
+    } else if(firstInput.value == ''){ //verifica se o primeiro input está vazio e coloca um zero 
+        secondInput.value = 0
+    }
 
 }
 
@@ -369,4 +369,24 @@ function limparDisplay(){ // quando o usuário clicar em clean
     secondInput.value = ''
 
     checkSecondDisplay() // chama a função de checagem de preenchimento dos displays
+}
+
+function deletarLetter(){ //quando o usuário acionar o botão de backspace
+
+    firstDisplay = firstDisplay.slice(0, -1)
+    resultadoParcial = secondDisplay.slice(0, -1)
+    numerosDigitados = numerosDigitados.slice(0, -1)
+
+
+
+    atualizarFirstDisplay()
+    atualizarSecondDisplay()
+    mostrarResultadoAntecipado()
+    checkSecondDisplay()
+
+    checkDels()
+}
+
+function checkDels(){ //função para verificar o que foi deletado
+
 }
