@@ -56,14 +56,17 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
             case '-':
 
-                if(parseFloat(resultSubtra) > parseFloat(numerosDigitados)){ //se o resultado da subtração for maior que o numero digitado
+                if(resultSubtra > numerosDigitados){ //se o resultado da subtração for maior que o numero digitado
 
-                    resultadoParcial = resultSubtra - numerosDigitados  
+                    resultadoParcial = parseFloat(resultSubtra) - parseFloat(numerosDigitados)  
 
                 }else if(resultSubtra < numerosDigitados){//se o resultado da subtração for menor que o numero digitado
                     
-                    resultadoParcial = numerosDigitados - resultSubtra 
-                    resultadoParcial = parseFloat(resultadoParcial.toFixed(3)) * -1  //transformação do número em negativo
+                    resultadoParcial = parseFloat(numerosDigitados) - parseFloat(resultSubtra) 
+                    resultadoParcial = parseFloat(resultadoParcial) * -1  //transformação do número em negativo
+                    /* 
+                    adicionar a verificaçãoDecimal() pois ha números mt grande e precisam ser limitados 
+                    */
 
                 }else if(resultSubtra = numerosDigitados){
 
@@ -74,7 +77,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
             case '/':
 
-                let check = resultDivisao / numerosDigitados // variavel para fazer a verificação de divisão inválida
+                let check = resultDivisao / parseFloat(numerosDigitados) // variavel para fazer a verificação de divisão inválida
 
                 if(check == Infinity){ // se o numero for dividido por 0
  
@@ -82,7 +85,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                 }else{ // senão
 
-                    resultadoParcial = resultDivisao / numerosDigitados  
+                    resultadoParcial = parseFloat(resultDivisao) / parseFloat(numerosDigitados)  
 
                 }
                 
@@ -90,7 +93,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
             case 'x':
                 
-                resultadoParcial = resultMultipli * numerosDigitados
+                resultadoParcial = parseFloat(resultMultipli) * parseFloat(numerosDigitados)
 
             break
         
@@ -172,7 +175,7 @@ function clicouOperador(op){
     
             numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a array
             somar.push(numeroAntesOp) //adiciona os números armazenados na array de soma
-            numerosDigitados = 0 // limpa a variável
+            numerosDigitados = '' // limpa a variável
             
     
             efetuarSoma() //vai efetuar a soma dos itens dentro da array Soma
@@ -222,7 +225,7 @@ function clicouOperador(op){
         
             case '%':
 
-                if(firstDisplay.indexOf('%') == -1){ // caso não tenha calculado a porcentagem antes
+                if(firstDisplay.indexOf('%') == -1){ // caso não tenha um operador antes
 
                     firstDisplay += ` ${op} ` //adicionando o operador em forma de string no primeiro display
 
@@ -256,9 +259,6 @@ function efetuarSoma(){ //efetuação da soma dos itens dentro da array e armaze
     resultSoma = SomaInArray + numerosDigitados //vai somar a array com o numero digitado
 
 
-    atualizarSecondDisplay()
-    mostrarResultadoAntecipado()
-
 }
 
 let resultSubtra = 0 // variavel para armazenar o resultado das subtrações
@@ -283,7 +283,6 @@ function efetuarSubtracao(){ //efetuação da subtração dos itens dentro da ar
 
     }
 
-    atualizarSecondDisplay() //atualiza o segundo display
 
 }
 
@@ -299,8 +298,6 @@ function efetuarDivisao(){ // efetua a divisão dos itens dentro da array com os
     })
 
     resultDivisao = divisaoInArray
-
-    atualizarSecondDisplay() //atualiza o segundo display
 
 }
 
@@ -318,8 +315,6 @@ function efetuarMultiplicação(){ // efetua a multiplicação dos itens dentro 
     })
 
     resultMultipli = multiplicacaoInArray 
-
-    atualizarSecondDisplay() //atualizar o segundo display 
 
 }
 
@@ -366,6 +361,7 @@ function limparDisplay(){ // quando o usuário clicar em clean
 
     operador = ''
     numeroAntesOp = 0
+    pontoPresenteNoNumero = false
 
     firstDisplay = ''
     secondDisplay = ''
