@@ -45,11 +45,21 @@ input{
     font-family: var(--font-number);
 }
 
-#firstInput{
+.primeiro{
     color: white;
 }
 
-#secondInput{
+.segundo{
+    font-size: 0.9em;
+    padding: 10px;
+    color: gray;
+}
+
+.igual{
+    color: white;
+}
+
+.history{
     font-size: 0.9em;
     padding: 10px;
     color: gray;

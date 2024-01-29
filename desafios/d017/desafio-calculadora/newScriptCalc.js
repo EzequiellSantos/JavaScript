@@ -27,7 +27,7 @@ function atualizarSecondDisplay(){
     
     }else if(operador !== ''){ //apenas para mostrar o resultado antes de apertar igual
     
-        secondInput.value = '= ' + parseFloat(resultadoParcial)
+        secondInput.value = '= ' + resultadoParcial
             
     }else if(resultSoma !== 0){
     }
@@ -37,7 +37,6 @@ function atualizarSecondDisplay(){
 
 let resultadoParcial = '' //numeros digitados apenas
 let resultadoFinal = '' //resultado das operações
-let resultadoParcialNumber = 0
 
 function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, mesmo sem apertar igual deve aparecer isso no segundo display
 
@@ -48,9 +47,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
             case '+':
                 resultadoParcial = parseFloat(resultSoma) + parseFloat(numerosDigitados) // mostrar o resultado antecipado da operação digitada
 
-                /* 
-                adicionar a verificaçãoDecimal() pois ha números mt grande e precisam ser limitados 
-                */
+                checkDecimals(resultadoParcial)
 
             break
 
@@ -64,15 +61,15 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                     
                     resultadoParcial = parseFloat(numerosDigitados) - parseFloat(resultSubtra) 
                     resultadoParcial = parseFloat(resultadoParcial) * -1  //transformação do número em negativo
-                    /* 
-                    adicionar a verificaçãoDecimal() pois ha números mt grande e precisam ser limitados 
-                    */
 
                 }else if(resultSubtra = numerosDigitados){
 
                     resultadoParcial = 0
 
                 }
+
+                checkDecimals(resultadoParcial)
+
             break
 
             case '/':
@@ -88,12 +85,16 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                     resultadoParcial = parseFloat(resultDivisao) / parseFloat(numerosDigitados)  
 
                 }
+
+                checkDecimals(resultadoParcial)
                 
             break
 
             case 'x':
                 
                 resultadoParcial = parseFloat(resultMultipli) * parseFloat(numerosDigitados)
+
+                checkDecimals(resultadoParcial)
 
             break
         
@@ -327,7 +328,31 @@ function efetuarPorcentagem(){
 
 /* quando clicar em igual, precisa somar as arrays guardadas(somar, dividir etc) e a atual => que pode ser o resultado parcial por enquanto */
 
+function calcularResultado(){ //quando o usuário apertou igual
 
+    if(resultadoParcial != 0){
+        inverterStyles()
+    }
+
+/* 
+ajeitar sapoha dps
+*/
+
+
+}
+
+function checkDecimals(number){ //verifica se o numero real é muito grande e limita-o
+
+    let numberLetter = 0
+    numberLetter = number.toString().length
+    
+
+    if(number.toString().length >= 8){
+        numberLetter = number.toFixed(8)
+        resultadoParcial = numberLetter
+    } 
+
+}
 
 function checkSecondDisplay(){ //quando o usuário entrar na página ou limpar o input
 
@@ -362,6 +387,7 @@ function limparDisplay(){ // quando o usuário clicar em clean
     secondInput.value = ''
 
     checkSecondDisplay() // chama a função de checagem de preenchimento dos displays
+    reporStyles() // repoe os estilos iniciais
 }
 
 function deletarLetter(){ //quando o usuário acionar o botão de backspace
@@ -370,7 +396,9 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
     resultadoParcial = secondDisplay.slice(0, -1)
     numerosDigitados = numerosDigitados.slice(0, -1)
 
-
+/* 
+ajeitar sapoha dps
+*/
 
     atualizarFirstDisplay()
     atualizarSecondDisplay()
@@ -380,13 +408,38 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
     checkDels()
 }
 
-let deletou
 
 function checkDels(){ //função para verificar o que foi deletado
     
+/* 
+ajeitar sapoha dps
+*/
+
+
     efetuarSoma()
     atualizarFirstDisplay()
     atualizarSecondDisplay()
     mostrarResultadoAntecipado()
+
+}
+
+function inverterStyles(){ // add estilos quando apertar igual
+
+    firstInput.classList.add('segundo')
+    firstInput.classList.remove('primeiro')
+    
+    secondInput.classList.add('primeiro')
+    secondInput.classList.remove('segundo')
+
+
+}
+
+function reporStyles(){ // repoe os estilos iniciais
+
+    firstInput.classList.add('primeiro')
+    firstInput.classList.remove('segundo')
+    
+    secondInput.classList.add('segundo')
+    secondInput.classList.remove('primeiro')
 
 }
