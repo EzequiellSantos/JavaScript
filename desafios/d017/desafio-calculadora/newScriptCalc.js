@@ -23,12 +23,11 @@ function atualizarSecondDisplay(){
     
     if(numerosDigitados !== '' && operador == ''){//apenas os numeros digitados sem o resultado e sem o operador
     
-        secondInput.value = `= ${parseFloat(numerosDigitados)}` 
+        secondInput.value = '= ' + parseFloat(numerosDigitados)    
     
     }else if(operador !== ''){ //apenas para mostrar o resultado antes de apertar igual
     
-        secondInput.value = `= ${parseFloat(resultadoParcial)}`
-
+        secondInput.value = '= ' + parseFloat(resultadoParcial)
             
     }else if(resultSoma !== 0){
     }
@@ -51,14 +50,14 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
             case '-':
 
-                if(resultSubtra > numerosDigitados){ //se o resultado da subtração for maior que o numero digitado
+                if(parseFloat(resultSubtra) > parseFloat(numerosDigitados)){ //se o resultado da subtração for maior que o numero digitado
 
                     resultadoParcial = resultSubtra - numerosDigitados  
 
                 }else if(resultSubtra < numerosDigitados){//se o resultado da subtração for menor que o numero digitado
                     
                     resultadoParcial = numerosDigitados - resultSubtra 
-                    resultadoParcial = resultadoParcial * -1  //transformação do número em negativo
+                    resultadoParcial = parseFloat(resultadoParcial.toFixed(3)) * -1  //transformação do número em negativo
 
                 }else if(resultSubtra = numerosDigitados){
 
@@ -192,7 +191,7 @@ function clicouOperador(op){
 
             firstDisplay += ` ${op} ` //adicionando o operador em forma de string no primeiro display
     
-            numeroAntesOp = numerosDigitados //armazena os numeros antes do sinal, para limpar a variável e receber novos números
+            numeroAntesOp = parseFloat(numerosDigitados) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
             diminuir.push(numeroAntesOp) //adiciona os números armazenados na array de diminuir
             numerosDigitados = '' // limpa a variável
             
@@ -362,3 +361,14 @@ function checkSecondDisplay(){
 }
 
 checkSecondDisplay() //verifica quando o documento carrega, pra prencher corretamente o secondDislay
+
+function limparDisplay(){
+    resultadoFinal = ''
+    resultadoParcial = ''
+    firstDisplay = ''
+    secondDisplay = ''
+    firstInput.value = ''
+    secondInput.value = ''
+
+    checkSecondDisplay()
+}
