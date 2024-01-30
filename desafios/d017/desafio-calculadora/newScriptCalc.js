@@ -25,22 +25,25 @@ function atualizarSecondDisplay(){
     
         secondInput.value = '= ' + parseFloat(numerosDigitados)    
     
-    }else if(operador !== ''){ //apenas para mostrar o resultado antes de apertar igual
+    }else if(operador !== '' && resultadoFinal == 0){ //apenas para mostrar o resultado antes de apertar igual
     
         secondInput.value = '= ' + resultadoParcial
             
-    }else if(resultSoma !== 0){
+    }else if(calculou = true){ // quando clicar em igual
+
+        secondInput.value = '= ' + parseFloat(resultadoFinal)
+
     }
     
 }
     
 
 let resultadoParcial = '' //numeros digitados apenas
-let resultadoFinal = '' //resultado das operações
+let resultadoFinal = 0 //resultado das operações
 
 function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, mesmo sem apertar igual deve aparecer isso no segundo display
 
-    if(numerosDigitados !== ''){ //  resultado parcial será calculado com o operador definido mais os resultados das contas das arrays feito a conta com os numeros digitados
+    if(numerosDigitados !== '' && resultadoFinal == 0){ //  resultado parcial será calculado com o operador definido mais os resultados das contas das arrays feito a conta com os numeros digitados
 
         switch(operador){
         
@@ -116,13 +119,29 @@ let numerosDigitados = '' //armazena números digitados
 
 function addNumber(number){
 
-    firstDisplay += number //adiciona o numero
-    resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
-    numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
-    
-    atualizarFirstDisplay()
-    atualizarSecondDisplay()
-    mostrarResultadoAntecipado()
+    if(resultadoFinal == 0){
+
+        firstDisplay += number //adiciona o numero
+        resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
+        numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
+        
+        atualizarFirstDisplay()
+        atualizarSecondDisplay()
+        mostrarResultadoAntecipado()
+
+    }else if(calculou == true){ // para caso o usuário queira seguir outras contas co,m o resultado
+
+        firstDisplay += number //adiciona o numero
+        resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
+        numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
+        
+        atualizarFirstDisplay()
+        atualizarSecondDisplay()
+        mostrarResultadoAntecipado()
+        calculou = false // para retormaar em uma conta normal
+
+    }
+
 
 }
 
@@ -140,13 +159,32 @@ function adicionarDecimal(){ // função para adcionar decimais
             atualizarSecondDisplay()
             pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
 
-        } else{ // caso ja tenha numeros digitados
+        } else if(calculou == false){ // caso ja tenha numeros digitados
 
             firstDisplay += '.'
             numerosDigitados += '.'
             atualizarFirstDisplay()
             atualizarSecondDisplay()
             pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
+
+        }else if(calculou == true){
+
+            /* 
+                adicionar uma verificação se está apenas o resultado e o usuário deseja adcionar um ponto, (ele não deve colocar)
+                resolver o problema do first display recolher os numeros em inteiro, fazendo com que transforme 9.3 em 93
+                resolver o problema de transformar todos os numeros decimais com o toFixed(8)
+            */
+
+            limparDisplay()
+            limparArrays()
+    
+            firstDisplay += '0.'
+            numerosDigitados = '0.'
+            atualizarFirstDisplay()
+            atualizarSecondDisplay()
+            mostrarResultadoAntecipado()
+            /* pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto */
+    
         }
     }
 
@@ -162,7 +200,7 @@ function clicouOperador(op){
 
     operador = op //definindo o operador
 
-    if(numerosDigitados !== ''){
+    if(numerosDigitados !== '' && resultadoFinal === 0){
 
         pontoPresenteNoNumero = false //liberação da adição de um ponto
 
@@ -240,6 +278,89 @@ function clicouOperador(op){
             break
         }
 
+    } else if(calculou = true){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
+
+        limparArrays() //limpa as arrays de conta, para calcular novas
+        reporStyles() // repoe os estilos iniciais
+
+        firstDisplay = parseFloat(resultadoFinal) //coloca o resultado final como primeiro display para fazer contas
+        resultadoFinal = 0 // retira os valores do resultado final pois nao foi calculado nenhum igual
+        pontoPresenteNoNumero = false //liberação da adição de um ponto
+
+        switch(operador){
+
+            case '+':
+    
+                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
+        
+                numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a array
+                somar.push(numeroAntesOp) //adiciona os números armazenados na array de soma
+                numerosDigitados = '' // limpa a variável
+                
+        
+                efetuarSoma() //vai efetuar a soma dos itens dentro da array Soma
+                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+        
+
+            break
+
+            case '-':
+
+                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
+        
+                numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
+                diminuir.push(numeroAntesOp) //adiciona os números armazenados na array de diminuir
+                numerosDigitados = '' // limpa a variável
+                
+        
+                efetuarSubtracao() //vai efetuar a subtraçao dos itens dentro da array subtraçao
+                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+
+            break
+
+            case '/':
+
+                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
+
+                numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
+                dividir.push(numeroAntesOp) //adiciona os números armazenados na array de dividir
+                numerosDigitados = '' // limpa a variável
+
+                efetuarDivisao() //vai efetuar a divisão dos itens dentro da array subtraçao
+                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+
+            break
+
+            case 'x':
+
+                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
+
+                numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, limpa a variável e receber novos números
+                multiplicar.push(numeroAntesOp) //adiciona os números armazenados na array de multiplicar
+                numerosDigitados = '' // limpa a variável
+
+                efetuarMultiplicação() //vai efetuar a subtração dos itens dentro da array subtraçao
+                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+    
+            break
+
+            case '%':
+
+                if(firstDisplay.indexOf('%') == -1){ // caso não tenha um operador antes
+
+                    firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
+
+                    numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, limpa a variável e receber novos números
+                    porcentagem.push(numeroAntesOp) //adiciona os números armazenados na array de saber a porcentagem
+                    numerosDigitados = '' // limpa a variável
+        
+                    efetuarPorcentagem() //vai efetuar a subtração dos itens dentro da array subtraçao
+                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+
+                }
+
+            break
+        }
     }
 
 }
@@ -313,7 +434,7 @@ function efetuarMultiplicação(){ // efetua a multiplicação dos itens dentro 
 let resultPorcent = 0 // variavel para armazenar o resultado das porcentagens
 let porcentagem = []
 
-function efetuarPorcentagem(){
+function efetuarPorcentagem(){ // efetua o calculo da porcentagem
 
     let porcentagemInArray = 0 // variável para armazenar o resultado da soma dos itens dentro da array porcentagem
 
@@ -328,17 +449,17 @@ function efetuarPorcentagem(){
 
 /* quando clicar em igual, precisa somar as arrays guardadas(somar, dividir etc) e a atual => que pode ser o resultado parcial por enquanto */
 
+let calculou = false
 function calcularResultado(){ //quando o usuário apertou igual
+
+    calculou = true
 
     if(resultadoParcial != 0){
         inverterStyles()
     }
 
-/* 
-ajeitar sapoha dps
-*/
-
-
+    resultadoFinal = resultadoParcial
+    limparArrays()
 }
 
 function checkDecimals(number){ //verifica se o numero real é muito grande e limita-o
@@ -369,17 +490,14 @@ checkSecondDisplay() //verifica quando o documento carrega, pra prencher correta
 function limparDisplay(){ // quando o usuário clicar em clean
 
     resultadoParcial = ''
+    resultadoFinal = 0
     numerosDigitados = ''
 
-    dividir = []
-    multiplicar = []
-    porcentagem = []
-    somar = []
-    diminuir = []
 
     operador = ''
     numeroAntesOp = 0
     pontoPresenteNoNumero = false
+    calculou = false
 
     firstDisplay = ''
     secondDisplay = ''
@@ -388,6 +506,7 @@ function limparDisplay(){ // quando o usuário clicar em clean
 
     checkSecondDisplay() // chama a função de checagem de preenchimento dos displays
     reporStyles() // repoe os estilos iniciais
+    limparArrays() // limpa todas as arrays de armazenamento
 }
 
 function deletarLetter(){ //quando o usuário acionar o botão de backspace
@@ -402,8 +521,9 @@ ajeitar sapoha dps
 
     atualizarFirstDisplay()
     atualizarSecondDisplay()
-    mostrarResultadoAntecipado()
+
     checkSecondDisplay()
+    mostrarResultadoAntecipado()
 
     checkDels()
 }
@@ -441,5 +561,15 @@ function reporStyles(){ // repoe os estilos iniciais
     
     secondInput.classList.add('segundo')
     secondInput.classList.remove('primeiro')
+
+}
+
+function limparArrays(){
+
+    dividir = []
+    multiplicar = []
+    porcentagem = []
+    somar = []
+    diminuir = []
 
 }
