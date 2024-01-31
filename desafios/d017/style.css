@@ -39,7 +39,6 @@ input{
     outline: 0;
     border: 0;
     padding: 20px;
-    font-size: 1.2em;
     width: 100%;
     text-align: right;
     font-family: var(--font-number);
@@ -47,12 +46,35 @@ input{
 
 .primeiro{
     color: white;
+    animation: transit2 0.2s both ease;
+}
+
+@keyframes transit2 {
+    0%{
+        color: white;
+    }
+
+    100%{
+        font-size: 1.2em;
+    }
 }
 
 .segundo{
-    font-size: 0.9em;
-    padding: 10px;
-    color: gray;
+
+    animation: transit 0.2s both ease;
+    transition: padding 0.3s ease-in-out;
+}
+
+@keyframes transit {
+    0%{
+        color: gray;
+    }
+
+    100%{
+        font-size: 0.9em;
+        padding: 10px;
+        color: gray;
+    }
 }
 
 .igual{
