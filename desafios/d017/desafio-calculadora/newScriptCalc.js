@@ -29,9 +29,13 @@ function atualizarSecondDisplay(){
     
         secondInput.value = '= ' + resultadoParcial
             
-    }else if(calculou = true){ // quando clicar em igual
+    }else if(calculou == true){ // quando clicar em igual
 
         secondInput.value = '= ' + parseFloat(resultadoFinal)
+
+    }else if(deletou == true && operador == ''){
+
+        checkDels()
 
     }
     
@@ -210,10 +214,14 @@ let operador = '' // armazena o operador digitado
 function clicouOperador(op){
     
     let numeroAntesOp = 0 //numero presente antes do sinal atribuido
+    let oldOperador = operador
+
+    operador = op //definindo o operador
 
     /* dps é preciso armazenar os resultados numa variável de ultima conta para fazer contas  de múltiplos sinais */
 
-    operador = op //definindo o operador
+    console.log(oldOperador + 'new operador')
+
 
     if(numerosDigitados !== '' && resultadoFinal === 0){
 
@@ -295,7 +303,8 @@ function clicouOperador(op){
 
     } else if(calculou = true){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
 
-        limparArrays() //limpa as arrays de conta, para calcular novas
+        /* limparArrays() //limpa as arrays de conta, para calcular novas */
+        console.log(somar + dividir + multiplicar + diminuir)
         reporStyles() // repoe os estilos iniciais
 
         firstDisplay = parseFloat(resultadoFinal) //coloca o resultado final como primeiro display para fazer contas
@@ -361,18 +370,14 @@ function clicouOperador(op){
 
             case '%':
 
-                if(firstDisplay.indexOf('%') == -1){ // caso não tenha um operador antes
+                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
 
-                    firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
-
-                    numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, limpa a variável e receber novos números
-                    porcentagem.push(numeroAntesOp) //adiciona os números armazenados na array de saber a porcentagem
-                    numerosDigitados = '' // limpa a variável
-        
-                    efetuarPorcentagem() //vai efetuar a subtração dos itens dentro da array subtraçao
-                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
-
-                }
+                numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, limpa a variável e receber novos números
+                porcentagem.push(numeroAntesOp) //adiciona os números armazenados na array de saber a porcentagem
+                numerosDigitados = '' // limpa a variável
+    
+                efetuarPorcentagem() //vai efetuar a subtração dos itens dentro da array subtraçao
+                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal         
 
             break
         }
@@ -386,7 +391,7 @@ function clicouOperador(op){
 
 
 
-
+let ultimoOperador = ''
 
 let resultSoma = 0 // variavel para armazenar o resultado das somas
 let somar = [] //array para efetuar somas
@@ -401,7 +406,7 @@ function efetuarSoma(){ //efetuação da soma dos itens dentro da array e armaze
 
     resultSoma = SomaInArray //armazenando os resultados
 
-
+    ultimoOperador = '+'
 }
 
 let resultSubtra = 0 // variavel para armazenar o resultado das subtrações
@@ -417,7 +422,7 @@ function efetuarSubtracao(){ //efetuação da subtração dos itens dentro da ar
 
     resultSubtra = subtracaoInArray //armazenando os resultados
 
-
+    ultimoOperador = '-'
 }
 
 let resultDivisao = 0 // variavel para armazenar o resultado das divisões
@@ -432,6 +437,8 @@ function efetuarDivisao(){ // efetua a divisão dos itens dentro da array com os
     })
 
     resultDivisao = divisaoInArray //armazenando os resultados
+
+    ultimoOperador = '/'
 
 }
 
@@ -450,6 +457,8 @@ function efetuarMultiplicação(){ // efetua a multiplicação dos itens dentro 
 
     resultMultipli = multiplicacaoInArray //armazenando os resultados
 
+    ultimoOperador = 'x'
+
 }
 
 let resultPorcent = 0 // variavel para armazenar o resultado das porcentagens
@@ -464,6 +473,17 @@ function efetuarPorcentagem(){ // efetua o calculo da porcentagem
     })
 
     resultPorcent = porcentagemInArray //armazenando os resultados
+
+    ultimoOperador = '%'
+
+}
+
+let resultContaAnterior = 0
+let antigaContas = []
+
+function calcularNovaConta() {
+
+
 
 }
 
@@ -498,13 +518,16 @@ function calcularResultado(){ //quando o usuário apertou igual
 
 
 
-
+let deletou = false 
 function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
     firstDisplay = firstDisplay.slice(0, -1)
     resultadoParcial = secondDisplay.slice(0, -1)
     numerosDigitados = numerosDigitados.slice(0, -1)
-
+    console.log(firstDisplay + ' teste delete')
+    console.log(resultadoParcial + ' teste delete')
+    console.log(numerosDigitados + ' teste delete')
+    deletou = true
 /* 
 ajeitar sapoha dps
 */
@@ -582,10 +605,11 @@ ajeitar sapoha dps
 */
 
 
-    efetuarSoma()
-    atualizarFirstDisplay()
-    atualizarSecondDisplay()
-    mostrarResultadoAntecipado()
+if(deletou == true && operador == ''){
+
+    secondInput.value = '= ' + firstDisplay
+
+}
 
 }
 
