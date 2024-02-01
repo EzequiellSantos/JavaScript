@@ -115,6 +115,16 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 }
 
 
+
+
+
+
+
+
+
+
+
+
 let numerosDigitados = '' //armazena números digitados
 
 function addNumber(number){
@@ -145,6 +155,14 @@ function addNumber(number){
 
 }
 
+
+
+
+
+
+
+
+
 let pontoPresenteNoNumero = false // variável para validações
 
 function adicionarDecimal(){ // função para adcionar decimais
@@ -167,28 +185,25 @@ function adicionarDecimal(){ // função para adcionar decimais
             atualizarSecondDisplay()
             pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
 
-        }else if(calculou == true){
+        }else {
 
             /* 
                 adicionar uma verificação se está apenas o resultado e o usuário deseja adcionar um ponto, (ele não deve colocar)
                 resolver o problema do first display recolher os numeros em inteiro, fazendo com que transforme 9.3 em 93
                 resolver o problema de transformar todos os numeros decimais com o toFixed(8)
             */
-
-            limparDisplay()
-            limparArrays()
-    
-            firstDisplay += '0.'
-            numerosDigitados = '0.'
-            atualizarFirstDisplay()
-            atualizarSecondDisplay()
-            mostrarResultadoAntecipado()
-            /* pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto */
     
         }
     }
 
 }
+
+
+
+
+
+
+
 
 let operador = '' // armazena o operador digitado
 
@@ -367,6 +382,12 @@ function clicouOperador(op){
 
 
 
+
+
+
+
+
+
 let resultSoma = 0 // variavel para armazenar o resultado das somas
 let somar = [] //array para efetuar somas
 
@@ -447,6 +468,15 @@ function efetuarPorcentagem(){ // efetua o calculo da porcentagem
 }
 
 
+
+
+
+
+
+
+
+
+
 /* quando clicar em igual, precisa somar as arrays guardadas(somar, dividir etc) e a atual => que pode ser o resultado parcial por enquanto */
 
 let calculou = false
@@ -461,6 +491,42 @@ function calcularResultado(){ //quando o usuário apertou igual
     resultadoFinal = resultadoParcial
     limparArrays()
 }
+
+
+
+
+
+
+
+
+function deletarLetter(){ //quando o usuário acionar o botão de backspace
+
+    firstDisplay = firstDisplay.slice(0, -1)
+    resultadoParcial = secondDisplay.slice(0, -1)
+    numerosDigitados = numerosDigitados.slice(0, -1)
+
+/* 
+ajeitar sapoha dps
+*/
+
+    atualizarFirstDisplay()
+    atualizarSecondDisplay()
+
+    checkSecondDisplay()
+    mostrarResultadoAntecipado()
+
+    checkDels()
+}
+
+
+
+
+
+
+
+
+
+
 
 function checkDecimals(number){ //verifica se o numero real é muito grande e limita-o
 
@@ -509,26 +575,6 @@ function limparDisplay(){ // quando o usuário clicar em clean
     limparArrays() // limpa todas as arrays de armazenamento
 }
 
-function deletarLetter(){ //quando o usuário acionar o botão de backspace
-
-    firstDisplay = firstDisplay.slice(0, -1)
-    resultadoParcial = secondDisplay.slice(0, -1)
-    numerosDigitados = numerosDigitados.slice(0, -1)
-
-/* 
-ajeitar sapoha dps
-*/
-
-    atualizarFirstDisplay()
-    atualizarSecondDisplay()
-
-    checkSecondDisplay()
-    mostrarResultadoAntecipado()
-
-    checkDels()
-}
-
-
 function checkDels(){ //função para verificar o que foi deletado
     
 /* 
@@ -564,7 +610,7 @@ function reporStyles(){ // repoe os estilos iniciais
 
 }
 
-function limparArrays(){
+function limparArrays(){ // limpa as arrays com resultados 
 
     dividir = []
     multiplicar = []
