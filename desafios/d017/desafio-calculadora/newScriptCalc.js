@@ -240,10 +240,7 @@ function clicouOperador(op){
     oldOperador = operador //definindo para primeira opção o mesmo operador pois não existe um antes dele
     
     localStorage.setItem('operador', ultimoOperador)
-    console.log(ultimoOperador)
-    console.log(oldOperador)
 
-    /* dps é preciso armazenar os resultados numa variável de ultima conta para fazer contas  de múltiplos sinais */
 
     if(numerosDigitados !== ''  && resultadoFinal === 0){ // Enquanto a conta não for digitada igual
 
@@ -408,9 +405,11 @@ function clicouOperador(op){
         }
 
     }else if(calculou = true){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
+
         console.log('aqui não')
+
         /* limparArrays() //limpa as arrays de conta, para calcular novas */
-        console.log(somar + dividir + multiplicar + diminuir)
+
         reporStyles() // repoe os estilos iniciais
 
         firstDisplay = parseFloat(resultadoFinal) //coloca o resultado final como primeiro display para fazer contas
