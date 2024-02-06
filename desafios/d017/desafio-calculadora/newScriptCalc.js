@@ -348,7 +348,7 @@ function clicouOperador(op){
 
         }
 
-    }else if(calculou = true){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
+    }else if(calculou = true && checagemResultado !== Infinity){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
 
         console.log('aqui não')
 
