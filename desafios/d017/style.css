@@ -52,10 +52,17 @@ input{
 @keyframes transit2 {
     0%{
         color: white;
+        font-size: 1.0em;
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 0.5;
     }
 
     100%{
         font-size: 1.2em;
+        opacity: 1;
     }
 }
 
