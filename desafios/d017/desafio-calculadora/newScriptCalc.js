@@ -14,27 +14,23 @@ function atualizarSecondDisplay(){
     
     if(numerosDigitados !== '' && operador == ''){//apenas os numeros digitados sem o resultado e sem o operador
     
-        secondInput.value = '= ' + parseFloat(numerosDigitados)   
-        checkDecimals() 
+        secondInput.value = '= ' + parseFloat(numerosDigitados)    
     
     }else if(operador !== '' && resultadoFinal == 0){ //apenas para mostrar o resultado antes de apertar igual
     
         secondInput.value = '= ' + resultadoParcial
-        checkDecimals()
             
     }else if(ultimoOperador !== operador){
 
-        secondInput.value = '= ' + parseFloat(resultadoFinal) 
-        checkDecimals()
+        secondInput.value = '= ' + parseFloat(resultadoFinal)   
 
     }else if(calculou == true){ // quando clicar em igual
 
         secondInput.value = '= ' + parseFloat(resultadoFinal)
-        checkDecimals(0)
 
     }else if(deletou == true && operador == ''){
 
-        checkDecimals()       
+        checkDels()
 
     }
     
@@ -44,7 +40,6 @@ function atualizarSecondDisplay(){
 let resultadoParcial = '' //numeros digitados apenas
 let resultadoFinal = 0 //resultado das operações
 let checagemResultado = 0 // checagem de decimais
-let checkDivisao = '' // checagem se vai dividir por zero
 
 function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, mesmo sem apertar igual deve aparecer isso no segundo display
 
@@ -67,32 +62,20 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                     if(resultSubtra > numerosDigitados){ //se o resultado da subtração for maior que o numero digitado
 
-                        checagemResultado = parseFloat(resultSubtra) - parseFloat(numerosDigitados) 
-
-                        checkDecimals()
-
-                        resultadoParcial = parseFloat(checagemResultado) 
+                        resultadoParcial = parseFloat(resultSubtra) - parseFloat(numerosDigitados)  
 
                     }else if(resultSubtra < numerosDigitados){//se o resultado da subtração for menor que o numero digitado
                         
-                        checagemResultado = parseFloat(numerosDigitados) - parseFloat(resultSubtra) 
-                        checagemResultado = parseFloat(resultadoParcial) * -1  //transformação do número em negativo
-
-                        checkDecimals()
-
-                        resultadoParcial = parseFloat(checagemResultado)
+                        resultadoParcial = parseFloat(numerosDigitados) - parseFloat(resultSubtra) 
+                        resultadoParcial = parseFloat(resultadoParcial) * -1  //transformação do número em negativo
 
                     }else if(resultSubtra = numerosDigitados){
 
-                        checagemResultado = parseFloat(resultSubtra) - parseFloat(numerosDigitados)
-
-                        checkDecimals()
-
-                        resultadoParcial = checagemResultado
+                        resultadoParcial = 0
 
                     }
 
-                    checkDecimals()
+                    checkDecimals(resultadoParcial)
 
                 break
 
@@ -102,9 +85,9 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                     checkDecimals()
 
-                    checkDivisao = checagemResultado // variavel para fazer a verificação de divisão inválida
+                    let check = checagemResultado // variavel para fazer a verificação de divisão inválida
 
-                    if(checkDivisao == Infinity){ // se o numero for dividido por 0
+                    if(check == Infinity){ // se o numero for dividido por 0
     
                         resultadoParcial = `Can't divide by zero` 
 
@@ -142,7 +125,7 @@ let numerosDigitados = '' //armazena números digitados
 
 function addNumber(number){
 
-    if(resultadoFinal == 0 && resultadoParcial != `Can't divide by zero`){ //validação de dados
+    if(resultadoFinal == 0){
 
         firstDisplay += number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
@@ -153,19 +136,6 @@ function addNumber(number){
         mostrarResultadoAntecipado()
 
         calculou = false
-        
-    }else if(checkDivisao == Infinity && calculou == true){ // validação para caso o usuário divida por 0
-
-        limparDisplay()
-
-        firstDisplay += number
-        resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
-        numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
-
-        atualizarFirstDisplay()
-        atualizarSecondDisplay()
-        mostrarResultadoAntecipado()
-
     }
 
 }
@@ -192,13 +162,13 @@ function adicionarDecimal(){ // função para adcionar decimais
             atualizarSecondDisplay()
             pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
 
-        }else if(calculou == true && resultadoFinal == 0){ // para caso o usuário adicione ponto logo após apertar igual
+        }else {
 
-            firstDisplay += '.'
-            numerosDigitados += '.'
-            atualizarFirstDisplay()
-            atualizarSecondDisplay()
-            pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto 
+            /* 
+                adicionar uma verificação se está apenas o resultado e o usuário deseja adcionar um ponto, (ele não deve colocar)
+                resolver o problema do first display recolher os numeros em inteiro, fazendo com que transforme 9.3 em 93
+                resolver o problema de transformar todos os numeros decimais com o toFixed(8)
+            */
     
         }
     }
@@ -218,7 +188,7 @@ function clicouOperador(op){
     localStorage.setItem('operador', ultimoOperador) // armazena no local storage o ultimo operador utilizado
 
 
-    if(numerosDigitados !== ''  && resultadoFinal === 0 && resultadoParcial != `Can't divide by zero`){ // Enquanto a conta não for digitada igual
+    if(numerosDigitados !== ''  && resultadoFinal === 0){ // Enquanto a conta não for digitada igual
 
         pontoPresenteNoNumero = false //liberação da adição de um ponto
 
@@ -378,9 +348,11 @@ function clicouOperador(op){
 
         }
 
-    }else if(calculou == true ){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
+    }else if(calculou = true){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
 
         console.log('aqui não')
+
+        /* limparArrays() //limpa as arrays de conta, para calcular novas */
 
         reporStyles() // repoe os estilos iniciais
 
@@ -558,26 +530,16 @@ function efetuarPorcentagem(){ // efetua o calculo da porcentagem
 let calculou = false
 function calcularResultado(){ //quando o usuário apertou igual
 
+    calculou = true
 
-
-    if(resultadoParcial != ''){
+    if(resultadoParcial != 0){
         inverterStyles()
     }
 
-    if(checkDivisao !== Infinity){
-
-        
-
-    }else{
-
-        resultadoFinal = resultadoParcial
-        ultimoOperador = ''
-        limparArrays()
-        limparStorage()
-        calculou = true
-         
-    }
-
+    resultadoFinal = resultadoParcial
+    ultimoOperador = ''
+    limparArrays()
+    limparStorage()
 }
 
 let deletou = false 
@@ -649,34 +611,23 @@ function checkDels(){ //função para verificar o que foi deletado
 
 function checkDecimals(){ //verifica se o numero real é muito grande e limita-o
 
-    contarDecimais(checagemResultado)
-
-    if(comprimentoDecimal > 8){
-
-        checagemResultado = checagemResultado.toFixed(8)
-
-    }else{
-
-        checagemResultado = Math.round(checagemResultado * 100) / 100; 
-
-    }
+    checagemResultado = Math.round(checagemResultado * 100) / 100;
 
 }
 
-let comprimentoDecimal = 0
+
 function contarDecimais(number) {
 
     let numberString = number.toString()
 
     let posicaoDecimal = numberString.indexOf('.')
 
-    if(posicaoDecimal === -1){
+    if(posicaoDecimal !== -1){
         return 0 
     }
 
-    comprimentoDecimal = numberString.length - posicaoDecimal - 1
+    let comprimentoDecimal = numberString - posicaoDecimal - 1
 
-    console.log(comprimentoDecimal)
     return comprimentoDecimal
 
 
@@ -696,7 +647,7 @@ function checkSecondDisplay(){ //quando o usuário entrar na página ou limpar o
 
 }
 
-checkSecondDisplay() //verifica quando o documento carrega, para prencher corretamente o secondDislay
+checkSecondDisplay() //verifica quando o documento carrega, pra prencher corretamente o secondDislay
 
 function limparDisplay(){ // quando o usuário clicar em clean
 
@@ -722,7 +673,7 @@ function limparDisplay(){ // quando o usuário clicar em clean
     limparStorage() // limpa os dados armazenados no localSotarage
 }
 
-function limparStorage(){ // função para limpar o LocalStorage do Usuário
+function limparStorage(){
 
     localStorage.clear()
     ultimoOperador = ''
