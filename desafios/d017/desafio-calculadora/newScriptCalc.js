@@ -125,7 +125,7 @@ let numerosDigitados = '' //armazena números digitados
 
 function addNumber(number){
 
-    if(resultadoFinal == 0){
+    if(resultadoFinal == 0 && resultadoParcial !== `Can't divide by zero` ){
 
         firstDisplay += number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
