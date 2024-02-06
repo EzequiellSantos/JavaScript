@@ -704,7 +704,8 @@ function limparDisplay(){ // quando o usuário clicar em clean
     resultadoParcial = ''
     resultadoFinal = 0
     numerosDigitados = ''
-
+    checagemResultado = 0 
+    checkDivisao = ''
 
     operador = ''
     numeroAntesOp = 0
