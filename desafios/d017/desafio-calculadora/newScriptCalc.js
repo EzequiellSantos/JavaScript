@@ -48,6 +48,7 @@ function atualizarSecondDisplay(){
 
 let resultadoParcial = '' //numeros digitados apenas
 let resultadoFinal = 0 //resultado das operações
+let checagemResultado = 0 // checagem de decimais
 
 function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, mesmo sem apertar igual deve aparecer isso no segundo display
 
@@ -59,9 +60,11 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
             switch(operador){
             
                 case '+':
-                    resultadoParcial = parseFloat(resultSoma) + parseFloat(numerosDigitados) // mostrar o resultado antecipado da operação digitada
+                    checagemResultado = parseFloat(resultSoma) + parseFloat(numerosDigitados) // mostrar o resultado antecipado da operação digitada
 
-                    checkDecimals(resultadoParcial)
+                    checkDecimals()
+
+                    resultadoParcial = parseFloat(checagemResultado)
 
                 break
 
@@ -88,7 +91,11 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                 case '/':
 
-                    let check = resultDivisao / parseFloat(numerosDigitados) // variavel para fazer a verificação de divisão inválida
+                    checagemResultado = parseFloat(resultDivisao) / parseFloat(numerosDigitados) 
+
+                    checkDecimals()
+
+                    let check = checagemResultado // variavel para fazer a verificação de divisão inválida
 
                     if(check == Infinity){ // se o numero for dividido por 0
     
@@ -96,11 +103,11 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                     }else{ // senão
 
-                        resultadoParcial = parseFloat(resultDivisao) / parseFloat(numerosDigitados)  
+                        resultadoParcial = checagemResultado 
 
                     }
 
-                    checkDecimals(resultadoParcial)
+                    
                     
                 break
 
@@ -485,6 +492,8 @@ function clicouOperador(op){
 }
 
 
+let atuaisContas = 0
+
 let resultSoma = 0 // variavel para armazenar o resultado das somas
 let somar = [] //array para efetuar somas
 
@@ -498,7 +507,9 @@ function efetuarSoma(){ //efetuação da soma dos itens dentro da array e armaze
 
     resultSoma = SomaInArray //armazenando os resultados
 
-    ultimoOperador = '+'
+    ultimoOperador = '+' //define o ultimo operador utilizado
+    atuaisContas = resultSoma // definindo a conta mais recente feita
+
 }
 
 let resultSubtra = 0 // variavel para armazenar o resultado das subtrações
@@ -514,7 +525,8 @@ function efetuarSubtracao(){ //efetuação da subtração dos itens dentro da ar
 
     resultSubtra = subtracaoInArray //armazenando os resultados
 
-    ultimoOperador = '-'
+    ultimoOperador = '-'//define o ultimo operador utilizado
+    atuaisContas = resultSubtra // definindo a conta mais recente feita
 }
 
 let resultDivisao = 0 // variavel para armazenar o resultado das divisões
@@ -530,7 +542,8 @@ function efetuarDivisao(){ // efetua a divisão dos itens dentro da array com os
 
     resultDivisao = divisaoInArray //armazenando os resultados
 
-    ultimoOperador = '/'
+    ultimoOperador = '/'//define o ultimo operador utilizado
+    atuaisContas = resultDivisao // definindo a conta mais recente feita
 
 }
 
@@ -549,7 +562,8 @@ function efetuarMultiplicação(){ // efetua a multiplicação dos itens dentro 
 
     resultMultipli = multiplicacaoInArray //armazenando os resultados
 
-    ultimoOperador = 'x'
+    ultimoOperador = 'x'//define o ultimo operador utilizado
+    atuaisContas = resultMultipli // definindo a conta mais recente feita
 
 }
 
@@ -566,7 +580,8 @@ function efetuarPorcentagem(){ // efetua o calculo da porcentagem
 
     resultPorcent = porcentagemInArray //armazenando os resultados
 
-    ultimoOperador = '%'
+    ultimoOperador = '%'//define o ultimo operador utilizado
+    atuaisContas = resultPorcent // definindo a conta mais recente feita
 
 }
 
@@ -607,47 +622,96 @@ function calcularResultado(){ //quando o usuário apertou igual
 }
 
 let deletou = false 
+
 function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
-    firstDisplay = firstDisplay.slice(0, -1)
-    resultadoParcial = secondDisplay.slice(0, -1)
-    numerosDigitados = numerosDigitados.slice(0, -1)
-    console.log(firstDisplay + ' teste delete')
-    console.log(resultadoParcial + ' teste delete')
-    console.log(numerosDigitados + ' teste delete')
-    deletou = true
-/* 
-ajeitar sapoha dps
-*/
+    
+
+    if(verificarUltimaLetra(firstDisplay, operador)){
+
+        checkDels()
+
+    }else{
+
+        firstDisplay = firstDisplay.slice(0, -1)
+        resultadoParcial = secondDisplay.slice(0, -1)
+        numerosDigitados = numerosDigitados.slice(0, -1)
+        deletou = true
+        checkDels()
+        checkSecondDisplay()
+        mostrarResultadoAntecipado()
+
+        console.log(numerosDigitados)
+
+    }
+
 
     atualizarFirstDisplay()
     atualizarSecondDisplay()
 
-    checkSecondDisplay()
-    mostrarResultadoAntecipado()
-
-    checkDels()
 }
 
-function checkDecimals(number){ //verifica se o numero real é muito grande e limita-o
+function verificarUltimaLetra(string, letra){
 
-    let numberLetter = 0
-    numberLetter = number.toString().length
+    const ultimaletra = string.slice(-1);
+    return ultimaletra === letra
+
+}
+
+function checkDels(){ //função para verificar o que foi deletado
     
+    if(deletou == true && operador == ''){
 
-    if(number.toString().length >= 8){
-        numberLetter = number.toFixed(8)
-        resultadoParcial = numberLetter
-    } 
+        secondInput.value = '= ' + firstDisplay
+        checkSecondDisplay()
+
+    }else if(deletou == true && operador == '' && firstInput.value.length == 0){
+
+        secondInput.value = ''
+        checkSecondDisplay()
+
+    }else if(verificarUltimaLetra(firstDisplay, operador)){
+
+        resultadoParcial = atuaisContas
+
+    }
+
+}
+
+function checkDecimals(){ //verifica se o numero real é muito grande e limita-o
+
+    checagemResultado = Math.round(checagemResultado * 100) / 100;
+
+}
+
+
+function contarDecimais(number) {
+
+    let numberString = number.toString()
+
+    let posicaoDecimal = numberString.indexOf('.')
+
+    if(posicaoDecimal !== -1){
+        return 0 
+    }
+
+    let comprimentoDecimal = numberString - posicaoDecimal - 1
+
+    return comprimentoDecimal
+
 
 }
 
 function checkSecondDisplay(){ //quando o usuário entrar na página ou limpar o input
 
-    if(secondInput.value == ''){ //verifica se o segundo input está vazio e coloca um zero    
+    if(secondInput.value == ''){ //verifica se o segundo input está vazio e coloca um zero 
+
         secondInput.value = 0
-    } else if(firstInput.value == ''){ //verifica se o primeiro input está vazio e coloca um zero 
+
+    } else if(firstInput.value == ''){ //verifica se o primeiro input está vazio e coloca um zero
+
         secondInput.value = 0
+
     }
 
 }
@@ -686,21 +750,6 @@ function limparStorage(){
 
 limparStorage()
 
-function checkDels(){ //função para verificar o que foi deletado
-    
-/* 
-ajeitar sapoha dps
-*/
-
-
-if(deletou == true && operador == ''){
-
-    secondInput.value = '= ' + firstDisplay
-
-}
-
-}
-
 function inverterStyles(){ // add estilos quando apertar igual
 
     firstInput.classList.add('segundo')
@@ -729,6 +778,6 @@ function limparArrays(){ // limpa as arrays com resultados
     porcentagem = []
     somar = []
     diminuir = []
-    antigaContas = []
+    antigaConta = []
 
 }
