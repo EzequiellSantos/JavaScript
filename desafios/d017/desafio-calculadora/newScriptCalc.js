@@ -152,6 +152,19 @@ function addNumber(number){
         mostrarResultadoAntecipado()
 
         calculou = false
+
+    }else if(checagemResultado == Infinity && calculou == true){ // validação para caso o usuário divida por 0
+
+        limparDisplay()
+
+        firstDisplay += number
+        resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
+        numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
+
+        atualizarFirstDisplay()
+        atualizarSecondDisplay()
+        mostrarResultadoAntecipado()
+
     }
 
 }
@@ -184,7 +197,7 @@ function adicionarDecimal(){ // função para adcionar decimais
             numerosDigitados += '.'
             atualizarFirstDisplay()
             atualizarSecondDisplay()
-            pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto 
+            pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto  
     
         }
     }
@@ -195,8 +208,6 @@ let ultimoOperador = '' // armazema o operador antigo
 let operador = '' // armazena o operador digitado
 
 function clicouOperador(op){
-
-
 
     let numeroAntesOp = 0 //numero presente antes do sinal atribuido
 
