@@ -11,15 +11,6 @@ function atualizarFirstDisplay(){ //atualizar display
 }
   
 function atualizarSecondDisplay(){
-    /* 
-    
-    aqui deve ter uma verificação, se é o:
-
-    - numero digitado só (feito)
-    - resultado da soma do first input (feito)
-    - resultado depois de apertado igual
-    
-    */
     
     if(numerosDigitados !== '' && operador == ''){//apenas os numeros digitados sem o resultado e sem o operador
     
@@ -56,7 +47,6 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
         if(operador == ultimoOperador){
 
-        
             switch(operador){
             
                 case '+':
@@ -106,9 +96,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                         resultadoParcial = checagemResultado 
 
                     }
-
-                    
-                    
+          
                 break
 
                 case 'x':
@@ -126,25 +114,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                 break
             }
 
-        }/* else if(operador !== ultimoOperador){
-
-            switch(operador){
-                
-                case '+':
-
-                    console.log('kkk')
-                    resultadoParcial = parseFloat(resultContaAnterior) + parseFloat(numerosDigitados) 
-
-                break
-                
-                case 'x':
-
-                    resultadoParcial = parseFloat(resultContaAnterior) * parseFloat(numerosDigitados)
-                    
-                break
-            }
-
-        } */
+        }
     }
 
     atualizarSecondDisplay()
@@ -155,7 +125,7 @@ let numerosDigitados = '' //armazena números digitados
 
 function addNumber(number){
 
-    if(resultadoFinal == 0 && calculou == false){
+    if(resultadoFinal == 0){
 
         firstDisplay += number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
@@ -165,20 +135,8 @@ function addNumber(number){
         atualizarSecondDisplay()
         mostrarResultadoAntecipado()
 
-    }else if(calculou == true){ // para caso o usuário queira seguir outras contas co,m o resultado
-
-        calculou = false // para retormaar em uma conta normal
-        firstDisplay += number //adiciona o numero
-        resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
-        numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
-        
-        atualizarFirstDisplay()
-        atualizarSecondDisplay()
-        mostrarResultadoAntecipado()
-
-
+        calculou = false
     }
-
 
 }
 
@@ -217,29 +175,17 @@ function adicionarDecimal(){ // função para adcionar decimais
 
 }
 
-let ultimoOperador = ''
-let oldOperador = '' // armazena o operador antigo
+let ultimoOperador = '' // armazema o operador antigo 
 let operador = '' // armazena o operador digitado
 
 function clicouOperador(op){
 
-    if(localStorage.length == 0){
-
-        oldOperador = op
-
-    }else{
-
-        oldOperador = localStorage.getItem('operador') // depois que ja existir um operador novo, aqui será guardado o antigo
-
-    }
 
 
     let numeroAntesOp = 0 //numero presente antes do sinal atribuido
 
     operador = op //definindo o operador
-    oldOperador = operador //definindo para primeira opção o mesmo operador pois não existe um antes dele
-    
-    localStorage.setItem('operador', ultimoOperador)
+    localStorage.setItem('operador', ultimoOperador) // armazena no local storage o ultimo operador utilizado
 
 
     if(numerosDigitados !== ''  && resultadoFinal === 0){ // Enquanto a conta não for digitada igual
@@ -341,10 +287,8 @@ function clicouOperador(op){
                     somar.push(numeroAntesOp) //adiciona os números armazenados na array de soma
                     numerosDigitados = '' // limpa a variável
                     
-            
                     efetuarSoma() //vai efetuar a soma dos itens dentro da array Soma
-                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
-            
+                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal         
     
                 break
     
@@ -428,8 +372,7 @@ function clicouOperador(op){
                 
         
                 efetuarSoma() //vai efetuar a soma dos itens dentro da array Soma
-                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
-        
+                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal    
 
             break
 
@@ -584,27 +527,6 @@ function efetuarPorcentagem(){ // efetua o calculo da porcentagem
 
 }
 
-
-let resultContaAnterior = 0
-let antigaConta = []
-
-function calcularNovaConta() {
-
-    let operacaoInArray = 0
-
-    operacaoInArray =  antigaConta.reduce(function (a, b){
-        return a + b
-    })
-
-    resultContaAnterior = operacaoInArray
-
-
-    console.log(antigaConta)
-    mostrarResultadoAntecipado()
-}
-
-/* quando clicar em igual, precisa somar as arrays guardadas(somar, dividir etc) e a atual => que pode ser o resultado parcial por enquanto */
-
 let calculou = false
 function calcularResultado(){ //quando o usuário apertou igual
 
@@ -624,9 +546,11 @@ let deletou = false
 
 function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
-    
+    if(calculou === true){
 
-    if(verificarUltimaLetra(firstDisplay, operador)){
+
+
+    }else if(verificarUltimaLetra(firstDisplay, operador)){
 
         checkDels()
 
@@ -659,21 +583,29 @@ function verificarUltimaLetra(string, letra){
 
 function checkDels(){ //função para verificar o que foi deletado
     
-    if(deletou == true && operador == ''){
 
-        secondInput.value = '= ' + firstDisplay
-        checkSecondDisplay()
+    if(calculou == true){
 
-    }else if(deletou == true && operador == '' && firstInput.value.length == 0){
+    }else{
 
-        secondInput.value = ''
-        checkSecondDisplay()
+        if(deletou == true && operador == ''){
 
-    }else if(verificarUltimaLetra(firstDisplay, operador)){
-
-        resultadoParcial = atuaisContas
+            secondInput.value = '= ' + firstDisplay
+            checkSecondDisplay()
+    
+        }else if(deletou == true && operador == '' && firstInput.value.length == 0){
+    
+            secondInput.value = ''
+            checkSecondDisplay()
+    
+        }else if(verificarUltimaLetra(firstDisplay, operador)){
+    
+            resultadoParcial = atuaisContas
+    
+        }
 
     }
+
 
 }
 
@@ -737,13 +669,13 @@ function limparDisplay(){ // quando o usuário clicar em clean
     checkSecondDisplay() // chama a função de checagem de preenchimento dos displays
     reporStyles() // repoe os estilos iniciais
     limparArrays() // limpa todas as arrays de armazenamento
-    limparStorage()
+    limparStorage() // limpa os dados armazenados no localSotarage
 }
 
 function limparStorage(){
 
     localStorage.clear()
-    oldOperador = ''
+    ultimoOperador = ''
 
 }
 
@@ -777,6 +709,5 @@ function limparArrays(){ // limpa as arrays com resultados
     porcentagem = []
     somar = []
     diminuir = []
-    antigaConta = []
 
 }
