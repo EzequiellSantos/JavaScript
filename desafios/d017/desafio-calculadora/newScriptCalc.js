@@ -62,20 +62,30 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                     if(resultSubtra > numerosDigitados){ //se o resultado da subtração for maior que o numero digitado
 
-                        resultadoParcial = parseFloat(resultSubtra) - parseFloat(numerosDigitados)  
+                        checagemResultado = parseFloat(resultSubtra) - parseFloat(numerosDigitados) 
+                        
+                        checkDecimals()
+
+                        resultadoParcial = parseFloat(checagemResultado)
 
                     }else if(resultSubtra < numerosDigitados){//se o resultado da subtração for menor que o numero digitado
                         
-                        resultadoParcial = parseFloat(numerosDigitados) - parseFloat(resultSubtra) 
-                        resultadoParcial = parseFloat(resultadoParcial) * -1  //transformação do número em negativo
+                        checagemResultado = parseFloat(numerosDigitados) - parseFloat(resultSubtra) 
+                        checagemResultado = parseFloat(resultadoParcial) * -1  //transformação do número em negativo
+
+                        checkDecimals()
+
+                        resultadoParcial = parseFloat(checagemResultado)
 
                     }else if(resultSubtra = numerosDigitados){
 
-                        resultadoParcial = 0
+                        checagemResultado = 0
+
+                        checkDecimals()
+
+                        resultadoParcial = parseFloat(checagemResultado)
 
                     }
-
-                    checkDecimals(resultadoParcial)
 
                 break
 
@@ -93,7 +103,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                     }else{ // senão
 
-                        resultadoParcial = checagemResultado 
+                        resultadoParcial = parseFloat(checagemResultado) 
 
                     }
           
@@ -101,15 +111,21 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                 case 'x':
                     
-                    resultadoParcial = parseFloat(resultMultipli) * parseFloat(numerosDigitados)
+                    checagemResultado = parseFloat(resultMultipli) * parseFloat(numerosDigitados)
 
-                    checkDecimals(resultadoParcial)
+                    checkDecimals()
+
+                    resultadoParcial = parseFloat(checagemResultado)
 
                 break
             
                 case '%':
 
-                    resultadoParcial = resultPorcent * numerosDigitados / 100
+                    checagemResultado = resultPorcent * numerosDigitados / 100
+
+                    checkDecimals()
+
+                    resultadoParcial = parseFloat(checagemResultado)
 
                 break
             }
@@ -188,7 +204,7 @@ function clicouOperador(op){
     localStorage.setItem('operador', ultimoOperador) // armazena no local storage o ultimo operador utilizado
 
 
-    if(numerosDigitados !== ''  && resultadoFinal === 0){ // Enquanto a conta não for digitada igual
+    if(numerosDigitados !== ''  && resultadoFinal === 0 && resultadoParcial !== `Can't divide by zero`){ // Enquanto a conta não for digitada igual
 
         pontoPresenteNoNumero = false //liberação da adição de um ponto
 
