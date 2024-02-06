@@ -223,17 +223,12 @@ function adicionarDecimal(){ // função para adcionar decimais
 
 }
 
-
-
-
-
-
-
+let ultimoOperador = ''
 let oldOperador = '' // armazena o operador antigo
 let operador = '' // armazena o operador digitado
 
 function clicouOperador(op){
-    
+
     if(localStorage.length == 0){
 
         oldOperador = op
@@ -251,15 +246,15 @@ function clicouOperador(op){
     oldOperador = operador //definindo para primeira opção o mesmo operador pois não existe um antes dele
     
     localStorage.setItem('operador', operador)
-    console.log(oldOperador + ' operador antigo')
+    console.log(ultimoOperador)
 
     /* dps é preciso armazenar os resultados numa variável de ultima conta para fazer contas  de múltiplos sinais */
 
-    if(numerosDigitados !== '' && resultadoFinal === 0){ // Enquanto a conta não for digitada igual
+    if(numerosDigitados !== ''  && resultadoFinal === 0){ // Enquanto a conta não for digitada igual
 
         pontoPresenteNoNumero = false //liberação da adição de um ponto
 
-        if(operador == oldOperador &&  numerosDigitados !== ''){ // Enquanto o Operador For o MESMO
+        if(operador == ultimoOperador ||  ultimoOperador == '' &&  numerosDigitados !== ''){ // Enquanto o Operador For o MESMO
 
             switch(operador){
 
@@ -335,22 +330,17 @@ function clicouOperador(op){
                 break
             }
 
-        }else if(operador !== oldOperador){ // quando o operador digitado for Diferente do Anterior
+        }else if(operador !== ultimoOperador){ // quando o operador digitado for Diferente do Anterior
 
-            firstDisplay += op // adiciona o operador digitado no primeiro display
+            calcularResultado()
 
-            numeroAntesOp = resultadoParcial
-            antigaContas.push(parseFloat(numeroAntesOp)) //adiciona a conta anterior dentro da array antigas contas
-
-
-            console.log(antigaContas)
-            calcularNovaConta()
-            atualizarFirstDisplay()
+            result
+            
 
         }
 
     }else if(calculou = true){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
-
+        console.log('aqui não')
         /* limparArrays() //limpa as arrays de conta, para calcular novas */
         console.log(somar + dividir + multiplicar + diminuir)
         reporStyles() // repoe os estilos iniciais
@@ -433,7 +423,6 @@ function clicouOperador(op){
 
 }
 
-let ultimoOperador = ''
 
 let resultSoma = 0 // variavel para armazenar o resultado das somas
 let somar = [] //array para efetuar somas
@@ -551,7 +540,9 @@ function calcularResultado(){ //quando o usuário apertou igual
     }
 
     resultadoFinal = resultadoParcial
+    ultimoOperador = ''
     limparArrays()
+    limparStorage()
 }
 
 let deletou = false 
