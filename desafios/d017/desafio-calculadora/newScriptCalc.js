@@ -178,13 +178,13 @@ function adicionarDecimal(){ // função para adcionar decimais
             atualizarSecondDisplay()
             pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
 
-        }else {
+        }else if(calculou == true && resultadoFinal == 0){ // para caso o usuário adicione ponto logo após apertar igual{
 
-            /* 
-                adicionar uma verificação se está apenas o resultado e o usuário deseja adcionar um ponto, (ele não deve colocar)
-                resolver o problema do first display recolher os numeros em inteiro, fazendo com que transforme 9.3 em 93
-                resolver o problema de transformar todos os numeros decimais com o toFixed(8)
-            */
+            firstDisplay += '.'
+            numerosDigitados += '.'
+            atualizarFirstDisplay()
+            atualizarSecondDisplay()
+            pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto 
     
         }
     }
