@@ -572,7 +572,6 @@ function calcularResultado(){ //quando o usuário apertou igual
        
         limparArrays()
         limparStorage()
-        operador = ''
 
     }else{
 
@@ -656,22 +655,33 @@ function checkDels(){ //função para verificar o que foi deletado
 
 function checkDecimals(){ //verifica se o numero real é muito grande e limita-o
 
-    checagemResultado = Math.round(checagemResultado * 100) / 100;
+    contarDecimais(checagemResultado)
+
+    if(comprimentoDecimal > 8){
+
+        checagemResultado.toFixed(8)
+
+    }else{
+
+        checagemResultado = Math.round(checagemResultado * 100) / 100;
+
+    }
+
 
 }
 
-
+let comprimentoDecimal = 0
 function contarDecimais(number) {
 
     let numberString = number.toString()
 
     let posicaoDecimal = numberString.indexOf('.')
 
-    if(posicaoDecimal !== -1){
+    if(posicaoDecimal === -1){
         return 0 
     }
 
-    let comprimentoDecimal = numberString - posicaoDecimal - 1
+    comprimentoDecimal = numberString.length - posicaoDecimal - 1
 
     return comprimentoDecimal
 
@@ -692,7 +702,7 @@ function checkSecondDisplay(){ //quando o usuário entrar na página ou limpar o
 
 }
 
-checkSecondDisplay() //verifica quando o documento carrega, pra prencher corretamente o secondDislay
+checkSecondDisplay() //verifica quando o documento carrega, para prencher corretamente o secondDislay
 
 function limparDisplay(){ // quando o usuário clicar em clean
 
@@ -719,7 +729,7 @@ function limparDisplay(){ // quando o usuário clicar em clean
     limparStorage() // limpa os dados armazenados no localSotarage
 }
 
-function limparStorage(){
+function limparStorage(){ // função para limpar o localStorage do usuário
 
     localStorage.clear()
     ultimoOperador = ''
