@@ -40,6 +40,7 @@ function atualizarSecondDisplay(){
 let resultadoParcial = '' //numeros digitados apenas
 let resultadoFinal = 0 //resultado das operações
 let checagemResultado = 0 // checagem de decimais
+let checkDivisao = ''
 
 function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, mesmo sem apertar igual deve aparecer isso no segundo display
 
@@ -95,9 +96,9 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                     checkDecimals()
 
-                    let check = checagemResultado // variavel para fazer a verificação de divisão inválida
+                    checkDivisao = checagemResultado // variavel para fazer a verificação de divisão inválida
 
-                    if(check == Infinity){ // se o numero for dividido por 0
+                    if(checkDivisao == Infinity){ // se o numero for dividido por 0
     
                         resultadoParcial = `Can't divide by zero` 
 
@@ -153,7 +154,9 @@ function addNumber(number){
 
         calculou = false
 
-    }else if(checagemResultado == Infinity && calculou == true){ // validação para caso o usuário divida por 0
+    }else if(resultadoFinal === `Can't divide by zero` && calculou == true){ // validação para caso o usuário divida por 0
+
+        console.log(resultadoFinal + " " + resultadoParcial )
 
         limparDisplay()
 
@@ -214,6 +217,7 @@ function clicouOperador(op){
     operador = op //definindo o operador
     localStorage.setItem('operador', ultimoOperador) // armazena no local storage o ultimo operador utilizado
 
+    console.log(resultadoFinal + resultadoParcial)
 
     if(numerosDigitados !== ''  && resultadoFinal === 0 && resultadoParcial !== `Can't divide by zero`){ // Enquanto a conta não for digitada igual
 
@@ -591,8 +595,6 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
         checkSecondDisplay()
         mostrarResultadoAntecipado()
 
-        console.log(numerosDigitados)
-
     }
 
 
@@ -688,6 +690,7 @@ function limparDisplay(){ // quando o usuário clicar em clean
     numeroAntesOp = 0
     pontoPresenteNoNumero = false
     calculou = false
+    checkDivisao = ''
 
     firstDisplay = ''
     secondDisplay = ''
