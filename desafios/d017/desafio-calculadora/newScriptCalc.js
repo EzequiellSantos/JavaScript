@@ -40,7 +40,6 @@ function atualizarSecondDisplay(){
 let resultadoParcial = '' //numeros digitados apenas
 let resultadoFinal = 0 //resultado das operações
 let checagemResultado = 0 // checagem de decimais
-let checkDivisao = ''
 
 function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, mesmo sem apertar igual deve aparecer isso no segundo display
 
@@ -96,7 +95,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                     checkDecimals()
 
-                    checkDivisao = checagemResultado // variavel para fazer a verificação de divisão inválida
+                    let checkDivisao = checagemResultado // variavel para fazer a verificação de divisão inválida
 
                     if(checkDivisao == Infinity){ // se o numero for dividido por 0
     
@@ -142,7 +141,7 @@ let numerosDigitados = '' //armazena números digitados
 
 function addNumber(number){
 
-    if(resultadoFinal == 0 && resultadoParcial !== `Can't divide by zero` ){
+    if(resultadoFinal == 0 && checagemResultado !== Infinity ){
 
         firstDisplay += number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
@@ -154,9 +153,8 @@ function addNumber(number){
 
         calculou = false
 
-    }else if(resultadoFinal === `Can't divide by zero` && calculou == true){ // validação para caso o usuário divida por 0
+    }else if(resultadoFinal == `Can't divide by zero`){ // validação para caso o usuário divida por 0
 
-        console.log(resultadoFinal + " " + resultadoParcial )
 
         limparDisplay()
 
@@ -186,7 +184,7 @@ function adicionarDecimal(){ // função para adcionar decimais
             atualizarSecondDisplay()
             pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
 
-        } else if(calculou == false){ // caso ja tenha numeros digitados
+        } else if(calculou == false && checagemResultado !== Infinity){ // caso ja tenha numeros digitados
 
             firstDisplay += '.'
             numerosDigitados += '.'
@@ -194,7 +192,7 @@ function adicionarDecimal(){ // função para adcionar decimais
             atualizarSecondDisplay()
             pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
 
-        }else if(calculou == true && resultadoFinal == 0){ // para caso o usuário adicione ponto logo após apertar igual{
+        }else if(calculou == true && resultadoFinal == 0 && checagemResultado !== Infinity){ // para caso o usuário adicione ponto logo após apertar igual{
 
             firstDisplay += '.'
             numerosDigitados += '.'
@@ -217,13 +215,12 @@ function clicouOperador(op){
     operador = op //definindo o operador
     localStorage.setItem('operador', ultimoOperador) // armazena no local storage o ultimo operador utilizado
 
-    console.log(resultadoFinal + resultadoParcial)
 
-    if(numerosDigitados !== ''  && resultadoFinal === 0 && resultadoParcial !== `Can't divide by zero`){ // Enquanto a conta não for digitada igual
+    if(numerosDigitados !== ''  && resultadoFinal === 0 && checagemResultado !== Infinity){ // Enquanto a conta não for digitada igual
 
         pontoPresenteNoNumero = false //liberação da adição de um ponto
 
-        if(operador == ultimoOperador ||  ultimoOperador == '' &&  numerosDigitados !== ''){ // Enquanto o Operador For o MESMO
+        if(operador == ultimoOperador ||  ultimoOperador == ''){ // Enquanto o Operador For o MESMO
 
             switch(operador){
 
@@ -381,7 +378,7 @@ function clicouOperador(op){
 
     }else if(calculou = true && checagemResultado !== Infinity){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
 
-        console.log('aqui não')
+        console.log(' Seguindo Conta :)')
 
         /* limparArrays() //limpa as arrays de conta, para calcular novas */
 
@@ -561,16 +558,33 @@ function efetuarPorcentagem(){ // efetua o calculo da porcentagem
 let calculou = false
 function calcularResultado(){ //quando o usuário apertou igual
 
-    calculou = true
 
     if(resultadoParcial != 0){
+
         inverterStyles()
+
     }
 
-    resultadoFinal = resultadoParcial
-    ultimoOperador = ''
-    limparArrays()
-    limparStorage()
+    if(checagemResultado == Infinity){
+
+        resultadoFinal = resultadoParcial
+        operador = ''
+       
+        limparArrays()
+        limparStorage()
+        operador = ''
+
+    }else{
+
+        resultadoFinal = resultadoParcial
+        ultimoOperador = ''
+        limparArrays()
+        limparStorage()
+
+    }
+
+    calculou = true
+
 }
 
 let deletou = false 
@@ -581,7 +595,7 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
 
 
-    }else if(verificarUltimaLetra(firstDisplay, operador)){
+    }else if(verificarUltimaLetra(firstDisplay, operador) && checagemResultado == Infinity){
 
         checkDels()
 
@@ -630,6 +644,8 @@ function checkDels(){ //função para verificar o que foi deletado
         }else if(verificarUltimaLetra(firstDisplay, operador)){
     
             resultadoParcial = atuaisContas
+
+            checagemResultado = atuaisContas
     
         }
 
