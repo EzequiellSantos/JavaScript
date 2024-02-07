@@ -153,7 +153,21 @@ function addNumber(number){
 
         calculou = false
 
-    }else if(resultadoFinal == `Can't divide by zero`){ // validação para caso o usuário divida por 0
+    }else if(resultadoFinal != 0 && checagemResultado !== Infinity){ // verificação para quandodigitar igual e o usuário queira digitar um novo numero diferente do resultado final
+
+        limparDisplay()
+        firstDisplay += number //adiciona o numero
+        resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
+        numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
+        
+        atualizarFirstDisplay()
+        atualizarSecondDisplay()
+        mostrarResultadoAntecipado()
+
+        calculou = false
+
+    }
+    else if(resultadoFinal == `Can't divide by zero`){ // validação para caso o usuário divida por 0
 
 
         limparDisplay()
@@ -592,11 +606,13 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
     if(verificarUltimaLetra(firstDisplay, operador) || calculou === true){ // quando o ultima letra é igual mo operador ou o usuário digitou a conta
 
-
+        checkDels()
+        console.log('começou viado')
 
     } else if(verificarUltimaLetra(firstDisplay, operador) && checagemResultado == Infinity){ //para quando dividir por zero o usuário consiga apagar o zero antes de apertar igual
  
         checkDels()
+        console.log('veio pra ca?')
 
     } else{
 
@@ -607,6 +623,7 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
         checkDels()
         checkSecondDisplay()
         mostrarResultadoAntecipado()
+        console.log('e aqui?')
 
     }
 
@@ -628,23 +645,32 @@ function checkDels(){ //função para verificar o que foi deletado
 
     if(calculou == true){
 
+        if(isNaN(resultadoFinal)){
+            
+            console.log('apagou viaaaado')
+
+        }
+
     } else{
 
         if(deletou == true && operador == ''){
 
             secondInput.value = '= ' + firstDisplay
             checkSecondDisplay()
+            console.log('apagou ? kkkkk')
     
         } else if(deletou == true && operador == '' && firstInput.value.length == 0){
     
             secondInput.value = ''
             checkSecondDisplay()
+            console.log('ae de ter apago ? kkkkk')
     
         } else if(verificarUltimaLetra(firstDisplay, operador)){
     
             resultadoParcial = atuaisContas
 
             checagemResultado = atuaisContas
+            console.log('tmnc se tiver apagado ? kkkkk')
     
         }
 
@@ -766,5 +792,5 @@ function limparArrays(){ // limpa as arrays com resultados
     porcentagem = []
     somar = []
     diminuir = []
-
+   
 }
