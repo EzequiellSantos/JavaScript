@@ -590,15 +590,15 @@ let deletou = false
 
 function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
-    if(calculou === true){
+    if(verificarUltimaLetra(firstDisplay, operador) || calculou === true){ // quando o ultima letra é igual mo operador ou o usuário digitou a conta
 
 
 
-    }else if(verificarUltimaLetra(firstDisplay, operador) && checagemResultado == Infinity){
-
+    } else if(verificarUltimaLetra(firstDisplay, operador) && checagemResultado == Infinity){ //para quando dividir por zero o usuário consiga apagar o zero antes de apertar igual
+ 
         checkDels()
 
-    }else{
+    } else{
 
         firstDisplay = firstDisplay.slice(0, -1)
         resultadoParcial = secondDisplay.slice(0, -1)
@@ -628,19 +628,19 @@ function checkDels(){ //função para verificar o que foi deletado
 
     if(calculou == true){
 
-    }else{
+    } else{
 
         if(deletou == true && operador == ''){
 
             secondInput.value = '= ' + firstDisplay
             checkSecondDisplay()
     
-        }else if(deletou == true && operador == '' && firstInput.value.length == 0){
+        } else if(deletou == true && operador == '' && firstInput.value.length == 0){
     
             secondInput.value = ''
             checkSecondDisplay()
     
-        }else if(verificarUltimaLetra(firstDisplay, operador)){
+        } else if(verificarUltimaLetra(firstDisplay, operador)){
     
             resultadoParcial = atuaisContas
 
