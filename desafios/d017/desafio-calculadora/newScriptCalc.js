@@ -606,13 +606,12 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
     if(verificarUltimaLetra(firstDisplay, operador) || calculou === true){ // quando o ultima letra é igual mo operador ou o usuário digitou a conta
 
-        checkDels()
-        console.log('começou viado')
+        return; // parar função
+        
 
     } else if(verificarUltimaLetra(firstDisplay, operador) && checagemResultado == Infinity){ //para quando dividir por zero o usuário consiga apagar o zero antes de apertar igual
  
         checkDels()
-        console.log('veio pra ca?')
 
     } else{
 
@@ -623,7 +622,6 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
         checkDels()
         checkSecondDisplay()
         mostrarResultadoAntecipado()
-        console.log('e aqui?')
 
     }
 
@@ -645,11 +643,7 @@ function checkDels(){ //função para verificar o que foi deletado
 
     if(calculou == true){
 
-        if(isNaN(resultadoFinal)){
-            
-            console.log('apagou viaaaado')
-
-        }
+        return;
 
     } else{
 
@@ -657,20 +651,17 @@ function checkDels(){ //função para verificar o que foi deletado
 
             secondInput.value = '= ' + firstDisplay
             checkSecondDisplay()
-            console.log('apagou ? kkkkk')
     
         } else if(deletou == true && operador == '' && firstInput.value.length == 0){
     
             secondInput.value = ''
             checkSecondDisplay()
-            console.log('ae de ter apago ? kkkkk')
     
         } else if(verificarUltimaLetra(firstDisplay, operador)){
     
             resultadoParcial = atuaisContas
 
             checagemResultado = atuaisContas
-            console.log('tmnc se tiver apagado ? kkkkk')
     
         }
 
@@ -704,7 +695,9 @@ function contarDecimais(number) {
     let posicaoDecimal = numberString.indexOf('.')
 
     if(posicaoDecimal === -1){
+
         return 0 
+
     }
 
     comprimentoDecimal = numberString.length - posicaoDecimal - 1
