@@ -40,6 +40,7 @@ function atualizarSecondDisplay(){
 let resultadoParcial = '' //numeros digitados apenas
 let resultadoFinal = 0 //resultado das operações
 let checagemResultado = 0 // checagem de decimais
+let checkDivisao = ''
 
 function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, mesmo sem apertar igual deve aparecer isso no segundo display
 
@@ -95,15 +96,16 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                     checkDecimals()
 
-                    let checkDivisao = checagemResultado // variavel para fazer a verificação de divisão inválida
+                    checkDivisao = checagemResultado // variavel para fazer a verificação de divisão inválida
 
-                    if(checkDivisao == Infinity){ // se o numero for dividido por 0
+                    if(verificarInfinity(checkDivisao)){ // se o numero for dividido por 0
     
                         resultadoParcial = `Can't divide by zero` 
 
                     }else{ // senão
 
                         resultadoParcial = parseFloat(checagemResultado) 
+                        checkDivisao = ''
 
                     }
           
@@ -137,11 +139,31 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
 }
 
+function verificarInfinity(checks){ //verificação para saber se possui infinidade nos resultados
+
+    let checksString = checks.toString()
+
+    if(checksString == 'Infinity'){
+
+        return true
+
+    } else if(checksString == '-Infinity'){
+
+        return true
+
+    } else {
+
+        return false
+
+    }
+
+}
+
 let numerosDigitados = '' //armazena números digitados
 
 function addNumber(number){
 
-    if(resultadoFinal == 0 && checagemResultado !== Infinity ){
+    if(resultadoFinal == 0 && !verificarInfinity(checkDivisao)){
 
         firstDisplay += number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
@@ -153,7 +175,7 @@ function addNumber(number){
 
         calculou = false
 
-    }else if(resultadoFinal != 0 && checagemResultado !== Infinity){ // verificação para quandodigitar igual e o usuário queira digitar um novo numero diferente do resultado final
+    }else if(resultadoFinal != 0 && !verificarInfinity(checkDivisao)){ // verificação para quandodigitar igual e o usuário queira digitar um novo numero diferente do resultado final
 
         limparDisplay()
         firstDisplay += number //adiciona o numero
@@ -198,7 +220,7 @@ function adicionarDecimal(){ // função para adcionar decimais
             atualizarSecondDisplay()
             pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
 
-        } else if(calculou == false && checagemResultado !== Infinity){ // caso ja tenha numeros digitados
+        } else if(calculou == false && !verificarInfinity(checkDivisao)){ // caso ja tenha numeros digitados
 
             firstDisplay += '.'
             numerosDigitados += '.'
@@ -206,7 +228,7 @@ function adicionarDecimal(){ // função para adcionar decimais
             atualizarSecondDisplay()
             pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
 
-        }else if(calculou == true && resultadoFinal == 0 && checagemResultado !== Infinity){ // para caso o usuário adicione ponto logo após apertar igual{
+        }else if(calculou == true && resultadoFinal == 0 && !verificarInfinity(checkDivisao)){ // para caso o usuário adicione ponto logo após apertar igual
 
             firstDisplay += '.'
             numerosDigitados += '.'
@@ -230,7 +252,7 @@ function clicouOperador(op){
     localStorage.setItem('operador', ultimoOperador) // armazena no local storage o ultimo operador utilizado
 
 
-    if(numerosDigitados !== ''  && resultadoFinal === 0 && checagemResultado !== Infinity){ // Enquanto a conta não for digitada igual
+    if(numerosDigitados !== ''  && resultadoFinal === 0 && !verificarInfinity(checkDivisao)){ // Enquanto a conta não for digitada igual
 
         pontoPresenteNoNumero = false //liberação da adição de um ponto
 
@@ -390,7 +412,7 @@ function clicouOperador(op){
 
         }
 
-    }else if(calculou = true && checagemResultado !== Infinity){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
+    }else if(calculou = true && checagemResultado !== Infinity && resultadoFinal !== "Can't divide by zero" && checkDivisao != '-Infinity' ){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
 
         console.log(' Seguindo Conta :)')
 
@@ -606,14 +628,15 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
     if(verificarUltimaLetra(firstDisplay, operador) || calculou === true){ // quando o ultima letra é igual mo operador ou o usuário digitou a conta
 
+        console.log('apaga ai mana')
         return; // parar função
-        
 
-    } else if(verificarUltimaLetra(firstDisplay, operador) && checagemResultado == Infinity){ //para quando dividir por zero o usuário consiga apagar o zero antes de apertar igual
+    } else if(verificarUltimaLetra(firstDisplay, operador) && resultadoParcial == "Can't divide by zero"){ //para quando dividir por zero o usuário consiga apagar o zero antes de apertar igual
  
         checkDels()
+        console.log('apaga ai mano')
 
-    } else{
+    } else if(resultadoFinal != "Can't divide by zero"){
 
         firstDisplay = firstDisplay.slice(0, -1)
         resultadoParcial = secondDisplay.slice(0, -1)
@@ -622,12 +645,11 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
         checkDels()
         checkSecondDisplay()
         mostrarResultadoAntecipado()
+        console.log('apaga ai man')
+        atualizarFirstDisplay()
+        atualizarSecondDisplay()
 
     }
-
-
-    atualizarFirstDisplay()
-    atualizarSecondDisplay()
 
 }
 
