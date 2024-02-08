@@ -72,7 +72,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                     }else if(resultSubtra < numerosDigitados){//se o resultado da subtração for menor que o numero digitado
                         
                         checagemResultado = parseFloat(numerosDigitados) - parseFloat(resultSubtra) 
-                        checagemResultado = parseFloat(resultadoParcial) * -1  //transformação do número em negativo
+                        checagemResultado = parseFloat(checagemResultado) * -1  //transformação do número em negativo
 
                         checkDecimals()
 
@@ -526,7 +526,7 @@ function efetuarSubtracao(){ //efetuação da subtração dos itens dentro da ar
     let subtracaoInArray = 0 // variavel para armazenar o resultado da array
 
     subtracaoInArray = diminuir.reduce(function (a, b){ //metodo reduce percorre os itens dentro da array e subtrai ele
-        return a - b
+        return a - b 
     })
 
     resultSubtra = subtracaoInArray //armazenando os resultados
@@ -570,7 +570,7 @@ function efetuarMultiplicação(){ // efetua a multiplicação dos itens dentro 
 
     ultimoOperador = 'x'//define o ultimo operador utilizado
     atuaisContas = resultMultipli // definindo a conta mais recente feita
-
+ 
 }
 
 let resultPorcent = 0 // variavel para armazenar o resultado das porcentagens
@@ -711,7 +711,7 @@ function checkDecimals(){ //verifica se o numero real é muito grande e limita-o
 
     if(comprimentoDecimal > 8){
 
-        checagemResultado.toFixed(8)
+        checagemResultado = checagemResultado.toFixed(8)
 
     }else{
 
