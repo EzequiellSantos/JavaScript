@@ -228,7 +228,7 @@ function adicionarDecimal(){ // função para adcionar decimais
             atualizarSecondDisplay()
             pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
 
-        }else if(calculou == true && resultadoFinal == 0 && !verificarInfinity(checkDivisao)){ // para caso o usuário adicione ponto logo após apertar igual
+        }else if(calculou == true && resultadoFinal == 0 && !verificarInfinity(checkDivisao)){ // para caso o usuário adicione ponto logo após apertar igual{
 
             firstDisplay += '.'
             numerosDigitados += '.'
@@ -412,7 +412,7 @@ function clicouOperador(op){
 
         }
 
-    }else if(calculou = true && checagemResultado !== Infinity && resultadoFinal !== "Can't divide by zero" && checkDivisao != '-Infinity' ){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
+    }else if(calculou = true && !verificarInfinity(checkDivisao)){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
 
         console.log(' Seguindo Conta :)')
 
@@ -601,7 +601,7 @@ function calcularResultado(){ //quando o usuário apertou igual
 
     }
 
-    if(checagemResultado == Infinity){
+    if(verificarInfinity(checkDivisao)){
 
         resultadoFinal = resultadoParcial
         operador = ''
@@ -631,12 +631,12 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
         console.log('apaga ai mana')
         return; // parar função
 
-    } else if(verificarUltimaLetra(firstDisplay, operador) && resultadoParcial == "Can't divide by zero"){ //para quando dividir por zero o usuário consiga apagar o zero antes de apertar igual
+    } else if(!verificarUltimaLetra(firstDisplay, operador) && resultadoParcial == "Can't divide by zero"){ //para quando dividir por zero o usuário consiga apagar o zero antes de apertar igual
  
         checkDels()
         console.log('apaga ai mano')
 
-    } else if(resultadoFinal != "Can't divide by zero"){
+    } else if(resultadoParcial !== "Can't divide by zero"){
 
         firstDisplay = firstDisplay.slice(0, -1)
         resultadoParcial = secondDisplay.slice(0, -1)
@@ -674,7 +674,20 @@ function checkDels(){ //função para verificar o que foi deletado
             secondInput.value = '= ' + firstDisplay
             checkSecondDisplay()
     
-        } else if(deletou == true && operador == '' && firstInput.value.length == 0){
+        } else if(resultadoParcial == "Can't divide by zero"){
+        
+            firstDisplay = firstDisplay.slice(0, -1)
+            resultadoParcial = secondDisplay.slice(0, -1)
+            numerosDigitados = numerosDigitados.slice(0, -1)
+            deletou = true
+            checkDivisao = '' 
+            checkDels()
+            checkSecondDisplay()
+            mostrarResultadoAntecipado()
+            atualizarFirstDisplay()
+            atualizarSecondDisplay() 
+        
+        }else if(deletou == true && operador == '' && firstInput.value.length == 0){
     
             secondInput.value = ''
             checkSecondDisplay()
