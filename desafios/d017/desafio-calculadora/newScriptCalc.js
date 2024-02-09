@@ -178,10 +178,11 @@ let numerosDigitados = '' //armazena números digitados
 
 function addNumber(number){
 
-    reporStyles() //repôe estilos
 
     if(resultadoFinal == "" && !verificarInfinity(checkDivisao)){
 
+        
+        reporStyles() //repôe estilos
         firstDisplay += number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
         numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
@@ -192,8 +193,9 @@ function addNumber(number){
 
         calculou = false
 
-    }else if(resultadoFinal != 0 && !verificarInfinity(checkDivisao)){ // verificação para quandodigitar igual e o usuário queira digitar um novo numero diferente do resultado final
+    }else if(!verificarInfinity(checkDivisao) && calculou == true){ // verificação para quandodigitar igual e o usuário queira digitar um novo numero diferente do resultado final
 
+        reporStyles() //repôe estilos
         limparDisplay()
         firstDisplay += number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
@@ -208,7 +210,7 @@ function addNumber(number){
     }
     else if(resultadoFinal == `Can't divide by zero`){ // validação para caso o usuário divida por 0
 
-
+        reporStyles() //repôe estilos
         limparDisplay()
 
         firstDisplay += number
@@ -269,7 +271,7 @@ function clicouOperador(op){
 
     operador = op //definindo o operador
     localStorage.setItem('operador', ultimoOperador) // armazena no local storage o ultimo operador utilizado
-
+    
 
     if(numerosDigitados !== ''  && !verificarInfinity(checkDivisao) && calculou == false){ // Enquanto a conta não for digitada igual
 
@@ -783,6 +785,7 @@ function limparDisplay(){ // quando o usuário clicar em clean
     numerosDigitados = ''
     checagemResultado = 0 
     checkDivisao = ''
+    atuaisContas = 0
 
     operador = ''
     numeroAntesOp = 0
