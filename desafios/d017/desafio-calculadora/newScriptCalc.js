@@ -150,7 +150,6 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
         }
     }
 
-    verficandoMeuAmorzinho()
     atualizarSecondDisplay()
 
 }
@@ -180,27 +179,26 @@ let meuAmorChamadoZero = ''
 
 function verficandoMeuAmorzinho(){
 
-    if(resultadoFinal== 0){
+    if(){
 
-        meuAmorChamadoZero = resultadoFinal
+        meuAmorChamadoZero = 0
 
     }else{
 
         meuAmorChamadoZero = ''
 
-    }
+    }console.log(meuAmorChamadoZero)
 
-    return meuAmorChamadoZero
 }
 
-verficandoMeuAmorzinho(0)
 
 function addNumber(number){
 
-    reporStyles() //repôe estilos
+    verficandoMeuAmorzinho()
 
     if(resultadoFinal == "" && !verificarInfinity(checkDivisao)){
 
+        reporStyles() //repôe estilos
         firstDisplay += number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
         numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
@@ -213,11 +211,12 @@ function addNumber(number){
 
     }else if(resultadoFinal != 0 && !verificarInfinity(checkDivisao)){ // verificação para quandodigitar igual e o usuário queira digitar um novo numero diferente do resultado final
 
+        reporStyles() //repôe estilos
         limparDisplay()
-        firstDisplay += number //adiciona o numero
+        firstDisplay = number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
         numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
-        
+
         atualizarFirstDisplay()
         atualizarSecondDisplay()
         mostrarResultadoAntecipado()
@@ -227,7 +226,7 @@ function addNumber(number){
     }
     else if(resultadoFinal == `Can't divide by zero`){ // validação para caso o usuário divida por 0
 
-
+        reporStyles() //repôe estilos
         limparDisplay()
 
         firstDisplay += number
