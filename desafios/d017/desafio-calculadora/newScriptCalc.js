@@ -38,15 +38,18 @@ function atualizarSecondDisplay(){
     
 
 let resultadoParcial = '' //numeros digitados apenas
-let resultadoFinal = 0 //resultado das operações
+let resultadoFinal = '' //resultado das operações
 let checagemResultado = 0 // checagem de decimais
 let checkDivisao = ''
 
 function validacaoEntradasDeDados(variavel){
 
+
     if (isNaN(variavel)) {
         // Se meuNumero é NaN, atribua um valor de texto à variável
-        resultadoFinal = "Can't divide by zero";
+        variavel = 0
+        checagemResultado = 0
+
     }
 
 
@@ -102,7 +105,9 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                 case '/':
 
-                    checagemResultado = parseFloat(resultDivisao) / parseFloat(numerosDigitados) 
+                    checagemResultado = parseFloat(resultDivisao) / parseFloat(numerosDigitados)
+                    
+                    validacaoEntradasDeDados(checagemResultado)
 
                     checkDecimals()
 
@@ -116,7 +121,6 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                         resultadoParcial = parseFloat(checagemResultado) 
                         checkDivisao = ''
-                        console.log(checagemResultado)
 
                     }
           
@@ -176,7 +180,7 @@ function addNumber(number){
 
     reporStyles() //repôe estilos
 
-    if(resultadoFinal == 0 && !verificarInfinity(checkDivisao)){
+    if(resultadoFinal == "" && !verificarInfinity(checkDivisao)){
 
         firstDisplay += number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
@@ -214,6 +218,8 @@ function addNumber(number){
         atualizarFirstDisplay()
         atualizarSecondDisplay()
         mostrarResultadoAntecipado()
+
+        calculou = false
 
     }
 
@@ -265,7 +271,7 @@ function clicouOperador(op){
     localStorage.setItem('operador', ultimoOperador) // armazena no local storage o ultimo operador utilizado
 
 
-    if(numerosDigitados !== ''  && resultadoFinal === 0 && !verificarInfinity(checkDivisao)){ // Enquanto a conta não for digitada igual
+    if(numerosDigitados !== ''  && !verificarInfinity(checkDivisao) && calculou == false){ // Enquanto a conta não for digitada igual
 
         reporStyles() //repôe estilos
         pontoPresenteNoNumero = false //liberação da adição de um ponto
@@ -428,7 +434,6 @@ function clicouOperador(op){
 
     }else if(calculou = true && !verificarInfinity(checkDivisao)){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
 
-        
 
         limparArrays() //limpa as arrays de conta, para calcular novas
 
@@ -511,9 +516,6 @@ function clicouOperador(op){
 
 }
 
-var pika= 0/0
-pika = pika.toString()
-console.log(pika + ' kkkkkk')
 
 let atuaisContas = 0
 
@@ -623,6 +625,7 @@ function calcularResultado(){ //quando o usuário apertou igual
        
         limparArrays()
         limparStorage()
+        calculou = true
 
     }else{
 
@@ -631,9 +634,9 @@ function calcularResultado(){ //quando o usuário apertou igual
         limparArrays()
         limparStorage()
 
+        calculou = true
     }
 
-    calculou = true
 
 }
 
