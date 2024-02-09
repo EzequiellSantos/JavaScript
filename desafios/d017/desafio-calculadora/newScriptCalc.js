@@ -42,6 +42,16 @@ let resultadoFinal = 0 //resultado das operações
 let checagemResultado = 0 // checagem de decimais
 let checkDivisao = ''
 
+function validacaoEntradasDeDados(variavel){
+
+    if (isNaN(variavel)) {
+        // Se meuNumero é NaN, atribua um valor de texto à variável
+        resultadoFinal = "Can't divide by zero";
+    }
+
+
+}
+
 function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, mesmo sem apertar igual deve aparecer isso no segundo display
 
     if(numerosDigitados !== '' && resultadoFinal == 0){ //  resultado parcial será calculado com o operador definido mais os resultados das contas das arrays feito a conta com os numeros digitados
@@ -98,7 +108,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                     checkDivisao = checagemResultado // variavel para fazer a verificação de divisão inválida
 
-                    if(verificarInfinity(checkDivisao)){ // se o numero for dividido por 0
+                    if(verificarInfinity(checkDivisao) || validacaoEntradasDeDados(checagemResultado)){ // se o numero for dividido por 0
     
                         resultadoParcial = `Can't divide by zero` 
 
@@ -106,6 +116,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                         resultadoParcial = parseFloat(checagemResultado) 
                         checkDivisao = ''
+                        console.log(checagemResultado)
 
                     }
           
@@ -162,6 +173,8 @@ function verificarInfinity(checks){ //verificação para saber se possui infinid
 let numerosDigitados = '' //armazena números digitados
 
 function addNumber(number){
+
+    reporStyles() //repôe estilos
 
     if(resultadoFinal == 0 && !verificarInfinity(checkDivisao)){
 
@@ -254,6 +267,7 @@ function clicouOperador(op){
 
     if(numerosDigitados !== ''  && resultadoFinal === 0 && !verificarInfinity(checkDivisao)){ // Enquanto a conta não for digitada igual
 
+        reporStyles() //repôe estilos
         pontoPresenteNoNumero = false //liberação da adição de um ponto
 
         if(operador == ultimoOperador ||  ultimoOperador == ''){ // Enquanto o Operador For o MESMO
@@ -595,11 +609,9 @@ let calculou = false
 function calcularResultado(){ //quando o usuário apertou igual
 
 
-    if(resultadoParcial != 0){
+    inverterStyles()
 
-        inverterStyles()
 
-    }
 
     if(verificarInfinity(checkDivisao)){
 
