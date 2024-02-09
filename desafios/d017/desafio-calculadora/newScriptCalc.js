@@ -428,9 +428,9 @@ function clicouOperador(op){
 
     }else if(calculou = true && !verificarInfinity(checkDivisao)){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
 
-        console.log(' Seguindo Conta :)')
+        
 
-        /* limparArrays() //limpa as arrays de conta, para calcular novas */
+        limparArrays() //limpa as arrays de conta, para calcular novas
 
         reporStyles() // repoe os estilos iniciais
 
@@ -511,6 +511,9 @@ function clicouOperador(op){
 
 }
 
+var pika= 0/0
+pika = pika.toString()
+console.log(pika + ' kkkkkk')
 
 let atuaisContas = 0
 
