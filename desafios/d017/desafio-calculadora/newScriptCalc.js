@@ -150,6 +150,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
         }
     }
 
+    verficandoMeuAmorzinho()
     atualizarSecondDisplay()
 
 }
@@ -175,13 +176,30 @@ function verificarInfinity(checks){ //verificação para saber se possui infinid
 }
 
 let numerosDigitados = '' //armazena números digitados
+let meuAmorChamadoZero = ''
+
+function verficandoMeuAmorzinho(){
+
+    if(resultadoFinal== 0){
+
+        meuAmorChamadoZero = resultadoFinal
+
+    }else{
+
+        meuAmorChamadoZero = ''
+
+    }
+
+    return meuAmorChamadoZero
+}
+
+verficandoMeuAmorzinho(0)
 
 function addNumber(number){
 
 
-    if(resultadoFinal == "" && !verificarInfinity(checkDivisao)){
+    if(!verificarInfinity(checkDivisao)){
 
-        
         reporStyles() //repôe estilos
         firstDisplay += number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
@@ -193,7 +211,7 @@ function addNumber(number){
 
         calculou = false
 
-    }else if(!verificarInfinity(checkDivisao) && calculou == true){ // verificação para quandodigitar igual e o usuário queira digitar um novo numero diferente do resultado final
+    }else if(resultadoFinal != 0 && !verificarInfinity(checkDivisao)){ // verificação para quandodigitar igual e o usuário queira digitar um novo numero diferente do resultado final
 
         reporStyles() //repôe estilos
         limparDisplay()
