@@ -42,16 +42,16 @@ let resultadoFinal = '' //resultado das operações
 let checagemResultado = 0 // checagem de decimais
 let checkDivisao = ''
 
-function validacaoEntradasDeDados(variavel){
+function validacaoEntradasDeDados(){
 
+    let texto = ''
 
-    if (isNaN(variavel)) {
+    if(resultDivisao == 0 && operador == '/') {
         // Se meuNumero é NaN, atribua um valor de texto à variável
-        variavel = 0
-        checagemResultado = 0
+        resultadoParcial = 0
+        console.log(resultadoParcial)
 
     }
-
 
 }
 
@@ -107,13 +107,13 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                     checagemResultado = parseFloat(resultDivisao) / parseFloat(numerosDigitados)
                     
-                    validacaoEntradasDeDados(checagemResultado)
+                    validacaoEntradasDeDados(resultDivisao)
 
                     checkDecimals()
 
                     checkDivisao = checagemResultado // variavel para fazer a verificação de divisão inválida
 
-                    if(verificarInfinity(checkDivisao) || validacaoEntradasDeDados(checagemResultado)){ // se o numero for dividido por 0
+                    if(verificarInfinity(checkDivisao)){ // se o numero for dividido por 0
     
                         resultadoParcial = `Can't divide by zero` 
 
@@ -123,6 +123,8 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                         checkDivisao = ''
 
                     }
+
+                    validacaoEntradasDeDados()
           
                 break
 
@@ -179,7 +181,7 @@ let meuAmorChamadoZero = ''
 
 function verficandoMeuAmorzinho(){
 
-    if(){
+    if(resultadoParcial === 0){
 
         meuAmorChamadoZero = 0
 
@@ -187,7 +189,7 @@ function verficandoMeuAmorzinho(){
 
         meuAmorChamadoZero = ''
 
-    }console.log(meuAmorChamadoZero)
+    }
 
 }
 
@@ -196,7 +198,7 @@ function addNumber(number){
 
     verficandoMeuAmorzinho()
 
-    if(resultadoFinal == "" && !verificarInfinity(checkDivisao)){
+    if(resultadoFinal == "" && !verificarInfinity(checkDivisao) && meuAmorChamadoZero !== 0){ // verificação para evitar erros com o numero 0 e respostas inválidas
 
         reporStyles() //repôe estilos
         firstDisplay += number //adiciona o numero
@@ -209,7 +211,7 @@ function addNumber(number){
 
         calculou = false
 
-    }else if(resultadoFinal != 0 && !verificarInfinity(checkDivisao)){ // verificação para quandodigitar igual e o usuário queira digitar um novo numero diferente do resultado final
+    } else if(!verificarInfinity(checkDivisao) && meuAmorChamadoZero == 0 ){ // verificação para quando digitar igual e o usuário queira digitar um novo numero diferente do resultado final
 
         reporStyles() //repôe estilos
         limparDisplay()
@@ -223,8 +225,7 @@ function addNumber(number){
 
         calculou = false
 
-    }
-    else if(resultadoFinal == `Can't divide by zero`){ // validação para caso o usuário divida por 0
+    } else if(resultadoFinal == `Can't divide by zero`){ // validação para caso o usuário divida por 0
 
         reporStyles() //repôe estilos
         limparDisplay()
@@ -287,7 +288,6 @@ function clicouOperador(op){
 
     operador = op //definindo o operador
     localStorage.setItem('operador', ultimoOperador) // armazena no local storage o ultimo operador utilizado
-
 
     if(numerosDigitados !== ''  && !verificarInfinity(checkDivisao) && calculou == false){ // Enquanto a conta não for digitada igual
 
