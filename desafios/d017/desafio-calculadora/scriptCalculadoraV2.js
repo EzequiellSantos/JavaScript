@@ -277,6 +277,7 @@ function adicionarDecimal(){ // função para adcionar decimais
 
 let ultimoOperador = '' // armazema o operador antigo 
 let operador = '' // armazena o operador digitado
+let trocaOperador = ''
 
 function clicouOperador(op){
 
@@ -452,7 +453,7 @@ function clicouOperador(op){
 
 
 
-        if(numerosDigitados !== ''){
+        if(numerosDigitados !== '' && calculou == true && !verificarUltimaLetra(firstDisplay, operador)){
 
             limparArrays() //limpa as arrays de conta, para calcular novas
 
@@ -533,10 +534,13 @@ function clicouOperador(op){
 
             }
 
-        } else{
 
+        } else {
+
+            limparArrays() // limpa arrays pra n efetuar contas so alternando os operdores
             firstDisplay = parseFloat(atuaisContas)
             firstDisplay += operador
+            trocaOperador = operador
 
             switch(operador){
     
