@@ -448,85 +448,160 @@ function clicouOperador(op){
 
         }
 
-    }else if(calculou = true && !verificarInfinity(checkDivisao)){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
+    }else if(!verificarInfinity(checkDivisao)){ // pra caso depois de calcular o resultado o usuário queira dar seguinte com o resultado
 
 
-        limparArrays() //limpa as arrays de conta, para calcular novas
 
-        reporStyles() // repoe os estilos iniciais
+        if(numerosDigitados !== ''){
 
-        firstDisplay = parseFloat(resultadoFinal) //coloca o resultado final como primeiro display para fazer contas
-        resultadoFinal = 0 // retira os valores do resultado final pois nao foi calculado nenhum igual
-        pontoPresenteNoNumero = false //liberação da adição de um ponto
+            limparArrays() //limpa as arrays de conta, para calcular novas
 
-        switch(operador){
-
-            case '+':
+            reporStyles() // repoe os estilos iniciais
     
-                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
-        
-                numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a array
-                somar.push(numeroAntesOp) //adiciona os números armazenados na array de soma
-                numerosDigitados = '' // limpa a variável
-                
-        
-                efetuarSoma() //vai efetuar a soma dos itens dentro da array Soma
-                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal    
-
-            break
-
-            case '-':
-
-                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
-        
-                numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
-                diminuir.push(numeroAntesOp) //adiciona os números armazenados na array de diminuir
-                numerosDigitados = '' // limpa a variável
-                
-        
-                efetuarSubtracao() //vai efetuar a subtraçao dos itens dentro da array subtraçao
-                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
-
-            break
-
-            case '/':
-
-                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
-
-                numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
-                dividir.push(numeroAntesOp) //adiciona os números armazenados na array de dividir
-                numerosDigitados = '' // limpa a variável
-
-                efetuarDivisao() //vai efetuar a divisão dos itens dentro da array subtraçao
-                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
-
-            break
-
-            case 'x':
-
-                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
-
-                numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, limpa a variável e receber novos números
-                multiplicar.push(numeroAntesOp) //adiciona os números armazenados na array de multiplicar
-                numerosDigitados = '' // limpa a variável
-
-                efetuarMultiplicação() //vai efetuar a subtração dos itens dentro da array subtraçao
-                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+            firstDisplay = parseFloat(resultadoFinal) //coloca o resultado final como primeiro display para fazer contas
+            resultadoFinal = 0 // retira os valores do resultado final pois nao foi calculado nenhum igual
+            pontoPresenteNoNumero = false //liberação da adição de um ponto
     
-            break
-
-            case '%':
-
-                firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
-
-                numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, limpa a variável e receber novos números
-                porcentagem.push(numeroAntesOp) //adiciona os números armazenados na array de saber a porcentagem
-                numerosDigitados = '' // limpa a variável
+            switch(operador){
     
-                efetuarPorcentagem() //vai efetuar a subtração dos itens dentro da array subtraçao
-                atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal         
+                case '+':
+        
+                    firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
+            
+                    numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a array
+                    somar.push(numeroAntesOp) //adiciona os números armazenados na array de soma
+                    numerosDigitados = '' // limpa a variável
+                    
+            
+                    efetuarSoma() //vai efetuar a soma dos itens dentro da array Soma
+                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal    
+    
+                break
+    
+                case '-':
+    
+                    firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
+            
+                    numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
+                    diminuir.push(numeroAntesOp) //adiciona os números armazenados na array de diminuir
+                    numerosDigitados = '' // limpa a variável
+                    
+            
+                    efetuarSubtracao() //vai efetuar a subtraçao dos itens dentro da array subtraçao
+                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+    
+                break
+    
+                case '/':
+    
+                    firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
+    
+                    numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
+                    dividir.push(numeroAntesOp) //adiciona os números armazenados na array de dividir
+                    numerosDigitados = '' // limpa a variável
+    
+                    efetuarDivisao() //vai efetuar a divisão dos itens dentro da array subtraçao
+                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+    
+                break
+    
+                case 'x':
+    
+                    firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
+    
+                    numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, limpa a variável e receber novos números
+                    multiplicar.push(numeroAntesOp) //adiciona os números armazenados na array de multiplicar
+                    numerosDigitados = '' // limpa a variável
+    
+                    efetuarMultiplicação() //vai efetuar a subtração dos itens dentro da array subtraçao
+                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+        
+                break
+    
+                case '%':
+    
+                    firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
+    
+                    numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, limpa a variável e receber novos números
+                    porcentagem.push(numeroAntesOp) //adiciona os números armazenados na array de saber a porcentagem
+                    numerosDigitados = '' // limpa a variável
+        
+                    efetuarPorcentagem() //vai efetuar a subtração dos itens dentro da array subtraçao
+                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal         
+    
+                break
 
-            break
+            }
+
+        } else{
+
+            firstDisplay = parseFloat(atuaisContas)
+            firstDisplay += operador
+
+            switch(operador){
+    
+                case '+':
+            
+                    numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a array
+                    somar.push(numeroAntesOp) //adiciona os números armazenados na array de soma
+                    numerosDigitados = '' // limpa a variável
+                    
+            
+                    efetuarSoma() //vai efetuar a soma dos itens dentro da array Soma
+                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal    
+    
+                break
+    
+                case '-':
+            
+                    numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
+                    diminuir.push(numeroAntesOp) //adiciona os números armazenados na array de diminuir
+                    numerosDigitados = '' // limpa a variável
+                    
+            
+                    efetuarSubtracao() //vai efetuar a subtraçao dos itens dentro da array subtraçao
+                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+    
+                break
+    
+                case '/':
+    
+                    numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
+                    dividir.push(numeroAntesOp) //adiciona os números armazenados na array de dividir
+                    numerosDigitados = '' // limpa a variável
+    
+                    efetuarDivisao() //vai efetuar a divisão dos itens dentro da array subtraçao
+                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+    
+                break
+    
+                case 'x':
+    
+                    numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, limpa a variável e receber novos números
+                    multiplicar.push(numeroAntesOp) //adiciona os números armazenados na array de multiplicar
+                    numerosDigitados = '' // limpa a variável
+    
+                    efetuarMultiplicação() //vai efetuar a subtração dos itens dentro da array subtraçao
+                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
+        
+                break
+    
+                case '%':
+    
+                    numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, limpa a variável e receber novos números
+                    porcentagem.push(numeroAntesOp) //adiciona os números armazenados na array de saber a porcentagem
+                    numerosDigitados = '' // limpa a variável
+        
+                    efetuarPorcentagem() //vai efetuar a subtração dos itens dentro da array subtraçao
+                    atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal         
+    
+                break
+
+            }
+
+            atualizarFirstDisplay()
+            atualizarSecondDisplay()
+            mostrarResultadoAntecipado()
         }
     }
 
