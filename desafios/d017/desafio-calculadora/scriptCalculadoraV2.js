@@ -46,12 +46,7 @@ function validacaoEntradasDeDados(){ // função para verificar divisões errada
 
     if(resultDivisao == 0 && operador == '/') { // verifica se o divisor é 0
 
-        /* 
-            usa o check divisão para fazer verificações caso seja o 0 divisor
-            evitando usar o resultado parcial como 0
-        */
-
-        resultadoParcial = 0
+        resultadoParcial = "0"
         console.log(resultadoParcial)
 
     }
