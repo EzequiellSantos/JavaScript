@@ -40,14 +40,17 @@ function atualizarSecondDisplay(){
 let resultadoParcial = '' //numeros digitados apenas
 let resultadoFinal = '' //resultado das operações
 let checagemResultado = 0 // checagem de decimais
-let checkDivisao = ''
+let checkDivisao = '' // checagem de divisões
 
-function validacaoEntradasDeDados(){
+function validacaoEntradasDeDados(){ // função para verificar divisões erradas
 
-    let texto = ''
+    if(resultDivisao == 0 && operador == '/') { // verifica se o divisor é 0
 
-    if(resultDivisao == 0 && operador == '/') {
-        // Se meuNumero é NaN, atribua um valor de texto à variável
+        /* 
+            usa o check divisão para fazer verificações caso seja o 0 divisor
+            evitando usar o resultado parcial como 0
+        */
+
         resultadoParcial = 0
         console.log(resultadoParcial)
 
@@ -55,18 +58,18 @@ function validacaoEntradasDeDados(){
 
 }
 
-function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, mesmo sem apertar igual deve aparecer isso no segundo display
+function mostrarResultadoAntecipado(){ // quando acontecer qualquer operação, mesmo sem apertar igual deve aparecer o resultado no segundo display
 
     if(numerosDigitados !== '' && resultadoFinal == 0){ //  resultado parcial será calculado com o operador definido mais os resultados das contas das arrays feito a conta com os numeros digitados
 
-        if(operador == ultimoOperador){
+        if(operador == ultimoOperador){ // caso o o antigo operador seja igual ao novo digitado pelo user
 
             switch(operador){
             
                 case '+':
                     checagemResultado = parseFloat(resultSoma) + parseFloat(numerosDigitados) // mostrar o resultado antecipado da operação digitada
 
-                    checkDecimals()
+                    checkDecimals() // verificar se tem muitas casas decimais
 
                     resultadoParcial = parseFloat(checagemResultado)
 
@@ -78,7 +81,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                         checagemResultado = parseFloat(resultSubtra) - parseFloat(numerosDigitados) 
                         
-                        checkDecimals()
+                        checkDecimals() // verificar se tem muitas casas decimais
 
                         resultadoParcial = parseFloat(checagemResultado)
 
@@ -87,7 +90,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                         checagemResultado = parseFloat(numerosDigitados) - parseFloat(resultSubtra) 
                         checagemResultado = parseFloat(checagemResultado) * -1  //transformação do número em negativo
 
-                        checkDecimals()
+                        checkDecimals() // verificar se tem muitas casas decimais
 
                         resultadoParcial = parseFloat(checagemResultado)
 
@@ -95,7 +98,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                         checagemResultado = 0
 
-                        checkDecimals()
+                        checkDecimals() // verificar se tem muitas casas decimais
 
                         resultadoParcial = parseFloat(checagemResultado)
 
@@ -106,8 +109,6 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                 case '/':
 
                     checagemResultado = parseFloat(resultDivisao) / parseFloat(numerosDigitados)
-                    
-                    validacaoEntradasDeDados(resultDivisao)
 
                     checkDecimals()
 
@@ -124,7 +125,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                     }
 
-                    validacaoEntradasDeDados()
+                    validacaoEntradasDeDados() // verificação se o divisor é igual a 0
           
                 break
 
@@ -132,7 +133,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
                     
                     checagemResultado = parseFloat(resultMultipli) * parseFloat(numerosDigitados)
 
-                    checkDecimals()
+                    checkDecimals() // verificar se tem muitas casas decimais
 
                     resultadoParcial = parseFloat(checagemResultado)
 
@@ -142,7 +143,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
 
                     checagemResultado = resultPorcent * numerosDigitados / 100
 
-                    checkDecimals()
+                    checkDecimals() // verificar se tem muitas casas decimais
 
                     resultadoParcial = parseFloat(checagemResultado)
 
@@ -152,7 +153,7 @@ function mostrarResultadoAntecipado(){ //quando acontecer qualquer operação, m
         }
     }
 
-    atualizarSecondDisplay()
+    atualizarSecondDisplay() // chama a função de atualizar para, finalmente mostrar
 
 }
 
@@ -160,15 +161,15 @@ function verificarInfinity(checks){ //verificação para saber se possui infinid
 
     let checksString = checks.toString()
 
-    if(checksString == 'Infinity'){
+    if(checksString == 'Infinity'){ // caso dividido por numeros positivos
 
         return true
 
-    } else if(checksString == '-Infinity'){
+    } else if(checksString == '-Infinity'){ //caso seja dividido por numeros negativos
 
         return true
 
-    } else {
+    } else { // não foi dividido por zero
 
         return false
 
@@ -177,9 +178,9 @@ function verificarInfinity(checks){ //verificação para saber se possui infinid
 }
 
 let numerosDigitados = '' //armazena números digitados
-let meuAmorChamadoZero = ''
+let meuAmorChamadoZero = '' //armazena o valor de 0 para verificações
 
-function verficandoMeuAmorzinho(){
+function verficandoMeuAmorzinho(){ // função para evitar erros ao tentar dar incio a uma nova conta apos o resultador ser igual a zero
 
     if(resultadoParcial === 0){
 
@@ -194,9 +195,9 @@ function verficandoMeuAmorzinho(){
 }
 
 
-function addNumber(number){
+function addNumber(number){ // função de adicionar numeros
 
-    verficandoMeuAmorzinho()
+    verficandoMeuAmorzinho() // chama a função de verificação caso o resultado final seja 0
 
     if(resultadoFinal == "" && !verificarInfinity(checkDivisao) && meuAmorChamadoZero !== 0){ // verificação para evitar erros com o numero 0 e respostas inválidas
 
@@ -214,7 +215,7 @@ function addNumber(number){
     } else if(!verificarInfinity(checkDivisao) && meuAmorChamadoZero == 0 ){ // verificação para quando digitar igual e o usuário queira digitar um novo numero diferente do resultado final
 
         reporStyles() //repôe estilos
-        limparDisplay()
+        limparDisplay() // limpa tudo que estava nos inputs
         firstDisplay = number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
         numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
@@ -228,9 +229,9 @@ function addNumber(number){
     } else if(resultadoFinal == `Can't divide by zero`){ // validação para caso o usuário divida por 0
 
         reporStyles() //repôe estilos
-        limparDisplay()
+        limparDisplay() // limpa tudo que estava nos inputs
 
-        firstDisplay += number
+        firstDisplay += number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
         numerosDigitados += number //coloca os numeros digitados dentro da variavel de armazenamento
 
@@ -256,7 +257,7 @@ function adicionarDecimal(){ // função para adcionar decimais
             numerosDigitados = '0.'
             atualizarFirstDisplay()
             atualizarSecondDisplay()
-            pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
+            pontoPresenteNoNumero = true // bloqueando a adição de mais de um ponto
 
         } else if(calculou == false && !verificarInfinity(checkDivisao)){ // caso ja tenha numeros digitados
 
@@ -264,15 +265,15 @@ function adicionarDecimal(){ // função para adcionar decimais
             numerosDigitados += '.'
             atualizarFirstDisplay()
             atualizarSecondDisplay()
-            pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto
+            pontoPresenteNoNumero = true // bloqueando a adição de mais de um ponto
 
-        }else if(calculou == true && resultadoFinal == 0 && !verificarInfinity(checkDivisao)){ // para caso o usuário adicione ponto logo após apertar igual{
+        }else if(calculou == true && resultadoFinal == 0 && !verificarInfinity(checkDivisao)){ // para caso o usuário adicione ponto logo após apertar igual
 
             firstDisplay += '.'
             numerosDigitados += '.'
             atualizarFirstDisplay()
             atualizarSecondDisplay()
-            pontoPresenteNoNumero = true //bloqueando a adição de mais de um ponto  
+            pontoPresenteNoNumero = true // bloqueando a adição de mais de um ponto  
     
         }
     }
@@ -284,14 +285,16 @@ let operador = '' // armazena o operador digitado
 
 function clicouOperador(op){
 
-    let numeroAntesOp = 0 //numero presente antes do sinal atribuido
+    let numeroAntesOp = 0 // numero presente antes do sinal atribuido
 
-    operador = op //definindo o operador
+    operador = op // definindo o operador
+
     localStorage.setItem('operador', ultimoOperador) // armazena no local storage o ultimo operador utilizado
 
     if(numerosDigitados !== ''  && !verificarInfinity(checkDivisao) && calculou == false){ // Enquanto a conta não for digitada igual
 
-        reporStyles() //repôe estilos
+        reporStyles() // repôe estilos
+
         pontoPresenteNoNumero = false //liberação da adição de um ponto
 
         if(operador == ultimoOperador ||  ultimoOperador == ''){ // Enquanto o Operador For o MESMO
@@ -372,10 +375,10 @@ function clicouOperador(op){
 
         }else if(operador !== ultimoOperador){ // quando o operador digitado for Diferente do Anterior
 
-            calcularResultado()
-            reporStyles()
+            calcularResultado() // chama a função calcular resultado para finalizar a conta do operador antigo
+            reporStyles() // repõe os estilos iniciais dos inputs
     
-            firstDisplay = parseFloat(resultadoFinal) //coloca o resultado final como primeiro display para fazer contas
+            firstDisplay = parseFloat(resultadoFinal) // armazena o resultado da antiga conta no primeiro input 
             resultadoFinal = 0 // retira os valores do resultado final pois nao foi calculado nenhum igual
             pontoPresenteNoNumero = false //liberação da adição de um ponto
     
@@ -535,7 +538,7 @@ function clicouOperador(op){
 }
 
 
-let atuaisContas = 0
+let atuaisContas = 0 // armazena a resposta da ultima conta feita
 
 let resultSoma = 0 // variavel para armazenar o resultado das somas
 let somar = [] //array para efetuar somas
@@ -632,7 +635,7 @@ let calculou = false
 function calcularResultado(){ //quando o usuário apertou igual
 
 
-    inverterStyles()
+    inverterStyles() // inverte os estilos dos inputs
 
 
 
@@ -664,24 +667,21 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
     if(verificarUltimaLetra(firstDisplay, operador) || calculou === true){ // quando o ultima letra é igual mo operador ou o usuário digitou a conta
 
-        console.log('apaga ai mana')
         return; // parar função
 
     } else if(!verificarUltimaLetra(firstDisplay, operador) && resultadoParcial == "Can't divide by zero"){ //para quando dividir por zero o usuário consiga apagar o zero antes de apertar igual
  
-        checkDels()
-        console.log('apaga ai mano')
+        checkDels() // fazer as alterações válidas
 
-    } else if(resultadoParcial !== "Can't divide by zero"){
+    } else if(resultadoParcial !== "Can't divide by zero"){ // quando a operação nao for divida por zero
 
         firstDisplay = firstDisplay.slice(0, -1)
         resultadoParcial = secondDisplay.slice(0, -1)
         numerosDigitados = numerosDigitados.slice(0, -1)
         deletou = true
-        checkDels()
-        checkSecondDisplay()
-        mostrarResultadoAntecipado()
-        console.log('apaga ai man')
+        checkDels() // fazer as alterações válidas
+        checkDisplays() // verificar e preencher os displays
+        mostrarResultadoAntecipado() /* atualizar os displays*/
         atualizarFirstDisplay()
         atualizarSecondDisplay()
 
@@ -689,7 +689,7 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
 }
 
-function verificarUltimaLetra(string, letra){
+function verificarUltimaLetra(string, letra){ // verificação se a ultima letra do input é um operador
 
     const ultimaletra = string.slice(-1);
     return ultimaletra === letra
@@ -708,7 +708,7 @@ function checkDels(){ //função para verificar o que foi deletado
         if(deletou == true && operador == ''){
 
             secondInput.value = '= ' + firstDisplay
-            checkSecondDisplay()
+            checkDisplays()
     
         } else if(resultadoParcial == "Can't divide by zero"){
         
@@ -718,7 +718,7 @@ function checkDels(){ //função para verificar o que foi deletado
             deletou = true
             checkDivisao = '' 
             checkDels()
-            checkSecondDisplay()
+            checkDisplays()
             mostrarResultadoAntecipado()
             atualizarFirstDisplay()
             atualizarSecondDisplay() 
@@ -726,7 +726,7 @@ function checkDels(){ //função para verificar o que foi deletado
         }else if(deletou == true && operador == '' && firstInput.value.length == 0){
     
             secondInput.value = ''
-            checkSecondDisplay()
+            checkDisplays()
     
         } else if(verificarUltimaLetra(firstDisplay, operador)){
     
@@ -759,7 +759,7 @@ function checkDecimals(){ //verifica se o numero real é muito grande e limita-o
 }
 
 let comprimentoDecimal = 0
-function contarDecimais(number) {
+function contarDecimais(number) { // contagem de quantos numeros decimais ha depois da virgula
 
     let numberString = number.toString()
 
@@ -778,7 +778,7 @@ function contarDecimais(number) {
 
 }
 
-function checkSecondDisplay(){ //quando o usuário entrar na página ou limpar o input
+function checkDisplays(){ //quando o usuário entrar na página ou limpar o input
 
     if(secondInput.value == ''){ //verifica se o segundo input está vazio e coloca um zero 
 
@@ -792,7 +792,7 @@ function checkSecondDisplay(){ //quando o usuário entrar na página ou limpar o
 
 }
 
-checkSecondDisplay() //verifica quando o documento carrega, para prencher corretamente o secondDislay
+checkDisplays() //verifica quando o documento carrega, para prencher corretamente o secondDislay
 
 function limparDisplay(){ // quando o usuário clicar em clean
 
@@ -813,7 +813,7 @@ function limparDisplay(){ // quando o usuário clicar em clean
     firstInput.value = ''
     secondInput.value = ''
 
-    checkSecondDisplay() // chama a função de checagem de preenchimento dos displays
+    checkDisplays() // chama a função de checagem de preenchimento dos displays
     reporStyles() // repoe os estilos iniciais
     limparArrays() // limpa todas as arrays de armazenamento
     limparStorage() // limpa os dados armazenados no localSotarage
