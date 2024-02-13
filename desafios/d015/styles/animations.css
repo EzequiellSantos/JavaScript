@@ -505,6 +505,7 @@ span#error{
     display: none;
 }  
 
+/* Animações de Itens do Eloquio */
 .light path#eloquio-path{
     stroke: #00b100;
 }
@@ -529,24 +530,25 @@ span#contain-snake{
 
 @keyframes transf {
     0%{
-        transform: skewY(0deg);
+        transform: rotateY(0deg) rotateX(0deg); 
     }
 
-    25%{
-        transform: skewY(7deg);
+    40%{
+        transform:  rotateY(180deg) rotateX(0deg);
     }
 
     50%{
-        transform: skewY(-7deg);  
+        transform:  rotateY(180deg) rotateX(180deg);
     }
 
-    75%{
-        transform: skewY(0deg);
+    60%{
+        transform:  rotateY(180deg) rotateX(180deg);
     }
 
     100%{
-        transform: skewY(0deg);
+        transform:  rotateY(0deg) rotateX(0deg)
     }
+
 }
 
 .light svg#icons-eloquio-snake{
