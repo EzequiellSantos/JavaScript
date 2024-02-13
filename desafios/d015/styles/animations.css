@@ -525,28 +525,37 @@ span#contain-snake{
     justify-content: center;
     width: auto;
     height: auto;
-    animation: transf 4s infinite ease-in-out;
+    border-radius: 50%;
+    animation: transf 7s infinite ease-in-out;
 }
 
 @keyframes transf {
     0%{
-        transform: rotateY(0deg) rotateX(0deg); 
+        transform: rotate(0deg) rotateY(0deg) rotateX(0deg); 
+        border: none;
+    }
+
+    5%{
+        box-shadow: 0.1em 0.1em 0em var(--color-checked);
+        transform: scale(1.1);
+    }
+
+    15%{
+        border: none;
+        transform: scale(1.0);
+        box-shadow: none;
     }
 
     40%{
-        transform:  rotateY(180deg) rotateX(0deg);
-    }
-
-    50%{
-        transform:  rotateY(180deg) rotateX(180deg);
+        transform:  rotate(80deg) rotateY(180deg);
     }
 
     60%{
-        transform:  rotateY(180deg) rotateX(180deg);
+        transform:  rotate(170deg) rotateX(180deg);
     }
 
     100%{
-        transform:  rotateY(0deg) rotateX(0deg)
+        transform:  rotate(0deg) rotateY(0deg) rotateX(0deg);
     }
 
 }
