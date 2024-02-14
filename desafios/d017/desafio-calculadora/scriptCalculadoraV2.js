@@ -697,8 +697,10 @@ function clicouOperador(op){
         }
 
     }else{
+
         console.log('ja era pvt')
         return
+
     }
 }
 
@@ -709,7 +711,7 @@ function verificarResultAntecipado(){
         return false
 
     }else{
-        
+
         return true
 
     }
@@ -843,7 +845,7 @@ let deletou = false
 
 function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
-    if(verificarUltimaLetra(firstDisplay, operador) || calculou === true ){ // quando o ultima letra é igual ao operador ou o usuário digitou a conta
+    if(calculou === true ){ //o usuário digitou a conta
         console.log('operador em ultimo, tentou deletar, ')
         console.log(operador)
         return; // parar função
@@ -852,6 +854,20 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
         console.log('digitou zero antes de apertar igual e deletou')
         console.log(operador)
         checkDels() // fazer as alterações válidas
+
+    } else if(operador !== '' && verificarUltimaLetra(firstDisplay, operador) && calculou == false){ // quando o ultima letra é igual ao operador ou 
+    
+        console.log(atuaisContas)
+        checkchanges()
+        limparArrays()
+        firstDisplay = parseFloat(atuaisContas)
+        operador = ''
+        deletou = true
+
+        secondDisplay = parseFloat(resultadoParcial)
+        atualizarFirstDisplay()
+        console.log(typeof(resultadoParcial))
+        console.log('operador é igual a ultima letra')
 
     } else if(resultadoParcial !== "Can't divide by zero" && !verificarInfinity(checkDivisao)){ // quando a operação nao for divida por zero
 
@@ -865,6 +881,7 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
         atualizarFirstDisplay()
         atualizarSecondDisplay()
         console.log('deletou sem divisão por zero')
+
     }
 
 }
