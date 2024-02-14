@@ -285,18 +285,17 @@ function clicouOperador(op){
         let numeroAntesOp = 0 // numero presente antes do sinal atribuido
 
         operador = op // definindo o operador
-        console.clear()
+
         localStorage.setItem('operador', ultimoOperador) // armazena no local storage o ultimo operador utilizado
-        console.log('apenas clicou no botao')
+
         if(numerosDigitados !== ''  && !verificarInfinity(checkDivisao) && calculou == false){ // Enquanto a conta não for digitada igual
 
-            console.log('clicou Operador Aprovado')
             reporStyles() // (Recursividade) repôe estilos
 
             pontoPresenteNoNumero = false //liberação da adição de um ponto
 
             if(operador == ultimoOperador ||  ultimoOperador == ''){ // Enquanto o Operador For o MESMO
-                console.log('Operador igual / normal  adicionado')
+
                 switch(operador){
 
                     case '+':
@@ -372,7 +371,7 @@ function clicouOperador(op){
                 }
 
             }else if(operador !== ultimoOperador){ // quando o operador digitado for Diferente do Anterior
-                console.log('Operador Diferente adicionado')
+
                 calcularResultado() // (Recursividade) chama a função calcular resultado para finalizar a conta do operador antigo
                 reporStyles() // (recursividade) repõe os estilos iniciais dos inputs
         
@@ -455,11 +454,8 @@ function clicouOperador(op){
 
             checkchanges() // chama a funçao para validar a recursividade com as mudanças de sinais
 
-            console.clear()
-            console.log('Calculou e vai dar seguinte')
             if(numerosDigitados !== '' && calculou == true && mudarSinal == false){ //dando seguinte a conta depois de calcular o resultado, adicionando um sinal normal como de inicio
 
-                console.log('adicionou um sinal normal de inicio')
                 limparArrays() // chama a funçao para validar a recursividade com as mudanças de sinais
                 reporStyles() // repoe os estilos iniciais
         
@@ -539,7 +535,7 @@ function clicouOperador(op){
                 }
 
             } else if(mudarSinal == true){ // caso o usuário mude o sinal na execução simples
-                console.log('mudou o sinal causando uma expressão')
+
                 checkchanges() // chama a funçao para validar a recursividade com as mudanças de sinais
                 limparArrays() // limpa arrays pra n efetuar contas so alternando os operdores
                 firstDisplay = parseFloat(atuaisContas)
@@ -612,7 +608,7 @@ function clicouOperador(op){
                 mostrarResultadoAntecipado()
 
             } else{ // caso o usuário mude o sinal apos executar a igualdade da conta
-                console.log('calculou igual apenas com um numero e o sinal')
+
                 limparArrays() // faz a validação de recursividade
                 reporStyles() // faz a validação de recursividade
         
@@ -696,9 +692,10 @@ function clicouOperador(op){
             
         }
 
-    }else{
-        console.log('ja era pvt')
+    }else{ // encerra a função para não adicionar operadores invalidos
+
         return
+
     }
 }
 
@@ -844,13 +841,11 @@ let deletou = false
 function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
     if(verificarUltimaLetra(firstDisplay, operador) || calculou === true ){ // quando o ultima letra é igual ao operador ou o usuário digitou a conta
-        console.log('operador em ultimo, tentou deletar, ')
-        console.log(operador)
+
         return; // parar função
 
     } else if(!verificarUltimaLetra(firstDisplay, operador) && resultadoParcial == "Can't divide by zero"){ //para quando dividir por zero o usuário consiga apagar o zero antes de apertar igual
-        console.log('digitou zero antes de apertar igual e deletou')
-        console.log(operador)
+
         checkDels() // fazer as alterações válidas
 
     } else if(resultadoParcial !== "Can't divide by zero" && !verificarInfinity(checkDivisao)){ // quando a operação nao for divida por zero
@@ -864,7 +859,7 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
         mostrarResultadoAntecipado() /* atualizar os displays*/
         atualizarFirstDisplay()
         atualizarSecondDisplay()
-        console.log('deletou sem divisão por zero')
+
     }
 
 }
