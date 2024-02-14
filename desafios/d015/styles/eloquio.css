@@ -90,13 +90,13 @@ article.article-content{
     padding: 10px;
     border-radius: 15px;
 
-    box-shadow: 3px 3px 1px rgb(0, 168, 76);
+    box-shadow: 3px 3px 1px var(--color-light02);
 }
 
 .light article.article-content{
     background-color: var(--color-background03);
     color: #000;
-    box-shadow: 3px 3px 1px rgb(0, 235, 106);
+    box-shadow: 3px 3px 1px var(--color-background02);
 }
 
 article.article-content  > p, h4{
@@ -140,13 +140,13 @@ button#toTop{
     border: none;
     outline: none;
     background-color: var(--color-background00);
-    box-shadow: 0.2em 0.2em 0em rgb(0, 168, 76);
+    box-shadow: 0.2em 0.2em 0em var(--color-light02);
     transition: opacity 0.5s ease-in-out;
 }
 
 .light button#toTop{
     background-color: #f1f1f1;
-    box-shadow: 0.2em 0.2em 0em rgb(0, 235, 106);
+    box-shadow: 0.2em 0.2em 0em var(--color-simple02);
 }
 
 #toTop > img{

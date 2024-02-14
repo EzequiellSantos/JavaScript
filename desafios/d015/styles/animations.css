@@ -506,8 +506,13 @@ span#error{
 }  
 
 /* Animações de Itens do Eloquio */
+
+path#eloquio-path{
+    stroke: var(--color-light02);
+}
+
 .light path#eloquio-path{
-    stroke: #00b100;
+    stroke: var(--color-simple02);
 }
 
 svg#icons-eloquio-snake{
@@ -529,6 +534,10 @@ span#contain-snake{
     animation: transf 7s infinite ease-in-out;
 }
 
+.light span#contain-snake{
+    animation: transfTw 7s infinite ease-in-out;
+}
+
 @keyframes transf {
     0%{
         transform: rotate(0deg) rotateY(0deg) rotateX(0deg); 
@@ -536,7 +545,38 @@ span#contain-snake{
     }
 
     5%{
-        box-shadow: 0.1em 0.1em 0em var(--color-checked);
+        box-shadow: 0.1em 0.1em 0em var(--color-light02);
+        transform: scale(1.1);
+    }
+
+    15%{
+        border: none;
+        transform: scale(1.0);
+        box-shadow: none;
+    }
+
+    40%{
+        transform:  rotate(80deg) rotateY(180deg);
+    }
+
+    60%{
+        transform:  rotate(170deg) rotateX(180deg);
+    }
+
+    100%{
+        transform:  rotate(0deg) rotateY(0deg) rotateX(0deg);
+    }
+
+}
+
+@keyframes transfTw {
+    0%{
+        transform: rotate(0deg) rotateY(0deg) rotateX(0deg); 
+        border: none;
+    }
+
+    5%{
+        box-shadow: 0.1em 0.1em 0em var(--color-simple02);
         transform: scale(1.1);
     }
 
@@ -580,8 +620,12 @@ span#contain-circles{
     height: 45px;
     border-radius: 1px;
     background-color: var(--color-background00);
-    box-shadow: 0.1em 0.1em 0em var(--color-checked);
+    box-shadow: 0.1em 0.1em 0em var(--color-light02);
     animation: mexer 5s infinite ease;
+}
+
+.light span#contain-circles{
+    box-shadow: 0.1em 0.1em 0em var(--color-simple02);
 }
 
 @keyframes mexer {
@@ -651,6 +695,11 @@ span#contain-polig{
     border-radius: 50%;
     background-color: var(--color-background00);
     animation: gira 5s infinite ease-in-out;
+    box-shadow: var(--color-simple02);
+}
+
+.light span#contain-polig{
+    animation: giratw 5s infinite ease-in-out;
 }
 
 @keyframes gira {
@@ -661,7 +710,41 @@ span#contain-polig{
 
     10%{
         transform: scale(1.05);
-        box-shadow: 0.1em 0.1em 0em var(--color-checked);
+        box-shadow: 0.1em 0.1em 0em var(--color-light02);
+    }
+
+    20%{
+        transform: scale(1);
+
+    }
+
+    25%{
+        transform: rotate(0deg);
+        box-shadow: none;
+    }
+
+    50%{
+        transform: rotate(360deg);
+    }
+
+    55%{
+        transform: rotate(360deg);
+    }
+
+    75%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes giratw {
+    0%{
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    10%{
+        transform: scale(1.05);
+        box-shadow: 0.1em 0.1em 0em var(--color-simple02);
     }
 
     20%{
