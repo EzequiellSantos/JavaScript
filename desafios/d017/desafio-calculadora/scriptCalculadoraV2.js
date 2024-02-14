@@ -843,6 +843,14 @@ function calcularResultado(){ //quando o usuário apertou igual
 
 let deletou = false 
 
+/* Fazer uma fnção para caso a conta seja do mesmo sinal tendo varios, quando deletar deve apenas apagar o uktimo numero dentro da array, e reamostrar a array do sinal repetido no primeiro input, colocando o operador em forma de strinf entre cada numero, pode adicionar um loop para cada item entro da array do operador utilizado, a função será chamada quando o usuáro digitar para apagar a conta e  ela possuir uma expressão (verificação)
+
+
+adicionar uma verificação quando for apenas um sinal, tambem
+
+fazer o uso de switchs para chamar a array de acorod com o ultimo sinal digitado pelo user, utilizando a variavel ultimo operador
+
+*/
 function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
     if(calculou === true ){ //o usuário digitou a conta
