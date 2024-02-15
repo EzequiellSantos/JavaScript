@@ -85,10 +85,14 @@ button#toHome:active{
     transition: all 0.2s ease;
 }
 
-main{
+#main-principal{
     width: calc(100% - 10px);
     max-width: 600px;
-    margin: auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px;
+    margin-bottom: 0;
 
     display: flex;
     flex-direction: column;
@@ -97,10 +101,7 @@ main{
 }
 
 div#campo-texto{
-    position: fixed;
-    top: 200px;
     width: 100%;
-
 
     display: flex;
     flex-direction: column;
@@ -162,6 +163,16 @@ div#campo-texto > input{
     }
 }
 
+div#separar{
+    height: 50px;
+    width: 100%;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 hr{
     width: 90%;
     border: none;
@@ -170,8 +181,6 @@ hr{
 }
 
 aside#aside-calc{
-    position: fixed;
-    bottom: 15px;
     width: calc(100% - 10px);
     max-width: 570px;
     max-height: 400px;
