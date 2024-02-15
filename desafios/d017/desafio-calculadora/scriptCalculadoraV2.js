@@ -277,7 +277,6 @@ function adicionarDecimal() { // função para adcionar decimais
 let ultimoOperador = '' // armazema o operador antigo 
 let operador = '' // armazena o operador digitado
 
-/* adicionar um if, para caso o resultado parcial seja igual a can't divide by zero, ele não chamar a função */
 function clicouOperador(op) {
 
     if (verificarResultAntecipado()) {
