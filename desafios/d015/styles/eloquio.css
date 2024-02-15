@@ -135,23 +135,15 @@ button#toTop{
     bottom: 30px;
     left: 13px;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+
     border: none;
     outline: none;
-    background-color: var(--color-background00);
-    box-shadow: 0.2em 0.2em 0em var(--color-light02);
     transition: opacity 0.5s ease-in-out;
-}
-
-.light button#toTop{
-    background-color: #f1f1f1;
-    box-shadow: 0.2em 0.2em 0em var(--color-simple02);
+    background-color: transparent;
 }
 
 #toTop > img{
-    width: 40px;
-    height: 40px;
+    width: 55px;
 }
 
 button#toHome{
