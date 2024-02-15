@@ -83,3 +83,108 @@ button#toHome:active{
     transform: scale(1.1);
     transition: all 0.2s ease;
 }
+
+main{
+    width: calc(100% - 10px);
+    max-width: 600px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+div#campo-texto{
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+div#campo-texto > input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    text-align: right;
+    color: white;
+    font-family: var(--font-number);
+    font-size: 2em;
+}
+
+.light div#campo-texto > input{
+    color: #000;
+}
+
+main hr{
+    width: 80%;
+    border: none;
+    background-color: #646464;
+    height: 0.05em;
+    margin-top: 30px;
+}
+
+aside#aside-calc{
+    width: calc(100%);
+    max-width: 570px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 5px;
+}
+
+button#teclas{
+    width: 100%;
+    height: 100%;
+}
+
+button#teclas > img{
+    width: 40px;
+}
+
+button.simbols{
+
+}
+
+#teclas, #teclaX{
+    font-size: 2em;
+}
+
+span#caractere{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 60px;
+    width: 60px;
+    background-color: #000;
+    color:#fff;
+    border-radius: 50%;
+}
+
+button.simbols > #caractere{
+    color: var(--color-simple01);
+}
+
+.light button.simbols > #caractere{
+    color: var(--color-simple02);
+}
+
+button.simbolX > #caractere{
+    background-color: var(--color-simple01);
+}
+
+.light button.simbolX > #caractere{
+    background-color: var(--color-simple02);
+}
+
+button#teclaX:active{
+    transform: scale(0.95);
+}
+
+.op{
+    margin-top: -3px;
+}

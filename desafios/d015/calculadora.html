@@ -7,14 +7,14 @@
     <link rel="shortcut icon"
         href="https://raw.githubusercontent.com/EzequiellSantos/JavaScript/main/desafios/d015/Imagens/Favicon-Direct/direct-icon-96.png"
         type="image/x-icon">
-    <link rel="stylesheet" href="styles/calculadora.css">
     <link rel="stylesheet" href="styles/style.css" id="tema-estilos">
     <link rel="stylesheet" href="styles/animations.css" id="tema-estilos">
     <link rel="stylesheet" href="styles/print.css" media="print">
+    <link rel="stylesheet" href="styles/calculadora.css">
     <title>Calculadora Direct</title>
 </head>
 
-<body>
+<body class="">
 
     <header id="calculadora-header">
 
@@ -84,7 +84,7 @@
             <button id="teclas" class="numbers" onclick="addNumber('3')"><span id="caractere">3</span></button>
             <button id="teclas" class="simbols" onclick="clicouOperador('+')"><span id="caractere" class="op">+</span></button>
 
-            <button id="teclas" class="simbols" onclick="">[]</button>
+            <button id="teclas" class="simbols" onclick=""><span id="caractere">[]</span></button>
             <button id="teclas" class="numbers" onclick="addNumber('0')"><span id="caractere">0</span></button>
             <button id="teclas" class="numbers" onclick="adicionarDecimal()"><span id="caractere" class="decimal">.</span></button>
             <button id="teclaX" class="simbolX" onclick="calcularResultado()"><span id="caractere">=</span></button>
