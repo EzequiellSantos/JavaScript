@@ -1,4 +1,5 @@
 var imgToUp = document.querySelector('#toUp')
+var imgToHome = document.querySelector('#toBack')
 let novoTema = ''
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -36,7 +37,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function adequarImagens(tema) {
+
     imgToUp.src = `Imagens/icons-Direct/toUp-${tema}-96.png`
+    imgToHome.src = `Imagens/icons-Direct/toHome-${tema}-96.png`
+
 }
 
 window.addEventListener('scroll', function() {
