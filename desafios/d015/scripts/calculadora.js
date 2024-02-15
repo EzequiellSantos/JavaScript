@@ -1,3 +1,6 @@
+var imgToHome = document.querySelector('#toBack')
+let novoTema = ''
+
 document.addEventListener('DOMContentLoaded', function () {
 
     const temaEstilos = document.getElementById('tema-estilos'); // estilos => style.css / animation.css
@@ -12,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Mudando e Guardando o tema escolhido
     toggleSection.onclick = () => {
 
-        let novoTema = temaEstilos.dataset.tema === 'light' ? 'dark' : 'light';
+        novoTema = temaEstilos.dataset.tema === 'light' ? 'dark' : 'light';
         aplicarTema(novoTema);
         localStorage.setItem('tema-preferido', novoTema); // guardando o tema escolhido  
 
@@ -26,9 +29,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Atualizar o dataset para referência futura
         temaEstilos.dataset.tema = tema;
+        adequarImagens(tema)
 
     }
 
 });
 
+function adequarImagens(tema) {
+
+    imgToHome.src = `Imagens/icons-Direct/toHome-${tema}-96.png`
+
+}
 //configurações da calculadora
