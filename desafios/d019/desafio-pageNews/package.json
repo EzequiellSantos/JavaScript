@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "<p>Curso de JavaScript\t:yellow_circle::black_circle:</p>",
+  "main": "scriptmain.mjs",
+  "scripts": {
+    "start": "node --experimental-modules scriptmain.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
