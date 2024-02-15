@@ -533,7 +533,7 @@ function clicouOperador(op){
 
             }
 
-        } else if(mudarSinal == true){
+            } else if (mudarSinal == true && resultadoFinal !== '') { // caso o usuário mude o sinal na execução simples
 
             checkchanges() // chama a funçao para validar a recursividade com as mudanças de sinais
             limparArrays() // limpa arrays pra n efetuar contas so alternando os operdores
@@ -969,10 +969,9 @@ function checkchanges(){
 function limparDisplay(){ // quando o usuário clicar em clean
 
     resultadoParcial = ''
-    resultadoFinal = 0
+    resultadoFinal = ''
     numerosDigitados = ''
-    checagemResultado = 0 
-    checkDivisao = ''
+    checagemResultado = 0
 
     operador = ''
     numeroAntesOp = 0
