@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="styles/style.css" id="tema-estilos">
     <link rel="stylesheet" href="styles/animations.css" id="tema-estilos">
     <link rel="stylesheet" href="styles/print.css" media="print">
+    <link rel="stylesheet" href="https://raw.githack.com/EzequiellSantos/JavaScript/main/desafios/d017/style.css">
+    <script src="https://raw.githack.com/EzequiellSantos/JavaScript/main/desafios/d017/desafio-calculadora/calculadora.js"></script>
     <title>Calculadora Direct</title>
 </head>
 
@@ -25,7 +27,7 @@
                 <a href="index.html" target="_self" rel="prev">
 
                     <button id="toHome">
-                        <img src="Imagens/icons-Direct/voltar.png" alt="seta-voltar">
+                        <img id="toBack" src="" alt="seta-voltar">
                     </button>
 
                 </a>
@@ -55,40 +57,41 @@
 
         <article id="article-calculadora">
 
-            <section id="campo-texto" class="numbers">
+            <div id="campo-texto" class="numbers">
 
-                <input type="text" name="num" id="display" readonly>
+                <input id="firstInput" class="primeiro" type="text" name="num" readonly>
+                <input id="secondInput" class="segundo" type="text" name="num" readonly>
 
-            </section>
+            </div>
 
-            <section id="teclas">
+            <aside>
 
-                <div class="icons-orange">C</div>
-                <div class="icons-orange">Del</div>
-                <div class="icons-orange">%</div>
-                <div class="icons-orange">/</div>
+                <button class="icons-orange">C</button>
+                <button class="icons-orange">Del</button>
+                <button class="icons-orange">%</button>
+                <button class="icons-orange">/</button>
 
-                <div class="numbers">7</div>
-                <div class="numbers">8</div>
-                <div class="numbers">9</div>
-                <div class="icons-orange">X</div>
+                <button class="numbers">7</button>
+                <button class="numbers">8</button>
+                <button class="numbers">9</button>
+                <button class="icons-orange">X</button>
 
-                <div class="numbers">4</div>
-                <div class="numbers">5</div>
-                <div class="numbers">6</div>
-                <div class="icons-orange">-</div>
+                <button class="numbers">4</button>
+                <button class="numbers">5</button>
+                <button class="numbers">6</button>
+                <button class="icons-orange">-</button>
 
-                <div class="numbers">1</div>
-                <div class="numbers">2</div>
-                <div class="numbers">3</div>
-                <div class="icons-orange">+</div>
+                <button class="numbers">1</button>
+                <button class="numbers">2</button>
+                <button class="numbers">3</button>
+                <button class="icons-orange">+</button>
 
-                <div class="icons-orange">[]</div>
-                <div class="numbers">0</div>
-                <div class="numbers">.</div>
-                <div class="icons-white-orange">=</div>
+                <button class="icons-orange">[]</button>
+                <button class="numbers">0</button>
+                <button class="numbers">.</button>
+                <button class="icons-white-orange">=</button>
 
-            </section>
+            </aside>
 
         </article>
 
