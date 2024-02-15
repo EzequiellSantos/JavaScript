@@ -845,9 +845,88 @@ adicionar uma verificação quando for apenas um sinal, tambem
 fazer o uso de switchs para chamar a array de acorod com o ultimo sinal digitado pelo user, utilizando a variavel ultimo operador
 
 */
+
+function deletandoExpressao() {
+
+    if(verificarUltimaLetra(firstDisplay, operador)){
+
+        gerenciarContaDel()
+
+    }else{
+        deletouSinal()
+    }
+
+
+}
+
+function gerenciarContaDel() { // função para mostrar no primeiro input a expressão valida apos o deletamento de numeros e operadores
+                               // aqui tbm deve mostrar o resultado parcial da conta mostrada no primeiro input
+    if(numerosNaArray != ''){
+
+        switch (ultimoOperador){
+            case '+':
+
+                percorrerItemArray(somar)
+                efetuarSoma()
+                firstDisplay = numerosNaArray
+
+                mostrarResultadoAntecipado()
+                atualizarFirstDisplay()
+                atualizarSecondDisplay()
+
+                break
+        }
+
+
+    }else{
+
+        firstDisplay = firstDisplay.slice(0, -1)
+        resultadoParcial = secondDisplay.slice(0, -1)
+        numerosDigitados = numerosDigitados.slice(0, -1)
+        deletou = true
+
+    }
+        
+    checkDisplays() // verificar e preencher os displays
+    mostrarResultadoAntecipado() /* atualizar os displays*/
+    atualizarFirstDisplay()
+    atualizarSecondDisplay()
+
+    deletou = true
+
+}
+
+let numerosNaArray = ''
+function percorrerItemArray(array) {
+
+    itemInArrray = 0
+
+
+    for(let i = 0 ; i < array.length ; i++){
+
+        
+        numerosNaArray += array[i] + operador
+
+    }
+
+    console.log(numerosNaArray)
+}
+
+function deletouSinal() {
+
+    resultadoParcial = atuaisContas
+    atualizarFirstDisplay()
+    atualizarSecondDisplay()
+
+}
+
 function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
-    if (verificarUltimaLetra(firstDisplay, operador) || calculou === true) { // quando o ultima letra é igual ao operador ou o usuário digitou a conta
+    if(verificarUltimaLetra(firstDisplay, operador)){
+
+        deletandoExpressao()
+
+    } else if (calculou === true) { // quando o ultima letra é igual ao operador ou o usuário digitou a conta
 
         return; // parar função
 
@@ -855,17 +934,28 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
 
         checkDels() // fazer as alterações válidas
 
-    } else if (resultadoParcial !== "Can't divide by zero" && !verificarInfinity(checkDivisao)) { // quando a operação nao for divida por zero
+    } else if (resultadoParcial !== "Can't divide by zero" && !verificarInfinity(checkDivisao) && !verificarUltimaLetra(firstDisplay, operador)) { // quando a operação nao for divida por zero
 
         firstDisplay = firstDisplay.slice(0, -1)
         resultadoParcial = secondDisplay.slice(0, -1)
         numerosDigitados = numerosDigitados.slice(0, -1)
         deletou = true
         checkDels() // fazer as alterações válidas
-        checkDisplays() // verificar e preencher os displays
         mostrarResultadoAntecipado() /* atualizar os displays*/
         atualizarFirstDisplay()
         atualizarSecondDisplay()
+        checkDisplays() // verificar e preencher os displays
+        console.log('ai calica 2')
+
+        if(secondInput.value == 0){ // limpa o valor de atuais contas para não calcular errado
+
+            limparDisplay()
+            atuaisContas = 0
+            console.log('limpei atuais contas')
+
+        } 
+        
+        return
 
     }
 
@@ -996,6 +1086,7 @@ function limparDisplay() { // quando o usuário clicar em clean
     resultadoParcial = ''
     resultadoFinal = ''
     numerosDigitados = ''
+    numerosNaArray = 0
     checagemResultado = 0
 
     operador = ''
