@@ -40,8 +40,8 @@ button{
 header#calculadora-header{
     position: sticky;
     top: 10px;
-    width: calc(100% - 30px);
-    max-width: 598px;
+    width: calc(100% - 16px);
+    max-width: 600px;
     left: 10px;
     height: 50px;
     margin: auto;
@@ -67,6 +67,7 @@ button#toHome{
     margin-left: 10px;
     width: 48px;
     height: 48px;
+    padding: 4px;
     background-color: #000f2560;
 }
 
@@ -96,8 +97,10 @@ main{
 }
 
 div#campo-texto{
-
+    position: fixed;
+    top: 200px;
     width: 100%;
+
 
     display: flex;
     flex-direction: column;
@@ -112,45 +115,96 @@ div#campo-texto > input{
     text-align: right;
     color: white;
     font-family: var(--font-number);
-    font-size: 2em;
+    font-size: 2.5em;
+    padding-right: 10px;
 }
 
 .light div#campo-texto > input{
     color: #000;
 }
 
-main hr{
-    width: 80%;
+.primeiro{
+    color: white;
+    animation: transit2 0.2s both ease;
+}
+
+@keyframes transit2 {
+    0%{
+        color: white;
+        font-size: 1.9em;
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 0.5;
+    }
+
+    100%{
+        font-size: 2.5em;
+        opacity: 1;
+    }
+}
+
+.segundo{
+    animation: transit 0.2s both ease;
+    transition: padding 0.4s ease-in-out;
+}
+
+@keyframes transit {
+    0%{
+        color: gray;
+    }
+
+    100%{
+        font-size: 1.9em;
+        padding: 10px;
+        color: gray;
+    }
+}
+
+hr{
+    width: 90%;
     border: none;
-    background-color: #646464;
+    background-color: #868686ad;
     height: 0.05em;
-    margin-top: 30px;
 }
 
 aside#aside-calc{
-    width: calc(100%);
+    position: fixed;
+    bottom: 15px;
+    width: calc(100% - 10px);
     max-width: 570px;
+    max-height: 400px;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-row-gap: 5px;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
 }
 
 button#teclas{
     width: 100%;
     height: 100%;
+    max-width: 60px;
 }
 
 button#teclas > img{
-    width: 40px;
+    width: 30px;
 }
 
-button.simbols{
-
+img{
+    padding-right: 3px;
 }
 
 #teclas, #teclaX{
-    font-size: 2em;
+    font-size: 2.2em;
+}
+
+button:active > #caractere{
+    background-color: #6464642c;
 }
 
 span#caractere{
@@ -158,11 +212,15 @@ span#caractere{
     align-items: center;
     justify-content: center;
 
+    font-family: var(--font-number);
     height: 60px;
     width: 60px;
-    background-color: #000;
     color:#fff;
     border-radius: 50%;
+}
+
+.light span#caractere{
+    color: #000;
 }
 
 button.simbols > #caractere{
@@ -175,10 +233,12 @@ button.simbols > #caractere{
 
 button.simbolX > #caractere{
     background-color: var(--color-simple01);
+    color: #fff;
 }
 
 .light button.simbolX > #caractere{
     background-color: var(--color-simple02);
+    color: #000;
 }
 
 button#teclaX:active{
