@@ -541,7 +541,8 @@ span#contain-snake{
 @keyframes transf {
     0%{
         transform: rotate(0deg) rotateY(0deg) rotateX(0deg); 
-        border: none;
+        box-shadow: none;
+        transform: scale(1.0);
     }
 
     5%{
@@ -549,7 +550,7 @@ span#contain-snake{
         transform: scale(1.1);
     }
 
-    15%{
+    10%{
         border: none;
         transform: scale(1.0);
         box-shadow: none;
@@ -563,7 +564,7 @@ span#contain-snake{
         transform:  rotate(170deg) rotateX(180deg);
     }
 
-    100%{
+    90%{
         transform:  rotate(0deg) rotateY(0deg) rotateX(0deg);
     }
 
@@ -572,7 +573,8 @@ span#contain-snake{
 @keyframes transfTw {
     0%{
         transform: rotate(0deg) rotateY(0deg) rotateX(0deg); 
-        border: none;
+        box-shadow: none;
+        transform: scale(1.0);
     }
 
     5%{
@@ -580,7 +582,7 @@ span#contain-snake{
         transform: scale(1.1);
     }
 
-    15%{
+    10%{
         border: none;
         transform: scale(1.0);
         box-shadow: none;
@@ -594,7 +596,7 @@ span#contain-snake{
         transform:  rotate(170deg) rotateX(180deg);
     }
 
-    100%{
+    90%{
         transform:  rotate(0deg) rotateY(0deg) rotateX(0deg);
     }
 
