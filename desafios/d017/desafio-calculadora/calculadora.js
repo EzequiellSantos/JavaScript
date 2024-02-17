@@ -1,6 +1,46 @@
+document.addEventListener('DOMContentLoaded', function () {
+
+    const temaEstilos = document.getElementById('tema-estilos'); // estilos => style.css / animation.css
+    var toggleSection = document.getElementById("toggle-icon") // section que guarda lua | sol
+
+    const temaPreferido = localStorage.getItem('tema-preferido') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    // Aplicação dos estilos iniciais
+    aplicarTema(temaPreferido);
+
+
+    // Mudando e Guardando o tema escolhido
+    toggleSection.onclick = () => {
+
+        let novoTema = temaEstilos.dataset.tema === 'light' ? 'dark' : 'light';
+        aplicarTema(novoTema);
+        localStorage.setItem('tema-preferido', novoTema); // guardando o tema escolhido  
+
+    };
+
+    function aplicarTema(tema) {
+
+        // Adicionar ou remover a classe conforme o tema
+        document.body.classList.remove('dark', 'light');
+        document.body.classList.add(`${tema}`);
+
+        // Atualizar o dataset para referência futura
+        temaEstilos.dataset.tema = tema;
+        adequarImagens(tema) //chama a função para adequar as imagens ao tema 
+
+    }
+
+    function adequarImagens(tema) {// adequa as imagens ao tema
+
+        imgDel.src = `Imagens/icons-Direct/del-${tema}.png` 
+        toBack.src = `Imagens/icons-Direct/toHome-${tema}-96.png`
+    
+    }
+
+});
+
 var firstInput = document.getElementById('firstInput') // primeiro input que vai aparecer para o usuário
 var secondInput = document.getElementById('secondInput') // segundo input que vai aparecer para o usuário
-
 let firstDisplay = '' //variável que vai armazionar dados para o primeiro input
 let secondDisplay = '' //variável que vai armazionar dados para o segundo input
 
@@ -1010,7 +1050,7 @@ function limparDisplay() { // quando o usuário clicar em clean
 
 function limparStorage() { // função para limpar o localStorage do usuário
 
-    localStorage.clear()
+    localStorage.removeItem(operador)
     ultimoOperador = ''
 
 }
