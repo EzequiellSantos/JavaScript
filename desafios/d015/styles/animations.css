@@ -302,7 +302,6 @@ menu.exibindoTw{
 }
 
 div#design-layout{ /* conteiner do design bola */
-    display: none; 
     position: relative;
     z-index: 2;
 }
@@ -310,10 +309,10 @@ div#design-layout{ /* conteiner do design bola */
 div#design-layout-ball{ /* circulo gigante */
     position: fixed;
     bottom: 0;
-    left: 0;
+    right: 0;
     height: 167px;
     width: 167px; 
-    border-radius: 0 0 100% 0;
+    border-radius: 0 100% 0 0;
     background-color: var(--color-simple01);
     rotate: -90deg;
     z-index: 1;
@@ -365,14 +364,14 @@ div.ball-effects{
  
 div#small-ball-0{
     top: -35px;
-    left: 73px;
+    right: 73px;
     width: 96px;
     height: 98px;
 }
 
 div#small-ball-1{
     top: -8px;
-    left: 30px;
+    right: 30px;
     width: 125px;
     height: 129px;
 }
