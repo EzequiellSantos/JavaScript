@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function adequarImagens(tema) {// adequa as imagens ao tema
 
-            imgDel.src = `Imagens/icons-Direct/del-${tema}.png`
             toBack.src = `Imagens/icons-Direct/toHome-${tema}-96.png`
             toUp.src = `./Imagens/icons-Direct/toUp-${tema}-96.png`
 
