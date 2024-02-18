@@ -1,4 +1,9 @@
+function adequarImagens(tema) {// adequa as imagens ao tema
 
+  toBack.src = `Imagens/icons-Direct/toHome-${tema}-96.png`
+  toUp.src = `./Imagens/icons-Direct/toUp-${tema}-96.png`
+
+}
 
 window.addEventListener('scroll', function() { // função para esconder ou mostrar o header
 
