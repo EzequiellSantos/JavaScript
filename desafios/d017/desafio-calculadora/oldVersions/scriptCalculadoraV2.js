@@ -237,7 +237,6 @@ function addNumber(number) { // função de adicionar numeros
 
     } else if(deletouSinal == true){
 
-        console.log('add number')
         firstDisplay += number //adiciona o numero
         resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
 
@@ -923,7 +922,6 @@ function gerenciarContaDel() { // função para mostrar no primeiro input a expr
             efetuarSoma()
             resultadoParcial = resultSoma
 
-            console.log('bb')
 
             break
     }
@@ -965,7 +963,6 @@ function percorrerItemArray(array) {
 
     }
 
-    console.log(numerosNaArray)
 }
 
 function deletandoOperador() {
@@ -976,7 +973,7 @@ function deletandoOperador() {
     switch (ultimoOperador){
         case '+':
             mostrarResultadoAntecipado()
-            console.log('resultado da conta do display atuaç')
+            break
     }
 
     mostrarResultadoAntecipado() 
@@ -1016,13 +1013,11 @@ function deletarLetter(){ //quando o usuário acionar o botão de backspace
         atualizarFirstDisplay()
         atualizarSecondDisplay()
         checkDisplays() // verificar e preencher os displays
-        console.log('ai calica 2')
 
         if(secondInput.value == 0){ // limpa o valor de atuais contas para não calcular errado
 
             limparDisplay()
             atuaisContas = 0
-            console.log('limpei atuais contas')
 
         } 
         
