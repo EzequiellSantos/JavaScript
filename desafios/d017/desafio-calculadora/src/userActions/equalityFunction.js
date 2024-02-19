@@ -1,0 +1,1 @@
+// ações ao apertar igual
