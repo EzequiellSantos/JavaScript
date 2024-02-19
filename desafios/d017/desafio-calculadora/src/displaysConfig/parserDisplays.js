@@ -1,4 +1,4 @@
-// ações do displays
+/* ações do displays */
 
 //primeiro Input
 function atualizarFirstDisplay() { // fiunção de preenchimento do primeiro display (input)
