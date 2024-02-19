@@ -193,7 +193,7 @@ function addNumber(number) { // função de adicionar numeros
 
     verficandoMeuAmorzinho() // chama a função de verificação caso o resultado final seja 0
 
-    if (resultadoFinal == "" && !verificarInfinity(checkDivisao) && meuAmorChamadoZero !== 0) { // verificação para evitar erros com o numero 0 e respostas inválidas
+    if (resultadoFinal == "" && !verificarInfinity(checkDivisao) && meuAmorChamadoZero !== 0 && deletouSinal !== true) { // verificação para evitar erros com o numero 0 e respostas inválidas
 
         reporStyles() //repôe estilos
         firstDisplay += number //adiciona o numero
@@ -206,7 +206,7 @@ function addNumber(number) { // função de adicionar numeros
 
         calculou = false // (recursividae) para validar
 
-    } else if (!verificarInfinity(checkDivisao) && meuAmorChamadoZero == 0) { // verificação para quando digitar igual e o usuário queira digitar um novo numero diferente do resultado final
+    } else if (!verificarInfinity(checkDivisao) && meuAmorChamadoZero == 0 && deletouSinal !== true) { // verificação para quando digitar igual e o usuário queira digitar um novo numero diferente do resultado final
 
         reporStyles() //repôe estilos
         limparDisplay() // limpa tudo que estava nos inputs
@@ -220,7 +220,7 @@ function addNumber(number) { // função de adicionar numeros
 
         calculou = false
 
-    } else if (resultadoFinal == `Can't divide by zero`) { // validação para caso o usuário divida por 0
+    } else if (resultadoFinal == `Can't divide by zero` && deletouSinal !== true) { // validação para caso o usuário divida por 0
 
         reporStyles() // (recursividade) repôe estilos
         limparDisplay() // limpa tudo que estava nos inputs
@@ -235,7 +235,17 @@ function addNumber(number) { // função de adicionar numeros
 
         calculou = false
 
+    } else if(deletouSinal == true){
+
+        firstDisplay += number //adiciona o numero
+        resultadoParcial += number //adiciona apenas o numero digitado ao segundo input
+
+        atualizarFirstDisplay()
+        atualizarSecondDisplay()
+        mostrarResultadoAntecipado()
     }
+
+    numerosFirstDisplay = parseFloat(firstDisplay)
 
 }
 
@@ -277,7 +287,6 @@ function adicionarDecimal() { // função para adcionar decimais
 let ultimoOperador = '' // armazema o operador antigo 
 let operador = '' // armazena o operador digitado
 
-/* adicionar um if, para caso o resultado parcial seja igual a can't divide by zero, ele não chamar a função */
 function clicouOperador(op) {
 
     if (verificarResultAntecipado()) {
@@ -534,7 +543,7 @@ function clicouOperador(op) {
 
                 }
 
-            } else if (mudarSinal == true) { // caso o usuário mude o sinal na execução simples
+            } else if (mudarSinal == true && resultadoFinal !== '') { // caso o usuário mude o sinal na execução simples
 
                 checkchanges() // chama a funçao para validar a recursividade com as mudanças de sinais
                 limparArrays() // limpa arrays pra n efetuar contas so alternando os operdores
@@ -838,9 +847,154 @@ function calcularResultado() { //quando o usuário apertou igual
 
 let deletou = false
 
-function deletarLetter() { //quando o usuário acionar o botão de backspace
+/* Fazer uma fnção para caso a conta seja do mesmo sinal tendo varios, quando deletar deve apenas apagar o uktimo numero dentro da array, e reamostrar a array do sinal repetido no primeiro input, colocando o operador em forma de strinf entre cada numero, pode adicionar um loop para cada item entro da array do operador utilizado, a função será chamada quando o usuáro digitar para apagar a conta e  ela possuir uma expressão (verificação)
 
-    if (verificarUltimaLetra(firstDisplay, operador) || calculou === true) { // quando o ultima letra é igual ao operador ou o usuário digitou a conta
+
+adicionar uma verificação quando for apenas um sinal, tambem
+
+fazer o uso de switchs para chamar a array de acorod com o ultimo sinal digitado pelo user, utilizando a variavel ultimo operador
+
+*/
+
+/* coletar quantos operdores ha na conta, se houver mais de um, deve retornar expressão presente como true */
+
+function verificarExpressao(array, operador) { // função para saber se o operador se repete na função
+
+    contagem = 0
+
+    for(let i = 0 ; i < array.length ; i++){
+
+        if(array[i] == operador){ // descobrindo quantas vezes o operador se repete na conta
+
+            contagem += 1
+
+        }
+
+    }
+
+    if(contagem > 1){
+
+        expressoPresente = true
+
+    }
+
+
+    return contagem
+
+}
+
+function deletandoExpressao() {
+
+    if(expressoPresente == true){
+
+        gerenciarContaDel()
+
+    }else{
+        deletandoOperador()
+    }
+
+
+}
+
+let deletouSinal = false
+let expressoPresente = false
+let numerosFirstDisplay = ''
+
+function gerenciarContaDel() { // função para mostrar no primeiro input a expressão valida apos o deletamento de numeros e operadores
+// aqui tbm deve mostrar o resultado parcial da conta mostrada no primeiro input
+
+
+    firstDisplay = firstDisplay.slice(0, -1)
+
+    deletou = true
+    deletouSinal = true
+
+    switch (ultimoOperador){
+
+        case '+':
+
+            resultSoma = 0
+            numerosDigitados = parseFloat(numerosDigitados)
+            somar.push(numerosDigitados)
+
+
+            retirarNumeroApagado(somar)
+            efetuarSoma()
+            resultadoParcial = resultSoma
+
+
+            break
+    }
+
+
+        
+    checkDisplays() // verificar e preencher os displays
+    atualizarFirstDisplay()
+    atualizarSecondDisplay()
+
+
+}
+
+function retirarNumeroApagado(array){
+
+    for(let i = 0 ; i < array.length ; i++){
+
+        if(verificarUltimoNumero(firstDisplay, array)){
+
+            array.pop()
+
+        }
+        
+    }
+
+
+}
+
+let numerosNaArray = ''
+function percorrerItemArray(array) {
+
+    itemInArrray = 0
+
+
+    for(let i = 0 ; i < array.length ; i++){
+
+        
+        numerosNaArray += array[i] + operador
+
+    }
+
+}
+
+function deletandoOperador() {
+
+    firstDisplay = firstDisplay.slice(0, -1)
+    
+    verificarExpressao(firstDisplay, operador)
+    switch (ultimoOperador){
+        case '+':
+            mostrarResultadoAntecipado()
+            break
+    }
+
+    mostrarResultadoAntecipado() 
+    atualizarFirstDisplay()
+    atualizarSecondDisplay()
+    limparArrays()
+    deletou = true
+    deletouSinal = true
+    expressoPresente = false
+    operador = ''
+}
+
+function deletarLetter(){ //quando o usuário acionar o botão de backspace
+
+    verificarExpressao(firstDisplay, operador)// chama a função para veriricar se ha expressões
+
+    if(expressoPresente == true || deletouSinal == false){
+
+        deletandoExpressao()
+
+    } else if (calculou === true) { // quando o ultima letra é igual ao operador ou o usuário digitou a conta
 
         return; // parar função
 
@@ -848,17 +1002,26 @@ function deletarLetter() { //quando o usuário acionar o botão de backspace
 
         checkDels() // fazer as alterações válidas
 
-    } else if (resultadoParcial !== "Can't divide by zero" && !verificarInfinity(checkDivisao)) { // quando a operação nao for divida por zero
+    } else if (resultadoParcial !== "Can't divide by zero" && !verificarInfinity(checkDivisao) && !verificarUltimaLetra(firstDisplay, operador)) { // quando a operação nao for divida por zero
 
         firstDisplay = firstDisplay.slice(0, -1)
         resultadoParcial = secondDisplay.slice(0, -1)
         numerosDigitados = numerosDigitados.slice(0, -1)
         deletou = true
         checkDels() // fazer as alterações válidas
-        checkDisplays() // verificar e preencher os displays
         mostrarResultadoAntecipado() /* atualizar os displays*/
         atualizarFirstDisplay()
         atualizarSecondDisplay()
+        checkDisplays() // verificar e preencher os displays
+
+        if(secondInput.value == 0){ // limpa o valor de atuais contas para não calcular errado
+
+            limparDisplay()
+            atuaisContas = 0
+
+        } 
+        
+        return
 
     }
 
@@ -868,6 +1031,23 @@ function verificarUltimaLetra(string, letra) { // verificação se a ultima letr
 
     const ultimaletra = string.slice(-1);
     return ultimaletra === letra
+
+}
+
+// fazer no caderno dps
+function verificarUltimoNumero(display, array) { // function para verificar se o ultimo numero da displayestá na array
+
+    let numeroPresente = display.match(/\d+$/)
+
+    if(numeroPresente) {
+
+        let numeroEncontrado = Number(numeroPresente[0])
+
+        return array.includes(numeroEncontrado)
+
+    }
+
+    return false //retorna false se o numero no fim da string não estiver presente na array
 
 }
 
@@ -987,15 +1167,17 @@ function checkchanges() {
 function limparDisplay() { // quando o usuário clicar em clean
 
     resultadoParcial = ''
-    resultadoFinal = 0
+    resultadoFinal = ''
     numerosDigitados = ''
+    numerosNaArray = 0
+    numerosFirstDisplay = ''
     checagemResultado = 0
-    checkDivisao = ''
 
     operador = ''
     numeroAntesOp = 0
     pontoPresenteNoNumero = false
     calculou = false
+    deletouSinal = false
     checkDivisao = ''
 
     firstDisplay = ''
@@ -1011,7 +1193,7 @@ function limparDisplay() { // quando o usuário clicar em clean
 
 function limparStorage() { // função para limpar o localStorage do usuário
 
-    localStorage.clear()
+    localStorage.removeItem(operador)
     ultimoOperador = ''
 
 }
