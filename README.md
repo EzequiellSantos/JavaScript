@@ -1,6 +1,6 @@
 # JavaScript
 
- <p>Curso de JavaScript	:yellow_circle::black_circle:</p>
+ Curso de JavaScript	🟡⚫
 
  Sempre Buscando a melhor peformance :ledger::computer: :iphone:
 
