@@ -33,3 +33,24 @@ let porcentagem = [] //array para efetuar porcentagens
 let calculou = false // variavel para validar a recursividade
 let deletou = false // variavel para validar a recursividade
 let mudarSinal = true // variavel para validar a recursividade
+
+function inverterStyles() { // add estilos quando apertar igual
+
+    firstInput.classList.add('segundo')
+    firstInput.classList.remove('primeiro')
+
+    secondInput.classList.add('primeiro')
+    secondInput.classList.remove('segundo')
+
+
+}
+
+function reporStyles() { // repoe os estilos iniciais
+
+    firstInput.classList.add('primeiro')
+    firstInput.classList.remove('segundo')
+
+    secondInput.classList.add('segundo')
+    secondInput.classList.remove('primeiro')
+
+}

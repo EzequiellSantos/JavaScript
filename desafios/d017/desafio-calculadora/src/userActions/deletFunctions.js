@@ -1,1 +1,0 @@
-// ações de deletagens
