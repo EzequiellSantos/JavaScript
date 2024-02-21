@@ -35,7 +35,7 @@ header#calculadora-header{
     position: sticky;
     top: 10px;
     width: calc(100% - 16px);
-    max-width: 598px;
+    max-width: 600px;
     left: 10px;
     height: 50px;
     margin: auto;
@@ -49,8 +49,8 @@ header#calculadora-header{
     justify-content: space-around;
 }
 
-nav#toggle-theme{
-    margin-right: 10px;
+header#calculadora-header > nav#toggle-theme{
+    margin-top: 15px;
 }
 
 button#toHome{
@@ -59,6 +59,8 @@ button#toHome{
     border-radius: 15px;
     margin-top: 15px;
     margin-left: 10px;
+    width: 48px;
+    height: 48px;
     padding: 4px;
     background-color: #000f2560;
 }
@@ -77,122 +79,175 @@ button#toHome:active{
     transition: all 0.2s ease;
 }
 
-main#main-calculadora{
-    width: calc(100% - 15px);
-    margin: auto;
-    margin-top: 0;
-}
+#main-principal{
+    width: calc(100% - 10px);
+    max-width: 600px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px;
+    margin-bottom: 0;
 
-main#article-calculadora{
-    margin: auto;
-    margin-top: 20;
-}
-
-section#campo-texto{
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    align-items: flex-end;
-
-    height: 150px;
-
-    color: #fff;
-
-    margin: -40px 0px 10px 0px;
-    padding: 7px;
-    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-.light section#campo-texto{
-    color: #000;
-}
-
-section#campo-texto > input{
-    outline: 0;
-    padding: 15px;
+div#campo-texto{
     width: 100%;
-    border: 0;
-    border-radius: 10px;
-    background-color: transparent;
-    color: #fff;
-    font-size: 2em;    
-    font-family: var(--font-number);
-    letter-spacing: 2px;
-    text-align: right;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
-.light section#campoTexto{
+div#campo-texto > input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    text-align: right;
+    color: white;
+    font-family: var(--font-number);
+    font-size: 2.5em;
+    padding-right: 10px;
+}
+
+.light div#campo-texto > input{
     color: #000;
 }
 
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
-    -webkit-appearance: none;
-    margin: 0;
+.primeiro{
+    color: white;
+    animation: transit2 0.2s both ease;
 }
 
-section#teclas{
-    background-color: var(--color-background01);
-    margin: auto;
-    padding: 15px 0px;
-    border-radius: 15px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    justify-items: center;
+@keyframes transit2 {
+    0%{
+        color: white;
+        font-size: 1.9em;
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 0.5;
+    }
+
+    100%{
+        font-size: 2.5em;
+        opacity: 1;
+    }
 }
 
-.light section#teclas{
-    background-color: var(--color-background03);
+.segundo{
+    animation: transit 0.2s both ease;
+    transition: padding 0.4s ease-in-out;
 }
 
-section#teclas > div{
-    width: 50px;
+@keyframes transit {
+    0%{
+        color: gray;
+    }
+
+    100%{
+        font-size: 1.9em;
+        padding: 10px;
+        color: gray;
+    }
+}
+
+div#separar{
     height: 50px;
-    text-align: center;
-    border-radius: 50%;
-    margin: 3px 0px;
+    width: 100%;
+    margin: auto;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.4em;
-    cursor: pointer;
 }
 
-.numbers, div.icons-orange, div.icons-white-orange{
+hr{
+    width: 90%;
+    border: none;
+    background-color: #868686ad;
+    height: 0.05em;
+}
+
+aside#aside-calc{
+    width: calc(100% - 10px);
+    max-width: 570px;
+    max-height: 400px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 5px;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+button#teclas{
+    width: 100%;
+    height: 100%;
+    max-width: 60px;
+}
+
+button#teclas > img{
+    width: 30px;
+}
+
+img{
+    padding-right: 3px;
+}
+
+#teclas, #teclaX{
+    font-size: 2.2em;
+}
+
+button:active > #caractere{
+    background-color: #6464642c;
+}
+
+span#caractere{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     font-family: var(--font-number);
+    height: 60px;
+    width: 60px;
+    color:#fff;
+    border-radius: 50%;
 }
 
-.numbers{
-    color: #fff;
-}
-
-section#teclas > .numbers:active{
-    background-color: var(--color-calc-background);
-
-}
-
-.light .numbers{
+.light span#caractere{
     color: #000;
 }
 
-div.icons-orange{
-    color: var(--color-calc-background-orange);
+button.simbols > #caractere{
+    color: var(--color-simple01);
 }
 
-div.icons-orange:active{
-    background-color: rgb(255, 190, 167);
+.light button.simbols > #caractere{
+    color: var(--color-simple02);
 }
 
-div.icons-white-orange{
-    background-color: var(--color-calc-background-orange);
+button.simbolX > #caractere{
+    background-color: var(--color-simple01);
     color: #fff;
 }
 
-.light div.icons-white-orange{
-    background-color: rgba(248, 80, 19, 0.87);
+.light button.simbolX > #caractere{
+    background-color: var(--color-simple02);
+    color: #000;
 }
 
-div.icons-white-orange:active{
-    background-color: rgb(255, 139, 97);
+button#teclaX:active{
+    transform: scale(0.95);
+}
+
+.op{
+    margin-top: -3px;
 }

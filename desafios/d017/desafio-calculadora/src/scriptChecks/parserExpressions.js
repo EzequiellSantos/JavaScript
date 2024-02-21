@@ -1,1 +1,0 @@
-// validações e funções de operadores

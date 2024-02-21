@@ -38,7 +38,7 @@ header.eloquio-header{
     position: sticky;
     top: 10px;
     width: calc(100% - 16px);
-    max-width: 598px;
+    max-width: 600px;
     left: 10px;
     height: 50px;
     margin: auto;
@@ -48,7 +48,6 @@ header.eloquio-header{
 
     display: flex;
     align-items: center;
-
     justify-content: space-around;
 }
 
@@ -90,13 +89,13 @@ article.article-content{
     padding: 10px;
     border-radius: 15px;
 
-    box-shadow: 3px 3px 1px rgb(0, 168, 76);
+    box-shadow: 3px 3px 1px var(--color-light02);
 }
 
 .light article.article-content{
     background-color: var(--color-background03);
     color: #000;
-    box-shadow: 3px 3px 1px rgb(0, 235, 106);
+    box-shadow: 3px 3px 1px var(--color-background02);
 }
 
 article.article-content  > p, h4{
@@ -135,23 +134,15 @@ button#toTop{
     bottom: 30px;
     left: 13px;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+
     border: none;
     outline: none;
-    background-color: var(--color-background00);
-    box-shadow: 0.2em 0.2em 0em rgb(0, 168, 76);
     transition: opacity 0.5s ease-in-out;
-}
-
-.light button#toTop{
-    background-color: #f1f1f1;
-    box-shadow: 0.2em 0.2em 0em rgb(0, 235, 106);
+    background-color: transparent;
 }
 
 #toTop > img{
-    width: 40px;
-    height: 40px;
+    width: 55px;
 }
 
 button#toHome{
@@ -161,6 +152,8 @@ button#toHome{
     margin-top: 15px;
     margin-left: -35px;
     padding: 4px;
+    width: 48px;
+    height: 48px;
     background-color: #000f2560;
 }
 

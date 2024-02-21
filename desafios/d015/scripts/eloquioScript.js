@@ -1,49 +1,22 @@
-document.addEventListener('DOMContentLoaded', function () {
+function adequarImagens(tema) {// adequa as imagens ao tema
 
-    const temaEstilos = document.getElementById('tema-estilos'); // estilos => style.css / animation.css
-    var toggleSection = document.getElementById("toggle-icon") // section que guarda lua | sol
+  toBack.src = `Imagens/icons-Direct/toHome-${tema}-96.png`
+  toUp.src = `./Imagens/icons-Direct/toUp-${tema}-96.png`
 
-    const temaPreferido = localStorage.getItem('tema-preferido') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+}
 
-    // Aplicação dos estilos iniciais
-    aplicarTema(temaPreferido);
-
-
-    // Mudando e Guardando o tema escolhido
-    toggleSection.onclick = () => {
-
-        let novoTema = temaEstilos.dataset.tema === 'light' ? 'dark' : 'light';
-        aplicarTema(novoTema);
-        localStorage.setItem('tema-preferido', novoTema); // guardando o tema escolhido  
-
-    };
-
-    function aplicarTema(tema) {
-
-        // Adicionar ou remover a classe conforme o tema
-        document.body.classList.remove('dark', 'light');
-        document.body.classList.add(`${tema}`);
-
-        // Atualizar o dataset para referência futura
-        temaEstilos.dataset.tema = tema;
-
-    }
-
-
-});
-
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function() { // função para esconder ou mostrar o header
 
     var elementoSticky = document.getElementById('eloquio-header');
     var scrollTop = window.scrollY;
   
-    if (scrollTop > 40) {  
+    if (scrollTop > 40) {  // verificando o quanto ja foi rolado a página para baixo
 
-      elementoSticky.classList.add('oculto');
+      elementoSticky.classList.add('oculto'); // deixar o header iculto
 
     } else {
 
-      elementoSticky.classList.remove('oculto');
+      elementoSticky.classList.remove('oculto'); // mostra o header
 
     }
 
@@ -52,9 +25,11 @@ window.addEventListener('scroll', function() {
 
 });
 
-toTop.onclick = () => {
+toTop.onclick = () => { // funçãi para quando clicar no botao, levar o usuário para o topo da página
+
     window.scrollTo({
         top: 100,
         behavior: 'smooth'
     })
+
 }

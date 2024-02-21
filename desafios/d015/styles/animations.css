@@ -110,7 +110,7 @@ menu.exibindoTw{
     height: 18.5px;
     border-radius: 50%;
     background-color: rgb(212, 212, 212);  
-    transition: all 0.9s ease-in-out;
+    transition: width 0.9s ease-in-out;
     animation: rot 6s infinite ease-in-out;
     box-shadow: inset 0.3em 0.2em 0.3em rgba(0, 0, 0, 0.61);
 }
@@ -302,7 +302,6 @@ menu.exibindoTw{
 }
 
 div#design-layout{ /* conteiner do design bola */
-    display: none; 
     position: relative;
     z-index: 2;
 }
@@ -310,10 +309,10 @@ div#design-layout{ /* conteiner do design bola */
 div#design-layout-ball{ /* circulo gigante */
     position: fixed;
     bottom: 0;
-    left: 0;
+    right: 0;
     height: 167px;
     width: 167px; 
-    border-radius: 0 0 100% 0;
+    border-radius: 0 100% 0 0;
     background-color: var(--color-simple01);
     rotate: -90deg;
     z-index: 1;
@@ -365,14 +364,14 @@ div.ball-effects{
  
 div#small-ball-0{
     top: -35px;
-    left: 73px;
+    right: 73px;
     width: 96px;
     height: 98px;
 }
 
 div#small-ball-1{
     top: -8px;
-    left: 30px;
+    right: 30px;
     width: 125px;
     height: 129px;
 }
@@ -506,8 +505,13 @@ span#error{
 }  
 
 /* Animações de Itens do Eloquio */
+
+path#eloquio-path{
+    stroke: var(--color-light02);
+}
+
 .light path#eloquio-path{
-    stroke: #00b100;
+    stroke: var(--color-simple02);
 }
 
 svg#icons-eloquio-snake{
@@ -529,18 +533,23 @@ span#contain-snake{
     animation: transf 7s infinite ease-in-out;
 }
 
+.light span#contain-snake{
+    animation: transfTw 7s infinite ease-in-out;
+}
+
 @keyframes transf {
     0%{
         transform: rotate(0deg) rotateY(0deg) rotateX(0deg); 
-        border: none;
+        box-shadow: none;
+        transform: scale(1.0);
     }
 
     5%{
-        box-shadow: 0.1em 0.1em 0em var(--color-checked);
+        box-shadow: 0.1em 0.1em 0em var(--color-light02);
         transform: scale(1.1);
     }
 
-    15%{
+    10%{
         border: none;
         transform: scale(1.0);
         box-shadow: none;
@@ -554,7 +563,39 @@ span#contain-snake{
         transform:  rotate(170deg) rotateX(180deg);
     }
 
-    100%{
+    90%{
+        transform:  rotate(0deg) rotateY(0deg) rotateX(0deg);
+    }
+
+}
+
+@keyframes transfTw {
+    0%{
+        transform: rotate(0deg) rotateY(0deg) rotateX(0deg); 
+        box-shadow: none;
+        transform: scale(1.0);
+    }
+
+    5%{
+        box-shadow: 0.1em 0.1em 0em var(--color-simple02);
+        transform: scale(1.1);
+    }
+
+    10%{
+        border: none;
+        transform: scale(1.0);
+        box-shadow: none;
+    }
+
+    40%{
+        transform:  rotate(80deg) rotateY(180deg);
+    }
+
+    60%{
+        transform:  rotate(170deg) rotateX(180deg);
+    }
+
+    90%{
         transform:  rotate(0deg) rotateY(0deg) rotateX(0deg);
     }
 
@@ -580,8 +621,12 @@ span#contain-circles{
     height: 45px;
     border-radius: 1px;
     background-color: var(--color-background00);
-    box-shadow: 0.1em 0.1em 0em var(--color-checked);
+    box-shadow: 0.1em 0.1em 0em var(--color-light02);
     animation: mexer 5s infinite ease;
+}
+
+.light span#contain-circles{
+    box-shadow: 0.1em 0.1em 0em var(--color-simple02);
 }
 
 @keyframes mexer {
@@ -651,6 +696,11 @@ span#contain-polig{
     border-radius: 50%;
     background-color: var(--color-background00);
     animation: gira 5s infinite ease-in-out;
+    box-shadow: var(--color-simple02);
+}
+
+.light span#contain-polig{
+    animation: giratw 5s infinite ease-in-out;
 }
 
 @keyframes gira {
@@ -661,7 +711,41 @@ span#contain-polig{
 
     10%{
         transform: scale(1.05);
-        box-shadow: 0.1em 0.1em 0em var(--color-checked);
+        box-shadow: 0.1em 0.1em 0em var(--color-light02);
+    }
+
+    20%{
+        transform: scale(1);
+
+    }
+
+    25%{
+        transform: rotate(0deg);
+        box-shadow: none;
+    }
+
+    50%{
+        transform: rotate(360deg);
+    }
+
+    55%{
+        transform: rotate(360deg);
+    }
+
+    75%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes giratw {
+    0%{
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    10%{
+        transform: scale(1.05);
+        box-shadow: 0.1em 0.1em 0em var(--color-simple02);
     }
 
     20%{

@@ -25,7 +25,7 @@
                 <a href="index.html" target="_self" rel="prev">
 
                     <button id="toHome">
-                        <img src="Imagens/icons-Direct/voltar.png" alt="seta-voltar">
+                        <img id="toBack" src="" alt="seta-voltar">
                     </button>
 
                 </a>
@@ -51,50 +51,56 @@
 
     </header>
 
-    <main id="main-calculadora">
+    <main id="main-principal">
 
-        <article id="article-calculadora">
+        <div id="campo-texto">
 
-            <section id="campo-texto" class="numbers">
+            <input id="firstInput" class="primeiro" type="text" readonly>
+            <input id="secondInput" class="segundo" type="text" readonly>
+            
+        </div>
 
-                <input type="text" name="num" id="display" readonly>
+        <div id="separar"><hr></div>
 
-            </section>
+        <aside id="aside-calc">
 
-            <section id="teclas">
+            <button id="teclas" class="simbols" onclick="limparDisplay()"><span id="caractere">C</span></button>
+            <button id="teclas" class="simbols" onclick="deletarLetter()"><span id="caractere"><img id="imgDel"
+                        src="Imagens/icons-Direct/del-dark.png" alt="imagem-deletar"></span></button>
+            <button id="teclas" class="simbols" onclick="clicouOperador('%')"><span id="caractere">%</span></button>
+            <button id="teclas" class="simbols" onclick="clicouOperador('/')"><span id="caractere">/</span></button>
 
-                <div class="icons-orange">C</div>
-                <div class="icons-orange">Del</div>
-                <div class="icons-orange">%</div>
-                <div class="icons-orange">/</div>
+            <button id="teclas" class="numbers" onclick="addNumber('7')"><span id="caractere">7</span></button>
+            <button id="teclas" class="numbers" onclick="addNumber('8')"><span id="caractere">8</span></button>
+            <button id="teclas" class="numbers" onclick="addNumber('9')"><span id="caractere">9</span></button>
+            <button id="teclas" class="simbols" onclick="clicouOperador('x')"><span id="caractere"
+                    class="op">x</span></button>
 
-                <div class="numbers">7</div>
-                <div class="numbers">8</div>
-                <div class="numbers">9</div>
-                <div class="icons-orange">X</div>
+            <button id="teclas" class="numbers" onclick="addNumber('4')"><span id="caractere">4</span></button>
+            <button id="teclas" class="numbers" onclick="addNumber('5')"><span id="caractere">5</span></button>
+            <button id="teclas" class="numbers" onclick="addNumber('6')"><span id="caractere">6</span></button>
+            <button id="teclas" class="simbols" onclick="clicouOperador('-')"><span id="caractere"
+                    class="op">-</span></button>
 
-                <div class="numbers">4</div>
-                <div class="numbers">5</div>
-                <div class="numbers">6</div>
-                <div class="icons-orange">-</div>
+            <button id="teclas" class="numbers" onclick="addNumber('1')"><span id="caractere">1</span></button>
+            <button id="teclas" class="numbers" onclick="addNumber('2')"><span id="caractere">2</span></button>
+            <button id="teclas" class="numbers" onclick="addNumber('3')"><span id="caractere">3</span></button>
+            <button id="teclas" class="simbols" onclick="clicouOperador('+')"><span id="caractere"
+                    class="op">+</span></button>
 
-                <div class="numbers">1</div>
-                <div class="numbers">2</div>
-                <div class="numbers">3</div>
-                <div class="icons-orange">+</div>
+            <button id="teclas" class="simbols" onclick=""><span id="caractere">[]</span></button>
+            <button id="teclas" class="numbers" onclick="addNumber('0')"><span id="caractere">0</span></button>
+            <button id="teclas" class="numbers" onclick="adicionarDecimal()"><span id="caractere"
+                    class="decimal">.</span></button>
+            <button id="teclaX" class="simbolX" onclick="calcularResultado()"><span id="caractere">=</span></button>
 
-                <div class="icons-orange">[]</div>
-                <div class="numbers">0</div>
-                <div class="numbers">.</div>
-                <div class="icons-white-orange">=</div>
-
-            </section>
-
-        </article>
+        </aside>
 
     </main>
 
-    <script src="scripts/calculadora.js" defer></script>
+
+    <script src="../d017/desafio-calculadora/oldVersions/scriptCalculadoraV1.js" defer></script>
+
 </body>
 
 </html>
