@@ -967,7 +967,7 @@ function checkDecimals() { //verifica se o numero real é muito grande e limita-
 
     } else {
 
-        checagemResultado = Math.round(checagemResultado * 100) / 100;
+        return
 
     }
 
