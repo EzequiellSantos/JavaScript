@@ -47,3 +47,55 @@ button#toHome:active{
     transform: scale(1.1);
     transition: all 0.2s ease;
 }
+
+article#article-ferramentas{
+    margin-top: 20px;
+    height: 600px; 
+    background-color: var(--color-background03);
+    border-radius: 10px;
+}
+
+article#article-ferramentas >  section#section-fixed{
+    position: absolute;
+    width: calc(100% - 0px);
+    max-width: 600px;
+    text-align: center;
+
+    background-color: ;
+    padding: 10px 0px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+article#article-ferramentas >  section#section-scroll{
+    overflow-y: scroll;
+    padding-top: 50px;
+    height: 500px;
+}
+
+article#article-ferramentas >  section#section-scroll::-webkit-scrollbar{
+    display: none;
+}
+
+article#article-ferramentas >  aside{
+
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+#cards{
+    width: 80%;
+    height: 130px;
+    background-color: ;
+    color: ;
+
+    margin: 0px 0px 15px 0px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+}
