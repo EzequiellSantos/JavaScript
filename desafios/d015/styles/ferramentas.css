@@ -34,6 +34,11 @@
 
 }
 
+:root{
+    --color-background-scroll-light: #f0f0f0a9;
+    --color-background-scroll-dark: #707070a9;
+}
+
 a:active{
     color: var(--color-background00);
 }
@@ -109,7 +114,9 @@ section#section-fixed{
     font-family: var(--font-fil-itali);
     font-size: 1.5em;
 
+    background-image: linear-gradient(to bottom, var(--color-background01), var(--color-background-scroll-dark));
     background-color: var(--color-background01);
+
     padding: 20px 0px 0px 0px;
     margin-top: -1px;
     border-radius: 15px 15px 0px 0px;
@@ -117,29 +124,30 @@ section#section-fixed{
 }
 
 .light section#section-fixed{
+    background-image: linear-gradient(to bottom, var(--color-background03), var(--color-background-scroll-light));
     background-color: var(--color-background03);
 }
 
 #header-icon-x{
     position: absolute;
-    left: -190px;
+    left: 11%;
     bottom: 13px;
 }
 
 .path-main{
-    fill: #6b6b6b;
+    fill: #979797;
 }
 
 .light .path-main{
-    fill: var(--color-background03);
+    fill: #ffffff;
 }
 
 .path-effect{
-    fill: #6be875;
+    fill: var(--color-light02);
 }
 
 .light .path-effect{
-    fill: #e86b6b;
+    fill: var(--color-light00);
 }
 
 #header-icon-circleOne{
@@ -172,12 +180,16 @@ hr{
 }
 
 section#section-scroll{
-    background-color: #7e7e7ea9;
+    background-color: var(--color-background-scroll-dark);
     border-radius: 15px;
     overflow-y: scroll;
     padding-top: 20px;
     height: 530px;
     z-index: 3;
+}
+
+.light #section-scroll{
+    background-color: var(--color-background-scroll-light);
 }
 
 article#article-ferramentas >  section#section-scroll::-webkit-scrollbar{
@@ -207,9 +219,21 @@ aside{
 
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .light #cards{
     background-color: #dfedee;
     color: #000;
+}
+
+.title-cards{
+    margin: 0px 0px 10px 0px;
+}
+
+.p-cards{
+    margin: 0;
+    max-width: 70%;
+    line-height: 1.5em;
 }
