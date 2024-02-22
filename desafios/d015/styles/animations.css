@@ -392,12 +392,12 @@ div#small-ball-3{
 
 /* itens fixos no fundo do site */
 
-svg.background-icons{
+.background-icons{
     transition: all 0.5s ease-in-out;
     opacity: 0.2;
 }
 
-.light svg.background-icons{
+.light .background-icons{
     opacity: 0.3;
 }
 
