@@ -35,12 +35,16 @@
 }
 
 :root{
-    --color-background-scroll-light: #f0f0f0a9;
+    --color-background-scroll-light: #f8f8f8;
     --color-background-scroll-dark: #707070a9;
 }
 
 a:active{
     color: var(--color-background00);
+}
+
+.light body{
+    background-color: gray;
 }
 
 header#ferramentas-header{
@@ -125,7 +129,8 @@ section#section-fixed{
 
 .light section#section-fixed{
     background-image: linear-gradient(to bottom, var(--color-background03), var(--color-background-scroll-light));
-    background-color: var(--color-background03);
+    background-color: var(--color-background-scroll-light);
+
 }
 
 #header-icon-x{
@@ -167,21 +172,34 @@ section#section-fixed{
     top: 50%;
 }
 
+#fixed-scroll-polygon2{
+    position: fixed;
+    top: 80%;
+    right: 50%;
+}
+
+#fixed-scroll-snake{
+    position: fixed;
+    top: 45%;
+    right: 23%;
+}
+
 hr{
     border: none;
     max-width: 20%;
     height: 0.05em;
     margin-top: -1px;
-    background-color: var(--color-background00);
+    background-color: #fff;
 }
 
-.dark hr{
-    background-color: var(--color-background03);
+.light hr{
+    background-color: var(--color-background-scroll-dark);
 }
 
 section#section-scroll{
     background-color: var(--color-background-scroll-dark);
     border-radius: 15px;
+
     overflow-y: scroll;
     padding-top: 20px;
     height: 530px;
@@ -208,15 +226,16 @@ aside{
 
 #cards{
     width: 80%;
-    height: 130px;
+    height: 140px;
     background-color: #3b3b46;
     color: #fff;
 
     margin: 0px 0px 15px 0px;
-    padding-left: 10px;
+    padding-left: 12px;
     padding-right: 5px;
     border-radius: 8px;
 
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -224,16 +243,46 @@ aside{
 }
 
 .light #cards{
-    background-color: #dfedee;
+    background-color: var(--color-background03);
     color: #000;
+    box-shadow: 0em 0em 0.04em rgb(179, 179, 179)
 }
 
 .title-cards{
-    margin: 0px 0px 10px 0px;
+    margin: 10px 0px 10px 0px;
+    max-width: 90%;
+    font-size: 1.15em;
 }
 
 .p-cards{
-    margin: 0;
-    max-width: 70%;
+    margin: 0 0 10px 0;
+    max-width: 80%;
     line-height: 1.5em;
+    font-size: 0.75em;
+}
+
+@media screen and (min-width: 485px) {
+    
+    .title-cards{
+        font-size: 1.3em;
+    }
+
+    .p-cards{
+        font-size: 0.9em;
+    }
+
+}
+
+/* configurações de hover card */
+
+#section{
+    z-index: 1;
+    position: relative;
+    display: block;
+    border-radius: inherit;
+    background-color: var(--color-background03);
+    overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    appearance: none;
+
 }
