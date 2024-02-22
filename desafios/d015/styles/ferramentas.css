@@ -87,6 +87,8 @@ button#toHome:active{
 }
 
 article#article-ferramentas{
+    position: relative;
+    z-index: auto;
     margin-top: 20px;
     height: 600px; 
     background-color: var(--color-background03);
@@ -98,7 +100,7 @@ article#article-ferramentas{
     color: #fff;
 }
 
-article#article-ferramentas >  section#section-fixed{
+section#section-fixed{
     position: absolute;
     height: 60px;
     width: 100%;
@@ -111,21 +113,50 @@ article#article-ferramentas >  section#section-fixed{
     padding: 20px 0px 0px 0px;
     margin-top: -1px;
     border-radius: 15px 15px 0px 0px;
+    z-index: 4;
 }
 
-.light article#article-ferramentas >  section#section-fixed{
+.light section#section-fixed{
     background-color: var(--color-background03);
+}
+
+#header-icon-x{
+    position: absolute;
+    left: -190px;
+    bottom: 13px;
+}
+
+.path-main{
+    fill: #6b6b6b;
+}
+
+.light .path-main{
+    fill: var(--color-background03);
+}
+
+.path-effect{
+    fill: #6be875;
+}
+
+.light .path-effect{
+    fill: #e86b6b;
 }
 
 #header-icon-circleOne{
     position: absolute;
     right: 60px;
-    
+    bottom: 25px;
 }
 
 #header-icon-circleTwo{
     position: absolute;
     right: 80px;
+    bottom: 25px;
+}
+
+#fixed-scroll-polygon{
+    position: fixed;
+    top: 50%;
 }
 
 hr{
@@ -140,32 +171,34 @@ hr{
     background-color: var(--color-background03);
 }
 
-article#article-ferramentas >  section#section-scroll{
-    background-color: #a0e4ff;
+section#section-scroll{
+    background-color: #7e7e7ea9;
     border-radius: 15px;
     overflow-y: scroll;
-    padding-top: 100px;
-    height: 500px;
+    padding-top: 20px;
+    height: 530px;
+    z-index: 3;
 }
 
 article#article-ferramentas >  section#section-scroll::-webkit-scrollbar{
     display: none;
 }
 
-article#article-ferramentas >  aside{
-
+aside{
+    position: relative;
     margin-top: 80px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-items: center;
+    z-index: 2;
 }
 
 #cards{
     width: 80%;
     height: 130px;
-    background-color: var(--color-background01);
-    color: ;
+    background-color: #3b3b46;
+    color: #fff;
 
     margin: 0px 0px 15px 0px;
     padding-left: 10px;
@@ -174,4 +207,9 @@ article#article-ferramentas >  aside{
 
     display: flex;
     flex-direction: column;
+}
+
+.light #cards{
+    background-color: #dfedee;
+    color: #000;
 }
