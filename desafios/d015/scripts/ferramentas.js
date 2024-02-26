@@ -1,25 +1,21 @@
 function adequarImagens(tema) {// adequa as imagens ao tema
 
     toBack.src = `Imagens/icons-Direct/toHome-${tema}-96.png`
-  
+
 }
 
-document.querySelectorAll('.glow-button').forEach((a) => {
-    const gradientItem = document.createElement('div');
-    gradientItem.classList.add("gradient");
+var item = document.getElementById('header-icon-x')
 
-    a.appendChild(gradientItem)
+function clicou() {
+    item.style.animation = ''
+    item.style.animation = 'click 7s ease-in-out'
 
-    a.addEventListener("pointermove", (e) => {
-        const rect = a.getBoundingClientRect()
+    setInterval(limpar, 7000)
+}
 
-        const x = e.clientX - rect.left
-        const y = e.clientY - rect.top
+function limpar() {
+    item.style.animation = ''
+    item.style.animation = 'rotate 7s infinite ease-in-out'
+}
 
-        gsap.to(button, {
-            "--pointer-x": `${x}px`,
-            "--pointer-y":`${y}px`,
-            duration: 0.6,
-        })
-    })
-})
+limpar()
