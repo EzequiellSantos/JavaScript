@@ -2,18 +2,61 @@ var ver = document.getElementById('ver')
 ver.addEventListener('click', clicou)
 
 
- function clicou(){
-    var res = document.getElementById('res')
-    var a = window.prompt('Digite o valor de a')
-    var b = window.prompt('Digite o valor de b')
-    var c = window.prompt('Digite o valor de c')
+function clicou(){
 
-    var delta = b ** 2 - 4 * a * c //conta do delta
+    try{
 
-    res.innerHTML += `<p>A equação atual é  ${a}x<sup>2</sup> + ${b}x + ${c} = 0</p> `//numeros do delta
-    res. innerHTML += `O cálculo realizado será &#x0394 = ${b}<sup>2</sup> - 4 . ${a} . ${c}`//calculo
-    res.innerHTML += `<p>Delta é igual a <mark>  &#x0394 = ${delta} </mark></p> <br><hr><br>`//resposta do delta
+        if(inputA.value != '' && inputB.value != '' && inputC.value != ''){
+
+            let a = inputA.value
+            let b = inputB.value
+            let c = inputC.value
+        
+
+            var raizes = calculaBhaskara(a, b, c)
+        
+            console.log('x1:', raizes.x1)
+            console.log('x2:', raizes.x2)
+            console.log('Δ:', raizes.delta)
+
+        } else{
+
+            throw new Error("Preencha Todos os Campos")
+
+        }
+    
+    } catch (erro) {
+
+        console.error('Erro:', erro.message)
+        return null
+
+    }
+
+
 } 
+
+
+function calculaBhaskara(a, b, c){
+
+    let delta = b ** 2 - 4 * a * c
+
+    let raizDelta = Math.sqrt(delta)
+
+    if(raizDelta % 1 == 0){ // verificação se delta possui raiz exata
+
+        var x1 = (-b + raizDelta) / (2 * a)
+        var x2 = (-b - raizDelta) / (2 * a)
+
+        return { x1: x1, x2: x2, delta: delta }
+
+    } else{
+
+        console.log('Delta não possui raiz exata.')
+        return  {delta: delta}
+
+    }
+
+}
 
 
 /////////////////////////////////////////////

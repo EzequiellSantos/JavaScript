@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    height: 100vh;
+}
+
+h1{
+    margin: 20px;
+}
+
+input{
+    border: none;
+    appearance: none;
+    outline: none;
+    background-color: whitesmoke;
+    text-align: center;
+    padding: 5px;
+    margin: 10px 5px;
+    border-radius: 10px;
+    display: inline-block;
+    width: 50px;
+}
+
+input:focus{
+    outline: 0;
+}
+
+input::placeholder{
+    text-align: center;
+}
+
+fieldset{
+    border-radius: 10px;
+    margin: auto;
+    max-width: 600px;
+    width: calc(100% - 15px);
+    margin-bottom: 20px;
+    padding: 15px 0px;
+}
+
+legend{
+    padding: 5px;
+}
+
+label{
+    margin: 5px 0px;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: none;
+}
+
+#ver{
+    border-radius: 15px;
+    font-size: 1.2em;
+    padding: 15px;
+}
