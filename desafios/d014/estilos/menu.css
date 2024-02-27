@@ -6,22 +6,18 @@ body, ul {
 }
 
 .menu{
-/*     position: absolute;
+    position: absolute;
     display: flex;
-    align-items: end;
-    bottom: 1px;
-    padding-bottom: 3px;
-    width: 50vw;
-    margin: auto; */
+    align-items: center;
 
-    position: fixed;
-    bottom: 50px;
-    left: calc(50vw - 50%);
-    right: calc(50vw - 50%);
-    max-width: 700px;
+    bottom: 15px;
+    left: 50%;
+    transform: translate(-50%);
+    max-width: 800px;
+    width: calc(100vw - 10px);
+    
     margin: auto;
-    margin-left: 5px;
-    margin-right: 5px;
+    padding-bottom: 3px;
     
 }
 
@@ -29,7 +25,7 @@ body, ul {
     list-style: none;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     background: #333;
     padding: 15px 0;
@@ -37,11 +33,22 @@ body, ul {
     margin: auto;
     position: relative;
     overflow: hidden;
-    border-radius: 7px;
+    border-radius: 15px;
+}
+
+@media screen and (min-width: 900px) {
+
+    .menu ul{
+        justify-content: center;
+        border-radius: 20px;
+    }
+
+    .menu li{
+        width: 120px;
+    }
 }
 
 .menu li {
-    justify-content: center;
     text-align: center;
     padding: 0px 15px;
 }
@@ -60,7 +67,7 @@ body, ul {
     display: none;
     width: 100px;
     height: 3px;
-    background: #0077FF;
+    background: var(--color-light01);
     position: absolute;
     bottom: 10px;
     transition: left 0.3s ease;
