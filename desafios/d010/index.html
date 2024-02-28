@@ -18,17 +18,27 @@
         <fieldset>
 
             <legend>Digite aqui</legend>
-            <label for="">O valor de a, b e c</label><br>
-            <input type="number" name="a" id="inputA" placeholder="a">
-            <input type="number" name="b" id="inputB" placeholder="b">
-            <input type="number" name="c" id="inputC" placeholder="c">
+            <label for="inputA">O valor de a, b e c</label><br>
+            <input type="number" name="a" id="inputA" placeholder="a" class="allInputs">
+            <input type="number" name="b" id="inputB" placeholder="b" class="allInputs">
+            <input type="number" name="c" id="inputC" placeholder="c" class="allInputs">
+
+            <br>
+
+            <p class="bubl" id="ver">Calcular</p>
+
+            <a id="toHome" href="https://ezequiellsantos.github.io/Projetos/projeto-math/math.html" rel="next" target="_self">Voltar <img src="https://raw.githubusercontent.com/EzequiellSantos/Projetos/main/projeto-math/Icons-Math/voltar.png" alt="imagem-voltar"></a>
 
         </fieldset>
 
     </form>
 
-    <p class="bubl" id="ver">Calcular</p>
-    <div id="res"></div>
+
+    
+    <div id="contain">
+        <div id="res"></div>
+    </div>
+    
     <script src="desafio.bhaskara/script.js"></script>
 </body>
 </html>

@@ -1,6 +1,17 @@
 var ver = document.getElementById('ver')
 ver.addEventListener('click', clicou)
+var res = document.getElementById('res')
+var inp = document.querySelectorAll('.allInputs')[2]
+var contain = document.getElementById('contain')
 
+
+inp.addEventListener('keydown', function(event){
+
+    if(event.keyCode === 13){
+        clicou()
+    }
+
+})
 
 function clicou(){
 
@@ -15,19 +26,54 @@ function clicou(){
 
             var raizes = calculaBhaskara(a, b, c)
         
-            console.log('x1:', raizes.x1)
-            console.log('x2:', raizes.x2)
-            console.log('Δ:', raizes.delta)
+
+            if(raizes.x1 != undefined) {
+
+                contain.innerHTML += `
+                <div id="res">
+                <p class="first-p">
+                    A equação é: ${b}<sup>2</sup> - 4 . ${a} . ${c} 
+                </p> 
+                <br> 
+                <p>
+                    Δ: ${raizes.delta}
+                </p>
+                <br>
+                <p>
+                    x1: ${raizes.x1} <br><br>
+                    x2: ${raizes.x2}
+                </p>
+                </div>`
+
+            } else {
+
+                contain.innerHTML += `
+                <div id="res">
+                <p  class="first-p">
+                    A equação é:  Δ = ${b}<sup>2</sup> - 4 . ${a} . ${c} 
+                </p> 
+                <br> 
+                <p>
+                    Δ = ${raizes.delta}
+                </p>
+                <br>
+                ${raizes.noExat}
+                </div>`
+                
+
+            }
+
+            checkRes()
 
         } else{
 
-            throw new Error("Preencha Todos os Campos")
+            throw new Error("Preencha Todos os Campos :)")
 
         }
     
     } catch (erro) {
 
-        console.error('Erro:', erro.message)
+        window.alert("Error: " + erro.message)
         return null
 
     }
@@ -51,12 +97,28 @@ function calculaBhaskara(a, b, c){
 
     } else{
 
-        console.log('Delta não possui raiz exata.')
-        return  {delta: delta}
+        var noExat = `<p>Delta não possui raiz exata.</p>`
+        return  {delta: delta, noExat: noExat }
 
     }
 
 }
+
+function checkRes() {
+    
+    if(res.hasChildNodes()){
+
+        res.style.display = 'block'
+
+    }else{
+
+        res.style.display = 'none'
+
+    }
+
+}
+
+checkRes()
 
 
 /////////////////////////////////////////////
