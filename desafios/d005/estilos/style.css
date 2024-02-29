@@ -22,6 +22,7 @@ input{
     outline: none;
     width: 150px;
     padding: 8px 0px;
+    margin-right: 5px;
     background-color: #2f48583b;
     border-radius: 7px;
     text-align: center;
@@ -145,8 +146,49 @@ p{
     line-height: 2em;
 }
 
+nav#nav-menu{
+    position: relative;
+    top: 50px;
+    background-color: #8ECEBC;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    padding: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 70px;
+
+}
+
+nav #menu{
+    position: sticky;
+    top: 0px;
+    left: 10px;
+
+    backdrop-filter: blur(20px);
+}
+
+#toBack{
+    width: 35px;
+    transition: all .4s;
+    transition: opacity .4s;
+    opacity: 1;
+    user-select: none;
+}
+
+a{
+    user-select: none;  
+}
+
 
 @media (668px <= width) {
+    body{
+        height: 115vh;
+    }
+
     span{
         cursor: pointer;
     }
