@@ -1,7 +1,7 @@
 var link = document.getElementById('lnk')
-link.addEventListener('mouseup', clicou)
+link.addEventListener('click', clicou)
 
-var p = document.getElementsByTagName('p')[1]
+var p = document.getElementById('text')
 //p.addEventListener('click', clicar)
 
 var p1 = document.getElementById('km')
@@ -14,9 +14,6 @@ var p6 = document.getElementById('mm')
 
 function clicou(){
     var num = window.prompt(`Digite uma distancia em metros (m)`)
-
-    p.style.fontWeight = 'bold'
-    p.style.fontSize = '1.2em'
 
     var wndwnum = new Intl.NumberFormat('pt-BR', { maximumSignificantDigits: 3 }).format(num)
 
@@ -37,12 +34,17 @@ function clicou(){
     var ttcm = new Intl.NumberFormat('pt-BR', { maximumSignificantDigits: 3 }).format(cm)
     var ttmm = new Intl.NumberFormat('pt-BR', { maximumSignificantDigits: 3 }).format(mm)
 
-    p1.innerHTML = `<strong>${ttkm}</strong> quilômetros (km)`
-    p2.innerHTML = `<strong>${tthm}</strong> hectômetros (hm)`
-    p3.innerHTML = `<strong>${ttdam}</strong> decâmetros (dam)`
-    p4.innerHTML = `<strong>${ttdm}</strong> decímetros (dm)`
-    p5.innerHTML = `<strong>${ttcm}</strong> centímetros (cm)`    
-    p6.innerHTML = `<strong>${ttmm}</strong> milímetros (mm)`
+    p1.innerHTML = `quilômetros (km): <strong>${ttkm}</strong>`
+    p2.innerHTML = `hectômetros (hm): <strong>${tthm}</strong>`
+    p3.innerHTML = `decâmetros (dam): <strong>${ttdam}</strong>`
+    p4.innerHTML = `decímetros (dm): <strong>${ttdm}</strong>`
+    p5.innerHTML = `centímetros (cm): <strong>${ttcm}</strong>`    
+    p6.innerHTML = `milímetros (mm): <strong>${ttmm}</strong>`
+
+    artic.style.fontWeight = 'bold'
+    artic.style.fontSize = '1.0em'
+
+    checksChildren()
 
 
     /* document.writeln(`${km} quilômetros (km)`)
@@ -52,6 +54,23 @@ function clicou(){
     document.writeln(`${cm} centímetros (cm)`)
     document.writeln(`${mn} milímetros (mm)`) */
 }
+
+var artic = document.getElementById('numConvertidos')
+
+function checksChildren(){
+
+    if(p1.hasChildNodes()){
+
+        artic.style.display = 'grid'
+
+    }else{
+
+        artic.style.display = 'none'
+
+    }
+}
+
+checksChildren()
     
 
 

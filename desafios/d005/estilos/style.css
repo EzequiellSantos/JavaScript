@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+:root{
+    --color-light00:#B8F0CD;
+    --color-light01:#8ECEBC;
+    --color-background00:#528991;
+    --color-background01:#2F4858;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    background-image: linear-gradient(145deg, var(--color-light00), var(--color-background01));
+}
+
+input{
+    border: none;
+    outline: none;
+    width: 150px;
+    padding: 8px 0px;
+    background-color: #2f48583b;
+    border-radius: 7px;
+    text-align: center;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: none;
+}
+
+select{
+    border-radius: 7px;
+    padding: 6px 0px;
+    margin-top: 7px;
+    border: 0.05em solid #0000003d;
+}
+
+header{
+    width: calc(100% - 15px);
+    min-height: 50px;
+    margin: auto;    
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+}
+
+header > h1{
+    color: #fff;
+    font-size: 1.9em;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+legend{
+    padding: 0px 7px;
+}
+
+fieldset{
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #858585a9;
+}
+
+span{
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    padding: 10px 5px;
+    border-radius: 10px;
+    display: block;
+    text-align: center;
+    background-color: var(--color-light00);
+    width: 80px;
+    cursor: default;
+    user-select: none;
+}
+
+span:hover{
+    transform: scale(1.05);
+}
+
+span:active{
+    background-color: var(--color-light01);
+}
+
+section{
+    width: calc(100% - 15px);
+    max-width: 600px;
+    margin: auto;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    height: auto;
+
+
+
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow:
+    inset 0 -1em 2em rgba(0, 0, 0, 0.11),
+    0 0 0 2px rgb(255,255,255),
+    0.3em 0.3em 1em rgba(0,0,0,0.3);
+    transition: all 0.4s ease-in-out;
+
+}
+
+article#numConvertidos{
+    height: 200px;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 30px;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+#largeMetric{
+    padding-bottom: 10px;
+    text-transform: capitalize;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+p{
+    line-height: 2em;
+}
+
+
+@media (668px <= width) {
+    span{
+        cursor: pointer;
+    }
+}
