@@ -4,20 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="../stilos/btNormal.css">
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/EzequiellSantos/html-css/main/desafios/modulo%2001/Favicon.EZ/Martin-Berube-Flat-Animal-Mouse.ico" type="image/x-icon">
     <title>Conversor de Medidas</title>
 </head>
 <body>
-    <h1>Conversor de Medidas</h1>
-    <p id="lnk" class="botao">Conveter</a>
-    <p id="txt">Clique no botão acima para começar</p>
-    <p id="km"></p>
-    <p id="hm"></p>
-    <p id="dm"></p>
-    <p id="dam"></p>
-    <p id="cm"></p>
-    <p id="mm"></p>
+    
+    <header>
+        <h1>Conversor de Medidas</h1>
+    </header>
+
+    <section>
+
+        <form>
+            <fieldset>
+                <legend>Numeros e Medidas</legend>
+                <input id="numInput" type="number" placeholder="Digite a medida aqui">
+                <select name="medidas" id="medidasEscolh">
+
+                    <option value="" selected >Tipo de Medida</option>
+                    <optgroup label="Escolha a medida">
+                        <option value="Km">Quilômetros</option>
+                        <option value="Hm">Hectômetros</option>
+                        <option value="Dm">Decâmetros</option>
+                        <option value="Dam">Decímetros</option>
+                        <option value="Cm">Centímetros</option>
+                        <option value="Mm">Milímetros</option>
+                    </optgroup>
+
+                </select>
+                <br>
+                <span id="lnk" class="botao">Conveter</span>
+            </fieldset>
+            
+        </form>
+
+        <article id="numConvertidos">
+
+            <aside id="largeMetric">
+                <p id="text"></p>
+                <p id="km"></p>
+                <p id="hm"></p>
+                <p id="dm"></p>
+
+                <p id="dam"></p>
+                <p id="cm"></p>
+                <p id="mm"></p>
+            </aside>
+
+        </article>
+
+    </section>
+
     <script src="desafio.conversor.medidas/script.js"></script>
 </body>
 </html>
