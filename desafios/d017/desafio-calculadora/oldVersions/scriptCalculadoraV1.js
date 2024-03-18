@@ -959,7 +959,10 @@ function checkDels() { //função para verificar o que foi deletado
 
 function checkDecimals() { //verifica se o numero real é muito grande e limita-o
 
-    contarDecimais(checagemResultado)
+    var formatedNum = new Intl.NumberFormat('pt-BR', { maximumSignificantDigits: 3 }).format(contagemResultado)
+    contagemResultado = formatedNum
+    contarDecimais(contagemResultado)
+    
 
     if (comprimentoDecimal > 8) {
 
