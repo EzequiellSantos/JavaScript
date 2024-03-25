@@ -146,29 +146,27 @@
         //funções
 
         const createTable = (number, multiplicatorNumber) => {
-            multiplicationTable.innerHTML = " ";
-
-            for (i = 1; i <= multiplicatorNumber; i++) {
-
-                const result = number * i;
-
-                const template = `
-                <div class="row">
-                    <div class="operation">${number} x ${multiplicatorNumber} = </div>
-                    <div class="result">${result} </div>
-                </div>`;
-
-                const parser = new DOMParser();
-
-                const htmlTemplate = parser.parseFromString(template, "text/html");
-
-                const row =  document.createElement('div')
-                row.innerHTML = `${template}`
-                
-                /* htmlTemplate.querySelectorAll(".row"); */
-                multiplicationTable.appendChild(row)
-            }
-        };
+    multiplicationTable.innerHTML = " ";
+ 
+    for (i = 1; i <= multiplicatorNumber; i++) {
+ 
+        const result = number * i;
+ 
+        const template = `
+            <div class="operation">${number} x ${multiplicatorNumber} = </div>
+            <div class="result">${result} </div>
+        `;
+ 
+        const parser = new DOMParser();
+ 
+        const htmlTemplate = parser.parseFromString(template, "text/html");
+ 
+        const row =  document.createElement("div")
+        row.setAttribute("class", "row")
+        row.innerHTML += `${template}`
+        multiplicationTable.appendChild(row)
+    }
+};
 
 
         //eventos
