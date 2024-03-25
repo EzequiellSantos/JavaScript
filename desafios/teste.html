@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Helvetica;
+        }
+
+        body {
+            text-align: center;
+            padding: 2rem;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #DB4444 0%, #3f24dd 98%);
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+        }
+
+        #multiplication-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 1rem auto;
+            max-width: 300px;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 1rem;
+            color: #333;
+        }
+
+        .form-control {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+            margin: 0 1rem;
+        }
+
+        .form-control label {
+            margin-bottom: 0.6rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .form-control input {
+
+            margin-bottom: 1rem;
+            flex: 1;
+            padding: 0.6rem 0.4rem;
+            border: 1px solid #333;
+            width: 50px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        #multiplication-form input[type="submit"] {
+            max-height: 50px;
+            padding: 0.6rem 1.2rem;
+            width: 200px;
+            color: #fff;
+            background-color: #333;
+            border: 1px solid #333;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* CSS da Tabela*/
+
+        #multiplication-operations {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-items: 300px;
+            margin: 1rem auto;
+            padding: 2rem 1rem;
+            background-color: #fff;
+            color: #333;
+            border-radius: 1rem;
+        }
+
+        #multiplication-operations .row {
+            display: flex;
+            justify-content: center;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            padding: 0.5rem;
+            width: 150px;
+        }
+
+        #multiplication-operations .row:last-child {
+            border-bottom: 1px solid #CCC;
+        }
+
+        #multiplication-operations .result {
+            margin-left: 0.4rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Digite o número e confirme para gerar a tabuada</h2>
+    <form id="multiplication-form">
+        <div class="form-control">
+
+            <label for="number">Tabuada do:</label>
+            <input type="number" name="number" id="number" value="10">
+        </div>
+        <div class="form-control">
+            <label for="multiplicator">Multiplicar até:</label>
+            <input type="number" name="multiplicator" id="multiplicator" value="10">
+        </div>
+        <input type="submit" value="Calcular">
+    </form>
+    <div id="multiplication-table">
+        <h2 id="multiplication-title">Tabuada do número <span></span></h2>
+        <div id="multiplication-operations">
+            <p>Informe um número para calcular uma tabuada...</p>
+            <div class="row">
+                <div class="operation">5 x 1 =</div>
+                <div class="result">5</div>
+            </div>
+            <div class="row">
+                <div class="operation">5 x 2 =</div>
+                <div class="result">10</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //seleção de elementos
+        const multiplicationForm = document.querySelector("#multiplication-form");
+        const numberInput = document.querySelector("#number");
+        const multiplicationInput = document.querySelector("#multiplicator");
+
+        const multiplicationTable = document.querySelector("#multiplication-operations")
+        //funções
+
+        const createTable = (number, multiplicatorNumber) => {
+            multiplicationTable.innerHTML = " ";
+
+            for (i = 1; i <= multiplicatorNumber; i++) {
+
+                const result = number * i;
+
+                const template = `
+                <div class="row">
+                    <div class="operation">${number} x ${multiplicatorNumber} = </div>
+                    <div class="result">${result} </div>
+                </div>`;
+
+                const parser = new DOMParser();
+
+                const htmlTemplate = parser.parseFromString(template, "text/html");
+
+                const row =  document.createElement('div')
+                row.innerHTML = `${template}`
+                
+                /* htmlTemplate.querySelectorAll(".row"); */
+                multiplicationTable.appendChild(row)
+            }
+        };
+
+
+        //eventos
+        multiplicationForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const multiplicatonNumber = +numberInput.value;
+
+            const multiplicatorNumber = +multiplicationInput.value;
+
+            createTable(multiplicatonNumber, multiplicatorNumber)
+
+            if (!multiplicatonNumber || !multiplicatorNumber) return console.log("Complete todos os campos!");
+
+            console.log(multiplicatonNumber, multiplicatorNumber);
+        });
+
+
+    </script>
+</body>
+
+</html>
