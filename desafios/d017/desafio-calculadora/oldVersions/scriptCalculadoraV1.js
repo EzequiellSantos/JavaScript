@@ -50,16 +50,19 @@ function atualizarFirstDisplay() { // fiunção de preenchimento do primeiro dis
     firstInput.value = firstDisplay //adiciona o valor atribuído ao primeiro input
 
 }
-
+var formatedNumDig = ''
 function atualizarSecondDisplay() { // função pra preenchimento correto do segundo diplay (Input)
+
+    formatedNumDig = numerosDigitados.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
 
     if (numerosDigitados !== '' && operador == '') {//apenas os numeros digitados sem o resultado e sem o operador
 
-        secondInput.value = '= ' + parseFloat(numerosDigitados)
+        secondInput.value = '= ' + formatedNumDig
 
     } else if (operador !== '' && resultadoFinal == 0) { //apenas para mostrar o resultado antes de apertar igual
 
-        secondInput.value = '= ' + resultadoParcial
+        secondInput.value = '= ' + parseFloat(resultadoParcial)
 
     } else if (ultimoOperador !== operador) {
 
@@ -959,8 +962,6 @@ function checkDels() { //função para verificar o que foi deletado
 
 function checkDecimals() { //verifica se o numero real é muito grande e limita-o
 
-    var formatedNum = new Intl.NumberFormat('pt-BR', { maximumSignificantDigits: 3 }).format(checagemResultado)
-    checagemResultado = formatedNum
     contarDecimais(checagemResultado)
     
 
