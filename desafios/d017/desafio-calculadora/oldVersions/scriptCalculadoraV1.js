@@ -311,13 +311,20 @@ function adicionarDecimal() { // função para adcionar decimais
             atualizarSecondDisplay()
             pontoPresenteNoNumero = true // bloqueando a adição de mais de um ponto
 
-        } else if (calculou == true && resultadoFinal == 0 && !verificarInfinity(checkDivisao)) { // para caso o usuário adicione ponto logo após apertar igual
+        } else if (calculou == true && resultadoFinal != '' && !verificarInfinity(checkDivisao)) { // para caso o usuário adicione ponto logo após apertar igual
+
+            limparDisplay()
+            atualizarFirstDisplay()
+            atualizarSecondDisplay()
+            adicionarDecimal()
+
+        }  else if (calculou == true && resultadoFinal == '' && !verificarInfinity(checkDivisao)) { // para caso o usuário adicione ponto logo após mudar o sinal de operação da conta de forma continua
 
             firstDisplay += '.'
             numerosDigitados += '.'
             atualizarFirstDisplay()
             atualizarSecondDisplay()
-            pontoPresenteNoNumero = true // bloqueando a adição de mais de um ponto  
+            pontoPresenteNoNumero = true
 
         }
     }
@@ -859,10 +866,8 @@ function efetuarPorcentagem() { // efetua o calculo da porcentagem
 let calculou = false
 function calcularResultado() { //quando o usuário apertou igual
 
-
     inverterStyles() // inverte os estilos dos inputs
-
-
+    pontoPresenteNoNumero = false
 
     if (verificarInfinity(checkDivisao)) {
 
