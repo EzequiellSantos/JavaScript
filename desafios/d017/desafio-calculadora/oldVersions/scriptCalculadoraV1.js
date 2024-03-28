@@ -50,15 +50,15 @@ function atualizarFirstDisplay() { // fiunção de preenchimento do primeiro dis
     firstInput.value = firstDisplay //adiciona o valor atribuído ao primeiro input
 
 }
-var formatedNumDig = ''
+
 function atualizarSecondDisplay() { // função pra preenchimento correto do segundo diplay (Input)
 
-    formatedNumDig = numerosDigitados.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    //var formatedNumDig = formatedNumbers(Number(numerosDigitados))
 
 
     if (numerosDigitados !== '' && operador == '') {//apenas os numeros digitados sem o resultado e sem o operador
 
-        secondInput.value = '= ' + formatedNumDig
+        secondInput.value = '= ' + parseFloat(numerosDigitados)
 
     } else if (operador !== '' && resultadoFinal == 0) { //apenas para mostrar o resultado antes de apertar igual
 
@@ -77,6 +77,12 @@ function atualizarSecondDisplay() { // função pra preenchimento correto do seg
         checkDels() // validar o que foi deletado
 
     }
+
+}
+
+function formatedNumbers(numero){
+
+    //return numero.toFixed(1).replace(/\./g, ',').replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 
 }
 
@@ -884,7 +890,12 @@ let deletou = false
 
 function deletarLetter() { //quando o usuário acionar o botão de backspace
 
-    if (verificarUltimaLetra(firstDisplay, operador) || calculou === true) { // quando o ultima letra é igual ao operador ou o usuário digitou a conta
+    if(verificarUltimaLetra(firstDisplay, '.')){
+
+        deletLastCaractere()
+        pontoPresenteNoNumero = false
+
+    } else if (verificarUltimaLetra(firstDisplay, operador) || calculou === true) { // quando o ultima letra é igual ao operador ou o usuário digitou a conta
 
         return; // parar função
 
@@ -894,17 +905,24 @@ function deletarLetter() { //quando o usuário acionar o botão de backspace
 
     } else if (resultadoParcial !== "Can't divide by zero" && !verificarInfinity(checkDivisao)) { // quando a operação nao for divida por zero
 
-        firstDisplay = firstDisplay.slice(0, -1)
-        resultadoParcial = secondDisplay.slice(0, -1)
-        numerosDigitados = numerosDigitados.slice(0, -1)
-        deletou = true
-        checkDels() // fazer as alterações válidas
-        checkDisplays() // verificar e preencher os displays
-        mostrarResultadoAntecipado() /* atualizar os displays*/
-        atualizarFirstDisplay()
-        atualizarSecondDisplay()
+        deletLastCaractere()
 
     }
+
+}
+
+
+function deletLastCaractere(){ // deletar numeros
+
+    firstDisplay = firstDisplay.slice(0, -1)
+    resultadoParcial = secondDisplay.slice(0, -1)
+    numerosDigitados = numerosDigitados.slice(0, -1)
+    deletou = true
+    checkDels() // fazer as alterações válidas
+    checkDisplays() // verificar e preencher os displays
+    mostrarResultadoAntecipado() /* atualizar os displays*/
+    atualizarFirstDisplay()
+    atualizarSecondDisplay()
 
 }
 
@@ -931,16 +949,8 @@ function checkDels() { //função para verificar o que foi deletado
 
         } else if (resultadoParcial == "Can't divide by zero") {
 
-            firstDisplay = firstDisplay.slice(0, -1)
-            resultadoParcial = secondDisplay.slice(0, -1)
-            numerosDigitados = numerosDigitados.slice(0, -1)
-            deletou = true
             checkDivisao = ''
-            checkDels()
-            checkDisplays()
-            mostrarResultadoAntecipado()
-            atualizarFirstDisplay()
-            atualizarSecondDisplay()
+            deletLastCaractere()
 
         } else if (deletou == true && operador == '' && firstInput.value.length == 0) {
 
@@ -1092,4 +1102,11 @@ function limparArrays() { // limpa as arrays com resultados
     somar = []
     diminuir = []
 
+}
+
+function tst(inputValue) {
+    firstInput.value = inputValue
+    atualizarFirstDisplay()
+    atualizarSecondDisplay()
+    mostrarResultadoAntecipado()
 }
