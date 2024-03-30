@@ -1,7 +1,7 @@
 const url = 'https://api-liturgia-diaria.vercel.app/'
 
 fetch(url, {
-    method: 'GET',
+    method: 'GET'
 })
     .then(response => {
 
