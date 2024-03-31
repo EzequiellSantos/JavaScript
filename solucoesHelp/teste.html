@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="repsonse"></h1>
+    <script>
+
+        async function chamarAPI(){
+            try{
+                var dados = await fetch("https://api-liturgia-diaria.vercel.app/")
+                .then(response => response.json())
+
+                console.log(dados)
+            }
+
+            catch(error){
+                console.log(error.message)
+            }
+        }
+        chamarAPI()
+
+        /* fetch('https://api-liturgia-diaria.vercel.app/')
+        .then(response => {
+            return response.json()
+        })
+        .then(data =>{
+            repsonse.textContent = data
+        })
+ */
+    </script>
+</body>
+</html>
