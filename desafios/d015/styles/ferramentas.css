@@ -37,7 +37,7 @@
 
 :root {
     --color-background-scroll-light: #f8f8f8;
-    --color-background-scroll-dark: #707070a9;
+    --color-background-scroll-dark: #525252a9;
 }
 
 a:active {
@@ -319,6 +319,26 @@ aside {
     line-height: 1.5em;
     font-size: 0.75em;
 
+}
+
+#report{
+    text-align: center;
+    display: block;
+    padding-top: 15px;
+    font-family: var(--font-sans-light);
+    color: var(--color-background-scroll-light);
+}
+
+.light #report {
+    color: var(--color-background00);
+}
+
+#report > p > span{
+    color: var(--color-light02);
+}
+
+.light #report > p > span{
+    color: #6fc2fa;
 }
 
 @media screen and (min-width: 485px) {

@@ -73,7 +73,6 @@ const highlightBar = document.querySelector('.highlight-bar');
 menuItems.forEach((item) => {
     item.addEventListener('mouseover', () => {
         highlightBar.style.display = 'block'
-        const itemPosition = item.getBoundingClientRect();
         highlightBar.style.left = item.offsetLeft * 1.015 + 'px';
         highlightBar.style.width = item.offsetWidth * 1.015 + 'px';
     });

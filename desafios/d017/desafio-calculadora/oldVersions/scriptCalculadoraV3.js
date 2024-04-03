@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function adequarImagens(tema) {// adequa as imagens ao tema
 
-        imgDel.src = `Imagens/icons-Direct/del-${tema}.png` 
+        imgDel.src = `Imagens/icons-Direct/del-${tema}.png`
         toBack.src = `Imagens/icons-Direct/toHome-${tema}-96.png`
-    
+
     }
 
 });
@@ -53,16 +53,13 @@ function atualizarFirstDisplay() { // fiunção de preenchimento do primeiro dis
 
 function atualizarSecondDisplay() { // função pra preenchimento correto do segundo diplay (Input)
 
-    //var formatedNumDig = formatedNumbers(Number(numerosDigitados))
-
-
     if (numerosDigitados !== '' && operador == '') {//apenas os numeros digitados sem o resultado e sem o operador
 
         secondInput.value = '= ' + parseFloat(numerosDigitados)
 
     } else if (operador !== '' && resultadoFinal == 0) { //apenas para mostrar o resultado antes de apertar igual
 
-        secondInput.value = '= ' + parseFloat(resultadoParcial)
+        secondInput.value = '= ' + resultadoParcial
 
     } else if (ultimoOperador !== operador) {
 
@@ -77,12 +74,6 @@ function atualizarSecondDisplay() { // função pra preenchimento correto do seg
         checkDels() // validar o que foi deletado
 
     }
-
-}
-
-function formatedNumbers(numero){
-
-    //return numero.toFixed(1).replace(/\./g, ',').replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 
 }
 
@@ -311,20 +302,13 @@ function adicionarDecimal() { // função para adcionar decimais
             atualizarSecondDisplay()
             pontoPresenteNoNumero = true // bloqueando a adição de mais de um ponto
 
-        } else if (calculou == true && resultadoFinal != '' && !verificarInfinity(checkDivisao)) { // para caso o usuário adicione ponto logo após apertar igual
-
-            limparDisplay()
-            atualizarFirstDisplay()
-            atualizarSecondDisplay()
-            adicionarDecimal()
-
-        }  else if (calculou == true && resultadoFinal == '' && !verificarInfinity(checkDivisao)) { // para caso o usuário adicione ponto logo após mudar o sinal de operação da conta de forma continua
+        } else if (calculou == true && resultadoFinal == 0 && !verificarInfinity(checkDivisao)) { // para caso o usuário adicione ponto logo após apertar igual
 
             firstDisplay += '.'
             numerosDigitados += '.'
             atualizarFirstDisplay()
             atualizarSecondDisplay()
-            pontoPresenteNoNumero = true
+            pontoPresenteNoNumero = true // bloqueando a adição de mais de um ponto  
 
         }
     }
@@ -429,81 +413,11 @@ function clicouOperador(op) {
 
             } else if (operador !== ultimoOperador) { // quando o operador digitado for Diferente do Anterior
 
-                calcularResultado() // (Recursividade) chama a função calcular resultado para finalizar a conta do operador antigo
-                reporStyles() // (recursividade) repõe os estilos iniciais dos inputs
 
-                firstDisplay = parseFloat(resultadoFinal) // armazena o resultado da antiga conta no primeiro input 
-                resultadoFinal = '' // retira os valores do resultado final pois nao foi calculado nenhum igual
-                pontoPresenteNoNumero = false //liberação da adição de um ponto
+                firstDisplay += operador
 
-                switch (operador) {
+                atualizarFirstDisplay()
 
-                    case '+':
-
-                        firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
-
-                        numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a array
-                        somar.push(numeroAntesOp) //adiciona os números armazenados na array de soma
-                        numerosDigitados = '' // limpa a variável
-
-                        efetuarSoma() //vai efetuar a soma dos itens dentro da array Soma
-                        atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal         
-
-                        break
-
-                    case '-':
-
-                        firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
-
-                        numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
-                        diminuir.push(numeroAntesOp) //adiciona os números armazenados na array de diminuir
-                        numerosDigitados = '' // limpa a variável
-
-
-                        efetuarSubtracao() //vai efetuar a subtraçao dos itens dentro da array subtraçao
-                        atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
-
-                        break
-
-                    case '/':
-
-                        firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
-
-                        numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, para limpar a variável e receber novos números
-                        dividir.push(numeroAntesOp) //adiciona os números armazenados na array de dividir
-                        numerosDigitados = '' // limpa a variável
-
-                        efetuarDivisao() //vai efetuar a divisão dos itens dentro da array subtraçao
-                        atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
-
-                        break
-
-                    case 'x':
-
-                        firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
-
-                        numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, limpa a variável e receber novos números
-                        multiplicar.push(numeroAntesOp) //adiciona os números armazenados na array de multiplicar
-                        numerosDigitados = '' // limpa a variável
-
-                        efetuarMultiplicação() //vai efetuar a subtração dos itens dentro da array subtraçao
-                        atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal
-
-                        break
-
-                    case '%':
-
-                        firstDisplay += `${op}` //adicionando o operador em forma de string no primeiro display
-
-                        numeroAntesOp = parseFloat(firstDisplay) //armazena os numeros antes do sinal, limpa a variável e receber novos números
-                        porcentagem.push(numeroAntesOp) //adiciona os números armazenados na array de saber a porcentagem
-                        numerosDigitados = '' // limpa a variável
-
-                        efetuarPorcentagem() //vai efetuar a subtração dos itens dentro da array subtraçao
-                        atualizarFirstDisplay() //vai atualizar o first display adicionando o sinal         
-
-                        break
-                }
 
             }
 
@@ -591,7 +505,7 @@ function clicouOperador(op) {
 
                 }
 
-            } else if (mudarSinal == true  && resultadoFinal !== '') { // caso o usuário mude o sinal na execução simples
+            } else if (mudarSinal == true) { // caso o usuário mude o sinal na execução simples
 
                 checkchanges() // chama a funçao para validar a recursividade com as mudanças de sinais
                 limparArrays() // limpa arrays pra n efetuar contas so alternando os operdores
@@ -756,6 +670,85 @@ function clicouOperador(op) {
     }
 }
 
+let operadores = ['+', '-', '/', 'x']
+let expressaoPresente = false
+let numerosOperadorOne = 0
+let numerosOperadorTwo = 0
+
+function calcularExpressão() { // calcular expressão presente no FIrsDisplay
+
+
+
+
+}
+
+function coletarNumerosOperador() {
+
+
+
+}
+
+function analisarString(str, op) {
+
+
+
+    // Inicializar um objeto para armazenar informações sobre letras e números
+    const resultados = {};
+
+    // Percorrer a string
+    for (let i = 0; i < str.length; i++) {
+
+        const caractere = str[i];
+
+        // Verificar se o caractere é um operador
+        if (caractere == op) {
+
+            // Se for um operador, contar quantas vezes ela aparece
+
+            if (resultados[caractere]) {
+
+                resultados[caractere].quantidade++;
+
+            } else {
+
+                resultados[caractere] = { quantidade: 1, numerosAntes: [], numerosDepois: [] };
+
+            }
+
+            // Encontrar os números antes do operador
+            let numerosAntes = '';
+            let j = i - 1;
+
+            while (j >= 0 && /[0-9]/.test(str[j])) {
+
+                numerosAntes = str[j] + numerosAntes;
+                j--;
+
+            }
+
+            numerosOperadorOne = numerosAntes
+            resultados[caractere].numerosAntes.push(numerosAntes);
+
+            // Encontrar os números depois do perador
+            let numerosDepois = '';
+            let k = i + 1;
+            while (k < str.length && /[0-9]/.test(str[k])) {
+
+                numerosDepois += str[k];
+                k++;
+                
+            }
+
+            numerosOperadorTwo = numerosDepois 
+            resultados[caractere].numerosDepois.push(numerosDepois);
+
+        }
+    }
+
+
+    return resultados;
+}  // função cedida por IA
+
 function verificarResultAntecipado() {
 
     if (resultadoParcial == "Can't divide by zero") {
@@ -866,8 +859,10 @@ function efetuarPorcentagem() { // efetua o calculo da porcentagem
 let calculou = false
 function calcularResultado() { //quando o usuário apertou igual
 
+
     inverterStyles() // inverte os estilos dos inputs
-    pontoPresenteNoNumero = false
+
+
 
     if (verificarInfinity(checkDivisao)) {
 
@@ -895,12 +890,7 @@ let deletou = false
 
 function deletarLetter() { //quando o usuário acionar o botão de backspace
 
-    if(verificarUltimaLetra(firstDisplay, '.')){
-
-        deletLastCaractere()
-        pontoPresenteNoNumero = false
-
-    } else if (verificarUltimaLetra(firstDisplay, operador) || calculou === true) { // quando o ultima letra é igual ao operador ou o usuário digitou a conta
+    if (verificarUltimaLetra(firstDisplay, operador) || calculou === true) { // quando o ultima letra é igual ao operador ou o usuário digitou a conta
 
         return; // parar função
 
@@ -910,24 +900,17 @@ function deletarLetter() { //quando o usuário acionar o botão de backspace
 
     } else if (resultadoParcial !== "Can't divide by zero" && !verificarInfinity(checkDivisao)) { // quando a operação nao for divida por zero
 
-        deletLastCaractere()
+        firstDisplay = firstDisplay.slice(0, -1)
+        resultadoParcial = secondDisplay.slice(0, -1)
+        numerosDigitados = numerosDigitados.slice(0, -1)
+        deletou = true
+        checkDels() // fazer as alterações válidas
+        checkDisplays() // verificar e preencher os displays
+        mostrarResultadoAntecipado() /* atualizar os displays*/
+        atualizarFirstDisplay()
+        atualizarSecondDisplay()
 
     }
-
-}
-
-
-function deletLastCaractere(){ // deletar numeros
-
-    firstDisplay = firstDisplay.slice(0, -1)
-    resultadoParcial = secondDisplay.slice(0, -1)
-    numerosDigitados = numerosDigitados.slice(0, -1)
-    deletou = true
-    checkDels() // fazer as alterações válidas
-    checkDisplays() // verificar e preencher os displays
-    mostrarResultadoAntecipado() /* atualizar os displays*/
-    atualizarFirstDisplay()
-    atualizarSecondDisplay()
 
 }
 
@@ -954,8 +937,16 @@ function checkDels() { //função para verificar o que foi deletado
 
         } else if (resultadoParcial == "Can't divide by zero") {
 
+            firstDisplay = firstDisplay.slice(0, -1)
+            resultadoParcial = secondDisplay.slice(0, -1)
+            numerosDigitados = numerosDigitados.slice(0, -1)
+            deletou = true
             checkDivisao = ''
-            deletLastCaractere()
+            checkDels()
+            checkDisplays()
+            mostrarResultadoAntecipado()
+            atualizarFirstDisplay()
+            atualizarSecondDisplay()
 
         } else if (deletou == true && operador == '' && firstInput.value.length == 0) {
 
@@ -978,7 +969,6 @@ function checkDels() { //função para verificar o que foi deletado
 function checkDecimals() { //verifica se o numero real é muito grande e limita-o
 
     contarDecimais(checagemResultado)
-    
 
     if (comprimentoDecimal > 8) {
 
@@ -986,7 +976,7 @@ function checkDecimals() { //verifica se o numero real é muito grande e limita-
 
     } else {
 
-        return
+        checagemResultado = Math.round(checagemResultado * 100) / 100;
 
     }
 
@@ -1047,16 +1037,16 @@ function checkchanges() {
 function limparDisplay() { // quando o usuário clicar em clean
 
     resultadoParcial = ''
-    resultadoFinal = ''
+    resultadoFinal = 0
     numerosDigitados = ''
     checagemResultado = 0
     checkDivisao = ''
-    atuaisContas = 0
 
     operador = ''
     numeroAntesOp = 0
     pontoPresenteNoNumero = false
     calculou = false
+    checkDivisao = ''
 
     firstDisplay = ''
     secondDisplay = ''
@@ -1107,11 +1097,4 @@ function limparArrays() { // limpa as arrays com resultados
     somar = []
     diminuir = []
 
-}
-
-function tst(inputValue) {
-    firstInput.value = inputValue
-    atualizarFirstDisplay()
-    atualizarSecondDisplay()
-    mostrarResultadoAntecipado()
 }

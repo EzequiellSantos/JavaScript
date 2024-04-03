@@ -4,14 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="../stilos/BTbolhas/btPersonalizado.css">
     <link rel="shortcut icon" href="https://raw.githubusercontent.com/EzequiellSantos/html-css/main/desafios/modulo%2001/Favicon.EZ/Martin-Berube-Flat-Animal-Mouse.ico" type="image/x-icon">
     <title>Bhaskara</title>
 </head>
 <body>
+
     <h1>Resolvendo Bhaskara</h1>
-    <p class="bubl" id="ver">Calcular</p>
-    <div id="res"></div>
+
+    <form>
+
+        <fieldset>
+
+            <legend>Digite aqui</legend>
+            <label for="inputA">O valor de a, b e c</label><br>
+            <input type="number" name="a" id="inputA" placeholder="a" class="allInputs">
+            <input type="number" name="b" id="inputB" placeholder="b" class="allInputs">
+            <input type="number" name="c" id="inputC" placeholder="c" class="allInputs">
+
+            <br>
+
+            <p class="bubl" id="ver">Calcular</p>
+
+            <a id="toHome" href="https://ezequiellsantos.github.io/Projetos/projeto-math/math.html" rel="next" target="_self">Voltar <img src="https://raw.githubusercontent.com/EzequiellSantos/Projetos/main/projeto-math/Icons-Math/voltar.png" alt="imagem-voltar"></a>
+
+        </fieldset>
+
+    </form>
+
+
+    
+    <div id="contain">
+        <div id="res"></div>
+    </div>
+    
     <script src="desafio.bhaskara/script.js"></script>
 </body>
 </html>

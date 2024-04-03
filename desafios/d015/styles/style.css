@@ -860,3 +860,14 @@ footer{
 .dark footer{
     color: #fff;
 }
+
+/* media Queries Configurações */
+
+@media (668px <= width) {
+  
+    #cards, .p-cards, .title-cards, img, a, #toggle-theme, .buttons-inter, #kMenu, #xMenu,
+    #copyLinkIcon, #section-of-contents > p, #botaoBusca, #teclas, #teclaX{
+        cursor: pointer;
+    }
+
+}
