@@ -77,7 +77,9 @@ header > nav#toggle-theme {
 
 #leituras{
     position: absolute;
-    bottom: 10px;
+    width: calc(100% - 16px);
+    max-width: 600px;
+    bottom: 13px;
     margin: auto;
 }
 
@@ -86,12 +88,34 @@ ul#menuLeituras{
     margin: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-evenly;
     padding: 0;
 }
 
 ul#menuLeituras > li{
     display: inline;
-    font-size: 1em;
-    margin: 0 5px;
+    font-size: clamp(0.84375rem, 0.7668rem + 0.3731vw, 1rem);
+    margin: 0px 5px -3px 5px;
+    width: 70px;
+    height: 100%;
+    padding: 0 4px;
+    text-align: center;
+    z-index: 3;
+}
+
+#background{
+    position: absolute;
+    bottom: -13px;
+    z-index: 2;
+    background-color: var(--color-light02);
+    min-width: 60px;
+    height: 37px;
+    border-radius: 10px 10px 0 0;
+    display: block;
+    transition: left 0.455s ease-in-out;
+}
+
+.light #background{
+    background-color: #fff;
 }

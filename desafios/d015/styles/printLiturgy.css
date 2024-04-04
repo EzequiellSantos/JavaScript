@@ -1,0 +1,29 @@
+
+body{
+    background-color: transparent;
+}
+
+#nav-toBack{
+    display: none;
+}
+
+#toggle-theme{
+    display: none;
+}
+
+#toggle-icon{
+    display: none;
+}
+
+header#liturgia-header{
+    background-color: transparent;
+}
+
+footer::before{
+    content: 'Texto tirado do site  ';
+}
+
+footer::after{
+    font-weight: bolder;
+    content: ' https://ezequiellsantos.github.io/Direct-By-Kiel/';
+}
