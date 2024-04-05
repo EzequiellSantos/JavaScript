@@ -56,7 +56,7 @@ button#toHome:active {
 }
 
 header > nav#toggle-theme {
-    margin: 14px 21px 0 0;
+    margin: 18px 21px 0 0;
     grid-column: 5/6;
     grid-row: 1/1 ;
 }
@@ -108,7 +108,7 @@ ul#menuLeituras > li{
     position: absolute;
     bottom: -13px;
     z-index: 2;
-    background-color: var(--color-light02);
+    background-color: var(--color-background00);
     min-width: 60px;
     height: 37px;
     border-radius: 10px 10px 0 0;
@@ -118,4 +118,37 @@ ul#menuLeituras > li{
 
 .light #background{
     background-color: #fff;
+}
+
+#date{
+    font-size: clamp(1.5rem, 1.3712rem + 0.6061vw, 1.75rem);
+}
+
+#tempoLiturgico{
+    font-size: clamp(1.0625rem, 0.9659rem + 0.4545vw, 1.25rem);
+}
+
+#texto{
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: clamp(0.9375rem, 0.8409rem + 0.4545vw, 1.125rem);
+
+    width: calc(100% - 16px);
+    max-width: 600px;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.light #texto{
+    color: #000;
+}
+
+#texto > p{
+    margin: 20px 0;
+    letter-spacing: 0.08em;
+    line-height: 1.5em;
+}
+
+footer{
+
 }
