@@ -20,6 +20,7 @@ window.addEventListener('scroll', function() { // função para esconder ou most
 
     }
 
+
     var rolarParaCima = this.document.getElementById('toTop')
     rolarParaCima.style.opacity = this.window.scrollY > 1200 ? '1' : '0'
 

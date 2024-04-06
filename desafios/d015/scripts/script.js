@@ -483,3 +483,15 @@ function exibirGradient(dados){
     }
 
 }
+
+var link = document.getElementById('linkInstagram')
+
+if(window.innerWidth >= 772){
+
+    link.href = 'https://www.instagram.com/ezequiellsantos.z/'
+
+} else{
+
+    link.href = 'instagram://user?username=ezequiellsantos.z'
+
+}
