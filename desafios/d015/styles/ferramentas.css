@@ -273,6 +273,10 @@ aside {
     box-shadow: 0em 0em 0.04em rgb(179, 179, 179)
 }
 
+#cards:active{
+    transform: scale(1.02);
+}
+
 .title-cards {
     margin: 10px 0px 10px 0px;
     max-width: 90%;

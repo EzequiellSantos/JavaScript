@@ -16,13 +16,22 @@ body{
 
 header#liturgia-header{
     background-color: transparent;
+    height: 50px;
 }
 
-footer::before{
-    content: 'Texto tirado do site  ';
+#texto{
+    font-size: 1.0em;
+    line-height: 1.0em;
 }
 
-footer::after{
-    font-weight: bolder;
-    content: ' https://ezequiellsantos.github.io/Direct-By-Kiel/';
+ul#menuLeituras > li{
+    display: none;
 }
+
+/* footer::after{
+    content: 'https://ezequiellsantos.github.io/Direct-By-Kiel/liturgia.html';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}  */
