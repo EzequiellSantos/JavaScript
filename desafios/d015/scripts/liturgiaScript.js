@@ -11,7 +11,9 @@ var itemVar = ''
 itensLi.forEach((item) => {
 
     document.addEventListener('DOMContentLoaded', () => {
+
         menuBackgroundInitial(liFirstReading)
+
     })
 
     item.addEventListener('click', () => {
@@ -53,6 +55,7 @@ fetch(url)
     .then(data => {
         coletarLeiturasAPI(data)
         menuBackgroundInitial(liFirstReading)
+        exibirLoad()
     })
     .catch(error => {
         console.error('Erro ao com a API; ', error);
@@ -66,6 +69,10 @@ var leituras = {
 }
 
 function coletarLeiturasAPI(dados) {
+
+    date.innerHTML = dados.today.date
+
+    tempoLiturgico.innerHTML = dados.today.entry_title
 
     // first reading
     leituras.firstLi = dados.today.readings.first_reading.all_html
@@ -91,6 +98,11 @@ function coletarLeiturasAPI(dados) {
 
     // create first reading
     gerarPrimeiraLeitura()
+
+    liFirstReading.textContent = '1° Leitura'
+    liSalmos.textContent = 'Salmos'
+    liSecondReading.textContent = '2° Leitura'
+    liEvangelho.textContent = 'Evangelho'
 
 }
 
@@ -135,3 +147,38 @@ function ocultarSecondReading() {
     liSecondReading.style.display = 'none'
 
 }
+
+var contain = document.getElementById('container')
+var texto = document.getElementById('texto')
+var loader = document.querySelectorAll('#child')
+
+function exibirLoad(){
+
+    if(texto.hasChildNodes()){
+
+        contain.classList.remove('loader')
+
+    }else{
+
+        contain.classList.add('loader')
+
+    }
+
+}
+exibirLoad()
+
+window.addEventListener('scroll', function(){
+    var elemento = this.document.getElementById('liturgia-header')
+    var scrollTop = this.window.scrollY
+
+    if(scrollTop > 30){
+
+        elemento.style.opacity = '0'
+
+    } else{
+
+        elemento.style.opacity = '1'
+
+    }
+
+})

@@ -34,7 +34,6 @@ xMenu.onclick = () => { //ocultar menu pelo X
 
 copyLinkIcon.onclick = () => { // Usando a API de área de transferência para copiar o texto
 
-
     // Texto que você deseja copiar
     const textoCopiar = 'https://ezequiellsantos.github.io/JavaScript/desafios/d015/';
 
@@ -189,12 +188,11 @@ function atualizarRelogio() { //exibição do relógio com horas, minutos e segu
 
 }
 
-
-/* 
+ /* 
 
     configurações para otimização da página e evitar lentidão e excesso de memória utilizada
-    pelo navegador
-
+    pelo navegador 
+    
 */
 
 function iniciarRelogio() {
@@ -209,7 +207,6 @@ function pararRelogio() {
     clearInterval(intervaloRelogio);
 
 }
-
 
 /* 
 
@@ -256,7 +253,6 @@ window.addEventListener('beforeunload', function () { //parar o relógio quando 
 
 })
 
-
 /* 
 
     Gerenciamento do Tema do site
@@ -272,7 +268,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Aplicação dos estilos iniciais
     aplicarTema(temaPreferido);
-
 
     // Mudando e Guardando o tema escolhido
     toggleSection.onclick = () => {
@@ -296,7 +291,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
-
 
 /* 
 
@@ -324,7 +318,6 @@ function limparSkeleton() {
     })
 
 }
-
 
 // controle do widget de clima
 
@@ -381,8 +374,6 @@ function consumirDados(dados) {
         limparSkeleton()
         
     }
-
-
 
 }
 
@@ -477,6 +468,8 @@ function exibirGradient(dados){
 
     }
 
+    /* Possíveis configurações de adequação de background-color do widget de clima */
+
     var asideGradient = document.getElementById('icon-background');
 
     if(localStorage.getItem('tema-preferido') == "dark"){
@@ -488,7 +481,5 @@ function exibirGradient(dados){
         asideGradient.style.backgroundImage = `linear-gradient(to bottom, var(--color-background03)55%, ${cor})`
 
     }
-
-    console.log(cor)
 
 }
