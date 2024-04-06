@@ -131,12 +131,44 @@ ul#menuLeituras > li{
 #texto{
     color: #fff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: clamp(0.9375rem, 0.8409rem + 0.4545vw, 1.125rem);
+    font-size: clamp(1.0625rem, 0.9952rem + 0.3077vw, 1.1875rem);
 
     width: calc(100% - 16px);
     max-width: 600px;
     margin: auto;
     padding-bottom: 20px;
+
+    animation: load 0.5s ease-in infinite;
+}
+
+main.loader{
+    gap: 0.25rem;
+}
+
+.loader .child{
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    animation: carre 0.5s infinite alternate;
+
+    background-color: var(--color-background03);
+}
+
+.dark .child{
+    background-color: var(--color-background01);
+}
+
+.loader .child:nth-child(2){
+    left: 50%;
+    animation-delay: 100ms;
+}
+
+.loader .child:nth-child(3){
+    left: 55%;
+    animation-delay: 200ms;
 }
 
 .light #texto{
@@ -146,9 +178,18 @@ ul#menuLeituras > li{
 #texto > p{
     margin: 20px 0;
     letter-spacing: 0.08em;
-    line-height: 1.5em;
+    line-height: 1.7em;
 }
 
-footer{
+@media (880 <= width) {
+    #texto > p {
+        letter-spacing: 0.05em;
+        line-height: 1.5em;
+    }
+}
 
+@keyframes carre {
+    to{
+        translate: 0 -0.34rem;
+    }
 }
