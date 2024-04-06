@@ -95,6 +95,7 @@ ul#menuLeituras{
 
 ul#menuLeituras > li{
     display: inline;
+    font-family: var(--font-normal-sans);
     font-size: clamp(0.84375rem, 0.7668rem + 0.3731vw, 1rem);
     margin: 0px 5px -3px 5px;
     width: 70px;
@@ -121,10 +122,13 @@ ul#menuLeituras > li{
 }
 
 #date{
+    font-family: var(--font-number);
+    font-weight: normal;
     font-size: clamp(1.5rem, 1.3712rem + 0.6061vw, 1.75rem);
 }
 
 #tempoLiturgico{
+    font-family: var(--font-fil-itali);
     font-size: clamp(1.0625rem, 0.9659rem + 0.4545vw, 1.25rem);
 }
 
