@@ -1,10 +1,19 @@
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Josefin+Slab:wght@100&family=Philosopher:wght@400;700&family=Quicksand:wght@500&family=Ysabeau+Infant:ital,wght@0,100;0,300;0,700;1,1;1,100;1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Josefin+Slab:wght@100&family=Philosopher:wght@400;700&family=Ysabeau+Infant:ital,wght@0,100;0,300;0,700;1,1;1,100;1,200&display=swap');
 
- @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,300;1,300&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Exo:ital,wght@0,800;1,800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+.quicksand-normal-sans {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
 
 :root{  
     --color-background00: #1A2535;
@@ -26,10 +35,12 @@
     --font-tall-sans: 'Dosis', sans-serif;
     --font-couri-light: 'Josefin Slab', serif;
     --font-fil-itali: 'Philosopher', sans-serif;
-    --font-normal-sans: 'Quicksand', sans-serif;
+    --font-normal-sans: 'Quicksand', sans-serif;/*  */
     --font-sans-light: 'Ysabeau Infant', sans-serif;
     --font-number: 'Exo', sans-serif;
     --font-bolder: "Exo", sans-serif;;
+
+
 }
 
 ::-webkit-scrollbar{
@@ -621,8 +632,10 @@ div.cards-content{
 div.cards-content p{
     margin: 8px;
     font-family: var(--font-normal-sans);
-    font-size: 1.2em;
+    font-optical-sizing: auto;
     font-weight: 600;
+    font-style: normal;
+    font-size: 1.2em;
 }
 
 .light div.cards-content{
