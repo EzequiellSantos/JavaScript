@@ -129,7 +129,8 @@ ul#menuLeituras > li{
 
 #tempoLiturgico{
     font-family: var(--font-fil-itali);
-    font-size: clamp(1.0625rem, 0.9659rem + 0.4545vw, 1.25rem);
+    font-size: clamp(0.875rem, 0.7519rem + 0.597vw, 1.125rem);
+    max-width: 450px;
 }
 
 #texto{
