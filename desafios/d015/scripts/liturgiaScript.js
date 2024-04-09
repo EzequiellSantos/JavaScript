@@ -81,7 +81,7 @@ function coletarLeiturasAPI(dados) {
     leituras.salmos = dados.today.readings.psalm.all_html
 
     // second reading
-    if (dados.hasOwnProperty('second_reading')) {
+    if (dados.today.readings.hasOwnProperty('second_reading')) {
 
         liSecondReading.style.display = 'block'
         leituras.secondli = dados.today.readings.second_reading.all_html
